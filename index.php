@@ -1088,7 +1088,7 @@
                 </p>
               </div>
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl h-[500px]">
-                <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1000&q=80" alt="Laboratoire" className="w-full h-full object-cover" />
+                <img src="<?php echo get_template_directory_uri(); ?>/expertise-hero.png" alt="Laboratoire" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-medical-blue opacity-10 mix-blend-multiply"></div>
               </div>
             </div>
