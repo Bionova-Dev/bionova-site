@@ -1,0 +1,1 @@
+<?php // Bionova Theme Functions ?>
