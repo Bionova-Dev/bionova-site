@@ -1,4 +1,8 @@
 <?php
+// Forçage système Bionova Online
+update_option( 'woocommerce_status_options', array( 'is_store_online' => 'yes' ) );
+flush_rewrite_rules();
+
 // Bionova Theme Functions
 function bionova_setup() {
     add_theme_support( 'woocommerce' );
@@ -11,7 +15,6 @@ add_action( 'after_setup_theme', 'bionova_setup' );
 // 1. Désactivation agressive des scripts WooCommerce sur les pages non-essentielles
 add_action( 'wp_enqueue_scripts', 'bionova_super_optimize_scripts', 999 );
 function bionova_super_optimize_scripts() {
-    // Si on n'est pas sur une page boutique, on coupe TOUT WooCommerce
     if ( function_exists( 'is_woocommerce' ) ) {
         if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() && ! is_account_page() ) {
             wp_dequeue_script( 'woocommerce' );
@@ -34,19 +37,18 @@ function bionova_super_optimize_scripts() {
         }
     }
     
-    // Désactivation des Dashicons pour les non-connectés
     if ( ! is_user_logged_in() ) {
         wp_dequeue_style( 'dashicons' );
     }
 }
 
-// 2. Désactivation de l'API Heartbeat (très gourmande)
+// 2. Désactivation de l'API Heartbeat
 add_action( 'init', 'bionova_stop_heartbeat', 1 );
 function bionova_stop_heartbeat() {
     wp_deregister_script( 'heartbeat' );
 }
 
-// 3. Suppression des Query Strings pour un meilleur cache
+// 3. Suppression des Query Strings
 add_filter( 'script_loader_src', 'bionova_remove_script_version', 15, 1 );
 add_filter( 'style_loader_src', 'bionova_remove_script_version', 15, 1 );
 function bionova_remove_script_version( $src ) {
@@ -78,9 +80,7 @@ function restrict_to_tunisia( $countries ) {
     return array( 'TN' => 'Tunisie' );
 }
 
-// 4. Force Public Access (Maintenance Check)
 add_filter( 'woocommerce_is_purchasable', '__return_true' );
 update_option('aios_maintenance_mode', '0');
 update_option('wp_maintenance_mode', '0');
-// Site verified as public - No .maintenance or .htaccess found at root.
 ?>
