@@ -522,14 +522,14 @@
                 <button onClick={() => onNavigate('login')} className="p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Mon compte">
                   <UserIcon className="h-7 w-7 group-hover:scale-110 transition-transform" />
                 </button>
-                <button onClick={() => onNavigate('cart')} className="relative p-4 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all group shadow-lg hover:shadow-xl" title="Voir le panier">
+                <a href="<?php echo wc_get_cart_url(); ?>" className="relative p-4 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all group shadow-lg hover:shadow-xl" title="Voir le panier">
                   <ShoppingCartIcon className="h-7 w-7 group-hover:scale-110 transition-transform" />
                   {cartItemCount > 0 && (
                     <span className="absolute -top-2 -right-2 bg-bionova-red text-white text-[11px] font-black w-6 h-6 rounded-full flex items-center justify-center shadow-lg animate-bounce">
                       {cartItemCount}
                     </span>
                   )}
-                </button>
+                </a>
               </div>
             </div>
           </nav>
