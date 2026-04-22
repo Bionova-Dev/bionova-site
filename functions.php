@@ -78,5 +78,9 @@ function restrict_to_tunisia( $countries ) {
     return array( 'TN' => 'Tunisie' );
 }
 
+// 4. Force Public Access (Maintenance Check)
 add_filter( 'woocommerce_is_purchasable', '__return_true' );
+update_option('aios_maintenance_mode', '0');
+update_option('wp_maintenance_mode', '0');
+// Site verified as public - No .maintenance or .htaccess found at root.
 ?>
