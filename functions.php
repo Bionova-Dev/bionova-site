@@ -9,6 +9,7 @@ function bionova_setup() {
     add_theme_support( 'post-thumbnails' );
 }
 add_action( 'after_setup_theme', 'bionova_setup' );
+remove_action( 'template_redirect', 'wc_disable_author_archives_for_customers', 10 );
 
 // --- OPTIMISATION DRASTIQUE DE LA VITESSE (V3) ---
 
