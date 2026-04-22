@@ -244,7 +244,17 @@
   <script type="text/babel">
     const WC_INITIAL_COUNT = <?php echo (class_exists('WooCommerce') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0; ?>;
     const WC_PRODUCT_MAP = {
-      1: 101, 2: 102, 3: 103, 4: 104, 5: 105, 6: 106, 7: 107, 8: 108, 9: 109, 10: 110, 11: 111
+      1: 33,  // Acide Alpha Lipoïque
+      2: 35,  // Ashwagandha
+      3: 37,  // Astaxanthine
+      4: 41,  // Biotine
+      5: 47,  // Collagène Marin Complex
+      6: 50,  // Curcumine et Boswellia
+      7: 51,  // L-Carnosine
+      8: 52,  // Lion's Mane
+      9: 53,  // Neem
+      10: 54, // NMN
+      11: 55  // Pack Glowy (ID estimé si non fourni)
     };
 
     const products = [
