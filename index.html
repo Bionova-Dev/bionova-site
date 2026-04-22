@@ -457,54 +457,63 @@
       const navLinkClass = (page) => {
         const baseColor = 'text-gray-900';
         const activeColor = 'text-medical-blue border-medical-blue';
-        return `text-lg font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer py-2 px-1 border-b-2 ${currentPage === page ? activeColor : `${baseColor} border-transparent hover:text-medical-blue`}`;
+        return `text-xl font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 ${currentPage === page ? activeColor : `${baseColor} border-transparent hover:text-medical-blue`}`;
       };
 
       return (
-        <header className="fixed w-full z-50 h-[180px] bg-white shadow-md border-b border-gray-100 flex items-center">
+        <header className="fixed w-full z-50 h-[140px] md:h-[180px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
           {/* Search Overlay */}
           <div className={`absolute inset-0 bg-white z-[60] flex items-center px-6 lg:px-12 transition-all duration-500 transform ${isSearchOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
             <div className="max-w-7xl mx-auto w-full flex items-center">
-              <SearchIcon className="h-6 w-6 text-gray-400 mr-4" />
+              <SearchIcon className="h-8 w-8 text-gray-400 mr-6" />
               <input
                 type="text"
                 placeholder="Chercher un produit Bionova..."
-                className="flex-1 bg-transparent border-none outline-none text-xl font-medium text-gray-900 placeholder-gray-300"
+                className="flex-1 bg-transparent border-none outline-none text-2xl font-medium text-gray-900 placeholder-gray-300"
                 autoFocus={isSearchOpen}
                 aria-label="Barre de recherche"
               />
-              <button onClick={() => setIsSearchOpen(false)} className="p-3 text-gray-400 hover:text-gray-900 transition-colors" aria-label="Fermer la recherche">
-                <XIcon className="h-8 w-8" />
+              <button onClick={() => setIsSearchOpen(false)} className="p-4 text-gray-400 hover:text-gray-900 transition-colors" aria-label="Fermer la recherche">
+                <XIcon className="h-10 w-10" />
               </button>
             </div>
           </div>
 
-          <nav className="max-w-7xl mx-auto px-6 lg:px-12 w-full h-full" aria-label="Navigation principale">
-            <div className="flex justify-between items-center h-full">
-              <a href="index.html" className="flex items-center cursor-pointer px-2 group">
+          <nav className="max-w-[1800px] mx-auto px-6 lg:px-12 w-full h-full" aria-label="Navigation principale">
+            <div className="flex justify-between items-center h-full gap-8">
+              {/* Logo x3 */}
+              <div onClick={() => onNavigate('home')} className="flex items-center cursor-pointer px-2 group shrink-0">
                 <img
                   src="logo-bionova.png"
-                  srcSet="logo-bionova.png 1x, logo-bionova.png 2x"
                   alt="Logo Bionova"
-                  className="transition-all duration-300 object-contain h-[120px] md:h-[150px] group-hover:scale-[1.02]"
+                  className="transition-all duration-500 object-contain h-[120px] md:h-[160px] group-hover:scale-[1.05]"
                 />
-              </a>
-
-              <div className="hidden lg:flex space-x-12">
-                <a href="index.html" className="text-2xl font-bold uppercase tracking-widest text-gray-900 hover:text-medical-blue">Accueil</a>
-                <a href="boutique.html" className="text-2xl font-bold uppercase tracking-widest text-gray-900 hover:text-medical-blue">Boutique</a>
-                <a href="contact.html" className="text-2xl font-bold uppercase tracking-widest text-gray-900 hover:text-medical-blue">Contact</a>
               </div>
 
-              <div className="flex items-center space-x-2 sm:space-x-4">
-                <button onClick={() => setIsSearchOpen(true)} className="p-3 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Rechercher">
-                  <SearchIcon className="h-6 w-6 group-hover:scale-110 transition-transform" />
+              {/* Menu 5 Sections */}
+              <div className="hidden xl:flex items-center space-x-10">
+                <button onClick={() => onNavigate('home')} className={navLinkClass('home')}>Accueil</button>
+                <button onClick={() => onNavigate('products')} className={navLinkClass('products')}>Boutique</button>
+                <button onClick={() => onNavigate('blog')} className={navLinkClass('blog')}>Astuces</button>
+                <button onClick={() => onNavigate('about')} className={navLinkClass('about')}>Expertise</button>
+                <button onClick={() => onNavigate('contact')} className={navLinkClass('contact')}>Contact</button>
+              </div>
+
+              {/* Icons Toolbar */}
+              <div className="flex items-center space-x-2 sm:space-x-5">
+                <button onClick={() => setIsSearchOpen(true)} className="p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Rechercher">
+                  <SearchIcon className="h-7 w-7 group-hover:scale-110 transition-transform" />
                 </button>
-                <button onClick={() => window.location.href='compte.html'} className="p-3 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Mon compte">
-                  <UserIcon className="h-6 w-6 group-hover:scale-110 transition-transform" />
+                <button onClick={() => onNavigate('login')} className="p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Mon compte">
+                  <UserIcon className="h-7 w-7 group-hover:scale-110 transition-transform" />
                 </button>
-                <button onClick={() => window.location.href='panier.html'} className="relative p-3.5 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all group" title="Voir le panier">
-                  <ShoppingCartIcon className="h-6 w-6 group-hover:scale-110 transition-transform" />
+                <button onClick={() => onNavigate('cart')} className="relative p-4 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all group shadow-lg hover:shadow-xl" title="Voir le panier">
+                  <ShoppingCartIcon className="h-7 w-7 group-hover:scale-110 transition-transform" />
+                  {cartItemCount > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-bionova-red text-white text-[11px] font-black w-6 h-6 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                      {cartItemCount}
+                    </span>
+                  )}
                 </button>
               </div>
             </div>
@@ -512,6 +521,7 @@
         </header>
       );
     };
+
 
     const Footer = () => (
       <footer className="bg-white pt-24 pb-12 mt-auto border-t border-gray-100">
@@ -804,11 +814,9 @@
     const ProductCard = ({ product, onAddToCart, onClick }) => {
       return (
         <div className="bg-white rounded-[2.5rem] overflow-hidden border border-silver/50 product-card-hover flex flex-col h-full cursor-pointer group" onClick={() => onClick(product)}>
-          <div className="relative pt-[100%] bg-medical-light/30 border-b border-silver/30 overflow-hidden" onClick={() => {
-            const slugMap = { 1: "angilase.html", 3: "astaxanthine.html", 5: "collagene.html", 6: "flamixen.html", 11: "pack-glowy.html" };
-            window.location.href = slugMap[product.id] || "index.html";
-          }}>
+          <div className="relative pt-[100%] bg-medical-light/30 border-b border-silver/30 overflow-hidden">
             <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-contain p-10 product-image-float" />
+
             {product.badge && (
               <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md text-medical-blue text-[10px] font-black px-4 py-2 rounded-xl shadow-sm tracking-widest uppercase z-20 border border-medical-blue/10">
                 {product.badge}
@@ -823,27 +831,23 @@
               {[...Array(5)].map((_, i) => (
                 <StarIcon key={i} className={`w-3.5 h-3.5 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} />
               ))}
-              <span className="text-[10px] font-bold text-gray-400 ml-2">{product.rating}/5 - {product.reviews} avis</span>
+              <span className="text-[10px] font-bold text-gray-400 ml-2">{product.rating}/5</span>
             </div>
 
-            <p className="text-gray-500 text-sm flex-grow mb-8 leading-relaxed line-clamp-2">{product.description}</p>
+            <p className="text-gray-500 text-sm mb-8 leading-relaxed line-clamp-2">{product.description}</p>
 
-            {/* Trust Indicators */}
-            <div className="flex items-center space-x-4 mb-10 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-              <span className="flex items-center"><TruckIcon className="w-3.5 h-3.5 mr-1.5 text-medical-blue/50" /> 24h</span>
-              <span className="flex items-center"><BioIcon className="w-3.5 h-3.5 mr-1.5 text-medical-blue/50" /> Bio</span>
-              <span className="flex items-center"><StarIcon className="w-3.5 h-3.5 mr-1.5 text-medical-blue/50" /> Qualité</span>
-            </div>
 
             <div className="flex items-center justify-between mt-auto">
               <span className="text-2xl font-black text-medical-blue">{product.price.toFixed(2)} <span className="text-[10px] font-black ml-1 text-gray-400">DT</span></span>
-              <a
-                href="panier.html"
+
+              <button
+                onClick={(e) => { e.stopPropagation(); onAddToCart(product); }}
                 className="flex items-center justify-center btn-gradient text-white w-14 h-14 rounded-[1.2rem] shadow-lg"
                 aria-label="Ajouter au panier"
               >
                 <ShoppingCartIcon className="w-6 h-6" />
-              </a>
+              </button>
+
             </div>
           </div>
         </div>
@@ -927,6 +931,26 @@
 
                   <Accordion title="Composition (pour 1 gélule)" content={<div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 text-sm font-medium text-gray-700">{product.composition}</div>} />
                   <Accordion title="Conseils d'utilisation" content={<div className="flex items-start p-2"><p className="text-gray-600 leading-relaxed pt-1">{product.usage}</p></div>} />
+                  
+                  {/* Bloc Sécurité Médicale - Design Nude & Pro Max */}
+                  <div className="mt-10 mb-10 space-y-4">
+                    {product.precautions && (
+                      <div className="p-6 rounded-[2rem] border border-[#E8DCC4] bg-[#FCF9F2] shadow-sm animate-fade-in">
+                        <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-[#A68B6D] mb-3 flex items-center">
+                          <span className="mr-2 text-base">⚠️</span> Précautions d'emploi
+                        </h4>
+                        <p className="text-sm font-medium text-gray-700 leading-relaxed">{product.precautions}</p>
+                      </div>
+                    )}
+                    {product.storage && (
+                      <div className="flex items-center px-6 py-4 bg-gray-50/50 rounded-2xl border border-gray-100/50">
+                        <span className="text-xl mr-4">❄️</span>
+                        <p className="text-sm font-bold text-gray-500 italic tracking-wide">
+                          Conservation : <span className="text-gray-700 not-italic ml-1">{product.storage}</span>
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <button onClick={() => onAddToCart(product)} className="w-full flex justify-center items-center py-6 px-8 shadow-xl text-xl font-bold rounded-2xl text-white bg-medical-blue hover:bg-medical-blue/90 transition-all">
@@ -1313,7 +1337,29 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       };
 
+      const handleArticleClick = (article) => {
+        setSelectedArticle(article);
+        setCurrentPage('article');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      const handleUpdateQuantity = (productId, newQuantity) => {
+        if (newQuantity < 1) return;
+        setCartItems(prevItems => prevItems.map(item => item.id === productId ? { ...item, quantity: newQuantity } : item));
+      };
+
+      const handleRemoveItem = (productId) => {
+        setCartItems(prevItems => prevItems.filter(item => item.id !== productId));
+      };
+
+      const handleCheckout = () => {
+        alert('Validation de commande en cours... (Simulation Bionova)');
+        setCartItems([]);
+        handleNavigate('home');
+      };
+
       const handleAddToCart = (product) => {
+
         setCartItems(prevItems => {
           const existingItem = prevItems.find(item => item.id === product.id);
           if (existingItem) {
