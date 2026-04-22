@@ -1,27 +1,129 @@
-/* Bionova - WooCommerce Custom Styles */
+/* Bionova - Minimalist & Premium WooCommerce Styles */
+
+/* Background Global */
 .woocommerce-cart, .woocommerce-checkout, .woocommerce-account, .woocommerce-page {
-    background-color: #FDF9F6 !important;
+    background-color: #FDF9F6 !important; /* Soft Nude */
+    font-family: 'Inter', sans-serif !important;
 }
 
+/* Elegant Container */
 .woocommerce-cart .woocommerce, .woocommerce-checkout .woocommerce {
-    background: white;
-    padding: 2rem;
-    border-radius: 2rem;
-    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 2.5rem;
+    border: 1px solid rgba(0,0,0,0.03);
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.woocommerce a.button, .woocommerce button.button {
-    background-color: #075985 !important;
-    color: white !important;
-    border-radius: 1rem !important;
-    padding: 1rem 2rem !important;
+/* Typography */
+.woocommerce-cart table.cart a {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+    text-decoration: none !important;
+}
+
+.woocommerce-Price-amount {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 800 !important;
+    color: #075985 !important;
+}
+
+/* Minimalist Table */
+.woocommerce table.shop_table {
+    border: none !important;
+    border-collapse: separate !important;
+    border-spacing: 0 15px !important;
+}
+
+.woocommerce table.shop_table thead {
+    background: transparent !important;
+}
+
+.woocommerce table.shop_table th {
+    border: none !important;
+    text-transform: uppercase !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.15em !important;
+    color: #94a3b8 !important;
+    padding: 1.5rem !important;
+}
+
+.woocommerce table.shop_table td {
+    border: none !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding: 1.5rem !important;
+    vertical-align: middle !important;
+}
+
+/* Product Images */
+.woocommerce table.shop_table td.product-thumbnail img {
+    border-radius: 1.5rem !important;
+    background: #f8fafc !important;
+    padding: 0.75rem !important;
+    width: 100px !important;
+    transition: transform 0.3s ease !important;
+}
+
+.woocommerce table.shop_table td.product-thumbnail img:hover {
+    transform: scale(1.05);
+}
+
+/* Premium Buttons */
+.woocommerce a.button.alt, 
+.woocommerce button.button.alt,
+.woocommerce .cart-collaterals .checkout-button {
+    background-color: #075985 !important; /* Medical Blue for primary actions */
+    color: #ffffff !important;
+    border-radius: 1.25rem !important;
+    padding: 1.25rem 2.5rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.1em !important;
-    transition: all 0.3s ease !important;
+    border: none !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    font-size: 0.85rem !important;
 }
 
-.woocommerce a.button:hover, .woocommerce button.button:hover {
+.woocommerce a.button.alt:hover, 
+.woocommerce button.button.alt:hover,
+.woocommerce .cart-collaterals .checkout-button:hover {
     background-color: #0c4a6e !important;
-    transform: translateY(-2px) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 15px 30px -10px rgba(7, 89, 133, 0.3) !important;
+}
+
+/* Update Cart Button (Secondary) */
+.woocommerce button.button:disabled, 
+.woocommerce button.button:disabled[disabled] {
+    color: #94a3b8 !important;
+    background-color: #f1f5f9 !important;
+}
+
+.woocommerce button.button {
+    background-color: transparent !important;
+    color: #64748b !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 1rem !important;
+    padding: 0.75rem 1.5rem !important;
+    font-weight: 600 !important;
+}
+
+/* Coupons & Totals */
+.woocommerce .cart-collaterals {
+    margin-top: 4rem !important;
+}
+
+.woocommerce .cart-totals h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals table td, 
+.woocommerce-cart .cart-collaterals .cart_totals table th {
+    padding: 1.25rem 0 !important;
+    border-top: 1px solid #f1f5f9 !important;
 }
