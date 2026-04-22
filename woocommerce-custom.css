@@ -1,0 +1,27 @@
+/* Bionova - WooCommerce Custom Styles */
+.woocommerce-cart, .woocommerce-checkout, .woocommerce-account, .woocommerce-page {
+    background-color: #FDF9F6 !important;
+}
+
+.woocommerce-cart .woocommerce, .woocommerce-checkout .woocommerce {
+    background: white;
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+}
+
+.woocommerce a.button, .woocommerce button.button {
+    background-color: #075985 !important;
+    color: white !important;
+    border-radius: 1rem !important;
+    padding: 1rem 2rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    transition: all 0.3s ease !important;
+}
+
+.woocommerce a.button:hover, .woocommerce button.button:hover {
+    background-color: #0c4a6e !important;
+    transform: translateY(-2px) !important;
+}
