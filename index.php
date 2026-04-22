@@ -242,6 +242,11 @@
   </noscript>
 
   <script type="text/babel">
+    const WC_INITIAL_COUNT = <?php echo (class_exists('WooCommerce') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0; ?>;
+    const WC_PRODUCT_MAP = {
+      1: 101, 2: 102, 3: 103, 4: 104, 5: 105, 6: 106, 7: 107, 8: 108, 9: 109, 10: 110, 11: 111
+    };
+
     const products = [
       {
         id: 1, name: "Acide Alpha Lipoïque", description: "L'antioxydant universel par excellence. Agit aussi bien en milieu aqueux que lipidique pour une protection cellulaire totale.", price: 45.00, image: "<?php echo get_template_directory_uri(); ?>/acide alpha lipoique.png",
@@ -1322,9 +1327,14 @@
       const [currentPage, setCurrentPage] = React.useState('home');
       const [selectedProduct, setSelectedProduct] = React.useState(null);
       const [selectedArticle, setSelectedArticle] = React.useState(null);
-      const [cartItems, setCartItems] = React.useState([]);
+      const [cartItemsCount, setCartItemsCount] = React.useState(WC_INITIAL_COUNT);
+      const [cartItems, setCartItems] = React.useState([]); // local state for UI consistency
 
       const handleNavigate = (page) => {
+        if (page === 'cart') {
+          window.location.href = '<?php echo wc_get_cart_url(); ?>';
+          return;
+        }
         setCurrentPage(page);
         if (page !== 'product') setSelectedProduct(null);
         if (page !== 'article') setSelectedArticle(null);
@@ -1359,6 +1369,12 @@
       };
 
       const handleAddToCart = (product) => {
+        // WooCommerce AJAX Add to Cart
+        const wcId = WC_PRODUCT_MAP[product.id] || product.id;
+        fetch(`/?add-to-cart=${wcId}`)
+          .then(() => {
+            setCartItemsCount(prev => prev + 1);
+          });
 
         setCartItems(prevItems => {
           const existingItem = prevItems.find(item => item.id === product.id);
@@ -1400,7 +1416,7 @@
 
       return (
         <div className="flex flex-col min-h-screen text-gray-900 bg-white selection:bg-medical-blue selection:text-white">
-          <Navbar cartItemCount={cartItemCount} currentPage={currentPage} onNavigate={handleNavigate} />
+          <Navbar cartItemCount={cartItemsCount} currentPage={currentPage} onNavigate={handleNavigate} />
 
           <main className="flex-grow">
             {renderPage()}
