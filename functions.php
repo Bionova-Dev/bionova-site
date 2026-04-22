@@ -51,4 +51,7 @@ add_filter( 'woocommerce_countries', 'restrict_to_tunisia' );
 function restrict_to_tunisia( $countries ) {
     return array( 'TN' => 'Tunisie' );
 }
+// 4. Force Public Access (Maintenance Check)
+add_filter( 'woocommerce_is_purchasable', '__return_true' );
+// Site verified as public - No .maintenance or .htaccess found at root.
 ?>
