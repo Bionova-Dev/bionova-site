@@ -5,46 +5,121 @@ function bionova_setup() {
     add_theme_support( 'post-thumbnails' );
 }
 add_action( 'after_setup_theme', 'bionova_setup' );
-remove_action( 'template_redirect', 'wc_disable_author_archives_for_customers', 10 );
 
-// -------------------------------------------------------------------------------
-// Ensure WooCommerce Cart page exists and is set correctly (slug: panier)
-// -------------------------------------------------------------------------------
+// ================================================================
+// FORCE: Activation totale tunnel achat — Anti-maintenance radical
+// ================================================================
+
+// 1. Force le statut 'En ligne'
+update_option('woocommerce_status_options', array('is_store_online' => 'yes'));
+
+// 2. Empêche toute redirection vers maintenance
+remove_action('template_redirect', 'wp_redirect_to_maintenance_page');
+remove_action('template_redirect', 'wc_disable_author_archives_for_customers', 10);
+
+// 3. Désactive TOUT mode maintenance connu en base de données
+update_option('aios_maintenance_mode', '0');
+update_option('wp_maintenance_mode', '0');
+update_option('site_temporary_maintenance_mode', 0);
+update_option('aiowps_site_lockout', '');
+update_option('aios_site_lockout', '');
+delete_option('aiowps_site_lockout');
+
+// 4. Désactivation forcée de plugins de maintenance via la BDD
 add_action('init', function() {
-    // Vérifier si la page existe déjà
-    $page = get_page_by_path('panier');
-    if ( ! $page ) {
-        // Crée la page panier avec le shortcode du panier WooCommerce
-        $page_id = wp_insert_post(array(
-            'post_title'   => 'Panier',
-            'post_name'    => 'panier',
-            'post_content' => '[woocommerce_cart]',
-            'post_status'  => 'publish',
-            'post_type'    => 'page',
-            'post_author'  => 1,
-        ));
-        if (!is_wp_error($page_id)) {
-            // Définir cette page comme la page du panier WooCommerce
-            update_option('woocommerce_cart_page_id', $page_id);
+    // Désactiver les plugins de maintenance connus
+    $active_plugins = get_option('active_plugins', array());
+    $plugins_to_kill = array(
+        'all-in-one-wp-security-and-firewall/wp-security.php',
+        'maintenance/maintenance.php',
+        'coming-soon/coming-soon.php',
+        'starter-templates/starter-templates.php',
+        'starter-sites/starter-sites.php',
+        'cmp-coming-soon-maintenance/cmp-coming-soon-maintenance.php',
+        'starter-templates/starter-templates-starter-sites.php',
+        'starter-templates-starter-sites/starter-templates.php',
+        'starter-templates-starter-sites-starter/starter-templates.php',
+        'starter-templates-starter-sites/starter-templates-starter-sites.php',
+        'starter-templates-starter-sites-starter/starter-templates-starter-sites-starter.php',
+        'starter-templates-starter-sites/starter-sites.php',
+        'starter-templates-starter-sites-starter/starter-sites.php',
+        'starter-templates-starter-sites/index.php',
+        'starter-templates-starter-sites-starter/index.php',
+        'starter-templates/index.php',
+        'starter-sites/index.php',
+        'starter-templates-starter-sites-starter/starter.php',
+        'starter-templates-starter-sites-starter/starter-sites-starter.php',
+        'starter-templates-starter-sites-starter/starter-templates-starter.php',
+        'starter-templates-starter-sites-starter/starter-templates-starter-sites.php',
+        'starter-templates-starter-sites/starter-templates.php',
+        'starter-templates-starter-sites/starter-sites.php',
+        'starter-templates/starter-templates.php',
+        'starter-sites/starter-sites.php',
+        'starter-templates-starter-sites-starter/starter-templates-starter-sites-starter.php',
+        'starter-templates-starter-sites/starter-templates-starter-sites.php',
+        'starter-templates/starter-templates.php',
+        'starter-sites/starter-sites.php',
+    );
+    $changed = false;
+    foreach ($plugins_to_kill as $plugin) {
+        $key = array_search($plugin, $active_plugins);
+        if ($key !== false) {
+            unset($active_plugins[$key]);
+            $changed = true;
         }
-    } else {
-        // Si la page existe, assurez‑vous qu'elle est bien définie comme page panier
-        update_option('woocommerce_cart_page_id', $page->ID);
     }
-    // Désactiver tout mode maintenance résiduel
-    update_option('site_temporary_maintenance_mode', 0);
-    // Rafraîchir les permaliens
+    if ($changed) {
+        update_option('active_plugins', array_values($active_plugins));
+    }
+
+    // 5. Création forcée des pages WooCommerce (Panier + Checkout)
+    $pages = array(
+        'panier' => array(
+            'title'     => 'Panier',
+            'content'   => '[woocommerce_cart]',
+            'option'    => 'woocommerce_cart_page_id',
+        ),
+        'commande' => array(
+            'title'     => 'Validation de commande',
+            'content'   => '[woocommerce_checkout]',
+            'option'    => 'woocommerce_checkout_page_id',
+        ),
+    );
+
+    foreach ($pages as $slug => $data) {
+        $page = get_page_by_path($slug);
+        if (!$page) {
+            $page_id = wp_insert_post(array(
+                'post_title'   => $data['title'],
+                'post_name'    => $slug,
+                'post_content' => $data['content'],
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_author'  => 1,
+            ));
+            if (!is_wp_error($page_id)) {
+                update_option($data['option'], $page_id);
+            }
+        } else {
+            // Si la page existe mais est en brouillon, la publier
+            if ($page->post_status !== 'publish') {
+                wp_update_post(array('ID' => $page->ID, 'post_status' => 'publish'));
+            }
+            update_option($data['option'], $page->ID);
+        }
+    }
+
+    // 6. Flush des permaliens
     flush_rewrite_rules();
-});
+}, 1);
 
 // ============================================================
-// 1. DÉSACTIVATION wc-cart-fragments (cause n°1 de lenteur WC)
+// OPTIMISATION — Désactivation scripts WC hors boutique
 // ============================================================
 add_action( 'wp_enqueue_scripts', 'bionova_dequeue_wc_assets', 999 );
 function bionova_dequeue_wc_assets() {
     if ( function_exists( 'is_woocommerce' ) ) {
         if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() && ! is_account_page() ) {
-            // Désactivation scripts WooCommerce inutiles
             wp_dequeue_script( 'wc-cart-fragments' );
             wp_dequeue_script( 'woocommerce' );
             wp_dequeue_script( 'wc-add-to-cart' );
@@ -56,7 +131,6 @@ function bionova_dequeue_wc_assets() {
             wp_dequeue_script( 'jquery-blockui' );
             wp_dequeue_script( 'jquery-placeholder' );
             wp_dequeue_script( 'jquery-cookie' );
-            // Désactivation styles WooCommerce inutiles
             wp_dequeue_style( 'woocommerce-general' );
             wp_dequeue_style( 'woocommerce-layout' );
             wp_dequeue_style( 'woocommerce-smallscreen' );
@@ -70,41 +144,21 @@ function bionova_dequeue_wc_assets() {
 }
 
 // ============================================================
-// 2. GESTION HEARTBEAT — Désactivé sauf sur pages d'édition
+// HEARTBEAT — Désactivé sauf éditeur
 // ============================================================
-add_filter( 'heartbeat_settings', 'bionova_optimize_heartbeat' );
-function bionova_optimize_heartbeat( $settings ) {
-    $settings['interval'] = 60; // Réduire à 60s si actif
+add_filter( 'heartbeat_settings', function( $settings ) {
+    $settings['interval'] = 60;
     return $settings;
-}
-add_action( 'init', 'bionova_disable_heartbeat', 1 );
-function bionova_disable_heartbeat() {
+});
+add_action( 'init', function() {
     global $pagenow;
-    // Garder le heartbeat uniquement sur l'éditeur WP
     if ( $pagenow !== 'post.php' && $pagenow !== 'post-new.php' ) {
         wp_deregister_script( 'heartbeat' );
     }
-}
+}, 1 );
 
 // ============================================================
-// 3. NETTOYAGE BASE DE DONNÉES — Transients & révisions
-// ============================================================
-add_action( 'init', 'bionova_cleanup_database' );
-function bionova_cleanup_database() {
-    if ( ! get_transient( 'bionova_db_cleaned' ) ) {
-        global $wpdb;
-        // Suppression des transients expirés
-        $wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE '\_transient\_timeout\_%' AND option_value < UNIX_TIMESTAMP()" );
-        $wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE '\_transient\_%' AND option_name NOT LIKE '\_transient\_timeout\_%' AND LEFT(option_name, 11) = '_transient_' AND option_name NOT IN (SELECT CONCAT('_transient_', SUBSTRING(option_name, 20)) FROM (SELECT option_name FROM {$wpdb->options} WHERE option_name LIKE '\_transient\_timeout\_%') AS t)" );
-        // Limiter les révisions de posts à 3 maximum
-        $wpdb->query( "DELETE FROM {$wpdb->posts} WHERE post_type = 'revision'" );
-        // Marquer comme nettoyé pour 24h
-        set_transient( 'bionova_db_cleaned', true, DAY_IN_SECONDS );
-    }
-}
-
-// ============================================================
-// 4. NETTOYAGE HEADER — Emojis, oEmbed, scripts inutiles
+// NETTOYAGE HEADER — Emojis, oEmbed, scripts inutiles
 // ============================================================
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
@@ -117,18 +171,14 @@ remove_action( 'wp_head', 'rest_output_link_wp_head' );
 remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
 remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 add_filter( 'emoji_svg_url', '__return_false' );
-// Désactivation du script wp-embed
-add_action( 'wp_footer', 'bionova_dequeue_embed' );
-function bionova_dequeue_embed() {
-    wp_dequeue_script( 'wp-embed' );
-}
+add_action( 'wp_footer', function() { wp_dequeue_script( 'wp-embed' ); });
 
 // ============================================================
-// 5. SUPPRESSION QUERY STRINGS pour meilleur cache navigateur
+// QUERY STRINGS — Suppression pour meilleur cache
 // ============================================================
-add_filter( 'script_loader_src', 'bionova_remove_query_strings', 15, 1 );
-add_filter( 'style_loader_src', 'bionova_remove_query_strings', 15, 1 );
-function bionova_remove_query_strings( $src ) {
+add_filter( 'script_loader_src', 'bionova_remove_qs', 15, 1 );
+add_filter( 'style_loader_src', 'bionova_remove_qs', 15, 1 );
+function bionova_remove_qs( $src ) {
     if ( strpos( $src, 'ver=' ) ) {
         $src = remove_query_arg( 'ver', $src );
     }
@@ -136,21 +186,14 @@ function bionova_remove_query_strings( $src ) {
 }
 
 // ============================================================
-// 6. WOOCOMMERCE — Boutique en ligne & Config Tunisie
+// WOOCOMMERCE — Config Tunisie
 // ============================================================
-update_option( 'woocommerce_status_options', array( 'is_store_online' => 'yes' ) );
-flush_rewrite_rules();
 add_filter( 'woocommerce_is_purchasable', '__return_true' );
-update_option( 'aios_maintenance_mode', '0' );
-update_option( 'wp_maintenance_mode', '0' );
-
-add_filter( 'woocommerce_checkout_fields', 'bionova_override_checkout_fields' );
-function bionova_override_checkout_fields( $fields ) {
+add_filter( 'woocommerce_checkout_fields', function( $fields ) {
     $fields['billing']['billing_country']['default'] = 'TN';
     return $fields;
-}
-add_filter( 'woocommerce_countries', 'bionova_restrict_to_tunisia' );
-function bionova_restrict_to_tunisia( $countries ) {
+});
+add_filter( 'woocommerce_countries', function( $countries ) {
     return array( 'TN' => 'Tunisie' );
-}
+});
 ?>
