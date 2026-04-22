@@ -1,3 +1,4 @@
+DirectoryIndex index.php
 # BEGIN WordPress
 RewriteEngine On
 RewriteBase /

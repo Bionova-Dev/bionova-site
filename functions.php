@@ -7,6 +7,36 @@ function bionova_setup() {
 add_action( 'after_setup_theme', 'bionova_setup' );
 remove_action( 'template_redirect', 'wc_disable_author_archives_for_customers', 10 );
 
+// -------------------------------------------------------------------------------
+// Ensure WooCommerce Cart page exists and is set correctly (slug: panier)
+// -------------------------------------------------------------------------------
+add_action('init', function() {
+    // Vérifier si la page existe déjà
+    $page = get_page_by_path('panier');
+    if ( ! $page ) {
+        // Crée la page panier avec le shortcode du panier WooCommerce
+        $page_id = wp_insert_post(array(
+            'post_title'   => 'Panier',
+            'post_name'    => 'panier',
+            'post_content' => '[woocommerce_cart]',
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+            'post_author'  => 1,
+        ));
+        if (!is_wp_error($page_id)) {
+            // Définir cette page comme la page du panier WooCommerce
+            update_option('woocommerce_cart_page_id', $page_id);
+        }
+    } else {
+        // Si la page existe, assurez‑vous qu'elle est bien définie comme page panier
+        update_option('woocommerce_cart_page_id', $page->ID);
+    }
+    // Désactiver tout mode maintenance résiduel
+    update_option('site_temporary_maintenance_mode', 0);
+    // Rafraîchir les permaliens
+    flush_rewrite_rules();
+});
+
 // ============================================================
 // 1. DÉSACTIVATION wc-cart-fragments (cause n°1 de lenteur WC)
 // ============================================================

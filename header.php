@@ -39,13 +39,28 @@
       </a>
       
       <div class="flex items-center space-x-4">
-        <a href="<?php echo home_url(); ?>" class="hidden md:block font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Retour à l'accueil</a>
+        <!-- Menu 5 Pages -->
+        <nav class="hidden md:flex items-center space-x-6">
+          <a href="<?php echo esc_url( home_url('/') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Accueil</a>
+          <a href="<?php echo esc_url( home_url('/#boutique') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Boutique</a>
+          <a href="<?php echo esc_url( home_url('/#astuces') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Astuces</a>
+          <a href="<?php echo esc_url( home_url('/#expertise') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Expertise</a>
+          <a href="<?php echo esc_url( home_url('/#contact') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Contact</a>
+        </nav>
+
+        <!-- Icône Mon Compte -->
+        <a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ); ?>" class="p-3 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all" title="Mon compte">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </a>
         
-        <a href="/panier/" class="relative p-3 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all shadow-lg" title="Voir le panier">
+        <!-- Icône Panier -->
+        <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="relative p-3 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all shadow-lg" title="Voir le panier">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
-          <?php if (WC()->cart->get_cart_contents_count() > 0) : ?>
+          <?php if ( function_exists('WC') && WC()->cart && WC()->cart->get_cart_contents_count() > 0 ) : ?>
             <span class="absolute -top-1 -right-1 bg-bionova-red text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
               <?php echo WC()->cart->get_cart_contents_count(); ?>
             </span>
@@ -56,3 +71,4 @@
   </header>
   <div class="pt-[140px] pb-20 max-w-7xl mx-auto px-6">
   <?php endif; ?>
+
