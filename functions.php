@@ -291,4 +291,13 @@ function ajouter_reassurance_bionova() {
     </div>
     <?php
 }
+// 3. Désactivation AJAX pour les boutons de la boucle (Force rechargement propre)
+add_filter( 'woocommerce_loop_add_to_cart_args', 'bionova_remove_ajax_add_to_cart', 10, 2 );
+function bionova_remove_ajax_add_to_cart( $args, $product ) {
+    if ( isset( $args['class'] ) ) {
+        // On retire la classe ajax_add_to_cart pour forcer le comportement standard de redirection
+        $args['class'] = str_replace( 'ajax_add_to_cart', '', $args['class'] );
+    }
+    return $args;
+}
 ?>
