@@ -238,7 +238,7 @@ function custom_cart_checkout_logos() {
 
 // 2. Injection des éléments de Réassurance
 add_action('woocommerce_before_cart', 'ajouter_reassurance_bionova');
-add_action('woocommerce_before_checkout_form', 'ajouter_reassurance_bionova');
+add_action('woocommerce_after_checkout_form', 'ajouter_reassurance_bionova');
 
 function ajouter_reassurance_bionova() {
     ?>
