@@ -115,6 +115,26 @@ add_action('init', function() {
     flush_rewrite_rules();
 }, 1);
 
+// ================================================================
+// NUCLEAR FIX: Forcer le shortcode WooCommerce sur les pages panier/checkout
+// Remplace le contenu "en chantier" à la volée, sans toucher à la BDD
+// ================================================================
+add_filter('the_content', function($content) {
+    if (!is_page()) return $content;
+    
+    $cart_page_id = get_option('woocommerce_cart_page_id');
+    $checkout_page_id = get_option('woocommerce_checkout_page_id');
+    
+    if (is_page($cart_page_id) || is_page('cart') || is_page('panier')) {
+        return '[woocommerce_cart]';
+    }
+    if (is_page($checkout_page_id) || is_page('commande') || is_page('checkout')) {
+        return '[woocommerce_checkout]';
+    }
+    
+    return $content;
+}, 1);
+
 // ============================================================
 // OPTIMISATION — Désactivation scripts WC hors boutique
 // ============================================================
