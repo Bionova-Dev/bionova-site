@@ -295,9 +295,24 @@ function ajouter_reassurance_bionova() {
 add_filter( 'woocommerce_loop_add_to_cart_args', 'bionova_remove_ajax_add_to_cart', 10, 2 );
 function bionova_remove_ajax_add_to_cart( $args, $product ) {
     if ( isset( $args['class'] ) ) {
-        // On retire la classe ajax_add_to_cart pour forcer le comportement standard de redirection
-        $args['class'] = str_replace( 'ajax_add_to_cart', '', $args['class'] );
+        $args['class'] = str_replace( array('ajax_add_to_cart', 'add_to_cart_button'), '', $args['class'] );
     }
     return $args;
+}
+
+add_filter( 'woocommerce_loop_add_to_cart_link', 'bionova_force_buy_button_click', 10, 2 );
+function bionova_force_buy_button_click( $html, $product ) {
+    // Retrait des classes conflictuelles
+    $html = str_replace( array('ajax_add_to_cart', 'add_to_cart_button'), '', $html );
+    
+    // Détermination de l'URL (redirection produit si variable)
+    $url = $product->is_type('variable') ? get_permalink($product->get_id()) : home_url( '/?add-to-cart=' . $product->get_id() );
+    
+    // Forçage via onclick et style inline pour passer outre tout blocage DOM/JS
+    $force_attr = ' onclick="window.location.href=\'' . esc_url($url) . '\'; return false;" style="position: relative; z-index: 9999; cursor: pointer !important; display: inline-flex !important;" ';
+    
+    $html = str_replace( '<a ', '<a ' . $force_attr, $html );
+    
+    return $html;
 }
 ?>

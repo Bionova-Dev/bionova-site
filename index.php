@@ -719,8 +719,13 @@
                           <ChevronDownIcon className="w-5 h-5 -rotate-90" />
                         </button>
                         <a
-                          href={`/?add-to-cart=${WC_PRODUCT_MAP[product.id] || product.id}`}
-                          onClick={(e) => { e.stopPropagation(); }}
+                          href="#"
+                          onClick={(e) => { 
+                            e.preventDefault(); 
+                            e.stopPropagation(); 
+                            window.location.href = `/?add-to-cart=${WC_PRODUCT_MAP[product.id] || product.id}`;
+                          }}
+                          style={{ position: 'relative', zIndex: 9999, cursor: 'pointer' }}
                           className="flex items-center justify-center bg-gray-900 text-white w-12 h-12 rounded-xl shadow-lg hover:bg-medical-blue transition-all"
                           title={`Ajouter ${product.name} au panier`}
                           aria-label={`Ajouter ${product.name} au panier`}
@@ -794,8 +799,13 @@
                       </div>
 
                       <a 
-                        href={`/?add-to-cart=${WC_PRODUCT_MAP[pack.id] || pack.id}`}
-                        onClick={(e) => { e.stopPropagation(); }} 
+                        href="#"
+                        onClick={(e) => { 
+                          e.preventDefault(); 
+                          e.stopPropagation(); 
+                          window.location.href = `/?add-to-cart=${WC_PRODUCT_MAP[pack.id] || pack.id}`;
+                        }} 
+                        style={{ position: 'relative', zIndex: 9999, cursor: 'pointer' }}
                         className="w-full py-6 px-10 btn-gradient text-white text-xl font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-center"
                       >
                         Ajouter le pack au panier
@@ -861,8 +871,13 @@
               <span className="text-2xl font-black text-medical-blue">{product.price.toFixed(2)} <span className="text-[10px] font-black ml-1 text-gray-400">DT</span></span>
 
               <a
-                href={`/?add-to-cart=${WC_PRODUCT_MAP[product.id] || product.id}`}
-                onClick={(e) => { e.stopPropagation(); }}
+                href="#"
+                onClick={(e) => { 
+                  e.preventDefault(); 
+                  e.stopPropagation(); 
+                  window.location.href = `/?add-to-cart=${WC_PRODUCT_MAP[product.id] || product.id}`;
+                }}
+                style={{ position: 'relative', zIndex: 9999, cursor: 'pointer' }}
                 className="flex items-center justify-center btn-gradient text-white w-14 h-14 rounded-[1.2rem] shadow-lg"
                 aria-label="Ajouter au panier"
               >
@@ -975,7 +990,12 @@
                 </div>
 
                 <a 
-                  href={`/?add-to-cart=${WC_PRODUCT_MAP[product.id] || product.id}`}
+                  href="#"
+                  onClick={(e) => { 
+                    e.preventDefault(); 
+                    window.location.href = `/?add-to-cart=${WC_PRODUCT_MAP[product.id] || product.id}`;
+                  }}
+                  style={{ position: 'relative', zIndex: 9999, cursor: 'pointer' }}
                   className="w-full flex justify-center items-center py-6 px-8 shadow-xl text-xl font-bold rounded-2xl text-white bg-medical-blue hover:bg-medical-blue/90 transition-all text-center"
                 >
                   Ajouter au panier
