@@ -792,7 +792,7 @@
                         </div>
                       </div>
 
-                      <button onClick={(e) => { e.stopPropagation(); onAddToCart(pack); onNavigate('cart'); }} className="w-full py-6 px-10 btn-gradient text-white text-xl font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                      <button onClick={(e) => { e.stopPropagation(); onAddToCart(pack); }} className="w-full py-6 px-10 btn-gradient text-white text-xl font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1">
                         Ajouter le pack au panier
                       </button>
                     </div>
@@ -1342,7 +1342,7 @@
 
       const handleNavigate = (page) => {
         if (page === 'cart') {
-          window.location.href = '<?php echo wc_get_cart_url(); ?>';
+          window.location.href = '/panier/';
           return;
         }
         setCurrentPage(page);
@@ -1378,12 +1378,15 @@
         handleNavigate('home');
       };
 
-      const handleAddToCart = (product) => {
+      const handleAddToCart = (product, redirect = false) => {
         // WooCommerce AJAX Add to Cart
         const wcId = WC_PRODUCT_MAP[product.id] || product.id;
         fetch(`/?add-to-cart=${wcId}`)
           .then(() => {
             setCartItemsCount(prev => prev + 1);
+            if (redirect || product.type === 'pack') {
+              window.location.href = '/panier/';
+            }
           });
 
         setCartItems(prevItems => {
@@ -1394,16 +1397,18 @@
           return [...prevItems, { ...product, quantity: 1 }];
         });
 
-        // Toast notification
-        const toast = document.createElement('div');
-        toast.className = 'fixed bottom-10 right-10 bg-gray-900 text-white px-6 py-4 rounded-xl shadow-2xl font-bold z-50 transform transition-all duration-500 translate-y-0 opacity-100 flex items-center';
-        toast.innerHTML = `<svg class="w-6 h-6 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Ajouté au panier`;
-        document.body.appendChild(toast);
-        setTimeout(() => {
-          toast.style.opacity = '0';
-          toast.style.transform = 'translateY(20px)';
-          setTimeout(() => toast.remove(), 500);
-        }, 3000);
+        if (!redirect && product.type !== 'pack') {
+          // Toast notification
+          const toast = document.createElement('div');
+          toast.className = 'fixed bottom-10 right-10 bg-gray-900 text-white px-6 py-4 rounded-xl shadow-2xl font-bold z-50 transform transition-all duration-500 translate-y-0 opacity-100 flex items-center';
+          toast.innerHTML = `<svg class="w-6 h-6 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Ajouté au panier`;
+          document.body.appendChild(toast);
+          setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(20px)';
+            setTimeout(() => toast.remove(), 500);
+          }, 3000);
+        }
       };
 
       const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
