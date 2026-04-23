@@ -254,7 +254,7 @@
       8: 52,  // Lion's Mane
       9: 53,  // Neem
       10: 54, // NMN
-      11: 55  // Pack Glowy (ID estimé si non fourni)
+      11: 113 // Pack Glowy
     };
 
     const products = [
