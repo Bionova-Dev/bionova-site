@@ -226,7 +226,7 @@ add_filter( 'woocommerce_countries', function( $countries ) {
 // 1. Modification ciblée des logos (CSS injecté inline)
 add_action('wp_head', 'custom_cart_checkout_logos');
 function custom_cart_checkout_logos() {
-    if ( is_cart() || is_checkout() ) {
+    if ( is_cart() || is_checkout() || is_account_page() ) {
         echo '<style id="cart-checkout-custom-logos">
             /* Logo Rouge (Header) */
             header img { max-width: 150px !important; height: auto !important; }
@@ -239,6 +239,7 @@ function custom_cart_checkout_logos() {
 // 2. Injection des éléments de Réassurance
 add_action('woocommerce_after_cart', 'ajouter_reassurance_bionova');
 add_action('woocommerce_after_checkout_form', 'ajouter_reassurance_bionova');
+add_action('woocommerce_after_my_account', 'ajouter_reassurance_bionova');
 
 function ajouter_reassurance_bionova() {
     ?>
