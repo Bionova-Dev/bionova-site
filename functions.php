@@ -305,8 +305,8 @@ function bionova_force_buy_button_click( $html, $product ) {
     // Retrait des classes conflictuelles
     $html = str_replace( array('ajax_add_to_cart', 'add_to_cart_button'), '', $html );
     
-    // Détermination de l'URL (redirection produit si variable)
-    $url = $product->is_type('variable') ? get_permalink($product->get_id()) : home_url( '/?add-to-cart=' . $product->get_id() );
+    // Détermination de l'URL (redirection panier forcée)
+    $url = $product->is_type('variable') ? get_permalink($product->get_id()) : home_url( '/panier/?add-to-cart=' . $product->get_id() );
     
     // Forçage via onclick et style inline pour passer outre tout blocage DOM/JS
     $force_attr = ' onclick="window.location.href=\'' . esc_url($url) . '\'; return false;" style="position: relative; z-index: 9999; cursor: pointer !important; display: inline-flex !important;" ';
@@ -314,5 +314,73 @@ function bionova_force_buy_button_click( $html, $product ) {
     $html = str_replace( '<a ', '<a ' . $force_attr, $html );
     
     return $html;
+}
+// ============================================================
+// STICKY HEADER — Effet Premium (Transparent -> Blanc)
+// ============================================================
+add_action('wp_footer', 'bionova_sticky_header_script');
+function bionova_sticky_header_script() {
+    echo "<script>
+        window.addEventListener('scroll', function() {
+            var header = document.querySelector('header');
+            if (header) {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+            }
+        });
+    </script>";
+}
+
+add_action('wp_head', 'bionova_sticky_header_style');
+function bionova_sticky_header_style() {
+    echo "<style>
+        /* État initial : Transparent et fluide */
+        header {
+            background-color: transparent !important;
+            transition: all 0.4s ease-in-out !important;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 9999;
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
+        
+        /* Adaptation des couleurs sur fond transparent (Accueil uniquement) */
+        .home header:not(.header-scrolled) .text-gray-900,
+        .home header:not(.header-scrolled) .nav-link-hover {
+            color: #ffffff !important;
+        }
+        .home header:not(.header-scrolled) .bg-gray-900 {
+            background-color: rgba(255,255,255,0.1) !important;
+            border: 1px solid rgba(255,255,255,0.2) !important;
+        }
+
+        /* État au scroll : Blanc, hauteur réduite, ombre légère */
+        header.header-scrolled {
+            background-color: #ffffff !important;
+            height: 80px !important; /* Réduction forcée */
+            display: flex !important;
+            align-items: center !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+            border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+        }
+        
+        @media (min-width: 768px) {
+            header.header-scrolled {
+                height: 90px !important;
+            }
+        }
+
+        /* Réduction du logo au scroll */
+        header.header-scrolled img {
+            height: 55px !important;
+            transform: scale(0.9);
+            transition: all 0.4s ease-in-out;
+        }
+    </style>";
 }
 ?>

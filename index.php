@@ -227,9 +227,10 @@
       box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
     }
   </style>
+  <?php wp_head(); ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
   <div id="root"></div>
 
   <noscript>
@@ -243,6 +244,7 @@
 
   <script type="text/babel">
     const WC_INITIAL_COUNT = <?php echo (class_exists('WooCommerce') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0; ?>;
+    const WC_CART_URL = '<?php echo function_exists('wc_get_cart_url') ? esc_url( wc_get_cart_url() ) : "/panier/"; ?>';
     const WC_PRODUCT_MAP = {
       1: 33,  // Acide Alpha Lipoïque
       2: 35,  // Ashwagandha
@@ -723,7 +725,7 @@
                           onClick={(e) => { 
                             e.preventDefault(); 
                             e.stopPropagation(); 
-                            window.location.href = `/?add-to-cart=${WC_PRODUCT_MAP[product.id] || product.id}`;
+                            onAddToCart(product);
                           }}
                           style={{ position: 'relative', zIndex: 9999, cursor: 'pointer' }}
                           className="flex items-center justify-center bg-gray-900 text-white w-12 h-12 rounded-xl shadow-lg hover:bg-medical-blue transition-all"
@@ -803,7 +805,7 @@
                         onClick={(e) => { 
                           e.preventDefault(); 
                           e.stopPropagation(); 
-                          window.location.href = `/?add-to-cart=${WC_PRODUCT_MAP[pack.id] || pack.id}`;
+                          onAddToCart(pack);
                         }} 
                         style={{ position: 'relative', zIndex: 9999, cursor: 'pointer' }}
                         className="w-full py-6 px-10 btn-gradient text-white text-xl font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-center"
@@ -875,7 +877,7 @@
                 onClick={(e) => { 
                   e.preventDefault(); 
                   e.stopPropagation(); 
-                  window.location.href = `/?add-to-cart=${WC_PRODUCT_MAP[product.id] || product.id}`;
+                  onAddToCart(product);
                 }}
                 style={{ position: 'relative', zIndex: 9999, cursor: 'pointer' }}
                 className="flex items-center justify-center btn-gradient text-white w-14 h-14 rounded-[1.2rem] shadow-lg"
@@ -993,7 +995,7 @@
                   href="#"
                   onClick={(e) => { 
                     e.preventDefault(); 
-                    window.location.href = `/?add-to-cart=${WC_PRODUCT_MAP[product.id] || product.id}`;
+                    onAddToCart(product);
                   }}
                   style={{ position: 'relative', zIndex: 9999, cursor: 'pointer' }}
                   className="w-full flex justify-center items-center py-6 px-8 shadow-xl text-xl font-bold rounded-2xl text-white bg-medical-blue hover:bg-medical-blue/90 transition-all text-center"
@@ -1371,7 +1373,7 @@
 
       const handleNavigate = (page) => {
         if (page === 'cart') {
-          window.location.href = '/panier/';
+          window.location.href = WC_CART_URL;
           return;
         }
         setCurrentPage(page);
@@ -1414,7 +1416,7 @@
           .then(() => {
             setCartItemsCount(prev => prev + 1);
             if (redirect || product.type === 'pack') {
-              window.location.href = '/panier/';
+              window.location.href = WC_CART_URL;
             }
           });
 
@@ -1475,6 +1477,7 @@
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<App />);
   </script>
+  <?php wp_footer(); ?>
 </body>
 
 </html>
