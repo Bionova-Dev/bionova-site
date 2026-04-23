@@ -74,7 +74,7 @@ add_action('init', function() {
 
     // 5. Création forcée des pages WooCommerce (Panier + Checkout)
     $pages = array(
-        'cart' => array(
+        'panier' => array(
             'title'     => 'Panier',
             'content'   => '[woocommerce_cart]',
             'option'    => 'woocommerce_cart_page_id',
