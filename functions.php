@@ -101,10 +101,12 @@ add_action('init', function() {
                 update_option($data['option'], $page_id);
             }
         } else {
-            // Si la page existe mais est en brouillon, la publier
-            if ($page->post_status !== 'publish') {
-                wp_update_post(array('ID' => $page->ID, 'post_status' => 'publish'));
-            }
+            // FORCE: Écraser le contenu avec le bon shortcode WooCommerce
+            wp_update_post(array(
+                'ID'           => $page->ID,
+                'post_content' => $data['content'],
+                'post_status'  => 'publish',
+            ));
             update_option($data['option'], $page->ID);
         }
     }
