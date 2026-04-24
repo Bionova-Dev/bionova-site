@@ -345,14 +345,15 @@ function bionova_header_refined_style() {
     ?>
     <style id="header-refined-style">
         /* 1. Structure & Cadrage (Flexbox) */
+        /* 1. Structure & Cadrage (Flexbox) */
         header {
             position: fixed !important;
             top: 0 !important;
             left: 0 !important;
             width: 100% !important;
             z-index: 9999 !important;
-            height: 110px !important; /* Hauteur aérée initiale */
-            background-color: transparent !important; /* Initialement transparent */
+            height: 320px !important; /* Hauteur géante pour accueillir le logo x3 */
+            background-color: transparent !important;
             border-bottom: none !important;
             box-shadow: none !important;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -367,16 +368,16 @@ function bionova_header_refined_style() {
             align-items: center !important;
             width: 100% !important;
             max-width: 100% !important;
-            padding: 0 5% !important; /* Marges respirantes latérales */
-            gap: 20px !important;
+            padding: 0 5% !important;
+            gap: 15px !important; /* Réduction du gap pour compenser la taille de police */
         }
 
-        /* État au Scroll : Fond blanc net */
+        /* État au Scroll : Plus compact mais reste grand */
         header.header-scrolled {
             background-color: #ffffff !important;
-            height: 85px !important; /* Plus compact au scroll */
+            height: 180px !important;
             border-bottom: none !important;
-            box-shadow: none !important; /* Pas d'ombre lourde */
+            box-shadow: none !important;
         }
 
         /* 2. Typographie & Couleurs Fixes (Noir/Anthracite) */
@@ -384,11 +385,11 @@ function bionova_header_refined_style() {
         header nav > div > div.flex.items-center.space-x-2 button,
         header nav > div > div.flex.items-center.space-x-2 a {
             font-family: 'Montserrat', sans-serif !important;
-            color: #1a1a1a !important; /* Noir reste fixe sur transparent ET blanc */
+            color: #1a1a1a !important;
             background: transparent !important;
             border: none !important;
             text-transform: uppercase !important;
-            letter-spacing: 0.15em !important;
+            letter-spacing: 0.1em !important;
             transition: all 0.3s ease !important;
             box-shadow: none !important;
             padding: 10px 0 !important;
@@ -396,16 +397,21 @@ function bionova_header_refined_style() {
             cursor: pointer !important;
         }
 
-        /* Augmentation taille et gras pour le menu principal */
+        /* TAILLE EXTRÊME : 30px et Bold pour le menu principal */
         header nav > div > div.hidden.xl\:flex button {
-            font-size: 16px !important;
-            font-weight: 600 !important;
+            font-size: 30px !important;
+            font-weight: bold !important;
+        }
+
+        /* Gap réduit pour éviter le passage sur deux lignes */
+        header nav > div > div.hidden.xl\:flex {
+            gap: 20px !important;
         }
 
         /* Taille standard pour les icônes outils */
         header nav > div > div.flex.items-center.space-x-2 button,
         header nav > div > div.flex.items-center.space-x-2 a {
-            font-size: 13px !important;
+            font-size: 18px !important; /* Un peu plus grand pour l'équilibre */
             font-weight: 500 !important;
         }
 
@@ -413,13 +419,15 @@ function bionova_header_refined_style() {
         header nav > div > div.flex.items-center.space-x-2 svg {
             color: #1a1a1a !important;
             transition: color 0.3s ease !important;
+            width: 35px !important;
+            height: 35px !important;
         }
 
         /* 3. Interactions : Hover (Marron/Nude) */
         header nav > div > div.hidden.xl\:flex button:hover,
         header nav > div > div.flex.items-center.space-x-2 button:hover,
         header nav > div > div.flex.items-center.space-x-2 a:hover {
-            color: #6d4c41 !important; /* Couleur marron/nude Bionova */
+            color: #6d4c41 !important;
         }
         header nav > div > div.flex.items-center.space-x-2 button:hover svg,
         header nav > div > div.flex.items-center.space-x-2 a:hover svg {
@@ -427,35 +435,35 @@ function bionova_header_refined_style() {
         }
 
         /* 4. Page Active : Rouge & Souligné */
-        /* Cible les boutons actifs via la classe Tailwind d'origine */
         header nav > div > div.hidden.xl\:flex button.text-medical-blue {
-            color: #be123c !important; /* Rouge Bionova fixe */
-            border-bottom: 2px solid #be123c !important; /* Souligné rouge */
-            font-weight: 700 !important;
+            color: #be123c !important;
+            border-bottom: 4px solid #be123c !important; /* Souligné plus épais pour 30px */
+            font-weight: 900 !important;
         }
 
-        /* Logo Adaptation */
+        /* LOGO TAILLE X3 */
         header img {
-            max-height: 85px !important;
+            max-height: 260px !important; /* Environ x3 la taille précédente */
             width: auto !important;
             transition: all 0.4s ease !important;
+            transform-origin: left center !important;
         }
         header.header-scrolled img {
-            max-height: 65px !important;
+            max-height: 150px !important;
         }
 
         /* Badge Panier */
         .bg-bionova-red {
             background-color: #be123c !important;
-            width: 18px !important;
-            height: 18px !important;
-            font-size: 10px !important;
+            width: 25px !important;
+            height: 25px !important;
+            font-size: 14px !important;
             border-radius: 50% !important;
         }
 
         @media (max-width: 1280px) {
             header nav > div { padding: 0 3% !important; }
-            header nav > div > div.hidden.xl\:flex { gap: 25px !important; }
+            header nav > div > div.hidden.xl\:flex { gap: 15px !important; }
         }
     </style>
     <?php
