@@ -354,6 +354,8 @@ function bionova_header_refined_style() {
             z-index: 9999 !important;
             height: 320px !important; /* Hauteur géante pour accueillir le logo x3 */
             background-color: transparent !important;
+            background: none !important; /* Force la transparence 100% */
+            border: none !important;
             border-bottom: none !important;
             box-shadow: none !important;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
