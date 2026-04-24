@@ -346,15 +346,16 @@ function bionova_header_refined_style() {
     <style id="header-refined-style">
         /* 1. Structure & Cadrage (Flexbox) */
         /* 1. Structure & Cadrage (Flexbox) */
+        /* 1. Structure & Cadrage (Flexbox) */
         header {
             position: fixed !important;
             top: 0 !important;
             left: 0 !important;
             width: 100% !important;
             z-index: 9999 !important;
-            height: 320px !important; /* Hauteur géante pour accueillir le logo x3 */
+            height: 160px !important; /* Hauteur réduite de moitié (base 320px) */
             background-color: transparent !important;
-            background: none !important; /* Force la transparence 100% */
+            background: none !important; /* Transparence Cristalline 100% */
             border: none !important;
             border-bottom: none !important;
             box-shadow: none !important;
@@ -371,13 +372,13 @@ function bionova_header_refined_style() {
             width: 100% !important;
             max-width: 100% !important;
             padding: 0 5% !important;
-            gap: 15px !important; /* Réduction du gap pour compenser la taille de police */
+            gap: 20px !important;
         }
 
-        /* État au Scroll : Plus compact mais reste grand */
+        /* État au Scroll : Fond blanc net */
         header.header-scrolled {
             background-color: #ffffff !important;
-            height: 180px !important;
+            height: 85px !important; /* Hauteur réduite de moitié (base 180px/170px) */
             border-bottom: none !important;
             box-shadow: none !important;
         }
@@ -387,11 +388,11 @@ function bionova_header_refined_style() {
         header nav > div > div.flex.items-center.space-x-2 button,
         header nav > div > div.flex.items-center.space-x-2 a {
             font-family: 'Montserrat', sans-serif !important;
-            color: #1a1a1a !important;
+            color: #1a1a1a !important; /* Noir fixe */
             background: transparent !important;
             border: none !important;
             text-transform: uppercase !important;
-            letter-spacing: 0.1em !important;
+            letter-spacing: 0.15em !important;
             transition: all 0.3s ease !important;
             box-shadow: none !important;
             padding: 10px 0 !important;
@@ -399,30 +400,22 @@ function bionova_header_refined_style() {
             cursor: pointer !important;
         }
 
-        /* TAILLE EXTRÊME : 30px et Bold pour le menu principal */
+        /* Taille du Menu : 20px et Bold */
         header nav > div > div.hidden.xl\:flex button {
-            font-size: 30px !important;
+            font-size: 20px !important;
             font-weight: bold !important;
         }
 
-        /* Gap réduit pour éviter le passage sur deux lignes */
         header nav > div > div.hidden.xl\:flex {
-            gap: 20px !important;
+            gap: 35px !important; /* Espacement premium */
         }
 
-        /* Taille standard pour les icônes outils */
-        header nav > div > div.flex.items-center.space-x-2 button,
-        header nav > div > div.flex.items-center.space-x-2 a {
-            font-size: 18px !important; /* Un peu plus grand pour l'équilibre */
-            font-weight: 500 !important;
-        }
-
-        /* Icônes Noir Fixe */
+        /* Icônes outils */
         header nav > div > div.flex.items-center.space-x-2 svg {
             color: #1a1a1a !important;
             transition: color 0.3s ease !important;
-            width: 35px !important;
-            height: 35px !important;
+            width: 28px !important;
+            height: 28px !important;
         }
 
         /* 3. Interactions : Hover (Marron/Nude) */
@@ -439,28 +432,32 @@ function bionova_header_refined_style() {
         /* 4. Page Active : Rouge & Souligné */
         header nav > div > div.hidden.xl\:flex button.text-medical-blue {
             color: #be123c !important;
-            border-bottom: 4px solid #be123c !important; /* Souligné plus épais pour 30px */
-            font-weight: 900 !important;
+            border-bottom: 3px solid #be123c !important;
+            font-weight: 800 !important;
         }
 
-        /* LOGO TAILLE X3 */
+        /* LOGO Adaptation */
         header img {
-            max-height: 260px !important; /* Environ x3 la taille précédente */
+            max-height: 130px !important; /* Adapté à la hauteur de 160px */
             width: auto !important;
             transition: all 0.4s ease !important;
-            transform-origin: left center !important;
         }
         header.header-scrolled img {
-            max-height: 150px !important;
+            max-height: 65px !important; /* Adapté à la hauteur de 85px */
         }
 
         /* Badge Panier */
         .bg-bionova-red {
             background-color: #be123c !important;
-            width: 25px !important;
-            height: 25px !important;
-            font-size: 14px !important;
+            width: 20px !important;
+            height: 20px !important;
+            font-size: 11px !important;
             border-radius: 50% !important;
+        }
+
+        @media (max-width: 1280px) {
+            header nav > div { padding: 0 3% !important; }
+            header nav > div > div.hidden.xl\:flex { gap: 20px !important; }
         }
 
         @media (max-width: 1280px) {
