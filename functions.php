@@ -441,16 +441,16 @@ function bionova_header_refined_style() {
             font-weight: 800 !important;
         }
 
-        /* LOGO : Ciblage Ultra-Précis (Logo Bionova uniquement) */
-        header img[alt*="Logo"] {
+        /* LOGO : Ciblage Chirurgical (Uniquement le logo du Navbar SPA) */
+        header nav div.cursor-pointer img[alt*="Logo"] {
             max-height: 85px !important;
             width: auto !important;
             transform: scale(2) !important; /* Agrandissement x2 demandé */
             transform-origin: left center !important;
             transition: all 0.4s ease !important;
-            object-contain: contain !important;
+            object-fit: contain !important;
         }
-        header.header-scrolled img[alt*="Logo"] {
+        header.header-scrolled nav div.cursor-pointer img[alt*="Logo"] {
             transform: scale(1.5) !important; /* Légère réduction au scroll */
         }
 
