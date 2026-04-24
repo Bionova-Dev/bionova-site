@@ -228,8 +228,8 @@ add_action('wp_head', 'custom_cart_checkout_logos');
 function custom_cart_checkout_logos() {
     if ( is_cart() || is_checkout() || is_account_page() ) {
         echo '<style id="cart-checkout-custom-logos">
-            /* Logo Bionova Uniquement (Header) */
-            header img[alt*="Logo"] { max-width: 150px !important; height: auto !important; transform: none !important; }
+            /* Logo Bionova Uniquement (Via classes Tailwind) */
+            header img.h-\[120px\], header img.md\:h-\[160px\], header img[alt*="Logo"] { max-width: 150px !important; height: auto !important; transform: none !important; }
             /* Logo Gris (Footer) */
             footer img { display: none !important; }
         </style>';
@@ -441,17 +441,19 @@ function bionova_header_refined_style() {
             font-weight: 800 !important;
         }
 
-        /* LOGO : Ciblage Chirurgical (Uniquement le logo du Navbar SPA) */
-        header nav div.cursor-pointer img[alt*="Logo"] {
+        /* LOGO : Ciblage par classe Tailwind unique pour isolation totale */
+        header img.h-\[120px\], 
+        header img.md\:h-\[160px\] {
             max-height: 85px !important;
             width: auto !important;
-            transform: scale(2) !important; /* Agrandissement x2 demandé */
+            transform: scale(2) !important; /* Agrandissement x2 */
             transform-origin: left center !important;
             transition: all 0.4s ease !important;
             object-fit: contain !important;
         }
-        header.header-scrolled nav div.cursor-pointer img[alt*="Logo"] {
-            transform: scale(1.5) !important; /* Légère réduction au scroll */
+        header.header-scrolled img.h-\[120px\],
+        header.header-scrolled img.md\:h-\[160px\] {
+            transform: scale(1.5) !important;
         }
 
         /* Badge Panier */
