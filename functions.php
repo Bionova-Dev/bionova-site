@@ -456,14 +456,6 @@ function bionova_header_refined_style() {
             transform: scale(1.5) !important;
         }
 
-        /* Badge Panier */
-        .bg-bionova-red {
-            background-color: #be123c !important;
-            width: 20px !important;
-            height: 20px !important;
-            font-size: 11px !important;
-            border-radius: 50% !important;
-        }
 
         @media (max-width: 1280px) {
             header nav > div { padding: 0 3% !important; }
