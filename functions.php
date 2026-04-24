@@ -384,142 +384,56 @@ function bionova_sticky_header_style() {
     </style>";
 }
 // ============================================================
-// BANNIÈRE ACCUEIL — Style Biocyte Premium
+// HEADER — Cadrage Flexbox Style Biocyte
 // ============================================================
-add_action('wp_head', 'bionova_hero_biocyte_style');
-function bionova_hero_biocyte_style() {
-    if ( is_front_page() || is_home() ) {
-        ?>
-        <style id="hero-biocyte-style">
-            /* Ciblage de la section hero via sa classe Tailwind unique */
-            .home section.relative.min-h-\[90vh\] {
-                position: relative !important;
-                width: 100% !important;
-                min-height: 80vh !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: flex-start !important;
-                padding: 0 10% !important;
-                background-color: #ffffff !important;
-            }
+add_action('wp_head', 'bionova_header_biocyte_style');
+function bionova_header_biocyte_style() {
+    ?>
+    <style id="header-biocyte-style">
+        /* Conteneur principal du menu (Flexbox global) */
+        header nav > div {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 0 5% !important;
+            gap: 20px !important;
+        }
 
-            /* Filtre élégant (Assombrit légèrement et dégradé blanc) */
-            .home section.relative.min-h-\[90vh\]::before {
-                content: '' !important;
-                position: absolute !important;
-                top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
-                background: linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.2) 100%) !important;
-                z-index: 5 !important;
-            }
+        /* 1. Bloc Logo (Aligné à gauche) */
+        header nav > div > div.shrink-0 {
+            flex: 0 0 auto !important;
+            display: flex !important;
+            align-items: center !important;
+        }
 
-            /* Masquage de l'ancien overlay sombre Tailwind */
-            .home section.relative.min-h-\[90vh\] > div.bg-gray-900\/40 {
-                display: none !important;
-            }
+        /* 2. Bloc Navigation (Centré parfaitement) */
+        header nav > div > div.hidden.xl\:flex {
+            flex: 1 1 auto !important;
+            display: flex !important;
+            justify-content: center !important;
+            gap: 40px !important; /* Espacement premium entre les liens */
+            margin: 0 !important;
+        }
 
-            /* Bloc de contenu (Texte et Boutons) */
-            .home section.relative.min-h-\[90vh\] .relative.z-10 {
-                position: relative !important;
-                z-index: 10 !important;
-                max-width: 600px !important;
-                margin-left: 0 !important;
-                margin-right: auto !important;
-                animation: fadeInUpBiocyte 1.2s ease-out !important;
-            }
+        /* 3. Bloc Icônes (Aligné à droite) */
+        header nav > div > div.flex.items-center.space-x-2 {
+            flex: 0 0 auto !important;
+            display: flex !important;
+            justify-content: flex-end !important;
+            gap: 15px !important;
+            margin: 0 !important;
+        }
 
-            /* Typographie Premium */
-            .home section.relative.min-h-\[90vh\] h1 {
-                font-family: 'Montserrat', sans-serif !important;
-                color: #000000 !important;
-                font-size: 3.8rem !important;
-                font-weight: 300 !important;
-                line-height: 1.1 !important;
-                margin-bottom: 25px !important;
-                text-transform: uppercase !important;
-                letter-spacing: -1px !important;
+        /* Correction pour les mobiles si nécessaire */
+        @media (max-width: 1280px) {
+            header nav > div {
+                padding: 0 20px !important;
             }
-            
-            .home section.relative.min-h-\[90vh\] p {
-                color: #4b5563 !important;
-                font-size: 1.15rem !important;
-                font-weight: 400 !important;
-                max-width: 480px !important;
-                margin-bottom: 40px !important;
-                line-height: 1.6 !important;
-            }
-
-            /* Bouton Principal (Style Biocyte - Marron Bionova) */
-            .home section.relative.min-h-\[90vh\] button.bg-medical-blue {
-                display: inline-block !important;
-                padding: 18px 45px !important;
-                background-color: transparent !important;
-                color: #6d4c41 !important;
-                border: 1px solid #6d4c41 !important;
-                text-transform: uppercase !important;
-                letter-spacing: 2px !important;
-                font-size: 0.85rem !important;
-                font-weight: 700 !important;
-                border-radius: 0 !important;
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-                box-shadow: none !important;
-                transform: none !important;
-                cursor: pointer !important;
-            }
-
-            .home section.relative.min-h-\[90vh\] button.bg-medical-blue:hover {
-                background-color: #6d4c41 !important;
-                color: #ffffff !important;
-            }
-            
-            /* Bouton Secondaire Adaptation */
-            .home section.relative.min-h-\[90vh\] button.bg-white\/10 {
-                display: inline-block !important;
-                padding: 18px 45px !important;
-                background-color: transparent !important;
-                color: #9ca3af !important;
-                border: 1px solid #d1d5db !important;
-                text-transform: uppercase !important;
-                letter-spacing: 2px !important;
-                font-size: 0.85rem !important;
-                font-weight: 700 !important;
-                border-radius: 0 !important;
-                transition: all 0.4s ease !important;
-                margin-left: 15px !important;
-                box-shadow: none !important;
-                transform: none !important;
-                cursor: pointer !important;
-            }
-            
-            .home section.relative.min-h-\[90vh\] button.bg-white\/10:hover {
-                border-color: #6d4c41 !important;
-                color: #6d4c41 !important;
-            }
-
-            @keyframes fadeInUpBiocyte {
-                from { opacity: 0; transform: translateY(30px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-
-            /* Responsive Adaptation */
-            @media (max-width: 768px) {
-                .home section.relative.min-h-\[90vh\] {
-                    padding: 0 5% !important;
-                    justify-content: center !important;
-                    text-align: center !important;
-                }
-                .home section.relative.min-h-\[90vh\] .relative.z-10 {
-                    max-width: 100% !important;
-                }
-                .home section.relative.min-h-\[90vh\] h1 {
-                    font-size: 2.5rem !important;
-                }
-                .home section.relative.min-h-\[90vh\] button {
-                    width: 100% !important;
-                    margin: 10px 0 !important;
-                }
-            }
-        </style>
-        <?php
-    }
+        }
+    </style>
+    <?php
 }
 ?>
