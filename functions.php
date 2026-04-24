@@ -386,11 +386,24 @@ function bionova_sticky_header_style() {
 // ============================================================
 // HEADER — Cadrage Flexbox Style Biocyte
 // ============================================================
+// ============================================================
+// HEADER — Style Épuré Biocyte.com
+// ============================================================
 add_action('wp_head', 'bionova_header_biocyte_style');
 function bionova_header_biocyte_style() {
     ?>
     <style id="header-biocyte-style">
-        /* Conteneur principal du menu (Flexbox global) */
+        /* Structure globale du Header */
+        header {
+            background-color: #ffffff !important;
+            height: 100px !important;
+            border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+            box-shadow: none !important;
+            display: flex !important;
+            align-items: center !important;
+            transition: all 0.4s ease !important;
+        }
+
         header nav > div {
             display: flex !important;
             flex-direction: row !important;
@@ -399,39 +412,92 @@ function bionova_header_biocyte_style() {
             width: 100% !important;
             max-width: 100% !important;
             padding: 0 5% !important;
-            gap: 20px !important;
+            gap: 30px !important;
         }
 
-        /* 1. Bloc Logo (Aligné à gauche) */
+        /* 1. Bloc Logo */
         header nav > div > div.shrink-0 {
             flex: 0 0 auto !important;
-            display: flex !important;
-            align-items: center !important;
+        }
+        header nav > div > div.shrink-0 img {
+            max-height: 75px !important;
+            width: auto !important;
+            transition: transform 0.4s ease !important;
         }
 
-        /* 2. Bloc Navigation (Centré parfaitement) */
+        /* 2. Bloc Navigation (Menu principal) */
         header nav > div > div.hidden.xl\:flex {
             flex: 1 1 auto !important;
             display: flex !important;
             justify-content: center !important;
-            gap: 40px !important; /* Espacement premium entre les liens */
-            margin: 0 !important;
+            gap: 50px !important; /* Espacement large et premium */
         }
 
-        /* 3. Bloc Icônes (Aligné à droite) */
+        header nav > div > div.hidden.xl\:flex button {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 500 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.25em !important; /* Très aéré */
+            color: #111111 !important;
+            border: none !important;
+            background: transparent !important;
+            padding: 10px 0 !important;
+            border-bottom: 1px solid transparent !important;
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+        }
+
+        header nav > div > div.hidden.xl\:flex button:hover {
+            color: #6d4c41 !important; /* Marron Bionova pour le rappel de marque */
+            border-bottom: 1px solid #6d4c41 !important;
+        }
+
+        /* 3. Bloc Icônes (Outils) */
         header nav > div > div.flex.items-center.space-x-2 {
             flex: 0 0 auto !important;
-            display: flex !important;
-            justify-content: flex-end !important;
-            gap: 15px !important;
-            margin: 0 !important;
+            gap: 25px !important;
         }
 
-        /* Correction pour les mobiles si nécessaire */
+        header nav > div > div.flex.items-center.space-x-2 button,
+        header nav > div > div.flex.items-center.space-x-2 a {
+            color: #111111 !important;
+            background: transparent !important;
+            padding: 6px !important;
+            transition: opacity 0.3s ease !important;
+            box-shadow: none !important;
+        }
+
+        header nav > div > div.flex.items-center.space-x-2 button:hover,
+        header nav > div > div.flex.items-center.space-x-2 a:hover {
+            opacity: 0.5 !important;
+        }
+
+        /* Badge Panier minimaliste */
+        header nav > div > div.flex.items-center.space-x-2 .bg-bionova-red {
+            background-color: #6d4c41 !important;
+            width: 16px !important;
+            height: 16px !important;
+            font-size: 9px !important;
+            font-weight: 700 !important;
+            top: 2px !important;
+            right: 2px !important;
+        }
+
+        /* État au Scroll (via le script existant) */
+        header.header-scrolled {
+            height: 80px !important;
+            background-color: rgba(255,255,255,0.98) !important;
+            backdrop-filter: blur(5px) !important;
+        }
+        header.header-scrolled img {
+            max-height: 60px !important;
+        }
+
         @media (max-width: 1280px) {
-            header nav > div {
-                padding: 0 20px !important;
-            }
+            header { height: 80px !important; }
+            header nav > div { padding: 0 3% !important; }
+            header nav > div > div.hidden.xl\:flex { gap: 30px !important; }
         }
     </style>
     <?php
