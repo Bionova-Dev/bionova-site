@@ -316,16 +316,12 @@ function bionova_force_buy_button_click( $html, $product ) {
     return $html;
 }
 // ============================================================
-// STICKY HEADER — Effet Premium (Transparent -> Blanc)
-// ============================================================
 // STICKY HEADER — Script d'activation (Classe au scroll)
 // ============================================================
 add_action('wp_footer', 'bionova_sticky_header_script');
 function bionova_sticky_header_script() {
-    // BOUCLIER PHP : On bloque l'exécution sur la page Astuces et les articles
-    if ( is_page('astuce') || is_page('astuces') || is_singular('post') || is_archive() || (!is_front_page() && !is_shop()) ) {
-        return;
-    }
+    // Activation globale (sauf admin)
+    if ( is_admin() ) return;
     echo "<script>
         window.addEventListener('scroll', function() {
             var header = document.querySelector('header');
@@ -341,32 +337,34 @@ function bionova_sticky_header_script() {
 }
 
 // ============================================================
-// HEADER — Style Épuré Biocyte (Design Final)
+// HEADER — Style Unifié Premium (Design Pro Max)
 // ============================================================
-add_action('wp_head', 'bionova_header_refined_style');
-function bionova_header_refined_style() {
-    // BOUCLIER PHP : Isolation totale pour restaurer le header d'origine
-    if ( is_page('astuce') || is_page('astuces') || is_singular('post') || is_archive() || (!is_front_page() && !is_shop()) ) {
-        return;
-    }
+add_action('wp_head', 'bionova_header_unified_style');
+function bionova_header_unified_style() {
+    if ( is_admin() ) return;
     ?>
-    <style id="header-refined-style">
-        /* 1. Structure & Cadrage (Flexbox) */
+    <style id="header-unified-style">
+        /* 1. Structure & Fond (Blanc par défaut) */
         header {
             position: fixed !important;
             top: 0 !important;
             left: 0 !important;
             width: 100% !important;
             z-index: 9999 !important;
-            height: 85px !important; /* Unification de la hauteur */
-            background-color: transparent !important;
-            background: none !important; /* Transparence Cristalline 100% */
+            height: 85px !important;
+            background-color: #ffffff !important; /* Opaque sur toutes les pages */
             border: none !important;
-            border-bottom: none !important;
-            box-shadow: none !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
             display: flex !important;
             align-items: center !important;
+        }
+
+        /* Effet Transparent UNIQUEMENT sur la HOME (Haut de page) */
+        body.home header:not(.header-scrolled) {
+            background-color: transparent !important;
+            background: none !important;
+            box-shadow: none !important;
         }
 
         header nav > div {
@@ -380,15 +378,7 @@ function bionova_header_refined_style() {
             gap: 20px !important;
         }
 
-        /* État au Scroll : Fond blanc net */
-        header.header-scrolled {
-            background-color: #ffffff !important;
-            height: 85px !important;
-            border-bottom: none !important;
-            box-shadow: none !important;
-        }
-
-        /* 2. Typographie & Couleurs Fixes (Noir/Anthracite) */
+        /* 2. Typographie & Couleurs Fixes */
         header nav > div > div.hidden.xl\:flex button,
         header nav > div > div.flex.items-center.space-x-2 button,
         header nav > div > div.flex.items-center.space-x-2 a {
@@ -403,10 +393,6 @@ function bionova_header_refined_style() {
             padding: 10px 0 !important;
             text-decoration: none !important;
             cursor: pointer !important;
-        }
-
-        /* Taille du Menu : 20px et Bold */
-        header nav > div > div.hidden.xl\:flex button {
             font-size: 20px !important;
             font-weight: bold !important;
         }
@@ -415,53 +401,46 @@ function bionova_header_refined_style() {
             gap: 35px !important;
         }
 
-        /* Icônes outils */
         header nav > div > div.flex.items-center.space-x-2 svg {
             color: #1a1a1a !important;
-            transition: color 0.3s ease !important;
             width: 28px !important;
             height: 28px !important;
         }
 
-        /* 3. Interactions : Hover (Marron/Nude) */
+        /* 3. Interactions : Hover & Actif */
         header nav > div > div.hidden.xl\:flex button:hover,
         header nav > div > div.flex.items-center.space-x-2 button:hover,
         header nav > div > div.flex.items-center.space-x-2 a:hover {
             color: #6d4c41 !important;
         }
-        header nav > div > div.flex.items-center.space-x-2 button:hover svg,
-        header nav > div > div.flex.items-center.space-x-2 a:hover svg {
-            color: #6d4c41 !important;
-        }
-
-        /* 4. Page Active : Rouge & Souligné */
+        
         header nav > div > div.hidden.xl\:flex button.text-medical-blue {
             color: #be123c !important;
             border-bottom: 3px solid #be123c !important;
-            font-weight: 800 !important;
         }
 
-        /* LOGO : Ciblage par classe Tailwind unique pour isolation totale */
+        /* 4. LOGO : Unifié x2 */
         header img.h-\[120px\], 
-        header img.md\:h-\[160px\] {
+        header img.md\:h-\[160px\],
+        header img[alt*="Logo"] {
             max-height: 85px !important;
             width: auto !important;
-            transform: scale(2) !important; /* Agrandissement x2 */
+            transform: scale(2) !important;
             transform-origin: left center !important;
             transition: all 0.4s ease !important;
             object-fit: contain !important;
         }
+        
         header.header-scrolled img.h-\[120px\],
-        header.header-scrolled img.md\:h-\[160px\] {
+        header.header-scrolled img.md\:h-\[160px\],
+        header.header-scrolled img[alt*="Logo"] {
             transform: scale(1.5) !important;
         }
-
 
         @media (max-width: 1280px) {
             header nav > div { padding: 0 3% !important; }
             header nav > div > div.hidden.xl\:flex { gap: 15px !important; }
-            header img.h-\[120px\], 
-            header img.md\:h-\[160px\] { transform: scale(1.2) !important; } /* Réduction mobile ciblée */
+            header img.h-\[120px\], header img.md\:h-\[160px\], header img[alt*="Logo"] { transform: scale(1.2) !important; }
         }
     </style>
     <?php
