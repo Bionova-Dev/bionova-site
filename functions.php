@@ -388,14 +388,25 @@ function bionova_header_refined_style() {
             background: transparent !important;
             border: none !important;
             text-transform: uppercase !important;
-            letter-spacing: 0.2em !important;
-            font-size: 13px !important;
-            font-weight: 500 !important;
+            letter-spacing: 0.15em !important;
             transition: all 0.3s ease !important;
             box-shadow: none !important;
             padding: 10px 0 !important;
             text-decoration: none !important;
             cursor: pointer !important;
+        }
+
+        /* Augmentation taille et gras pour le menu principal */
+        header nav > div > div.hidden.xl\:flex button {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+        }
+
+        /* Taille standard pour les icônes outils */
+        header nav > div > div.flex.items-center.space-x-2 button,
+        header nav > div > div.flex.items-center.space-x-2 a {
+            font-size: 13px !important;
+            font-weight: 500 !important;
         }
 
         /* Icônes Noir Fixe */
