@@ -318,6 +318,9 @@ function bionova_force_buy_button_click( $html, $product ) {
 // ============================================================
 // STICKY HEADER — Effet Premium (Transparent -> Blanc)
 // ============================================================
+// ============================================================
+// STICKY HEADER — Script d'activation (Classe au scroll)
+// ============================================================
 add_action('wp_footer', 'bionova_sticky_header_script');
 function bionova_sticky_header_script() {
     echo "<script>
@@ -334,74 +337,27 @@ function bionova_sticky_header_script() {
     </script>";
 }
 
-add_action('wp_head', 'bionova_sticky_header_style');
-function bionova_sticky_header_style() {
-    echo "<style>
-        /* État initial : Transparent et fluide */
+// ============================================================
+// HEADER — Style Épuré Biocyte (Design Final)
+// ============================================================
+add_action('wp_head', 'bionova_header_refined_style');
+function bionova_header_refined_style() {
+    ?>
+    <style id="header-refined-style">
+        /* 1. Structure & Cadrage (Flexbox) */
         header {
-            background-color: transparent !important;
-            transition: all 0.4s ease-in-out !important;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 9999;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 9999 !important;
+            height: 110px !important; /* Hauteur aérée initiale */
+            background-color: transparent !important; /* Initialement transparent */
             border-bottom: none !important;
             box-shadow: none !important;
-        }
-        
-        /* Adaptation des couleurs sur fond transparent (Accueil uniquement) */
-        .home header:not(.header-scrolled) .text-gray-900,
-        .home header:not(.header-scrolled) .nav-link-hover {
-            color: #ffffff !important;
-        }
-        .home header:not(.header-scrolled) .bg-gray-900 {
-            background-color: rgba(255,255,255,0.1) !important;
-            border: 1px solid rgba(255,255,255,0.2) !important;
-        }
-
-        /* État au scroll : Blanc, hauteur réduite, ombre légère */
-        header.header-scrolled {
-            background-color: #ffffff !important;
-            height: 80px !important; /* Réduction forcée */
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
             display: flex !important;
             align-items: center !important;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
-            border-bottom: 1px solid rgba(0,0,0,0.05) !important;
-        }
-        
-        @media (min-width: 768px) {
-            header.header-scrolled {
-                height: 90px !important;
-            }
-        }
-
-        /* Réduction du logo au scroll */
-        header.header-scrolled img {
-            height: 55px !important;
-            transform: scale(0.9);
-            transition: all 0.4s ease-in-out;
-        }
-    </style>";
-}
-// ============================================================
-// HEADER — Cadrage Flexbox Style Biocyte
-// ============================================================
-// ============================================================
-// HEADER — Style Épuré Biocyte.com
-// ============================================================
-add_action('wp_head', 'bionova_header_biocyte_style');
-function bionova_header_biocyte_style() {
-    ?>
-    <style id="header-biocyte-style">
-        /* Structure globale du Header */
-        header {
-            background-color: #ffffff !important;
-            height: 100px !important;
-            border-bottom: 1px solid rgba(0,0,0,0.06) !important;
-            box-shadow: none !important;
-            display: flex !important;
-            align-items: center !important;
-            transition: all 0.4s ease !important;
         }
 
         header nav > div {
@@ -411,93 +367,84 @@ function bionova_header_biocyte_style() {
             align-items: center !important;
             width: 100% !important;
             max-width: 100% !important;
-            padding: 0 5% !important;
-            gap: 30px !important;
+            padding: 0 5% !important; /* Marges respirantes latérales */
+            gap: 20px !important;
         }
 
-        /* 1. Bloc Logo */
-        header nav > div > div.shrink-0 {
-            flex: 0 0 auto !important;
-        }
-        header nav > div > div.shrink-0 img {
-            max-height: 75px !important;
-            width: auto !important;
-            transition: transform 0.4s ease !important;
+        /* État au Scroll : Fond blanc net */
+        header.header-scrolled {
+            background-color: #ffffff !important;
+            height: 85px !important; /* Plus compact au scroll */
+            border-bottom: none !important;
+            box-shadow: none !important; /* Pas d'ombre lourde */
         }
 
-        /* 2. Bloc Navigation (Menu principal) */
-        header nav > div > div.hidden.xl\:flex {
-            flex: 1 1 auto !important;
-            display: flex !important;
-            justify-content: center !important;
-            gap: 50px !important; /* Espacement large et premium */
-        }
-
-        header nav > div > div.hidden.xl\:flex button {
+        /* 2. Typographie & Couleurs Fixes (Noir/Anthracite) */
+        header nav > div > div.hidden.xl\:flex button,
+        header nav > div > div.flex.items-center.space-x-2 button,
+        header nav > div > div.flex.items-center.space-x-2 a {
             font-family: 'Montserrat', sans-serif !important;
+            color: #1a1a1a !important; /* Noir reste fixe sur transparent ET blanc */
+            background: transparent !important;
+            border: none !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.2em !important;
             font-size: 13px !important;
             font-weight: 500 !important;
-            text-transform: uppercase !important;
-            letter-spacing: 0.25em !important; /* Très aéré */
-            color: #111111 !important;
-            border: none !important;
-            background: transparent !important;
-            padding: 10px 0 !important;
-            border-bottom: 1px solid transparent !important;
             transition: all 0.3s ease !important;
+            box-shadow: none !important;
+            padding: 10px 0 !important;
+            text-decoration: none !important;
             cursor: pointer !important;
         }
 
-        header nav > div > div.hidden.xl\:flex button:hover {
-            color: #6d4c41 !important; /* Marron Bionova pour le rappel de marque */
-            border-bottom: 1px solid #6d4c41 !important;
+        /* Icônes Noir Fixe */
+        header nav > div > div.flex.items-center.space-x-2 svg {
+            color: #1a1a1a !important;
+            transition: color 0.3s ease !important;
         }
 
-        /* 3. Bloc Icônes (Outils) */
-        header nav > div > div.flex.items-center.space-x-2 {
-            flex: 0 0 auto !important;
-            gap: 25px !important;
-        }
-
-        header nav > div > div.flex.items-center.space-x-2 button,
-        header nav > div > div.flex.items-center.space-x-2 a {
-            color: #111111 !important;
-            background: transparent !important;
-            padding: 6px !important;
-            transition: opacity 0.3s ease !important;
-            box-shadow: none !important;
-        }
-
+        /* 3. Interactions : Hover (Marron/Nude) */
+        header nav > div > div.hidden.xl\:flex button:hover,
         header nav > div > div.flex.items-center.space-x-2 button:hover,
         header nav > div > div.flex.items-center.space-x-2 a:hover {
-            opacity: 0.5 !important;
+            color: #6d4c41 !important; /* Couleur marron/nude Bionova */
+        }
+        header nav > div > div.flex.items-center.space-x-2 button:hover svg,
+        header nav > div > div.flex.items-center.space-x-2 a:hover svg {
+            color: #6d4c41 !important;
         }
 
-        /* Badge Panier minimaliste */
-        header nav > div > div.flex.items-center.space-x-2 .bg-bionova-red {
-            background-color: #6d4c41 !important;
-            width: 16px !important;
-            height: 16px !important;
-            font-size: 9px !important;
+        /* 4. Page Active : Rouge & Souligné */
+        /* Cible les boutons actifs via la classe Tailwind d'origine */
+        header nav > div > div.hidden.xl\:flex button.text-medical-blue {
+            color: #be123c !important; /* Rouge Bionova fixe */
+            border-bottom: 2px solid #be123c !important; /* Souligné rouge */
             font-weight: 700 !important;
-            top: 2px !important;
-            right: 2px !important;
         }
 
-        /* État au Scroll (via le script existant) */
-        header.header-scrolled {
-            height: 80px !important;
-            background-color: rgba(255,255,255,0.98) !important;
-            backdrop-filter: blur(5px) !important;
+        /* Logo Adaptation */
+        header img {
+            max-height: 85px !important;
+            width: auto !important;
+            transition: all 0.4s ease !important;
         }
         header.header-scrolled img {
-            max-height: 60px !important;
+            max-height: 65px !important;
+        }
+
+        /* Badge Panier */
+        .bg-bionova-red {
+            background-color: #be123c !important;
+            width: 18px !important;
+            height: 18px !important;
+            font-size: 10px !important;
+            border-radius: 50% !important;
         }
 
         @media (max-width: 1280px) {
-            header { height: 80px !important; }
             header nav > div { padding: 0 3% !important; }
-            header nav > div > div.hidden.xl\:flex { gap: 30px !important; }
+            header nav > div > div.hidden.xl\:flex { gap: 25px !important; }
         }
     </style>
     <?php
