@@ -353,7 +353,7 @@ function bionova_header_refined_style() {
             left: 0 !important;
             width: 100% !important;
             z-index: 9999 !important;
-            height: 160px !important; /* Hauteur réduite de moitié (base 320px) */
+            height: 85px !important; /* Unification de la hauteur : fixe dès le chargement */
             background-color: transparent !important;
             background: none !important; /* Transparence Cristalline 100% */
             border: none !important;
@@ -375,10 +375,10 @@ function bionova_header_refined_style() {
             gap: 20px !important;
         }
 
-        /* État au Scroll : Fond blanc net */
+        /* État au Scroll : Fond blanc net (Hauteur identique) */
         header.header-scrolled {
             background-color: #ffffff !important;
-            height: 85px !important; /* Hauteur réduite de moitié (base 180px/170px) */
+            height: 85px !important;
             border-bottom: none !important;
             box-shadow: none !important;
         }
@@ -436,14 +436,14 @@ function bionova_header_refined_style() {
             font-weight: 800 !important;
         }
 
-        /* LOGO Adaptation */
+        /* LOGO Unifié */
         header img {
-            max-height: 130px !important; /* Adapté à la hauteur de 160px */
+            max-height: 65px !important; /* Taille fine unifiée */
             width: auto !important;
             transition: all 0.4s ease !important;
         }
         header.header-scrolled img {
-            max-height: 65px !important; /* Adapté à la hauteur de 85px */
+            max-height: 65px !important;
         }
 
         /* Badge Panier */
@@ -453,11 +453,6 @@ function bionova_header_refined_style() {
             height: 20px !important;
             font-size: 11px !important;
             border-radius: 50% !important;
-        }
-
-        @media (max-width: 1280px) {
-            header nav > div { padding: 0 3% !important; }
-            header nav > div > div.hidden.xl\:flex { gap: 20px !important; }
         }
 
         @media (max-width: 1280px) {
