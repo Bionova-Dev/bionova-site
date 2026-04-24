@@ -318,16 +318,12 @@ function bionova_force_buy_button_click( $html, $product ) {
 // ============================================================
 // STICKY HEADER — Effet Premium (Transparent -> Blanc)
 // ============================================================
-// ============================================================
-// STICKY HEADER — Script d'activation (Classe au scroll)
-// ============================================================
-// ============================================================
 // STICKY HEADER — Script d'activation (Classe au scroll)
 // ============================================================
 add_action('wp_footer', 'bionova_sticky_header_script');
 function bionova_sticky_header_script() {
-    // On n'active le script que sur les pages concernées par le header dynamique
-    if ( !is_front_page() && !is_shop() ) {
+    // BOUCLIER PHP : On bloque l'exécution sur la page Astuces et les articles
+    if ( is_page('astuce') || is_page('astuces') || is_singular('post') || is_archive() || (!is_front_page() && !is_shop()) ) {
         return;
     }
     echo "<script>
@@ -349,9 +345,8 @@ function bionova_sticky_header_script() {
 // ============================================================
 add_action('wp_head', 'bionova_header_refined_style');
 function bionova_header_refined_style() {
-    // ISOLATION STRICTE : Le header transparent ne s'applique qu'à la HOME et SHOP
-    // Cela restaure l'état d'origine des pages 'Astuces', 'Contact', etc.
-    if ( !is_front_page() && !is_shop() ) {
+    // BOUCLIER PHP : Isolation totale pour restaurer le header d'origine
+    if ( is_page('astuce') || is_page('astuces') || is_singular('post') || is_archive() || (!is_front_page() && !is_shop()) ) {
         return;
     }
     ?>
