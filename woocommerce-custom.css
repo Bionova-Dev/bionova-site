@@ -1,7 +1,7 @@
 /* Bionova - Minimalist & Premium WooCommerce Styles */
 
-/* Background Global */
-.woocommerce-cart, .woocommerce-checkout, .woocommerce-account, .woocommerce-page {
+/* Background Global — Restreint au tunnel d'achat uniquement */
+.woocommerce-cart, .woocommerce-checkout, .woocommerce-account {
     background-color: #FDF9F6 !important; /* Soft Nude */
     font-family: 'Inter', sans-serif !important;
 }
