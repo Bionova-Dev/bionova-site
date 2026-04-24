@@ -337,14 +337,15 @@ function bionova_sticky_header_script() {
 }
 
 // ============================================================
-// HEADER — Style Unifié Premium (Design Pro Max)
+// HEADER — Style Premium (Home vs Pages Secondaires)
 // ============================================================
-add_action('wp_head', 'bionova_header_unified_style');
-function bionova_header_unified_style() {
-    if ( is_admin() ) return;
+
+// 1. Header spécifique pour la Page d'Accueil (Transparent -> Blanc)
+add_action('wp_head', 'bionova_header_home_style');
+function bionova_header_home_style() {
+    if ( !is_front_page() ) return;
     ?>
-    <style id="header-unified-style">
-        /* 1. Structure & Fond (Blanc par défaut) */
+    <style id="header-home-style">
         header {
             position: fixed !important;
             top: 0 !important;
@@ -352,21 +353,54 @@ function bionova_header_unified_style() {
             width: 100% !important;
             z-index: 9999 !important;
             height: 85px !important;
-            background-color: #ffffff !important; /* Opaque sur toutes les pages */
+            background-color: transparent !important;
+            background: none !important;
             border: none !important;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+            box-shadow: none !important;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
             display: flex !important;
             align-items: center !important;
         }
-
-        /* Effet Transparent UNIQUEMENT sur la HOME (Haut de page) */
-        body.home header:not(.header-scrolled) {
-            background-color: transparent !important;
-            background: none !important;
-            box-shadow: none !important;
+        header.header-scrolled {
+            background-color: #ffffff !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
         }
+    </style>
+    <?php
+}
 
+// 2. Header Unifié pour Boutique, Astuce, Expertise, Panier, Compte
+add_action('wp_head', 'bionova_header_secondary_pages_style');
+function bionova_header_secondary_pages_style() {
+    // Condition PHP demandée pour l'uniformisation
+    if ( is_shop() || is_page('astuce') || is_page('astuces') || is_page('expertise') || is_cart() || is_checkout() || is_account_page() ) {
+        ?>
+        <style id="header-secondary-pages-style">
+            header {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                z-index: 9999 !important;
+                height: 85px !important;
+                background-color: #ffffff !important; /* Blanc Opaque comme la Boutique */
+                border: none !important;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+                transition: all 0.4s ease !important;
+                display: flex !important;
+                align-items: center !important;
+            }
+        </style>
+        <?php
+    }
+}
+
+// 3. Styles Communs (Typographie & Logo) — S'applique partout sauf Admin
+add_action('wp_head', 'bionova_header_common_premium_style');
+function bionova_header_common_premium_style() {
+    if ( is_admin() ) return;
+    ?>
+    <style id="header-common-premium-style">
         header nav > div {
             display: flex !important;
             flex-direction: row !important;
@@ -377,8 +411,6 @@ function bionova_header_unified_style() {
             padding: 0 5% !important;
             gap: 20px !important;
         }
-
-        /* 2. Typographie & Couleurs Fixes */
         header nav > div > div.hidden.xl\:flex button,
         header nav > div > div.flex.items-center.space-x-2 button,
         header nav > div > div.flex.items-center.space-x-2 a {
@@ -396,33 +428,15 @@ function bionova_header_unified_style() {
             font-size: 20px !important;
             font-weight: bold !important;
         }
-
-        header nav > div > div.hidden.xl\:flex {
-            gap: 35px !important;
-        }
-
-        header nav > div > div.flex.items-center.space-x-2 svg {
-            color: #1a1a1a !important;
-            width: 28px !important;
-            height: 28px !important;
-        }
-
-        /* 3. Interactions : Hover & Actif */
+        header nav > div > div.hidden.xl\:flex { gap: 35px !important; }
+        header nav > div > div.flex.items-center.space-x-2 svg { color: #1a1a1a !important; width: 28px !important; height: 28px !important; }
         header nav > div > div.hidden.xl\:flex button:hover,
         header nav > div > div.flex.items-center.space-x-2 button:hover,
-        header nav > div > div.flex.items-center.space-x-2 a:hover {
-            color: #6d4c41 !important;
-        }
-        
-        header nav > div > div.hidden.xl\:flex button.text-medical-blue {
-            color: #be123c !important;
-            border-bottom: 3px solid #be123c !important;
-        }
+        header nav > div > div.flex.items-center.space-x-2 a:hover { color: #6d4c41 !important; }
+        header nav > div > div.hidden.xl\:flex button.text-medical-blue { color: #be123c !important; border-bottom: 3px solid #be123c !important; }
 
-        /* 4. LOGO : Unifié x2 */
-        header img.h-\[120px\], 
-        header img.md\:h-\[160px\],
-        header img[alt*="Logo"] {
+        /* LOGO : Unifié x2 partout */
+        header img.h-\[120px\], header img.md\:h-\[160px\], header img[alt*="Logo"] {
             max-height: 85px !important;
             width: auto !important;
             transform: scale(2) !important;
@@ -430,13 +444,9 @@ function bionova_header_unified_style() {
             transition: all 0.4s ease !important;
             object-fit: contain !important;
         }
-        
-        header.header-scrolled img.h-\[120px\],
-        header.header-scrolled img.md\:h-\[160px\],
-        header.header-scrolled img[alt*="Logo"] {
+        header.header-scrolled img.h-\[120px\], header.header-scrolled img.md\:h-\[160px\], header.header-scrolled img[alt*="Logo"] {
             transform: scale(1.5) !important;
         }
-
         @media (max-width: 1280px) {
             header nav > div { padding: 0 3% !important; }
             header nav > div > div.hidden.xl\:flex { gap: 15px !important; }
