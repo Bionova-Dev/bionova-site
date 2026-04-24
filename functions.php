@@ -460,7 +460,8 @@ function bionova_header_refined_style() {
         @media (max-width: 1280px) {
             header nav > div { padding: 0 3% !important; }
             header nav > div > div.hidden.xl\:flex { gap: 15px !important; }
-            header img { transform: scale(1.2) !important; } /* Réduction mobile */
+            header img.h-\[120px\], 
+            header img.md\:h-\[160px\] { transform: scale(1.2) !important; } /* Réduction mobile ciblée */
         }
     </style>
     <?php
