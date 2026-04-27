@@ -1022,10 +1022,6 @@
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
               {articlesData.map((article) => (
                 <article key={article.id} className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 group flex flex-col h-full hover:shadow-2xl transition-all duration-500">
-                  <header className="relative h-64 overflow-hidden bg-gray-100 flex-shrink-0 cursor-pointer" onClick={() => onArticleClick(article)}>
-                    <img src={article.image} alt={`Image de l'article : ${article.title}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" />
-                    <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-md px-5 py-2 rounded-full text-xs font-bold text-medical-blue uppercase tracking-widest shadow-lg">{article.category}</div>
-                  </header>
                   <div className="p-10 flex flex-col flex-grow">
                     <h2 className="font-display text-2xl font-bold text-gray-900 mb-4 group-hover:text-medical-blue transition-colors line-clamp-3 leading-tight cursor-pointer" onClick={() => onArticleClick(article)} title={`Lire l'article : ${article.title}`}>{article.title}</h2>
                     <p className="text-gray-500 text-base leading-relaxed mb-8 flex-grow">{article.excerpt}</p>
