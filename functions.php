@@ -3,8 +3,19 @@
 function bionova_setup() {
     add_theme_support( 'woocommerce' );
     add_theme_support( 'post-thumbnails' );
+    register_nav_menus( array(
+        'primary' => __( 'Primary Menu', 'bionova' ),
+    ) );
 }
 add_action( 'after_setup_theme', 'bionova_setup' );
+
+// Appliquer les classes originales aux liens du menu WordPress
+add_filter( 'nav_menu_link_attributes', function( $atts, $item, $args ) {
+    if ( isset($args->theme_location) && $args->theme_location === 'primary' ) {
+        $atts['class'] = 'font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors';
+    }
+    return $atts;
+}, 10, 3 );
 
 // ================================================================
 // FORCE: Activation totale tunnel achat — Anti-maintenance radical
