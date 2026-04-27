@@ -9,10 +9,18 @@ function bionova_setup() {
 }
 add_action( 'after_setup_theme', 'bionova_setup' );
 
-// Appliquer les classes originales aux liens du menu WordPress
+// Appliquer les classes originales et forcer les liens dynamiques du menu WordPress
 add_filter( 'nav_menu_link_attributes', function( $atts, $item, $args ) {
     if ( isset($args->theme_location) && $args->theme_location === 'primary' ) {
         $atts['class'] = 'font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors';
+        
+        // Force les liens vers les pages WordPress réelles pour assurer la synchronisation
+        $title = strtolower($item->title);
+        if ( strpos($title, 'astuce') !== false ) $atts['href'] = home_url('/astuces/');
+        elseif ( strpos($title, 'boutique') !== false ) $atts['href'] = home_url('/boutique/');
+        elseif ( strpos($title, 'expertise') !== false ) $atts['href'] = home_url('/expertise/');
+        elseif ( strpos($title, 'contact') !== false ) $atts['href'] = home_url('/contact/');
+        elseif ( strpos($title, 'accueil') !== false ) $atts['href'] = home_url('/');
     }
     return $atts;
 }, 10, 3 );
