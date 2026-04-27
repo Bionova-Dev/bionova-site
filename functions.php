@@ -373,7 +373,7 @@ function bionova_header_home_style() {
 add_action('wp_head', 'bionova_header_secondary_pages_style');
 function bionova_header_secondary_pages_style() {
     // Condition PHP demandée pour l'uniformisation
-    if ( is_shop() || is_page('astuce') || is_page('astuces') || is_page('expertise') || is_cart() || is_checkout() || is_account_page() ) {
+    if ( is_shop() || is_page('astuce') || is_page('expertise') || is_cart() || is_checkout() || is_account_page() ) {
         ?>
         <style id="header-secondary-pages-style">
             header {
