@@ -375,7 +375,7 @@ function bionova_header_home_style() {
 add_action('wp_head', 'bionova_header_secondary_pages_style');
 function bionova_header_secondary_pages_style() {
     // Condition PHP demandée pour l'uniformisation
-    if ( is_shop() || is_page('astuce') || is_page('expertise') || is_cart() || is_checkout() || is_account_page() ) {
+    if ( is_shop() || is_page('astuce') || is_page('astuces') || is_page('expertise') || is_cart() || is_checkout() || is_account_page() ) {
         ?>
         <style id="header-secondary-pages-style">
             header {
@@ -461,7 +461,7 @@ function bionova_header_common_premium_style() {
 // Masquage CSS des images sur la page Astuces (Évite la redondance avec le menu)
 add_action('wp_head', 'bionova_hide_images_on_astuces');
 function bionova_hide_images_on_astuces() {
-    if ( is_page('astuce') ) {
+    if ( is_page('astuce') || is_page('astuces') ) {
         ?>
         <style id="hide-images-astuces">
             main img { display: none !important; }
