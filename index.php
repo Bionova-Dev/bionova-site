@@ -659,7 +659,7 @@
         <div className="animate-fade-in">
           {/* Hero Section */}
           <section className="relative pt-32 pb-40 lg:pt-48 lg:pb-56 overflow-hidden flex items-center justify-center min-h-[90vh]">
-            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=2000&q=80" alt="Bien-être et vitalité naturelle avec Bionova" className="absolute inset-0 w-full h-full object-cover" />
+            <img src="<?php echo get_template_directory_uri(); ?>/hero-banner.png" alt="Bien-être et vitalité naturelle avec Bionova" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gray-900/40 backdrop-blur-[2px]"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
