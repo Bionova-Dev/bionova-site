@@ -42,10 +42,10 @@
         <!-- Menu 5 Pages -->
         <nav class="hidden md:flex items-center space-x-6">
           <a href="<?php echo esc_url( home_url('/') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Accueil</a>
-          <a href="<?php echo esc_url( home_url('/#boutique') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Boutique</a>
-          <a href="<?php echo esc_url( home_url('/#astuces') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Astuces</a>
-          <a href="<?php echo esc_url( home_url('/#expertise') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Expertise</a>
-          <a href="<?php echo esc_url( home_url('/#contact') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Contact</a>
+          <a href="<?php echo esc_url( home_url('/boutique/') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Boutique</a>
+          <a href="<?php echo esc_url( home_url('/astuce/') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Astuces</a>
+          <a href="<?php echo esc_url( home_url('/expertise/') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Expertise</a>
+          <a href="<?php echo esc_url( home_url('/contact/') ); ?>" class="font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors">Contact</a>
         </nav>
 
         <!-- Icône Mon Compte -->

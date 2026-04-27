@@ -245,6 +245,11 @@
   <script type="text/babel">
     const WC_INITIAL_COUNT = <?php echo (class_exists('WooCommerce') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0; ?>;
     const WC_CART_URL = '<?php echo function_exists('wc_get_cart_url') ? esc_url( wc_get_cart_url() ) : "/panier/"; ?>';
+    const WC_SHOP_URL = '<?php echo home_url('/boutique/'); ?>';
+    const BLOG_URL = '<?php echo home_url('/astuce/'); ?>';
+    const ABOUT_URL = '<?php echo home_url('/expertise/'); ?>';
+    const CONTACT_URL = '<?php echo home_url('/contact/'); ?>';
+    const ACCOUNT_URL = '<?php echo function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/mon-compte/'); ?>';
     const WC_PRODUCT_MAP = {
       1: 33,  // Acide Alpha Lipoïque
       2: 35,  // Ashwagandha
@@ -1374,6 +1379,30 @@
       const handleNavigate = (page) => {
         if (page === 'cart') {
           window.location.href = WC_CART_URL;
+          return;
+        }
+        if (page === 'home') {
+          window.location.href = '<?php echo home_url('/'); ?>';
+          return;
+        }
+        if (page === 'products') {
+          window.location.href = WC_SHOP_URL;
+          return;
+        }
+        if (page === 'blog') {
+          window.location.href = BLOG_URL;
+          return;
+        }
+        if (page === 'about') {
+          window.location.href = ABOUT_URL;
+          return;
+        }
+        if (page === 'contact') {
+          window.location.href = CONTACT_URL;
+          return;
+        }
+        if (page === 'login') {
+          window.location.href = ACCOUNT_URL;
           return;
         }
         setCurrentPage(page);
