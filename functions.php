@@ -457,4 +457,16 @@ function bionova_header_common_premium_style() {
     </style>
     <?php
 }
+
+// Masquage CSS des images sur la page Astuces (Évite la redondance avec le menu)
+add_action('wp_head', 'bionova_hide_images_on_astuces');
+function bionova_hide_images_on_astuces() {
+    if ( is_page('astuce') ) {
+        ?>
+        <style id="hide-images-astuces">
+            main img { display: none !important; }
+        </style>
+        <?php
+    }
+}
 ?>
