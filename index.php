@@ -1365,7 +1365,7 @@
     // --- MAIN APP COMPONENT ---
 
     const App = () => {
-      const [currentPage, setCurrentPage] = React.useState('home');
+      const [currentPage, setCurrentPage] = React.useState('<?php echo isset($initial_page) ? $initial_page : "home"; ?>');
       const [selectedProduct, setSelectedProduct] = React.useState(null);
       const [selectedArticle, setSelectedArticle] = React.useState(null);
       const [cartItemsCount, setCartItemsCount] = React.useState(WC_INITIAL_COUNT);
