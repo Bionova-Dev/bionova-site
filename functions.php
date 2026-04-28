@@ -9,21 +9,7 @@ function bionova_setup() {
 }
 add_action( 'after_setup_theme', 'bionova_setup' );
 
-// Appliquer les classes originales et forcer les liens dynamiques du menu WordPress
-add_filter( 'nav_menu_link_attributes', function( $atts, $item, $args ) {
-    if ( isset($args->theme_location) && $args->theme_location === 'primary' ) {
-        $atts['class'] = 'font-bold uppercase tracking-widest text-sm text-gray-900 hover:text-medical-blue transition-colors';
-        
-        // Force les liens vers les pages WordPress réelles pour assurer la synchronisation
-        $title = strtolower($item->title);
-        if ( strpos($title, 'astuce') !== false ) $atts['href'] = home_url('/astuces/');
-        elseif ( strpos($title, 'boutique') !== false ) $atts['href'] = home_url('/boutique/');
-        elseif ( strpos($title, 'expertise') !== false ) $atts['href'] = home_url('/expertise/');
-        elseif ( strpos($title, 'contact') !== false ) $atts['href'] = home_url('/contact/');
-        elseif ( strpos($title, 'accueil') !== false ) $atts['href'] = home_url('/');
-    }
-    return $atts;
-}, 10, 3 );
+
 
 // ================================================================
 // FORCE: Activation totale tunnel achat — Anti-maintenance radical
@@ -383,7 +369,7 @@ function bionova_header_home_style() {
 add_action('wp_head', 'bionova_header_secondary_pages_style');
 function bionova_header_secondary_pages_style() {
     // Condition PHP demandée pour l'uniformisation
-    if ( is_shop() || is_page('astuce') || is_page('astuces') || is_page('expertise') || is_cart() || is_checkout() || is_account_page() ) {
+    if ( is_shop() || is_cart() || is_checkout() || is_account_page() ) {
         ?>
         <style id="header-secondary-pages-style">
             header {
@@ -423,7 +409,6 @@ function bionova_header_common_premium_style() {
         }
         header nav > div > div.hidden.xl\:flex button,
         header nav > div > div.hidden.xl\:flex a,
-        header nav > div > div.hidden.xl\:flex ul li a,
         header nav > div > div.flex.items-center.space-x-2 button,
         header nav > div > div.flex.items-center.space-x-2 a {
             font-family: 'Montserrat', sans-serif !important;
@@ -444,11 +429,9 @@ function bionova_header_common_premium_style() {
         header nav > div > div.flex.items-center.space-x-2 svg { color: #1a1a1a !important; width: 28px !important; height: 28px !important; }
         header nav > div > div.hidden.xl\:flex button:hover,
         header nav > div > div.hidden.xl\:flex a:hover,
-        header nav > div > div.hidden.xl\:flex ul li a:hover,
         header nav > div > div.flex.items-center.space-x-2 button:hover,
         header nav > div > div.flex.items-center.space-x-2 a:hover { color: #6d4c41 !important; }
-        header nav > div > div.hidden.xl\:flex button.text-medical-blue,
-        header nav > div > div.hidden.xl\:flex ul li.current-menu-item a { color: #be123c !important; border-bottom: 3px solid #be123c !important; }
+        header nav > div > div.hidden.xl\:flex button.text-medical-blue { color: #be123c !important; border-bottom: 3px solid #be123c !important; }
 
         /* LOGO : Unifié x2 partout */
         header img.h-\[120px\], header img.md\:h-\[160px\], header img[alt*="Logo"] {
@@ -522,15 +505,5 @@ function bionova_force_header_cart_checkout() {
     }
 }
 
-// Masquage CSS des images sur la page Astuces (Évite la redondance avec le menu)
-add_action('wp_head', 'bionova_hide_images_on_astuces');
-function bionova_hide_images_on_astuces() {
-    if ( is_page('astuce') || is_page('astuces') ) {
-        ?>
-        <style id="hide-images-astuces">
-            main img { display: none !important; }
-        </style>
-        <?php
-    }
-}
+
 ?>

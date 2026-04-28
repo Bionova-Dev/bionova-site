@@ -42,10 +42,10 @@
         
         <div class="hidden xl:flex items-center space-x-10">
           <a href="<?php echo home_url('/'); ?>" class="text-xl font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Accueil</a>
-          <a href="<?php echo home_url('/boutique/'); ?>" class="text-xl font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Boutique</a>
-          <a href="<?php echo home_url('/astuces/'); ?>" class="text-xl font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Astuces</a>
-          <a href="<?php echo home_url('/expertise/'); ?>" class="text-xl font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Expertise</a>
-          <a href="<?php echo home_url('/contact/'); ?>" class="text-xl font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Contact</a>
+          <a href="<?php echo home_url('/#products'); ?>" class="text-xl font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Boutique</a>
+          <a href="<?php echo home_url('/#blog'); ?>" class="text-xl font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Astuces</a>
+          <a href="<?php echo home_url('/#about'); ?>" class="text-xl font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Expertise</a>
+          <a href="<?php echo home_url('/#contact'); ?>" class="text-xl font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Contact</a>
         </div>
 
         <div class="flex items-center space-x-2 sm:space-x-5">

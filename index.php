@@ -556,7 +556,7 @@
             <div className="text-center md:text-left">
               <h4 className="font-display text-xl font-bold text-medical-blue uppercase tracking-widest mb-8">Boutique</h4>
               <ul className="space-y-4">
-                <li><a href="#" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Tous les produits</a></li>
+                <li><a href="#products" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Tous les produits</a></li>
                 <li><a href="#" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Packs Synergie</a></li>
                 <li><a href="#" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Nouveautés</a></li>
                 <li><a href="#" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Meilleures Ventes</a></li>
@@ -1243,136 +1243,41 @@
       );
     };
 
-    const LoginPage = () => {
-      return (
-        <div className="min-h-[80vh] flex items-center justify-center bg-gray-50 py-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-md w-full space-y-10 bg-white p-12 rounded-[3rem] shadow-xl border border-gray-100">
-            <div className="text-center">
-              <div className="mx-auto w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6">
-                <UserIcon className="w-8 h-8 text-medical-blue" />
-              </div>
-              <h2 className="font-display text-4xl font-extrabold text-gray-900 mb-2">Bon retour</h2>
-              <p className="text-gray-500">Connectez-vous à votre espace privé</p>
-            </div>
-            <form className="mt-8 space-y-6" onSubmit={(e) => { e.preventDefault(); alert('Fonctionnalité de connexion en développement.'); }}>
-              <div className="space-y-5">
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-widest mb-2">Adresse Email</label>
-                  <input type="email" required className="appearance-none block w-full px-5 py-4 border border-gray-200 rounded-2xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-medical-blue/20 focus:border-medical-blue transition-colors text-gray-900" placeholder="votre@email.com" />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-widest mb-2">Mot de passe</label>
-                  <input type="password" required className="appearance-none block w-full px-5 py-4 border border-gray-200 rounded-2xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-medical-blue/20 focus:border-medical-blue transition-colors text-gray-900" placeholder="••••••••" />
-                </div>
-              </div>
 
-              <div className="flex items-center justify-between mt-4">
-                <div className="flex items-center">
-                  <input id="remember-me" name="remember-me" type="checkbox" className="h-5 w-5 text-medical-blue focus:ring-medical-blue border-gray-300 rounded" />
-                  <label htmlFor="remember-me" className="ml-3 block text-sm text-gray-700">Se souvenir de moi</label>
-                </div>
-                <div className="text-sm">
-                  <a href="#" className="font-bold text-medical-blue hover:text-blue-800 transition-colors">Mot de passe oublié ?</a>
-                </div>
-              </div>
-
-              <div>
-                <button type="submit" className="w-full flex justify-center py-4 px-4 shadow-lg text-lg font-bold rounded-2xl text-white bg-gradient-to-r from-medical-blue to-blue-400 hover:from-blue-600 hover:to-medical-blue focus:outline-none transition-all transform hover:-translate-y-1">
-                  Se connecter
-                </button>
-              </div>
-            </form>
-            <div className="text-center mt-6">
-              <p className="text-sm text-gray-500">
-                Nouveau sur Bionova ? <a href="#" className="font-bold text-medical-blue hover:text-blue-800">Créer un compte</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      );
-    };
-
-    const CartPage = ({ cartItems, onUpdateQuantity, onRemoveItem, onCheckout, onNavigate }) => {
-      const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
-      return (
-        <div className="min-h-[80vh] bg-gray-50 pt-32 pb-24">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center mb-10">
-              <button onClick={() => onNavigate('products')} className="group flex items-center text-gray-500 hover:text-medical-blue font-bold tracking-wide uppercase text-sm transition-colors">
-                <span className="transform transition-transform group-hover:-translate-x-2 mr-3 text-lg">&larr;</span> Continuer mes achats
-              </button>
-            </div>
-            <h1 className="font-display text-4xl font-extrabold text-gray-900 mb-12">Votre Panier</h1>
-
-            {cartItems.length === 0 ? (
-              <div className="bg-white p-20 text-center rounded-[3rem] shadow-sm border border-gray-100">
-                <div className="bg-gray-50 h-32 w-32 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner text-medical-blue/30"><ShoppingCartIcon className="h-14 w-14" /></div>
-                <p className="text-2xl font-bold text-gray-800 mb-4">Votre panier est vide</p>
-                <p className="text-gray-500 mb-10 text-lg">Découvrez nos produits pour remplir votre panier.</p>
-                <button onClick={() => onNavigate('products')} className="inline-flex justify-center py-4 px-10 shadow-lg text-lg font-bold rounded-2xl text-white bg-gradient-to-r from-medical-blue to-blue-400 hover:from-blue-600 hover:to-medical-blue transition-all transform hover:-translate-y-1">
-                  Découvrir la boutique
-                </button>
-              </div>
-            ) : (
-              <div className="bg-white rounded-[3rem] shadow-lg border border-gray-100 overflow-hidden">
-                <ul className="divide-y divide-gray-50">
-                  {cartItems.map((item) => (
-                    <li key={item.id} className="p-8 sm:p-10 flex flex-col sm:flex-row items-center hover:bg-gray-50 transition-colors">
-                      <div className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden bg-[#f9f9fb] border border-gray-100 p-4">
-                        <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
-                      </div>
-                      <div className="ml-0 sm:ml-10 flex-1 w-full mt-8 sm:mt-0">
-                        <div className="flex flex-col sm:flex-row sm:justify-between mb-3">
-                          <h4 className="font-display text-2xl font-bold text-gray-900">{item.name}</h4>
-                          <p className="text-2xl font-extrabold text-medical-blue mt-2 sm:mt-0">{(item.price * item.quantity).toFixed(2)} DT</p>
-                        </div>
-                        <p className="text-base text-gray-500">{item.price.toFixed(2)} DT / unité</p>
-                        <div className="mt-8 flex items-center justify-between">
-                          <div className="flex items-center border border-gray-200 rounded-xl bg-white shadow-sm overflow-hidden">
-                            <button onClick={() => onUpdateQuantity(item.id, item.quantity - 1)} className="px-5 py-3 text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors font-bold text-lg">-</button>
-                            <span className="px-5 py-3 border-x border-gray-200 min-w-[3.5rem] text-center font-bold text-lg bg-gray-50">{item.quantity}</span>
-                            <button onClick={() => onUpdateQuantity(item.id, item.quantity + 1)} className="px-5 py-3 text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors font-bold text-lg">+</button>
-                          </div>
-                          <button onClick={() => onRemoveItem(item.id)} className="text-gray-400 hover:text-bionova-red flex items-center text-sm font-bold tracking-wide uppercase transition-colors">
-                            <XIcon className="h-5 w-5 mr-2" /> Supprimer
-                          </button>
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <div className="bg-gray-50 p-10 sm:p-12 border-t border-gray-100">
-                  <div className="flex justify-between items-end mb-10">
-                    <div>
-                      <p className="text-sm font-bold uppercase tracking-widest text-gray-500 mb-2">Total de la commande</p>
-                      <p className="text-base text-gray-500">TVA incluse. Frais de livraison calculés à l'étape suivante.</p>
-                    </div>
-                    <p className="font-display text-5xl font-extrabold text-gray-900">{total.toFixed(2)} DT</p>
-                  </div>
-                  <button onClick={onCheckout} className="w-full flex justify-center items-center py-6 px-8 shadow-xl text-xl font-bold rounded-2xl text-white bg-gradient-to-r from-medical-blue to-blue-400 hover:from-blue-600 hover:to-medical-blue transition-all transform hover:-translate-y-1">
-                    Valider mon panier et payer
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      );
-    };
 
     // --- MAIN APP COMPONENT ---
 
     const App = () => {
-      const [currentPage, setCurrentPage] = React.useState('<?php echo isset($initial_page) ? $initial_page : "home"; ?>');
+      const getInitialPage = () => {
+        const hash = window.location.hash.replace('#', '');
+        if (['home', 'products', 'blog', 'about', 'contact'].includes(hash)) return hash;
+        return '<?php echo isset($initial_page) ? $initial_page : "home"; ?>';
+      };
+      
+      const [currentPage, setCurrentPage] = React.useState(getInitialPage());
       const [selectedProduct, setSelectedProduct] = React.useState(null);
       const [selectedArticle, setSelectedArticle] = React.useState(null);
       const [cartItemsCount, setCartItemsCount] = React.useState(WC_INITIAL_COUNT);
-      const [cartItems, setCartItems] = React.useState([]); // local state for UI consistency
+      
+      React.useEffect(() => {
+        const handleHashChange = () => {
+          const hash = window.location.hash.replace('#', '');
+          if (['home', 'products', 'blog', 'about', 'contact'].includes(hash)) {
+            setCurrentPage(hash);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        };
+        window.addEventListener('hashchange', handleHashChange);
+        return () => window.removeEventListener('hashchange', handleHashChange);
+      }, []);
 
       const handleNavigate = (page) => {
         if (page === 'cart') {
           window.location.href = WC_CART_URL;
+          return;
+        }
+        if (page === 'login') {
+          window.location.href = '<?php echo esc_js( get_permalink( get_option("woocommerce_myaccount_page_id") ) ); ?>';
           return;
         }
         setCurrentPage(page);
@@ -1393,20 +1298,6 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       };
 
-      const handleUpdateQuantity = (productId, newQuantity) => {
-        if (newQuantity < 1) return;
-        setCartItems(prevItems => prevItems.map(item => item.id === productId ? { ...item, quantity: newQuantity } : item));
-      };
-
-      const handleRemoveItem = (productId) => {
-        setCartItems(prevItems => prevItems.filter(item => item.id !== productId));
-      };
-
-      const handleCheckout = () => {
-        alert('Validation de commande en cours... (Simulation Bionova)');
-        setCartItems([]);
-        handleNavigate('home');
-      };
 
       const handleAddToCart = (product, redirect = false) => {
         // WooCommerce AJAX Add to Cart
@@ -1418,14 +1309,6 @@
               window.location.href = WC_CART_URL;
             }
           });
-
-        setCartItems(prevItems => {
-          const existingItem = prevItems.find(item => item.id === product.id);
-          if (existingItem) {
-            return prevItems.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item);
-          }
-          return [...prevItems, { ...product, quantity: 1 }];
-        });
 
         if (!redirect && product.type !== 'pack') {
           // Toast notification
@@ -1441,8 +1324,6 @@
         }
       };
 
-      const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-
       // Routing Logic
       const renderPage = () => {
         switch (currentPage) {
@@ -1453,8 +1334,7 @@
           case 'article': return selectedArticle ? <ArticlePage article={selectedArticle} onBack={() => handleNavigate('blog')} onProductClick={handleProductClick} /> : <BlogPage onArticleClick={handleArticleClick} />;
           case 'about': return <AboutPage />;
           case 'contact': return <ContactPage />;
-          case 'login': return <LoginPage />;
-          case 'cart': return <CartPage cartItems={cartItems} onUpdateQuantity={handleUpdateQuantity} onRemoveItem={handleRemoveItem} onCheckout={handleCheckout} onNavigate={handleNavigate} />;
+
           default: return <HomePage onNavigate={handleNavigate} products={products} onProductClick={handleProductClick} onAddToCart={handleAddToCart} />;
         }
       };
