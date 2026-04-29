@@ -32,7 +32,6 @@
 </head>
 <body <?php body_class(); ?>>
   <?php if (!is_front_page()) : ?>
-  <?php if (!is_front_page()) : ?>
   <header class="fixed w-full z-50 h-[100px] lg:h-[180px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
     
     <!-- Mobile Menu Overlay -->

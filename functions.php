@@ -490,56 +490,6 @@ function bionova_header_common_premium_style() {
     <?php
 }
 
-// ============================================================
-// FIX MISSION CRITIQUE: Forcer affichage menu Panier / Checkout
-// Anti "Distraction-Free Checkout"
-// ============================================================
-add_action('wp_head', 'bionova_force_header_cart_checkout', 9999);
-function bionova_force_header_cart_checkout() {
-    if ( is_cart() || is_checkout() || is_page('panier') || is_page('commande') || is_page('cart') || is_page('checkout') ) {
-        ?>
-        <style id="force-header-checkout-cart">
-            /* Désactiver tout display:none éventuel (Distraction-free) */
-            header, .site-header {
-                display: flex !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                z-index: 99999 !important;
-                height: 85px !important;
-                background-color: #ffffff !important; /* Fond blanc Boutique */
-                box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
-            }
-            
-            /* Forcer le style Boutique sur les liens de navigation */
-            header nav > div > div.hidden.xl\:flex {
-                display: flex !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-            }
-            
-            header nav > div > div.hidden.xl\:flex a {
-                font-family: 'Montserrat', sans-serif !important;
-                color: #1a1a1a !important; /* Texte noir */
-                font-size: 20px !important; /* Taille 20px */
-                font-weight: bold !important;
-                text-transform: uppercase !important;
-                display: block !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-            }
-            
-            /* Sécurité contre les couleurs transparentes ou blanches sur fond blanc */
-            .woocommerce-cart header *, .woocommerce-checkout header * {
-                text-shadow: none !important;
-            }
-        </style>
-        <?php
-    }
-}
 
 // ============================================================
 // FIX: Redirection "Retour à la boutique" et "Continuer les achats"
@@ -551,5 +501,3 @@ add_filter( 'woocommerce_get_shop_page_permalink', 'bionova_custom_shop_url' );
 function bionova_custom_shop_url() {
     return home_url( '/#products' );
 }
-
-?>
