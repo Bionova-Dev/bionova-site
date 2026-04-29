@@ -1074,9 +1074,6 @@
                   <div className="p-10 flex flex-col flex-grow">
                     <h2 className="font-display text-2xl font-bold text-gray-900 mb-4 group-hover:text-medical-blue transition-colors line-clamp-3 leading-tight cursor-pointer" onClick={() => onArticleClick(article)} title={`Lire l'article : ${article.title}`}>{article.title}</h2>
                     <p className="text-gray-500 text-base leading-relaxed mb-8 flex-grow">{article.excerpt}</p>
-                    <div className="mb-8 rounded-3xl overflow-hidden h-48 bg-gray-50 group-hover:shadow-md transition-shadow duration-500">
-                      <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    </div>
                     <footer className="mt-auto">
                       <button onClick={() => onArticleClick(article)} className="w-full flex items-center justify-center py-4 px-6 border border-gray-200 text-gray-700 hover:bg-medical-blue hover:text-white hover:border-medical-blue rounded-2xl font-bold uppercase tracking-wider text-sm transition-all duration-300" title={`Lire l'article complet sur ${article.title}`}>
                         Lire la suite

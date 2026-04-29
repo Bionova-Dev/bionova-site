@@ -51,7 +51,7 @@
       max-width: 150px !important;
       height: auto !important;
       max-height: 80px !important;
-      filter: brightness(0) !important; /* Force le logo en noir si l'original est blanc */
+      filter: none !important;
     }
 
     @media (max-width: 768px) {
