@@ -36,12 +36,8 @@
     }
     .woocommerce-cart header a, .woocommerce-checkout header a,
     .woocommerce-cart header button, .woocommerce-checkout header button {
-      color: #111827 !important; /* text-gray-900 */
       opacity: 1 !important;
       visibility: visible !important;
-    }
-    .woocommerce-cart header svg, .woocommerce-checkout header svg {
-      color: #111827 !important;
     }
 
     /* Logo spécifique Panier/Checkout */

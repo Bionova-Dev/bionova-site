@@ -430,7 +430,6 @@ function bionova_header_common_premium_style() {
         header nav > div > div.flex.items-center.space-x-2 button,
         header nav > div > div.flex.items-center.space-x-2 a {
             font-family: 'Montserrat', sans-serif !important;
-            color: #1a1a1a !important;
             background: transparent !important;
             border: none !important;
             text-transform: uppercase !important;
@@ -452,7 +451,7 @@ function bionova_header_common_premium_style() {
             }
         }
         header nav > div > div.hidden.xl\:flex { gap: 35px !important; }
-        header nav > div > div.flex.items-center.space-x-2 svg { color: #1a1a1a !important; width: 28px !important; height: 28px !important; }
+        header nav > div > div.flex.items-center.space-x-2 svg { width: 28px !important; height: 28px !important; }
         header nav > div > div.hidden.xl\:flex button:hover,
         header nav > div > div.hidden.xl\:flex a:hover,
         header nav > div > div.flex.items-center.space-x-2 button:hover,
