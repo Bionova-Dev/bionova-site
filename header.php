@@ -27,6 +27,22 @@
   <style>
     body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1e293b; }
     .glassmorphism { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+    
+    /* Sécurité Cart/Checkout : Forcer la visibilité du menu */
+    .woocommerce-cart header, .woocommerce-checkout header {
+      display: flex !important;
+      background-color: white !important;
+      border-bottom: 1px solid #f1f5f9 !important;
+    }
+    .woocommerce-cart header a, .woocommerce-checkout header a,
+    .woocommerce-cart header button, .woocommerce-checkout header button {
+      color: #111827 !important; /* text-gray-900 */
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    .woocommerce-cart header svg, .woocommerce-checkout header svg {
+      color: #111827 !important;
+    }
   </style>
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/woocommerce-custom.css">
 </head>
