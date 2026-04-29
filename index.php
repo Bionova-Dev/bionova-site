@@ -115,6 +115,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800;900&display=swap"
     rel="stylesheet">
@@ -366,7 +368,7 @@
         id: 1,
         category: "Immunité",
         title: "Comment booster son immunité naturellement avant l'hiver ?",
-        image: "https://images.unsplash.com/photo-1550828520-4cb496926fc9?auto=format&fit=crop&w=2000&q=80",
+        image: "https://images.unsplash.com/photo-1550828520-4cb496926fc9?auto=format&fit=crop&w=800&q=70",
         excerpt: "Découvrez les réflexes quotidiens et les compléments essentiels pour préparer votre organisme aux agressions extérieures.",
         problem: "À l'approche de la saison froide, notre organisme est mis à rude épreuve : baisse d'énergie, vulnérabilité aux virus. Le système immunitaire s'affaiblit sous l'effet du manque de lumière, de la fatigue accumulée et du refroidissement général. Ce phénomène est naturel, mais il peut considérablement altérer votre qualité de vie et votre tonus quotidien.",
         solution: "La nature offre de puissants boucliers biologiques pour soutenir nos défenses. Outre une alimentation riche en vitamines C et en zinc, ainsi qu'un sommeil réparateur, l'utilisation de plantes médicinales purifiantes permet de renforcer le terrain biologique. L'ayurveda utilise depuis des millénaires des extraits végétaux capables de stimuler la réponse immunitaire et de détoxifier le sang.",
@@ -377,7 +379,7 @@
         id: 2,
         category: "Anti-stress",
         title: "Les incroyables bienfaits de l'Ashwagandha sur la charge mentale",
-        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=2000&q=80",
+        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=70",
         excerpt: "Plante phare de l'Ayurveda, l'Ashwagandha est la réponse naturelle pour retrouver un sommeil réparateur et une sérénité durable.",
         problem: "Dans notre société hyperconnectée, le stress chronique et la charge mentale sont devenus le mal du siècle. La surproduction de cortisol (l'hormone du stress) épuise littéralement nos réserves énergétiques, conduisant à des insomnies, de l'anxiété, une baisse de concentration et parfois même au burn-out. Notre système nerveux a urgemment besoin d'être régulé.",
         solution: "Heureusement, la phytothérapie moderne a redécouvert la puissance des plantes 'adaptogènes'. Contrairement aux stimulants chimiques ou aux sédatifs, une plante adaptogène module la réponse de l'organisme face au stress. Elle normalise les fonctions physiologiques et aide le corps à retrouver son homéostasie, qu'il soit confronté à un stress physique ou psychologique.",
@@ -388,7 +390,7 @@
         id: 3,
         category: "Anti-âge",
         title: "Longévité cellulaire : Le NMN est-il le nouveau miracle de la science ?",
-        image: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=2000&q=80",
+        image: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=800&q=70",
         excerpt: "Tout ce qu'il faut savoir sur le précurseur du NAD+ et ses effets scientifiquement prouvés sur le rajeunissement tissulaire.",
         problem: "Le vieillissement cellulaire n'est plus perçu comme une fatalité, mais comme un processus biologique que nous pouvons ralentir. Avec l'âge, notre organisme perd drastiquement sa capacité à produire du NAD+ (Nicotinamide Adénine Dinucléotide), une coenzyme vitale présente dans chacune de nos cellules. Cette chute de NAD+ (jusqu'à 50% entre 20 et 50 ans) entraîne une baisse de l'énergie métabolique, une dégénérescence tissulaire et l'apparition des signes de l'âge.",
         solution: "Pour restaurer nos niveaux de NAD+, la science s'est tournée vers ses précurseurs directs. L'un des plus prometteurs et étudiés actuellement par les généticiens d'Harvard est le NMN (Nicotinamide Mononucléotide). En pénétrant rapidement dans les cellules, le NMN est immédiatement converti en NAD+, réactivant ainsi les mitochondries (les centrales énergétiques de la cellule) et les sirtuines (les protéines de la longévité).",
@@ -399,7 +401,7 @@
         id: 4,
         category: "Nutricosmétique",
         title: "Collagène marin : le secret d'une peau éclatante à tout âge",
-        image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=2000&q=80",
+        image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=70",
         excerpt: "Pourquoi notre production de collagène diminue-t-elle et comment l'intégration du collagène marin peut-elle revitaliser votre peau ?",
         problem: "La peau perd naturellement de sa fermeté et de son éclat avec le temps. Dès l'âge de 25 ans, la production endogène de collagène – la protéine structurale majeure qui donne sa résistance et son élasticité à la peau – diminue d'environ 1% par an. Ce phénomène accélère l'apparition des rides, le relâchement cutané, mais fragilise aussi les ongles, les cheveux et les articulations. Les crèmes superficielles ne suffisent plus.",
         solution: "La nutricosmétique apporte la réponse en agissant 'de l'intérieur'. En ingérant des peptides de collagène marin (issus de poissons sauvages, plus purs et plus assimilables que le collagène bovin), on fournit directement aux fibroblastes de la peau les acides aminés essentiels pour relancer leur propre production de collagène et d'acide hyaluronique. La redensification se fait dans les couches profondes du derme.",
@@ -470,15 +472,25 @@
 
     const Navbar = ({ cartItemCount, currentPage, onNavigate }) => {
       const [isSearchOpen, setIsSearchOpen] = React.useState(false);
+      const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-      const navLinkClass = (page) => {
-        const baseColor = 'text-gray-900';
+      const navLinkClass = (page, isMobile = false) => {
+        const baseColor = isMobile ? 'text-gray-800' : 'text-gray-900';
         const activeColor = 'text-medical-blue border-medical-blue';
-        return `text-xl font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 ${currentPage === page ? activeColor : `${baseColor} border-transparent hover:text-medical-blue`}`;
+        const baseStyles = isMobile 
+          ? 'text-2xl font-black uppercase tracking-widest py-4 border-b-2' 
+          : 'text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] py-2 px-1 border-b-4';
+        
+        return `${baseStyles} transition-all duration-300 cursor-pointer ${currentPage === page ? activeColor : `${baseColor} border-transparent hover:text-medical-blue`}`;
+      };
+
+      const handleMobileNavigate = (page) => {
+        onNavigate(page);
+        setIsMenuOpen(false);
       };
 
       return (
-        <header className="fixed w-full z-50 h-[140px] md:h-[180px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
+        <header className="fixed w-full z-50 h-[100px] lg:h-[180px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
           {/* Search Overlay */}
           <div className={`absolute inset-0 bg-white z-[60] flex items-center px-6 lg:px-12 transition-all duration-500 transform ${isSearchOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
             <div className="max-w-7xl mx-auto w-full flex items-center">
@@ -486,7 +498,7 @@
               <input
                 type="text"
                 placeholder="Chercher un produit Bionova..."
-                className="flex-1 bg-transparent border-none outline-none text-2xl font-medium text-gray-900 placeholder-gray-300"
+                className="flex-1 bg-transparent border-none outline-none text-xl lg:text-2xl font-medium text-gray-900 placeholder-gray-300"
                 autoFocus={isSearchOpen}
                 aria-label="Barre de recherche"
               />
@@ -496,19 +508,43 @@
             </div>
           </div>
 
-          <nav className="max-w-[1800px] mx-auto px-6 lg:px-12 w-full h-full" aria-label="Navigation principale">
-            <div className="flex justify-between items-center h-full gap-8">
-              {/* Logo x3 */}
+          {/* Mobile Menu Overlay */}
+          <div className={`fixed inset-0 bg-white z-[70] transition-all duration-500 transform ${isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'} flex flex-col p-8`}>
+            <div className="flex justify-between items-center mb-16">
+              <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" className="h-12 object-contain" />
+              <button onClick={() => setIsMenuOpen(false)} className="p-2 text-gray-900"><XIcon className="h-10 w-10" /></button>
+            </div>
+            <div className="flex flex-col space-y-4">
+              <button onClick={() => handleMobileNavigate('home')} className={navLinkClass('home', true)}>Accueil</button>
+              <button onClick={() => handleMobileNavigate('products')} className={navLinkClass('products', true)}>Boutique</button>
+              <button onClick={() => handleMobileNavigate('blog')} className={navLinkClass('blog', true)}>Astuces</button>
+              <button onClick={() => handleMobileNavigate('about')} className={navLinkClass('about', true)}>Expertise</button>
+              <button onClick={() => handleMobileNavigate('contact')} className={navLinkClass('contact', true)}>Contact</button>
+            </div>
+            <div className="mt-auto border-t border-gray-100 pt-8 flex justify-center space-x-8">
+              <button onClick={() => handleMobileNavigate('login')} className="flex items-center text-gray-900 font-bold uppercase tracking-widest text-sm">
+                <UserIcon className="h-6 w-6 mr-2" /> Mon Compte
+              </button>
+            </div>
+          </div>
+
+          <nav className="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
+            <div className="flex justify-between items-center h-full gap-4 lg:gap-8">
+              {/* Logo - x1 on mobile, x2-ish on desktop via Tailwind scale */}
               <div onClick={() => onNavigate('home')} className="flex items-center cursor-pointer px-2 group shrink-0">
                 <img
                   src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png"
                   alt="Logo Bionova"
-                  className="transition-all duration-500 object-contain h-[120px] md:h-[160px] group-hover:scale-[1.05]"
+                  className="transition-all duration-500 object-contain h-[70px] lg:h-[160px] transform lg:scale-[1.5] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.6]"
+                  loading="eager"
+                  decoding="async"
+                  width="320"
+                  height="160"
                 />
               </div>
 
-              {/* Menu 5 Sections */}
-              <div className="hidden xl:flex items-center space-x-10">
+              {/* Menu Desktop */}
+              <div className="hidden lg:flex items-center space-x-6 xl:space-x-10">
                 <button onClick={() => onNavigate('home')} className={navLinkClass('home')}>Accueil</button>
                 <button onClick={() => onNavigate('products')} className={navLinkClass('products')}>Boutique</button>
                 <button onClick={() => onNavigate('blog')} className={navLinkClass('blog')}>Astuces</button>
@@ -517,21 +553,25 @@
               </div>
 
               {/* Icons Toolbar */}
-              <div className="flex items-center space-x-2 sm:space-x-5">
-                <button onClick={() => setIsSearchOpen(true)} className="p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Rechercher">
-                  <SearchIcon className="h-7 w-7 group-hover:scale-110 transition-transform" />
+              <div className="flex items-center space-x-1 sm:space-x-5">
+                <button onClick={() => setIsSearchOpen(true)} className="p-2 sm:p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Rechercher">
+                  <SearchIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
                 </button>
-                <button onClick={() => onNavigate('login')} className="p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Mon compte">
+                <button onClick={() => onNavigate('login')} className="hidden sm:block p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Mon compte">
                   <UserIcon className="h-7 w-7 group-hover:scale-110 transition-transform" />
                 </button>
-                <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" className="relative p-4 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all group shadow-lg hover:shadow-xl" title="Voir le panier">
-                  <ShoppingCartIcon className="h-7 w-7 group-hover:scale-110 transition-transform" />
+                <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" className="relative p-3 sm:p-4 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all group shadow-lg hover:shadow-xl" title="Voir le panier">
+                  <ShoppingCartIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
                   {cartItemCount > 0 && (
-                    <span className="absolute -top-2 -right-2 bg-bionova-red text-white text-[11px] font-black w-6 h-6 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                    <span className="absolute -top-2 -right-2 bg-bionova-red text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg animate-bounce">
                       {cartItemCount}
                     </span>
                   )}
                 </a>
+                {/* Mobile Hamburger Menu Toggle */}
+                <button onClick={() => setIsMenuOpen(true)} className="lg:hidden p-2 text-gray-900" aria-label="Ouvrir le menu">
+                  <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                </button>
               </div>
             </div>
           </nav>
@@ -557,9 +597,9 @@
               <h4 className="font-display text-xl font-bold text-medical-blue uppercase tracking-widest mb-8">Boutique</h4>
               <ul className="space-y-4">
                 <li><a href="#products" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Tous les produits</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Packs Synergie</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Nouveautés</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Meilleures Ventes</a></li>
+                <li><a href="#products" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Packs Synergie</a></li>
+                <li><a href="#products" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Nouveautés</a></li>
+                <li><a href="#products" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Meilleures Ventes</a></li>
               </ul>
             </div>
 
@@ -576,16 +616,16 @@
             <div className="text-center md:text-right">
               <h4 className="font-display text-xl font-bold text-medical-blue uppercase tracking-widest mb-8">Rejoignez-nous</h4>
               <div className="flex justify-center md:justify-end space-x-4 mb-8">
-                <a href="#" className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-medical-blue hover:text-white transition-all shadow-sm group">
+                <a href="https://www.facebook.com/bionova" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-medical-blue hover:text-white transition-all shadow-sm group">
                   <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31.975.975 1.247 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.975.975-2.242 1.247-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.975-.975-1.247-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.975-.975 2.242-1.247 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.337 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.337-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.337-2.618-6.78-6.98-6.98-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
                 </a>
-                <a href="#" className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-medical-blue hover:text-white transition-all shadow-sm group">
+                <a href="https://www.instagram.com/bionova" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-medical-blue hover:text-white transition-all shadow-sm group">
                   <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.324v-21.35c0-.732-.593-1.325-1.325-1.325z" /></svg>
                 </a>
               </div>
               <div className="flex flex-col space-y-2 items-center md:items-end">
-                <a href="#" className="text-[10px] font-black text-gray-400 hover:text-medical-blue transition-colors uppercase tracking-widest">Mentions Légales & CGV</a>
-                <a href="#" className="text-[10px] font-black text-gray-400 hover:text-medical-blue transition-colors uppercase tracking-widest">Politique de confidentialité</a>
+                <a href="javascript:void(0)" className="text-[10px] font-black text-gray-400 hover:text-medical-blue transition-colors uppercase tracking-widest">Mentions Légales & CGV</a>
+                <a href="javascript:void(0)" className="text-[10px] font-black text-gray-400 hover:text-medical-blue transition-colors uppercase tracking-widest">Politique de confidentialité</a>
               </div>
             </div>
           </div>
@@ -640,6 +680,8 @@
               transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) ${noShadow ? (isHovered ? 'scale(1.03)' : 'scale(1)') : 'scale3d(1.05, 1.05, 1.05)'}`,
               transformStyle: 'preserve-3d'
             }}
+            loading="lazy"
+            decoding="async"
           />
           {!noShadow && (
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-8 bg-black/20 rounded-[100%] blur-xl pointer-events-none"></div>
@@ -659,13 +701,20 @@
         <div className="animate-fade-in">
           {/* Hero Section */}
           <section className="relative pt-32 pb-40 lg:pt-48 lg:pb-56 overflow-hidden flex items-center justify-center min-h-[90vh]">
-            <img src="<?php echo get_template_directory_uri(); ?>/hero-banner.png" alt="Bien-être et vitalité naturelle avec Bionova" className="absolute inset-0 w-full h-full object-cover" />
+            <img 
+              src="<?php echo get_template_directory_uri(); ?>/hero-banner.png" 
+              alt="Bien-être et vitalité naturelle avec Bionova" 
+              className="absolute inset-0 w-full h-full object-cover" 
+              fetchpriority="high"
+              loading="eager"
+              decoding="sync"
+            />
             <div className="absolute inset-0 bg-gray-900/40 backdrop-blur-[2px]"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
               <div className="text-center md:text-left md:w-[65%]">
                 <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md text-white font-bold tracking-widest uppercase text-xs rounded-full mb-8 border border-white/30 shadow-lg">Laboratoire Bionova Tunisie</div>
-                <h1 className="font-display text-5xl tracking-tight font-extrabold text-white sm:text-6xl md:text-7xl leading-tight">
+                <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl tracking-tight font-extrabold text-white leading-tight">
                   <span className="block mb-2">La science de la</span>
                   <span className="block text-blue-200">nature pour vous</span>
                 </h1>
@@ -694,7 +743,7 @@
                 <p className="mt-6 text-xl text-gray-500">Les formules les plus plébiscitées pour des résultats optimaux en Tunisie.</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                 {bestSellers.map(product => (
                   <article key={product.id} onClick={() => onProductClick(product)} className="bg-gray-50 rounded-[3rem] p-10 flex flex-col items-center text-center group border border-gray-100 hover:shadow-2xl hover:border-medical-blue/20 transition-all duration-500 relative cursor-pointer">
                     <div className="absolute top-6 right-6 bg-bionova-red text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg tracking-wider uppercase z-20">Best Seller</div>
@@ -721,7 +770,7 @@
                           <ChevronDownIcon className="w-5 h-5 -rotate-90" />
                         </button>
                         <a
-                          href="#"
+                          href="javascript:void(0)"
                           onClick={(e) => { 
                             e.preventDefault(); 
                             e.stopPropagation(); 
@@ -768,8 +817,8 @@
 
                       <div className="relative w-full max-w-md aspect-square flex justify-center items-center">
                         <div className="relative w-64 h-64 sm:w-80 sm:h-80">
-                          <img src={pack.image} alt={pack.name} className="absolute top-0 left-0 w-3/4 h-3/4 object-contain drop-shadow-2xl z-10 transform -rotate-6 group-hover:-rotate-12 transition-transform duration-500" />
-                          <img src={pack.image2} alt={pack.name} className="absolute bottom-0 right-0 w-3/4 h-3/4 object-contain drop-shadow-2xl z-0 transform rotate-6 translate-x-4 translate-y-4 group-hover:rotate-12 group-hover:translate-x-8 transition-transform duration-500" />
+                          <img src={pack.image} alt={pack.name} className="absolute top-0 left-0 w-3/4 h-3/4 object-contain drop-shadow-2xl z-10 transform -rotate-6 group-hover:-rotate-12 transition-transform duration-500" loading="lazy" decoding="async" />
+                          <img src={pack.image2} alt={pack.name} className="absolute bottom-0 right-0 w-3/4 h-3/4 object-contain drop-shadow-2xl z-0 transform rotate-6 translate-x-4 translate-y-4 group-hover:rotate-12 group-hover:translate-x-8 transition-transform duration-500" loading="lazy" decoding="async" />
                         </div>
                       </div>
                     </div>
@@ -801,7 +850,7 @@
                       </div>
 
                       <a 
-                        href="#"
+                        href="javascript:void(0)"
                         onClick={(e) => { 
                           e.preventDefault(); 
                           e.stopPropagation(); 
@@ -873,7 +922,7 @@
               <span className="text-2xl font-black text-medical-blue">{product.price.toFixed(2)} <span className="text-[10px] font-black ml-1 text-gray-400">DT</span></span>
 
               <a
-                href="#"
+                href="javascript:void(0)"
                 onClick={(e) => { 
                   e.preventDefault(); 
                   e.stopPropagation(); 
@@ -905,7 +954,7 @@
                 Découvrez nos compléments alimentaires naturels et laissez-vous guider par la science.
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10">
               {products.map(product => (
                 <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} onClick={onProductClick} />
               ))}
@@ -992,7 +1041,7 @@
                 </div>
 
                 <a 
-                  href="#"
+                  href="javascript:void(0)"
                   onClick={(e) => { 
                     e.preventDefault(); 
                     onAddToCart(product);
@@ -1019,7 +1068,7 @@
               <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">Découvrez les dernières avancées scientifiques, nos conseils micronutrition et les secrets d'un bien-être absolu.</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
               {articlesData.map((article) => (
                 <article key={article.id} className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 group flex flex-col h-full hover:shadow-2xl transition-all duration-500">
                   <div className="p-10 flex flex-col flex-grow">

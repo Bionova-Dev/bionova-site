@@ -167,7 +167,23 @@ function bionova_dequeue_wc_assets() {
     }
     if ( ! is_user_logged_in() ) {
         wp_dequeue_style( 'dashicons' );
+        wp_dequeue_style( 'wp-block-library' );
+        wp_dequeue_style( 'wp-block-library-theme' );
+        wp_dequeue_style( 'wc-blocks-style' );
+        wp_dequeue_style( 'classic-theme-styles' );
     }
+}
+
+// ============================================================
+// DEFER SCRIPTS — Améliore le LCP et le temps de blocage
+// ============================================================
+add_filter( 'script_loader_tag', 'bionova_defer_scripts', 10, 2 );
+function bionova_defer_scripts( $tag, $handle ) {
+    $defer_handles = array( 'woocommerce', 'wc-cart-fragments', 'wc-add-to-cart' );
+    if ( in_array( $handle, $defer_handles ) ) {
+        return str_replace( ' src', ' defer="defer" src', $tag );
+    }
+    return $tag;
 }
 
 // ============================================================
@@ -197,8 +213,10 @@ remove_action( 'wp_head', 'wp_generator' );
 remove_action( 'wp_head', 'rest_output_link_wp_head' );
 remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
 remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head' );
 add_filter( 'emoji_svg_url', '__return_false' );
 add_action( 'wp_footer', function() { wp_dequeue_script( 'wp-embed' ); });
+add_filter( 'show_admin_bar', '__return_false' ); // Désactive la barre admin pour la perf
 
 // ============================================================
 // QUERY STRINGS — Suppression pour meilleur cache
@@ -422,8 +440,16 @@ function bionova_header_common_premium_style() {
             padding: 10px 0 !important;
             text-decoration: none !important;
             cursor: pointer !important;
-            font-size: 20px !important;
+            font-size: 14px !important; /* Mobile default */
             font-weight: bold !important;
+        }
+        @media (min-width: 1024px) {
+            header nav > div > div.hidden.xl\:flex button,
+            header nav > div > div.hidden.xl\:flex a,
+            header nav > div > div.flex.items-center.space-x-2 button,
+            header nav > div > div.flex.items-center.space-x-2 a {
+                font-size: 20px !important;
+            }
         }
         header nav > div > div.hidden.xl\:flex { gap: 35px !important; }
         header nav > div > div.flex.items-center.space-x-2 svg { color: #1a1a1a !important; width: 28px !important; height: 28px !important; }
@@ -433,22 +459,32 @@ function bionova_header_common_premium_style() {
         header nav > div > div.flex.items-center.space-x-2 a:hover { color: #6d4c41 !important; }
         header nav > div > div.hidden.xl\:flex button.text-medical-blue { color: #be123c !important; border-bottom: 3px solid #be123c !important; }
 
-        /* LOGO : Unifié x2 partout */
-        header img.h-\[120px\], header img.md\:h-\[160px\], header img[alt*="Logo"] {
-            max-height: 85px !important;
-            width: auto !important;
-            transform: scale(2) !important;
-            transform-origin: left center !important;
-            transition: all 0.4s ease !important;
-            object-fit: contain !important;
+        /* LOGO : Unifié x2 sur Desktop uniquement */
+        @media (min-width: 1024px) {
+            header img.h-\[120px\], header img.md\:h-\[160px\], header img[alt*="Logo"] {
+                max-height: 85px !important;
+                width: auto !important;
+                transform: scale(2) !important;
+                transform-origin: left center !important;
+                transition: all 0.4s ease !important;
+                object-fit: contain !important;
+            }
+            header.header-scrolled img.h-\[120px\], header.header-scrolled img.md\:h-\[160px\], header.header-scrolled img[alt*="Logo"] {
+                transform: scale(1.5) !important;
+            }
         }
-        header.header-scrolled img.h-\[120px\], header.header-scrolled img.md\:h-\[160px\], header.header-scrolled img[alt*="Logo"] {
-            transform: scale(1.5) !important;
+        
+        /* Ajustements Mobile pour le Logo */
+        @media (max-width: 1023px) {
+            header img[alt*="Logo"] {
+                max-height: 60px !important;
+                transform: none !important;
+            }
         }
+
         @media (max-width: 1280px) {
-            header nav > div { padding: 0 3% !important; }
+            header nav > div { padding: 0 5% !important; }
             header nav > div > div.hidden.xl\:flex { gap: 15px !important; }
-            header img.h-\[120px\], header img.md\:h-\[160px\], header img[alt*="Logo"] { transform: scale(1.2) !important; }
         }
     </style>
     <?php
@@ -505,5 +541,15 @@ function bionova_force_header_cart_checkout() {
     }
 }
 
+// ============================================================
+// FIX: Redirection "Retour à la boutique" et "Continuer les achats"
+// ============================================================
+add_filter( 'woocommerce_return_to_shop_redirect', 'bionova_custom_shop_url' );
+add_filter( 'woocommerce_continue_shopping_redirect', 'bionova_custom_shop_url' );
+add_filter( 'woocommerce_get_shop_page_permalink', 'bionova_custom_shop_url' );
+
+function bionova_custom_shop_url() {
+    return home_url( '/#products' );
+}
 
 ?>
