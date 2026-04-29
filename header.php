@@ -43,6 +43,23 @@
     .woocommerce-cart header svg, .woocommerce-checkout header svg {
       color: #111827 !important;
     }
+
+    /* Logo spécifique Panier/Checkout */
+    body.woocommerce-cart header img, 
+    body.woocommerce-checkout header img {
+      transform: none !important;
+      max-width: 150px !important;
+      height: auto !important;
+      max-height: 80px !important;
+      filter: brightness(0) !important; /* Force le logo en noir si l'original est blanc */
+    }
+
+    @media (max-width: 768px) {
+      body.woocommerce-cart header img, 
+      body.woocommerce-checkout header img {
+        max-width: 120px !important;
+      }
+    }
   </style>
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/woocommerce-custom.css">
 </head>
