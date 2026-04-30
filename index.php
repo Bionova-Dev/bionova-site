@@ -93,7 +93,7 @@
     }
   </script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
   <script>
     tailwind.config = {
       theme: {
@@ -511,7 +511,7 @@
           {/* Mobile Menu Overlay */}
           <div className={`fixed inset-0 bg-white z-[70] transition-all duration-500 transform ${isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'} flex flex-col p-8`}>
             <div className="flex justify-between items-center mb-16">
-              <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" className="h-12 object-contain" />
+              <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" className="h-12 object-contain" loading="lazy" decoding="async" width="120" height="48" />
               <button onClick={() => setIsMenuOpen(false)} className="p-2 text-gray-900"><XIcon className="h-10 w-10" /></button>
             </div>
             <div className="flex flex-col space-y-4">
@@ -586,7 +586,7 @@
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
             {/* Colonne 1: Logo & Info */}
             <div className="flex flex-col items-center md:items-start">
-              <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova Logo" className="h-20 object-contain mb-8" />
+              <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova Logo" className="h-20 object-contain mb-8" loading="lazy" decoding="async" width="200" height="80" />
               <p className="text-gray-500 text-sm leading-relaxed text-center md:text-left font-medium">
                 Votre partenaire bien-être au quotidien. Des formules scientifiques et naturelles conçues par des experts pour votre vitalité.
               </p>
@@ -682,6 +682,8 @@
             }}
             loading="lazy"
             decoding="async"
+            width="400"
+            height="400"
           />
           {!noShadow && (
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-8 bg-black/20 rounded-[100%] blur-xl pointer-events-none"></div>
@@ -896,7 +898,7 @@
       return (
         <div className="bg-white rounded-[2.5rem] overflow-hidden border border-silver/50 product-card-hover flex flex-col h-full cursor-pointer group" onClick={() => onClick(product)}>
           <div className="relative pt-[100%] bg-medical-light/30 border-b border-silver/30 overflow-hidden">
-            <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-contain p-10 product-image-float" />
+            <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-contain p-10 product-image-float" loading="lazy" decoding="async" width="300" height="300" />
 
             {product.badge && (
               <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md text-medical-blue text-[10px] font-black px-4 py-2 rounded-xl shadow-sm tracking-widest uppercase z-20 border border-medical-blue/10">
@@ -974,7 +976,7 @@
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
               <div className="relative w-full aspect-square rounded-[3rem] bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center overflow-hidden group">
-                <img src={product.image} alt={product.name} className="w-full h-full p-12 object-contain" />
+                <img src={product.image} alt={product.name} className="w-full h-full p-12 object-contain" loading="lazy" decoding="async" width="600" height="600" />
                 {product.badge && (
                   <div className="absolute top-8 right-8 bg-medical-blue text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-lg tracking-wider uppercase z-10">
                     {product.badge}
@@ -1096,7 +1098,7 @@
         <div className="bg-white min-h-screen">
           {/* Hero Article */}
           <div className="relative h-[60vh] min-h-[400px] flex items-end pb-16">
-            <img src={article.image} alt={article.title} className="absolute inset-0 w-full h-full object-cover" />
+            <img src={article.image} alt={article.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" width="1200" height="600" />
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent"></div>
 
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
@@ -1138,7 +1140,7 @@
                 <h3 className="text-center font-display text-2xl font-bold text-gray-900 mb-12 uppercase tracking-widest text-sm text-medical-blue">Le protocole recommandé</h3>
                 <div className="bg-white rounded-[3rem] border border-gray-100 shadow-lg overflow-hidden flex flex-col sm:flex-row hover:shadow-2xl transition-all duration-500 cursor-pointer group" onClick={() => onProductClick(product)}>
                   <div className="sm:w-2/5 bg-gray-50 p-8 flex items-center justify-center relative overflow-hidden">
-                    <img src={product.image} alt={product.name} className="w-56 h-56 object-contain transform group-hover:scale-110 transition-transform duration-700" />
+                    <img src={product.image} alt={product.name} className="w-56 h-56 object-contain transform group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" width="224" height="224" />
                   </div>
                   <div className="sm:w-3/5 p-10 sm:p-12 flex flex-col justify-center">
                     <div className="flex justify-between items-start mb-4">
@@ -1179,7 +1181,7 @@
                 </p>
               </div>
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl h-[500px]">
-                <img src="<?php echo get_template_directory_uri(); ?>/expertise-hero.png" alt="Laboratoire" className="w-full h-full object-cover" />
+                <img src="<?php echo get_template_directory_uri(); ?>/expertise-hero.png" alt="Laboratoire" className="w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="600" />
                 <div className="absolute inset-0 bg-medical-blue opacity-10 mix-blend-multiply"></div>
               </div>
             </div>
@@ -1228,7 +1230,6 @@
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              {/* Formulaire */}
               <div className="bg-white p-10 sm:p-14 rounded-[3rem] shadow-xl border border-gray-100">
                 {status && (
                   <div className="mb-8 p-6 rounded-2xl bg-green-50 border border-green-100 shadow-sm">
@@ -1403,7 +1404,5 @@
     root.render(<App />);
   </script>
   <?php wp_footer(); ?>
-</body>
-
-</html>
+</body></html>
 

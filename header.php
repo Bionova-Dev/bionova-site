@@ -4,7 +4,7 @@
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php wp_head(); ?>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
   <script>
     tailwind.config = {
       theme: {
@@ -66,7 +66,7 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-white z-[70] transition-all duration-500 transform translate-x-full opacity-0 pointer-events-none flex flex-col p-8 lg:hidden">
       <div class="flex justify-between items-center mb-16">
-        <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="h-12 object-contain" />
+        <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="h-12 object-contain" loading="lazy" decoding="async" width="120" height="48" />
         <button onclick="document.getElementById('mobile-menu').classList.add('translate-x-full'); document.getElementById('mobile-menu').classList.add('opacity-0'); document.getElementById('mobile-menu').classList.add('pointer-events-none');" class="p-2 text-gray-900">
           <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
         </button>
