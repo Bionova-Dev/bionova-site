@@ -735,7 +735,7 @@
                 cta2: { label: "Lire nos articles", page: "blog" },
               },
               {
-                image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1920&q=90",
+                image: "<?php echo get_template_directory_uri(); ?>/hero-usine-gelules.png",
                 badge: "Science & Pureté Clinique",
                 title1: "La précision",
                 title2: "du laboratoire",
