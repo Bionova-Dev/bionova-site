@@ -715,7 +715,7 @@
                 cta2: { label: "Notre Expertise", page: "about" },
               },
               {
-                image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1920&q=90",
+                image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=1920&q=90",
                 badge: "Beauté & Peau Éclatante",
                 title1: "Rayonnez",
                 title2: "de l'intérieur",
@@ -735,7 +735,7 @@
                 cta2: { label: "Lire nos articles", page: "blog" },
               },
               {
-                image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1920&q=90",
+                image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1920&q=90",
                 badge: "Science & Pureté Clinique",
                 title1: "La précision",
                 title2: "du laboratoire",
