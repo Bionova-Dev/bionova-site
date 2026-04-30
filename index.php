@@ -735,7 +735,7 @@
                 cta2: { label: "Lire nos articles", page: "blog" },
               },
               {
-                image: "<?php echo get_template_directory_uri(); ?>/hero-hightech-production-zoom.png",
+                image: "<?php echo get_template_directory_uri(); ?>/hero-factory-production.png",
                 badge: "Science & Pureté Clinique",
                 title1: "La précision",
                 title2: "du laboratoire",
