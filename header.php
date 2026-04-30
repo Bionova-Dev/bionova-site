@@ -28,21 +28,28 @@
     body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1e293b; }
     .glassmorphism { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
     
-    /* Sécurité Cart/Checkout : Forcer la visibilité du menu */
-    .woocommerce-cart header, .woocommerce-checkout header {
+    /* Sécurité Cart/Checkout/Compte : Forcer la visibilité du menu et footer */
+    .woocommerce-cart header, .woocommerce-checkout header, .woocommerce-account header {
       display: flex !important;
       background-color: white !important;
       border-bottom: 1px solid #f1f5f9 !important;
     }
-    .woocommerce-cart header a, .woocommerce-checkout header a,
-    .woocommerce-cart header button, .woocommerce-checkout header button {
+    .woocommerce-cart header a, .woocommerce-checkout header a, .woocommerce-account header a,
+    .woocommerce-cart header button, .woocommerce-checkout header button, .woocommerce-account header button {
       opacity: 1 !important;
       visibility: visible !important;
     }
 
-    /* Logo spécifique Panier/Checkout */
+    .woocommerce-cart footer, .woocommerce-checkout footer, .woocommerce-account footer {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    /* Logo spécifique Panier/Checkout/Compte */
     body.woocommerce-cart header img, 
-    body.woocommerce-checkout header img {
+    body.woocommerce-checkout header img,
+    body.woocommerce-account header img {
       transform: none !important;
       max-width: 150px !important;
       height: auto !important;
@@ -52,7 +59,8 @@
 
     @media (max-width: 768px) {
       body.woocommerce-cart header img, 
-      body.woocommerce-checkout header img {
+      body.woocommerce-checkout header img,
+      body.woocommerce-account header img {
         max-width: 120px !important;
       }
     }
@@ -109,7 +117,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
             <?php if ( function_exists('WC') && WC()->cart && WC()->cart->get_cart_contents_count() > 0 ) : ?>
-              <span class="absolute -top-2 -right-2 bg-bionova-red text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg">
+              <span class="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg">
                 <?php echo WC()->cart->get_cart_contents_count(); ?>
               </span>
             <?php endif; ?>

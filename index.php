@@ -563,7 +563,7 @@
                 <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" className="relative p-3 sm:p-4 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all group shadow-lg hover:shadow-xl" title="Voir le panier">
                   <ShoppingCartIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
                   {cartItemCount > 0 && (
-                    <span className="absolute -top-2 -right-2 bg-bionova-red text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                    <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg animate-bounce">
                       {cartItemCount}
                     </span>
                   )}
