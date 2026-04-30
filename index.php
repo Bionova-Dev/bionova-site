@@ -748,7 +748,7 @@
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                 {bestSellers.map(product => (
                   <article key={product.id} onClick={() => onProductClick(product)} className="bg-gray-50 rounded-[3rem] p-10 flex flex-col items-center text-center group border border-gray-100 hover:shadow-2xl hover:border-medical-blue/20 transition-all duration-500 relative cursor-pointer">
-                    <div className="absolute top-6 right-6 bg-bionova-red text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg tracking-wider uppercase z-20">Best Seller</div>
+                    <div className="absolute top-6 right-6 bg-gray-900 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg tracking-wider uppercase z-20" style={{backgroundColor:'#111827',color:'#ffffff'}}>Best Seller</div>
                     <InteractiveProductViewer src={product.image} alt={`Produit Bionova : ${product.name}`} className="w-56 h-56 mb-10" noShadow={true} />
                     <h3 className="font-display text-2xl font-black text-gray-900 mb-2 group-hover:text-medical-blue transition-colors">{product.name}</h3>
 
@@ -901,7 +901,7 @@
             <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-contain p-10 product-image-float" loading="lazy" decoding="async" width="300" height="300" />
 
             {product.badge && (
-              <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md text-medical-blue text-[10px] font-black px-4 py-2 rounded-xl shadow-sm tracking-widest uppercase z-20 border border-medical-blue/10">
+              <div className="absolute top-6 left-6 bg-gray-900 text-white text-[10px] font-black px-4 py-2 rounded-xl shadow-md tracking-widest uppercase z-20" style={{backgroundColor:'#111827',color:'#ffffff'}}>
                 {product.badge}
               </div>
             )}
@@ -1048,8 +1048,8 @@
                     e.preventDefault(); 
                     onAddToCart(product);
                   }}
-                  style={{ position: 'relative', zIndex: 9999, cursor: 'pointer', display: 'flex' }}
-                  className="w-full flex justify-center items-center py-6 px-8 shadow-xl text-xl font-bold rounded-2xl text-white bg-medical-blue hover:bg-medical-blue/90 hover:-translate-y-1 hover:shadow-2xl transition-all text-center"
+                  style={{ position: 'relative', zIndex: 9999, cursor: 'pointer', display: 'flex', backgroundColor: '#075985', color: '#ffffff' }}
+                  className="w-full flex justify-center items-center py-6 px-8 shadow-xl text-xl font-bold uppercase tracking-wider rounded-2xl text-white bg-medical-blue hover:bg-gray-900 hover:-translate-y-1 hover:shadow-2xl transition-all text-center"
                 >
                   <ShoppingCartIcon className="w-6 h-6 mr-3" />
                   Ajouter au panier
