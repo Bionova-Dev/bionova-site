@@ -368,7 +368,7 @@
         id: 1,
         category: "Immunité",
         title: "Comment booster son immunité naturellement avant l'hiver ?",
-        image: "https://images.unsplash.com/photo-1550828520-4cb496926fc9?auto=format&fit=crop&w=800&q=70",
+        image: "<?php echo get_template_directory_uri(); ?>/neem.png",
         excerpt: "Découvrez les réflexes quotidiens et les compléments essentiels pour préparer votre organisme aux agressions extérieures.",
         problem: "À l'approche de la saison froide, notre organisme est mis à rude épreuve : baisse d'énergie, vulnérabilité aux virus. Le système immunitaire s'affaiblit sous l'effet du manque de lumière, de la fatigue accumulée et du refroidissement général. Ce phénomène est naturel, mais il peut considérablement altérer votre qualité de vie et votre tonus quotidien.",
         solution: "La nature offre de puissants boucliers biologiques pour soutenir nos défenses. Outre une alimentation riche en vitamines C et en zinc, ainsi qu'un sommeil réparateur, l'utilisation de plantes médicinales purifiantes permet de renforcer le terrain biologique. L'ayurveda utilise depuis des millénaires des extraits végétaux capables de stimuler la réponse immunitaire et de détoxifier le sang.",
@@ -379,7 +379,7 @@
         id: 2,
         category: "Anti-stress",
         title: "Les incroyables bienfaits de l'Ashwagandha sur la charge mentale",
-        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=70",
+        image: "<?php echo get_template_directory_uri(); ?>/ashwagandha.png",
         excerpt: "Plante phare de l'Ayurveda, l'Ashwagandha est la réponse naturelle pour retrouver un sommeil réparateur et une sérénité durable.",
         problem: "Dans notre société hyperconnectée, le stress chronique et la charge mentale sont devenus le mal du siècle. La surproduction de cortisol (l'hormone du stress) épuise littéralement nos réserves énergétiques, conduisant à des insomnies, de l'anxiété, une baisse de concentration et parfois même au burn-out. Notre système nerveux a urgemment besoin d'être régulé.",
         solution: "Heureusement, la phytothérapie moderne a redécouvert la puissance des plantes 'adaptogènes'. Contrairement aux stimulants chimiques ou aux sédatifs, une plante adaptogène module la réponse de l'organisme face au stress. Elle normalise les fonctions physiologiques et aide le corps à retrouver son homéostasie, qu'il soit confronté à un stress physique ou psychologique.",
@@ -390,7 +390,7 @@
         id: 3,
         category: "Anti-âge",
         title: "Longévité cellulaire : Le NMN est-il le nouveau miracle de la science ?",
-        image: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=800&q=70",
+        image: "<?php echo get_template_directory_uri(); ?>/nmn.png",
         excerpt: "Tout ce qu'il faut savoir sur le précurseur du NAD+ et ses effets scientifiquement prouvés sur le rajeunissement tissulaire.",
         problem: "Le vieillissement cellulaire n'est plus perçu comme une fatalité, mais comme un processus biologique que nous pouvons ralentir. Avec l'âge, notre organisme perd drastiquement sa capacité à produire du NAD+ (Nicotinamide Adénine Dinucléotide), une coenzyme vitale présente dans chacune de nos cellules. Cette chute de NAD+ (jusqu'à 50% entre 20 et 50 ans) entraîne une baisse de l'énergie métabolique, une dégénérescence tissulaire et l'apparition des signes de l'âge.",
         solution: "Pour restaurer nos niveaux de NAD+, la science s'est tournée vers ses précurseurs directs. L'un des plus prometteurs et étudiés actuellement par les généticiens d'Harvard est le NMN (Nicotinamide Mononucléotide). En pénétrant rapidement dans les cellules, le NMN est immédiatement converti en NAD+, réactivant ainsi les mitochondries (les centrales énergétiques de la cellule) et les sirtuines (les protéines de la longévité).",
@@ -401,7 +401,7 @@
         id: 4,
         category: "Nutricosmétique",
         title: "Collagène marin : le secret d'une peau éclatante à tout âge",
-        image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=70",
+        image: "<?php echo get_template_directory_uri(); ?>/collagene marin complex.png",
         excerpt: "Pourquoi notre production de collagène diminue-t-elle et comment l'intégration du collagène marin peut-elle revitaliser votre peau ?",
         problem: "La peau perd naturellement de sa fermeté et de son éclat avec le temps. Dès l'âge de 25 ans, la production endogène de collagène – la protéine structurale majeure qui donne sa résistance et son élasticité à la peau – diminue d'environ 1% par an. Ce phénomène accélère l'apparition des rides, le relâchement cutané, mais fragilise aussi les ongles, les cheveux et les articulations. Les crèmes superficielles ne suffisent plus.",
         solution: "La nutricosmétique apporte la réponse en agissant 'de l'intérieur'. En ingérant des peptides de collagène marin (issus de poissons sauvages, plus purs et plus assimilables que le collagène bovin), on fournit directement aux fibroblastes de la peau les acides aminés essentiels pour relancer leur propre production de collagène et d'acide hyaluronique. La redensification se fait dans les couches profondes du derme.",
@@ -701,39 +701,151 @@
       ];
       return (
         <div className="animate-fade-in">
-          {/* Hero Section */}
-          <section className="relative pt-32 pb-40 lg:pt-48 lg:pb-56 overflow-hidden flex items-center justify-center min-h-[90vh]">
-            <img 
-              src="<?php echo get_template_directory_uri(); ?>/hero-banner.png" 
-              alt="Bien-être et vitalité naturelle avec Bionova" 
-              className="absolute inset-0 w-full h-full object-cover" 
-              fetchpriority="high"
-              loading="eager"
-              decoding="sync"
-            />
-            <div className="absolute inset-0 bg-gray-900/40 backdrop-blur-[2px]"></div>
+          {/* Hero Carousel Section */}
+          {(() => {
+            const slides = [
+              {
+                image: "<?php echo get_template_directory_uri(); ?>/hero-banner.png",
+                badge: "Laboratoire Bionova Tunisie",
+                title1: "La science de la",
+                title2: "nature pour vous",
+                titleColor: "text-blue-200",
+                subtitle: "Découvrez notre gamme exclusive de compléments alimentaires naturels. Des formules hautement concentrées conçues par des experts pour votre bien-être optimal.",
+                cta1: { label: "Découvrir la gamme", page: "products" },
+                cta2: { label: "Notre Expertise", page: "about" },
+              },
+              {
+                image: "<?php echo get_template_directory_uri(); ?>/ashwagandha.png",
+                badge: "Plante Adaptogène N°1",
+                title1: "Retrouvez votre",
+                title2: "sérénité naturelle",
+                titleColor: "text-emerald-300",
+                subtitle: "L'Ashwagandha KSM-66 à 500 mg : la solution cliniquement prouvée pour réduire le cortisol, améliorer le sommeil et restaurer votre équilibre au quotidien.",
+                cta1: { label: "Découvrir l'Ashwagandha", page: "products" },
+                cta2: { label: "Lire l'article", page: "blog" },
+              },
+              {
+                image: "<?php echo get_template_directory_uri(); ?>/nmn.png",
+                badge: "Innovation Anti-Âge",
+                title1: "Réparez votre ADN,",
+                title2: "repoussez le temps",
+                titleColor: "text-amber-300",
+                subtitle: "Le NMN Uthever® est le précurseur du NAD+ le plus pur du marché. Boostez vos mitochondries, votre énergie cellulaire et votre longévité dès la première semaine.",
+                cta1: { label: "Découvrir le NMN", page: "products" },
+                cta2: { label: "La science du NAD+", page: "blog" },
+              },
+              {
+                image: "<?php echo get_template_directory_uri(); ?>/collagene marin complex.png",
+                badge: "Nutri-Cosmétique Premium",
+                title1: "Une peau éclatante",
+                title2: "de l'intérieur",
+                titleColor: "text-pink-300",
+                subtitle: "5 000 mg de peptides de Collagène Marin Hydrolysé + Acide Hyaluronique + Vitamine C. La cure beauté qui redensifie le derme en profondeur pour un teint lumineux.",
+                cta1: { label: "Découvrir le Collagène", page: "products" },
+                cta2: { label: "Notre Pack Glowy", page: "products" },
+              },
+            ];
+            const HeroCarousel = () => {
+              const [current, setCurrent] = React.useState(0);
+              const [fade, setFade] = React.useState(true);
+              const total = slides.length;
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-              <div className="text-center md:text-left md:w-[65%]">
-                <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md text-white font-bold tracking-widest uppercase text-xs rounded-full mb-8 border border-white/30 shadow-lg">Laboratoire Bionova Tunisie</div>
-                <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl tracking-tight font-extrabold text-white leading-tight">
-                  <span className="block mb-2">La science de la</span>
-                  <span className="block text-blue-200">nature pour vous</span>
-                </h1>
-                <p className="mt-8 text-lg text-gray-200 sm:text-xl max-w-2xl leading-relaxed">
-                  Découvrez notre gamme exclusive de compléments alimentaires naturels. Des formules hautement concentrées conçues par des experts pour votre bien-être optimal.
-                </p>
-                <div className="mt-12 sm:flex sm:justify-center md:justify-start gap-4">
-                  <button onClick={() => onNavigate('products')} className="w-full sm:w-auto flex items-center justify-center px-10 py-4 text-lg font-bold rounded-2xl text-white bg-medical-blue hover:bg-blue-600 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1" title="Découvrir nos produits">
-                    Découvrir la gamme
-                  </button>
-                  <button onClick={() => onNavigate('about')} className="mt-4 sm:mt-0 w-full sm:w-auto flex items-center justify-center px-10 py-4 border border-white/30 backdrop-blur-sm text-lg font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 transition-all shadow-sm" title="En savoir plus sur notre expertise">
-                    Notre Expertise
-                  </button>
-                </div>
-              </div>
-            </div>
-          </section>
+              const goTo = (idx) => {
+                setFade(false);
+                setTimeout(() => {
+                  setCurrent(idx);
+                  setFade(true);
+                }, 400);
+              };
+
+              React.useEffect(() => {
+                const timer = setInterval(() => {
+                  setFade(false);
+                  setTimeout(() => {
+                    setCurrent(prev => (prev + 1) % total);
+                    setFade(true);
+                  }, 400);
+                }, 6000);
+                return () => clearInterval(timer);
+              }, []);
+
+              const slide = slides[current];
+
+              return (
+                <section className="relative pt-32 pb-40 lg:pt-48 lg:pb-56 overflow-hidden flex items-center justify-center min-h-[90vh]">
+                  {/* Background images stacked, controlled by opacity */}
+                  {slides.map((s, i) => (
+                    <img
+                      key={i}
+                      src={s.image}
+                      alt=""
+                      className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out"
+                      style={{ opacity: i === current ? (fade ? 1 : 0) : 0 }}
+                      loading={i === 0 ? "eager" : "lazy"}
+                      fetchpriority={i === 0 ? "high" : "auto"}
+                      decoding={i === 0 ? "sync" : "async"}
+                      aria-hidden="true"
+                    />
+                  ))}
+
+                  {/* Dark overlay */}
+                  <div className="absolute inset-0 bg-gray-900/45 backdrop-blur-[2px]"></div>
+
+                  {/* Content */}
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                    <div
+                      className="text-center md:text-left md:w-[65%] transition-opacity duration-700 ease-in-out"
+                      style={{ opacity: fade ? 1 : 0 }}
+                    >
+                      <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md text-white font-bold tracking-widest uppercase text-xs rounded-full mb-8 border border-white/30 shadow-lg">
+                        {slide.badge}
+                      </div>
+                      <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl tracking-tight font-extrabold text-white leading-tight">
+                        <span className="block mb-2">{slide.title1}</span>
+                        <span className={`block ${slide.titleColor}`}>{slide.title2}</span>
+                      </h1>
+                      <p className="mt-8 text-lg text-gray-200 sm:text-xl max-w-2xl leading-relaxed">
+                        {slide.subtitle}
+                      </p>
+                      <div className="mt-12 sm:flex sm:justify-center md:justify-start gap-4">
+                        <button
+                          onClick={() => onNavigate(slide.cta1.page)}
+                          className="w-full sm:w-auto flex items-center justify-center px-10 py-4 text-lg font-bold rounded-2xl text-white bg-medical-blue hover:bg-blue-600 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
+                          title={slide.cta1.label}
+                        >
+                          {slide.cta1.label}
+                        </button>
+                        <button
+                          onClick={() => onNavigate(slide.cta2.page)}
+                          className="mt-4 sm:mt-0 w-full sm:w-auto flex items-center justify-center px-10 py-4 border border-white/30 backdrop-blur-sm text-lg font-bold rounded-2xl text-white bg-white/10 hover:bg-white/20 transition-all shadow-sm"
+                          title={slide.cta2.label}
+                        >
+                          {slide.cta2.label}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Dot indicators */}
+                  <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+                    {slides.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => goTo(i)}
+                        aria-label={`Slide ${i + 1}`}
+                        className={`rounded-full transition-all duration-300 ${
+                          i === current
+                            ? "w-8 h-3 bg-white shadow-lg"
+                            : "w-3 h-3 bg-white/50 hover:bg-white/80"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </section>
+              );
+            };
+            return <HeroCarousel />;
+          })()}
 
 
           {/* Best Sellers Section */}
