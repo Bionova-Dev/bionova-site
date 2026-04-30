@@ -735,7 +735,7 @@
                 cta2: { label: "Lire nos articles", page: "blog" },
               },
               {
-                image: "https://images.unsplash.com/photo-1628771065518-0d82f1938462?auto=format&fit=crop&w=1920&q=90",
+                image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1920&q=90",
                 badge: "Science & Pureté Clinique",
                 title1: "La précision",
                 title2: "du laboratoire",
