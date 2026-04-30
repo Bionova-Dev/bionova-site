@@ -881,7 +881,7 @@
                 {features.map((feature) => (
                   <div key={feature.name} className="relative bg-white p-10 rounded-[2.5rem] shadow-sm border border-silver/40 hover:shadow-xl transition-all group">
                     <div className="absolute flex items-center justify-center h-20 w-20 rounded-2xl bg-gradient-to-br from-medical-blue to-blue-400 text-white -top-10 left-10 shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                      <feature.icon className="h-10 w-10" aria-hidden="true" />
+                      <feature.icon className="h-10 w-10 text-white stroke-white" aria-hidden="true" />
                     </div>
                     <p className="mt-8 font-display text-2xl font-bold text-gray-900 mb-4">{feature.name}</p>
                     <p className="text-lg text-gray-500 leading-relaxed">{feature.description}</p>
@@ -1048,9 +1048,10 @@
                     e.preventDefault(); 
                     onAddToCart(product);
                   }}
-                  style={{ position: 'relative', zIndex: 9999, cursor: 'pointer' }}
-                  className="w-full flex justify-center items-center py-6 px-8 shadow-xl text-xl font-bold rounded-2xl text-white bg-medical-blue hover:bg-medical-blue/90 transition-all text-center"
+                  style={{ position: 'relative', zIndex: 9999, cursor: 'pointer', display: 'flex' }}
+                  className="w-full flex justify-center items-center py-6 px-8 shadow-xl text-xl font-bold rounded-2xl text-white bg-medical-blue hover:bg-medical-blue/90 hover:-translate-y-1 hover:shadow-2xl transition-all text-center"
                 >
+                  <ShoppingCartIcon className="w-6 h-6 mr-3" />
                   Ajouter au panier
                 </a>
               </div>
