@@ -15,20 +15,22 @@ add_action( 'after_setup_theme', 'bionova_setup' );
 // FORCE: Activation totale tunnel achat — Anti-maintenance radical
 // ================================================================
 
-// 1. Force le statut 'En ligne'
-update_option('woocommerce_status_options', array('is_store_online' => 'yes'));
+add_action('init', function() {
+    // 1. Force le statut 'En ligne'
+    update_option('woocommerce_status_options', array('is_store_online' => 'yes'));
 
-// 2. Empêche toute redirection vers maintenance
-remove_action('template_redirect', 'wp_redirect_to_maintenance_page');
-remove_action('template_redirect', 'wc_disable_author_archives_for_customers', 10);
+    // 2. Empêche toute redirection vers maintenance
+    remove_action('template_redirect', 'wp_redirect_to_maintenance_page');
+    remove_action('template_redirect', 'wc_disable_author_archives_for_customers', 10);
 
-// 3. Désactive TOUT mode maintenance connu en base de données
-update_option('aios_maintenance_mode', '0');
-update_option('wp_maintenance_mode', '0');
-update_option('site_temporary_maintenance_mode', 0);
-update_option('aiowps_site_lockout', '');
-update_option('aios_site_lockout', '');
-delete_option('aiowps_site_lockout');
+    // 3. Désactive TOUT mode maintenance connu en base de données
+    update_option('aios_maintenance_mode', '0');
+    update_option('wp_maintenance_mode', '0');
+    update_option('site_temporary_maintenance_mode', 0);
+    update_option('aiowps_site_lockout', '');
+    update_option('aios_site_lockout', '');
+    delete_option('aiowps_site_lockout');
+}, 5);
 
 // 4. Désactivation forcée de plugins de maintenance via la BDD
 add_action('init', function() {
