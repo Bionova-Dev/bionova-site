@@ -94,7 +94,7 @@
             <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="transition-all duration-500 object-contain h-[70px] lg:h-[160px] transform lg:scale-[1.4] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.5]" />
           </a>
           
-          <div class="hidden lg:flex items-center space-x-6 xl:space-x-10">
+          <div class="hidden lg:flex flex-grow justify-center items-center space-x-6 xl:space-x-10">
             <a href="<?php echo home_url('/'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Accueil</a>
             <a href="<?php echo home_url('/#products'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Boutique</a>
             <a href="<?php echo home_url('/#blog'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Astuces</a>
@@ -102,7 +102,7 @@
             <a href="<?php echo home_url('/#contact'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Contact</a>
           </div>
 
-          <div class="flex items-center space-x-1 sm:space-x-5">
+          <div class="flex items-center space-x-1 sm:space-x-5 shrink-0">
             <!-- Icône Mon Compte -->
             <a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ); ?>" class="hidden sm:flex p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Mon compte">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
