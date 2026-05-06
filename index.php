@@ -511,7 +511,7 @@
             </div>
           </div>
 
-          <header className="fixed w-full z-50 h-[50px] lg:h-[90px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
+          <header className="fixed w-full z-50 h-[100px] lg:h-[180px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
             {/* Search Overlay */}
             <div className={`absolute inset-0 bg-white z-[60] flex items-center px-6 lg:px-12 transition-all duration-500 transform ${isSearchOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
               <div className="max-w-7xl mx-auto w-full flex items-center">
@@ -536,7 +536,7 @@
                   <img
                     src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png"
                     alt="Logo Bionova"
-                    className="transition-all duration-500 object-contain h-[35px] lg:h-[80px] transform lg:scale-[1.5] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.6]"
+                    className="transition-all duration-500 object-contain h-[70px] lg:h-[160px] transform lg:scale-[1.5] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.6]"
                     loading="eager"
                     decoding="async"
                     width="320"
@@ -780,7 +780,7 @@
               const slide = slides[current];
 
               return (
-                <section className="relative pt-16 pb-40 lg:pt-24 lg:pb-56 overflow-hidden flex items-center justify-center min-h-[90vh]">
+                <section className="relative pt-32 pb-40 lg:pt-48 lg:pb-56 overflow-hidden flex items-center justify-center min-h-[90vh]">
                   {/* Background images stacked, controlled by opacity */}
                   {slides.map((s, i) => (
                     <img
@@ -1065,7 +1065,7 @@
 
     const ProductsPage = ({ products, onAddToCart, onProductClick }) => {
       return (
-        <div id="products" className="pt-16 pb-32 bg-white min-h-screen">
+        <div id="products" className="pt-32 pb-32 bg-white min-h-screen">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-24">
               <h2 className="text-sm text-medical-blue font-bold tracking-widest uppercase mb-3">Notre Gamme</h2>
@@ -1088,7 +1088,7 @@
 
     const ProductDetailPage = ({ product, onAddToCart, onBack }) => {
       return (
-        <div className="min-h-screen bg-white pt-16 pb-32">
+        <div className="min-h-screen bg-white pt-32 pb-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <button onClick={onBack} className="group flex items-center text-gray-500 hover:text-medical-blue font-semibold tracking-wide uppercase text-sm transition-colors mb-16">
               <span className="transform transition-transform group-hover:-translate-x-2 mr-3 text-lg">&larr;</span> Retour à la boutique
