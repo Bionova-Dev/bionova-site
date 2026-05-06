@@ -1001,7 +1001,7 @@
                 {features.map((feature) => (
                   <div key={feature.name} className="relative bg-white p-10 rounded-[2.5rem] shadow-sm border border-silver/40 hover:shadow-xl transition-all group">
                     <div className="absolute flex items-center justify-center h-20 w-20 rounded-2xl bg-gradient-to-br from-medical-blue to-blue-400 text-white -top-10 left-10 shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                      <feature.icon className="h-10 w-10 text-white stroke-white" aria-hidden="true" />
+                      <feature.icon className="h-10 w-10 text-black" aria-hidden="true" />
                     </div>
                     <p className="mt-8 font-display text-2xl font-bold text-gray-900 mb-4">{feature.name}</p>
                     <p className="text-lg text-gray-500 leading-relaxed">{feature.description}</p>
