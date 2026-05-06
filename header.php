@@ -86,12 +86,12 @@
       </div>
     </div>
 
-    <header class="fixed w-full z-50 h-[100px] lg:h-[180px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
+    <header class="fixed w-full z-50 h-[50px] lg:h-[90px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
       <nav class="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
         <div class="flex justify-between items-center h-full gap-4 lg:gap-8">
           
           <a href="<?php echo home_url(); ?>" class="flex items-center cursor-pointer px-2 group shrink-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="transition-all duration-500 object-contain h-[70px] lg:h-[160px] transform lg:scale-[1.4] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.5]" />
+            <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="transition-all duration-500 object-contain h-[35px] lg:h-[80px] transform lg:scale-[1.4] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.5]" />
           </a>
           
           <div class="hidden lg:flex items-center space-x-6 xl:space-x-10">
