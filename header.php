@@ -1,88 +1,37 @@
+<?php
+/**
+ * The header for our theme
+ */
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="profile" href="https://gmpg.org/xfn/11">
   <?php wp_head(); ?>
-  <script src="https://cdn.tailwindcss.com" defer></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'medical-blue': '#075985',
-            'medical-light': '#f0fdf4',
-            'bionova-red': '#be123c',
-            'silver': '#f1f5f9',
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Montserrat', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1e293b; }
-    .glassmorphism { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
-    
-    /* Sécurité Cart/Checkout/Compte : Forcer la visibilité du menu et footer */
-    .woocommerce-cart header, .woocommerce-checkout header, .woocommerce-account header {
-      display: flex !important;
-      background-color: white !important;
-      border-bottom: 1px solid #f1f5f9 !important;
-    }
-    .woocommerce-cart header a, .woocommerce-checkout header a, .woocommerce-account header a,
-    .woocommerce-cart header button, .woocommerce-checkout header button, .woocommerce-account header button {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-
-    .woocommerce-cart footer, .woocommerce-checkout footer, .woocommerce-account footer {
-      display: block !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-
-    /* Logo spécifique Panier/Checkout/Compte */
-    body.woocommerce-cart header img, 
-    body.woocommerce-checkout header img,
-    body.woocommerce-account header img {
-      transform: none !important;
-      max-width: 150px !important;
-      height: auto !important;
-      max-height: 80px !important;
-      filter: none !important;
-    }
-
-    @media (max-width: 768px) {
-      body.woocommerce-cart header img, 
-      body.woocommerce-checkout header img,
-      body.woocommerce-account header img {
-        max-width: 120px !important;
-      }
-    }
-  </style>
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/woocommerce-custom.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body <?php body_class(); ?>>
-  <?php if (!is_front_page()) : ?>
-    <!-- Mobile Menu Overlay - Moved outside header to avoid clipping -->
+<?php wp_body_open(); ?>
+
+<div id="page" class="site">
+  <?php if ( ! is_front_page() ) : ?>
+    <!-- Mobile Menu - Logique robuste -->
     <div id="mobile-menu" class="fixed inset-0 bg-white z-[80] transition-all duration-500 transform translate-x-full opacity-0 pointer-events-none flex flex-col p-8 lg:hidden">
       <div class="flex justify-between items-center mb-16">
-        <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="h-12 object-contain" loading="lazy" decoding="async" width="120" height="48" />
+        <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="h-12 object-contain" />
         <button onclick="var mm = document.getElementById('mobile-menu'); mm.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none'); mm.classList.remove('translate-x-0', 'opacity-100');" class="p-2 text-gray-900">
           <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
         </button>
       </div>
       <div class="flex flex-col space-y-6">
-        <a href="<?php echo home_url('/'); ?>" class="text-2xl font-black uppercase tracking-widest text-gray-800 py-4 border-b-2 border-transparent hover:text-medical-blue transition-colors">Accueil</a>
-        <a href="<?php echo home_url('/#products'); ?>" class="text-2xl font-black uppercase tracking-widest text-gray-800 py-4 border-b-2 border-transparent hover:text-medical-blue transition-colors">Boutique</a>
-        <a href="<?php echo home_url('/#blog'); ?>" class="text-2xl font-black uppercase tracking-widest text-gray-800 py-4 border-b-2 border-transparent hover:text-medical-blue transition-colors">Astuces</a>
-        <a href="<?php echo home_url('/#about'); ?>" class="text-2xl font-black uppercase tracking-widest text-gray-800 py-4 border-b-2 border-transparent hover:text-medical-blue transition-colors">Expertise</a>
-        <a href="<?php echo home_url('/#contact'); ?>" class="text-2xl font-black uppercase tracking-widest text-gray-800 py-4 border-b-2 border-transparent hover:text-medical-blue transition-colors">Contact</a>
+        <a href="<?php echo home_url('/'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:opacity-60 transition-all">Accueil</a>
+        <a href="<?php echo home_url('/#products'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:opacity-60 transition-all">Boutique</a>
+        <a href="<?php echo home_url('/#blog'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:opacity-60 transition-all">Astuces</a>
+        <a href="<?php echo home_url('/#about'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:opacity-60 transition-all">Expertise</a>
+        <a href="<?php echo home_url('/#contact'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:opacity-60 transition-all">Contact</a>
       </div>
     </div>
 
@@ -95,11 +44,11 @@
           </a>
           
           <div class="hidden lg:flex flex-grow justify-center items-center space-x-6 xl:space-x-10">
-            <a href="<?php echo home_url('/'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Accueil</a>
-            <a href="<?php echo home_url('/#products'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Boutique</a>
-            <a href="<?php echo home_url('/#blog'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Astuces</a>
-            <a href="<?php echo home_url('/#about'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Expertise</a>
-            <a href="<?php echo home_url('/#contact'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Contact</a>
+            <a href="<?php echo home_url('/'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:opacity-60" style="font-family: 'Montserrat', sans-serif;">Accueil</a>
+            <a href="<?php echo home_url('/#products'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:opacity-60" style="font-family: 'Montserrat', sans-serif;">Boutique</a>
+            <a href="<?php echo home_url('/#blog'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:opacity-60" style="font-family: 'Montserrat', sans-serif;">Astuces</a>
+            <a href="<?php echo home_url('/#about'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:opacity-60" style="font-family: 'Montserrat', sans-serif;">Expertise</a>
+            <a href="<?php echo home_url('/#contact'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:opacity-60" style="font-family: 'Montserrat', sans-serif;">Contact</a>
           </div>
 
           <div class="flex items-center space-x-1 sm:space-x-5 shrink-0">

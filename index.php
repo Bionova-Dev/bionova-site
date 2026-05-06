@@ -475,13 +475,13 @@
       const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
       const navLinkClass = (page, isMobile = false) => {
-        const baseColor = isMobile ? 'text-gray-800' : 'text-gray-900';
-        const activeColor = 'text-medical-blue border-medical-blue';
+        const baseColor = 'text-black';
+        const activeColor = 'text-black border-black';
         const baseStyles = isMobile 
           ? 'text-2xl font-black uppercase tracking-widest py-4 border-b-2' 
           : 'text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] py-2 px-1 border-b-4';
         
-        return `${baseStyles} transition-all duration-300 cursor-pointer ${currentPage === page ? activeColor : `${baseColor} border-transparent hover:text-medical-blue`}`;
+        return `${baseStyles} transition-all duration-300 cursor-pointer ${currentPage === page ? activeColor : `${baseColor} border-transparent hover:opacity-60`}`;
       };
 
       const handleMobileNavigate = (page) => {

@@ -435,10 +435,13 @@ function bionova_header_common_premium_style() {
             padding: 0 5% !important;
             gap: 20px !important;
         }
-        header nav > div > div.hidden.xl\:flex button,
-        header nav > div > div.hidden.xl\:flex a,
-        header nav > div > div.flex.items-center.space-x-2 button,
-        header nav > div > div.flex.items-center.space-x-2 a {
+        header nav > div > div.hidden.lg\:flex button,
+        header nav > div > div.hidden.lg\:flex a,
+        header nav > div > div.flex.items-center.space-x-1 button,
+        header nav > div > div.flex.items-center.space-x-1 a,
+        header nav > div > div.flex.items-center.space-x-5 button,
+        header nav > div > div.flex.items-center.space-x-5 a {
+            color: #000000 !important;
             font-family: 'Montserrat', sans-serif !important;
             background: transparent !important;
             border: none !important;
@@ -453,20 +456,20 @@ function bionova_header_common_premium_style() {
             font-weight: bold !important;
         }
         @media (min-width: 1024px) {
-            header nav > div > div.hidden.xl\:flex button,
-            header nav > div > div.hidden.xl\:flex a,
-            header nav > div > div.flex.items-center.space-x-2 button,
-            header nav > div > div.flex.items-center.space-x-2 a {
+            header nav > div > div.hidden.lg\:flex button,
+            header nav > div > div.hidden.lg\:flex a,
+            header nav > div > div.flex.items-center.space-x-5 button,
+            header nav > div > div.flex.items-center.space-x-5 a {
                 font-size: 20px !important;
             }
         }
-        header nav > div > div.hidden.xl\:flex { gap: 35px !important; }
-        header nav > div > div.flex.items-center.space-x-2 svg { width: 28px !important; height: 28px !important; }
-        header nav > div > div.hidden.xl\:flex button:hover,
-        header nav > div > div.hidden.xl\:flex a:hover,
-        header nav > div > div.flex.items-center.space-x-2 button:hover,
-        header nav > div > div.flex.items-center.space-x-2 a:hover { color: #6d4c41 !important; }
-        header nav > div > div.hidden.xl\:flex button.text-medical-blue { color: #be123c !important; border-bottom: 3px solid #be123c !important; }
+        header nav > div > div.hidden.lg\:flex { gap: 35px !important; }
+        header nav > div > div.flex.items-center svg { width: 28px !important; height: 28px !important; color: #000000 !important; }
+        header nav > div > div.hidden.lg\:flex button:hover,
+        header nav > div > div.hidden.lg\:flex a:hover,
+        header nav > div > div.flex.items-center button:hover,
+        header nav > div > div.flex.items-center a:hover { color: #000000 !important; opacity: 0.6 !important; }
+        header nav > div > div.hidden.lg\:flex button.text-black { color: #000000 !important; border-bottom: 3px solid #000000 !important; }
 
         /* LOGO : Unifié avec un scale raisonnable */
         header img[alt*="Logo"], header .group img {
