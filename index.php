@@ -544,8 +544,8 @@
                   />
                 </div>
 
-                {/* Menu Desktop - Centré */}
-                <div className="hidden lg:flex flex-grow justify-center items-center space-x-6 xl:space-x-10">
+                {/* Menu Desktop */}
+                <div className="hidden lg:flex items-center space-x-6 xl:space-x-10">
                   <button onClick={() => onNavigate('home')} className={navLinkClass('home')}>Accueil</button>
                   <button onClick={() => onNavigate('products')} className={navLinkClass('products')}>Boutique</button>
                   <button onClick={() => onNavigate('blog')} className={navLinkClass('blog')}>Astuces</button>
@@ -553,8 +553,8 @@
                   <button onClick={() => onNavigate('contact')} className={navLinkClass('contact')}>Contact</button>
                 </div>
 
-                {/* Icons Toolbar - Alignés à droite */}
-                <div className="flex items-center space-x-2 sm:space-x-6 shrink-0">
+                {/* Icons Toolbar */}
+                <div className="flex items-center space-x-2 sm:space-x-6 ml-auto">
                   <button onClick={() => setIsSearchOpen(true)} className="p-2 sm:p-3 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Rechercher">
                     <SearchIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
                   </button>
