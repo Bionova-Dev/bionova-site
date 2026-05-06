@@ -86,12 +86,12 @@
       </div>
     </div>
 
-    <header class="fixed w-full z-50 h-[40px] lg:h-[60px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
+    <header class="fixed w-full z-50 h-[60px] lg:h-[90px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
       <nav class="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
         <div class="flex justify-between items-center h-full gap-4 lg:gap-8">
           
           <a href="<?php echo home_url(); ?>" class="flex items-center cursor-pointer px-2 group shrink-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="transition-all duration-500 object-contain h-[30px] lg:h-[50px] transform lg:scale-[1.3] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.4]" />
+            <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="transition-all duration-500 object-contain h-[45px] lg:h-[75px] transform lg:scale-[1.4] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.5]" />
           </a>
           
           <div class="hidden lg:flex flex-grow justify-center items-center space-x-6 xl:space-x-10">
@@ -130,6 +130,5 @@
         </div>
       </nav>
     </header>
-    <div class="pt-[50px] lg:pt-[70px] pb-20 max-w-7xl mx-auto px-4 lg:px-6">
+    <div class="pt-[80px] lg:pt-[110px] pb-20 max-w-7xl mx-auto px-4 lg:px-6">
   <?php endif; ?>
-

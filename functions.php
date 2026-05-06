@@ -364,7 +364,7 @@ function bionova_header_home_style() {
             left: 0 !important;
             width: 100% !important;
             z-index: 9999 !important;
-            height: 40px !important; /* Slim Fixed Height */
+            height: 60px !important; /* Fixed 90px design (mobile) */
             background-color: transparent !important;
             background: none !important;
             border: none !important;
@@ -374,15 +374,15 @@ function bionova_header_home_style() {
             align-items: center !important;
         }
         @media (min-width: 1024px) {
-            header { height: 60px !important; }
+            header { height: 90px !important; }
         }
         header.header-scrolled {
             background-color: #ffffff !important;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
-            height: 40px !important;
+            height: 60px !important;
         }
         @media (min-width: 1024px) {
-            header.header-scrolled { height: 60px !important; }
+            header.header-scrolled { height: 90px !important; }
         }
     </style>
     <?php
@@ -401,7 +401,7 @@ function bionova_header_secondary_pages_style() {
                 left: 0 !important;
                 width: 100% !important;
                 z-index: 9999 !important;
-                height: 40px !important;
+                height: 60px !important;
                 background-color: #ffffff !important; 
                 border: none !important;
                 box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
@@ -410,7 +410,7 @@ function bionova_header_secondary_pages_style() {
                 align-items: center !important;
             }
             @media (min-width: 1024px) {
-                header { height: 60px !important; }
+                header { height: 90px !important; }
             }
         </style>
         <?php

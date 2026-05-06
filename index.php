@@ -511,7 +511,7 @@
             </div>
           </div>
 
-          <header className="fixed w-full z-50 h-[40px] lg:h-[60px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
+          <header className="fixed w-full z-50 h-[60px] lg:h-[90px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
             {/* Search Overlay */}
             <div className={`absolute inset-0 bg-white z-[60] flex items-center px-6 lg:px-12 transition-all duration-500 transform ${isSearchOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
               <div className="max-w-7xl mx-auto w-full flex items-center">
@@ -536,7 +536,7 @@
                   <img
                     src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png"
                     alt="Logo Bionova"
-                    className="transition-all duration-500 object-contain h-[30px] lg:h-[50px] transform lg:scale-[1.3] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.4]"
+                    className="transition-all duration-500 object-contain h-[45px] lg:h-[75px] transform lg:scale-[1.4] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.5]"
                     loading="eager"
                     decoding="async"
                     width="320"
@@ -780,7 +780,7 @@
               const slide = slides[current];
 
               return (
-                <section className="relative pt-32 pb-40 lg:pt-48 lg:pb-56 overflow-hidden flex items-center justify-center min-h-[90vh]">
+                <section className="relative pt-20 pb-40 lg:pt-32 lg:pb-56 overflow-hidden flex items-center justify-center min-h-[90vh]">
                   {/* Background images stacked, controlled by opacity */}
                   {slides.map((s, i) => (
                     <img
