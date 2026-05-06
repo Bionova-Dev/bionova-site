@@ -364,7 +364,7 @@ function bionova_header_home_style() {
             left: 0 !important;
             width: 100% !important;
             z-index: 9999 !important;
-            height: 100px !important; /* Hauteur harmonisée avec React */
+            height: 50px !important; /* Hauteur réduite de 50% */
             background-color: transparent !important;
             background: none !important;
             border: none !important;
@@ -374,12 +374,12 @@ function bionova_header_home_style() {
             align-items: center !important;
         }
         @media (min-width: 1024px) {
-            header { height: 180px !important; }
+            header { height: 90px !important; }
         }
         header.header-scrolled {
             background-color: #ffffff !important;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
-            height: 100px !important; /* Réduction au scroll */
+            height: 50px !important; /* Réduction au scroll */
         }
     </style>
     <?php
@@ -398,7 +398,7 @@ function bionova_header_secondary_pages_style() {
                 left: 0 !important;
                 width: 100% !important;
                 z-index: 9999 !important;
-                height: 100px !important;
+                height: 50px !important;
                 background-color: #ffffff !important; 
                 border: none !important;
                 box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
@@ -407,7 +407,7 @@ function bionova_header_secondary_pages_style() {
                 align-items: center !important;
             }
             @media (min-width: 1024px) {
-                header { height: 180px !important; }
+                header { height: 90px !important; }
             }
         </style>
         <?php
