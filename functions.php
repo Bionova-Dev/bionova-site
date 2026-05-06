@@ -1,5 +1,7 @@
 <?php
-// Bionova Theme Functions
+// Bionova Theme Functions - DÉSACTIVATION RADICALE MAINTENANCE
+update_option('site_temporary_maintenance_mode', 0);
+update_option('aios_maintenance_mode', '0');
 function bionova_setup() {
     add_theme_support( 'woocommerce' );
     add_theme_support( 'post-thumbnails' );
