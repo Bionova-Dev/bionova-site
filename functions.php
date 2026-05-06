@@ -480,13 +480,13 @@ function bionova_header_common_premium_style() {
             header img[alt*="Logo"], header .group img {
                 max-height: 85px !important;
                 width: auto !important;
-                transform: scale(1.4) !important;
+                transform: scale(2.0) !important;
                 transform-origin: left center !important;
                 transition: all 0.4s ease !important;
                 object-fit: contain !important;
             }
             header.header-scrolled img[alt*="Logo"], header.header-scrolled .group img {
-                transform: scale(1.1) !important;
+                transform: scale(2.0) !important;
             }
         }
         
@@ -506,6 +506,19 @@ function bionova_header_common_premium_style() {
             .mobile-menu-toggle {
                 display: none !important;
             }
+        }
+        
+        /* Badges Rouge Bionova */
+        .bg-gray-900, .bg-\[gray-900\], .bg-black {
+            background-color: #be123c !important;
+        }
+        .text-medical-blue.border-medical-blue {
+            color: #be123c !important;
+            border-color: #be123c !important;
+        }
+        header nav > div > div.hidden.lg\:flex button.text-\[\#be123c\] {
+            color: #be123c !important;
+            border-bottom-color: #be123c !important;
         }
     </style>
     <?php

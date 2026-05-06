@@ -476,7 +476,7 @@
 
       const navLinkClass = (page, isMobile = false) => {
         const baseColor = 'text-black';
-        const activeColor = 'text-black border-black';
+        const activeColor = 'text-[#be123c] border-[#be123c]';
         const baseStyles = isMobile 
           ? 'text-2xl font-black uppercase tracking-widest py-4 border-b-2' 
           : 'text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] py-2 px-1 border-b-4';
@@ -536,7 +536,7 @@
                   <img
                     src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png"
                     alt="Logo Bionova"
-                    className="transition-all duration-500 object-contain h-[45px] lg:h-[75px] transform lg:scale-[1.4] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.5]"
+                    className="transition-all duration-500 object-contain h-[45px] lg:h-[75px] transform lg:scale-[2.0] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[2.1]"
                     loading="eager"
                     decoding="async"
                     width="320"
@@ -564,7 +564,7 @@
                   <a href={WC_CART_URL} className="relative p-3 sm:p-4 rounded-2xl text-black hover:bg-gray-100 transition-all group" title="Voir le panier">
                     <ShoppingCartIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
                     {cartItemCount > 0 && (
-                      <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg">
+                      <span className="absolute -top-1 -right-1 bg-[#be123c] text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg">
                         {cartItemCount}
                       </span>
                     )}
@@ -868,7 +868,7 @@
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                 {bestSellers.map(product => (
                   <article key={product.id} onClick={() => onProductClick(product)} className="bg-gray-50 rounded-[3rem] p-10 flex flex-col items-center text-center group border border-gray-100 hover:shadow-2xl hover:border-medical-blue/20 transition-all duration-500 relative cursor-pointer">
-                    <div className="absolute top-6 right-6 bg-gray-900 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg tracking-wider uppercase z-20" style={{backgroundColor:'#111827',color:'#ffffff'}}>Best Seller</div>
+                    <div className="absolute top-6 right-6 bg-[#be123c] text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg tracking-wider uppercase z-20">Best Seller</div>
                     <InteractiveProductViewer src={product.image} alt={`Produit Bionova : ${product.name}`} className="w-56 h-56 mb-10" noShadow={true} />
                     <h3 className="font-display text-2xl font-black text-gray-900 mb-2 group-hover:text-medical-blue transition-colors">{product.name}</h3>
 
@@ -1021,7 +1021,7 @@
             <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-contain p-10 product-image-float" loading="lazy" decoding="async" width="300" height="300" />
 
             {product.badge && (
-              <div className="absolute top-6 left-6 bg-gray-900 text-white text-[10px] font-black px-4 py-2 rounded-xl shadow-md tracking-widest uppercase z-20" style={{backgroundColor:'#111827',color:'#ffffff'}}>
+              <div className="absolute top-6 left-6 bg-[#be123c] text-white text-[10px] font-black px-4 py-2 rounded-xl shadow-md tracking-widest uppercase z-20">
                 {product.badge}
               </div>
             )}
