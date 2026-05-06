@@ -246,7 +246,7 @@
 
   <script type="text/babel">
     const WC_INITIAL_COUNT = <?php echo (class_exists('WooCommerce') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0; ?>;
-    const WC_CART_URL = '<?php echo function_exists('wc_get_cart_url') ? esc_url( wc_get_cart_url() ) : "/panier/"; ?>';
+    const WC_CART_URL = '<?php echo function_exists('wc_get_cart_url') ? esc_url( wc_get_cart_url() ) : home_url("/panier/"); ?>';
     const WC_PRODUCT_MAP = {
       1: 33,  // Acide Alpha Lipoïque
       2: 35,  // Ashwagandha
@@ -475,11 +475,11 @@
       const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
       const navLinkClass = (page, isMobile = false) => {
-        const baseColor = isMobile ? 'text-gray-800' : 'text-gray-900';
+        const baseColor = isMobile ? 'text-black' : 'text-black';
         const activeColor = 'text-medical-blue border-medical-blue';
         const baseStyles = isMobile 
           ? 'text-2xl font-black uppercase tracking-widest py-4 border-b-2' 
-          : 'text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] py-2 px-1 border-b-4';
+          : 'text-sm lg:text-[18px] font-black uppercase tracking-[0.15em] py-2 px-1 border-b-4';
         
         return `${baseStyles} transition-all duration-300 cursor-pointer ${currentPage === page ? activeColor : `${baseColor} border-transparent hover:text-medical-blue`}`;
       };
@@ -490,26 +490,9 @@
       };
 
       return (
-        <header className="fixed w-full z-50 h-[100px] lg:h-[180px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
-          {/* Search Overlay */}
-          <div className={`absolute inset-0 bg-white z-[60] flex items-center px-6 lg:px-12 transition-all duration-500 transform ${isSearchOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
-            <div className="max-w-7xl mx-auto w-full flex items-center">
-              <SearchIcon className="h-8 w-8 text-gray-400 mr-6" />
-              <input
-                type="text"
-                placeholder="Chercher un produit Bionova..."
-                className="flex-1 bg-transparent border-none outline-none text-xl lg:text-2xl font-medium text-gray-900 placeholder-gray-300"
-                autoFocus={isSearchOpen}
-                aria-label="Barre de recherche"
-              />
-              <button onClick={() => setIsSearchOpen(false)} className="p-4 text-gray-400 hover:text-gray-900 transition-colors" aria-label="Fermer la recherche">
-                <XIcon className="h-10 w-10" />
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Menu Overlay */}
-          <div className={`fixed inset-0 bg-white z-[70] transition-all duration-500 transform ${isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'} flex flex-col p-8`}>
+        <>
+          {/* Mobile Menu Overlay - Moved outside header to avoid clipping */}
+          <div className={`fixed inset-0 bg-white z-[80] transition-all duration-500 transform ${isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'} flex flex-col p-8 lg:hidden`}>
             <div className="flex justify-between items-center mb-16">
               <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" className="h-12 object-contain" loading="lazy" decoding="async" width="120" height="48" />
               <button onClick={() => setIsMenuOpen(false)} className="p-2 text-gray-900"><XIcon className="h-10 w-10" /></button>
@@ -528,54 +511,79 @@
             </div>
           </div>
 
-          <nav className="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
-            <div className="flex justify-between items-center h-full gap-4 lg:gap-8">
-              {/* Logo - x1 on mobile, x2-ish on desktop via Tailwind scale */}
-              <div onClick={() => onNavigate('home')} className="flex items-center cursor-pointer px-2 group shrink-0">
-                <img
-                  src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png"
-                  alt="Logo Bionova"
-                  className="transition-all duration-500 object-contain h-[70px] lg:h-[160px] transform lg:scale-[1.5] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.6]"
-                  loading="eager"
-                  decoding="async"
-                  width="320"
-                  height="160"
+          <header className="fixed w-full z-50 h-[100px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
+            {/* Search Overlay */}
+            <div className={`absolute inset-0 bg-white z-[60] flex items-center px-6 lg:px-12 transition-all duration-500 transform ${isSearchOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
+              <div className="max-w-7xl mx-auto w-full flex items-center">
+                <SearchIcon className="h-8 w-8 text-gray-400 mr-6" />
+                <input
+                  type="text"
+                  placeholder="Chercher un produit Bionova..."
+                  className="flex-1 bg-transparent border-none outline-none text-xl lg:text-2xl font-medium text-gray-900 placeholder-gray-300"
+                  autoFocus={isSearchOpen}
+                  aria-label="Barre de recherche"
                 />
-              </div>
-
-              {/* Menu Desktop */}
-              <div className="hidden lg:flex items-center space-x-6 xl:space-x-10">
-                <button onClick={() => onNavigate('home')} className={navLinkClass('home')}>Accueil</button>
-                <button onClick={() => onNavigate('products')} className={navLinkClass('products')}>Boutique</button>
-                <button onClick={() => onNavigate('blog')} className={navLinkClass('blog')}>Astuces</button>
-                <button onClick={() => onNavigate('about')} className={navLinkClass('about')}>Expertise</button>
-                <button onClick={() => onNavigate('contact')} className={navLinkClass('contact')}>Contact</button>
-              </div>
-
-              {/* Icons Toolbar */}
-              <div className="flex items-center space-x-1 sm:space-x-5">
-                <button onClick={() => setIsSearchOpen(true)} className="p-2 sm:p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Rechercher">
-                  <SearchIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
-                </button>
-                <button onClick={() => onNavigate('login')} className="hidden sm:block p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Mon compte">
-                  <UserIcon className="h-7 w-7 group-hover:scale-110 transition-transform" />
-                </button>
-                <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" className="relative p-3 sm:p-4 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all group shadow-lg hover:shadow-xl" title="Voir le panier">
-                  <ShoppingCartIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
-                  {cartItemCount > 0 && (
-                    <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg animate-bounce">
-                      {cartItemCount}
-                    </span>
-                  )}
-                </a>
-                {/* Mobile Hamburger Menu Toggle */}
-                <button onClick={() => setIsMenuOpen(true)} className="lg:hidden p-2 text-gray-900" aria-label="Ouvrir le menu">
-                  <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                <button onClick={() => setIsSearchOpen(false)} className="p-4 text-gray-400 hover:text-gray-900 transition-colors" aria-label="Fermer la recherche">
+                  <XIcon className="h-10 w-10" />
                 </button>
               </div>
             </div>
-          </nav>
-        </header>
+
+            <nav className="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
+              <div className="flex justify-between items-center h-full gap-4 lg:gap-8">
+                {/* Logo - x2 Agrandissement */}
+                <div onClick={() => onNavigate('home')} className="flex items-center cursor-pointer px-2 group shrink-0 flex-shrink-0">
+                  <img
+                    src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png"
+                    alt="Logo Bionova"
+                    className="transition-all duration-500 object-contain h-[100px] lg:h-[220px] transform lg:scale-[1.2] origin-left group-hover:scale-[1.05] lg:group-hover:scale-[1.3] flex-shrink-0"
+                    loading="eager"
+                    decoding="async"
+                    width="400"
+                    height="200"
+                  />
+                </div>
+
+                {/* Menu Desktop */}
+                <div className="hidden lg:flex items-center space-x-6 xl:space-x-10">
+                  <button onClick={() => onNavigate('home')} className={navLinkClass('home')}>Accueil</button>
+                  <button onClick={() => onNavigate('products')} className={navLinkClass('products')}>Boutique</button>
+                  <button onClick={() => onNavigate('blog')} className={navLinkClass('blog')}>Astuces</button>
+                  <button onClick={() => onNavigate('about')} className={navLinkClass('about')}>Expertise</button>
+                  <button onClick={() => onNavigate('contact')} className={navLinkClass('contact')}>Contact</button>
+                </div>
+
+                {/* Icons Toolbar */}
+                <div className="flex items-center space-x-2 sm:space-x-6 ml-auto">
+                  <button onClick={() => setIsSearchOpen(true)} className="p-2 sm:p-3 rounded-2xl text-black hover:text-medical-blue hover:bg-medical-light transition-all group" title="Rechercher">
+                    <SearchIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
+                  </button>
+                  <button onClick={() => onNavigate('login')} className="hidden sm:block p-3 rounded-2xl text-black hover:text-medical-blue hover:bg-medical-light transition-all group" title="Mon compte">
+                    <UserIcon className="h-7 w-7 group-hover:scale-110 transition-transform" />
+                  </button>
+                  <a href={WC_CART_URL} className="relative p-3 sm:p-4 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all group shadow-lg hover:shadow-xl" title="Voir le panier">
+                    <ShoppingCartIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
+                    {cartItemCount > 0 && (
+                      <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                        {cartItemCount}
+                      </span>
+                    )}
+                  </a>
+                  {/* Mobile Hamburger Menu Toggle */}
+                  <button 
+                    onClick={() => setIsMenuOpen(true)} 
+                    className="mobile-menu-toggle flex items-center justify-center p-2 text-black hover:bg-gray-100 rounded-xl transition-colors min-w-[48px] min-h-[48px]" 
+                    aria-label="Ouvrir le menu"
+                  >
+                    <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </nav>
+          </header>
+        </>
       );
     };
 
@@ -1462,7 +1470,8 @@
       const handleAddToCart = (product, redirect = false) => {
         // WooCommerce AJAX Add to Cart
         const wcId = WC_PRODUCT_MAP[product.id] || product.id;
-        fetch(`/?add-to-cart=${wcId}`)
+        const addUrl = `<?php echo home_url('/'); ?>?add-to-cart=${wcId}`;
+        fetch(addUrl)
           .then(() => {
             setCartItemsCount(prev => prev + 1);
             if (redirect || product.type === 'pack') {
