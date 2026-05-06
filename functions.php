@@ -381,7 +381,10 @@ function bionova_header_home_style() {
         header.header-scrolled {
             background-color: #ffffff !important;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
-            height: 50px !important; /* Radical Reduction Scroll */
+            height: 50px !important;
+        }
+        @media (min-width: 1024px) {
+            header.header-scrolled { height: 90px !important; }
         }
     </style>
     <?php
