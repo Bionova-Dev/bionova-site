@@ -1,5 +1,7 @@
 <?php
-// Bionova Theme Functions
+// Bionova Theme Functions - PRO MAX DESIGN STABLE
+update_option('site_temporary_maintenance_mode', 0);
+update_option('aios_maintenance_mode', '0');
 function bionova_setup() {
     add_theme_support( 'woocommerce' );
     add_theme_support( 'post-thumbnails' );
@@ -17,6 +19,8 @@ add_action( 'after_setup_theme', 'bionova_setup' );
 add_action('init', function() {
     // FORCE: Activation totale tunnel achat — Anti-maintenance radical
     update_option('woocommerce_status_options', array('is_store_online' => 'yes'));
+    update_option('site_temporary_maintenance_mode', 0);
+    update_option('aios_maintenance_mode', '0');
     remove_action('template_redirect', 'wp_redirect_to_maintenance_page');
     remove_action('template_redirect', 'wc_disable_author_archives_for_customers', 10);
     update_option('aios_maintenance_mode', '0');
