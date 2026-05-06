@@ -368,7 +368,7 @@
         id: 1,
         category: "Immunité",
         title: "Comment booster son immunité naturellement avant l'hiver ?",
-        image: "<?php echo get_template_directory_uri(); ?>/neem.png",
+        image: "<?php echo get_template_directory_uri(); ?>/neem-detox.jpg",
         excerpt: "Découvrez les réflexes quotidiens et les compléments essentiels pour préparer votre organisme aux agressions extérieures.",
         problem: "À l'approche de la saison froide, notre organisme est mis à rude épreuve : baisse d'énergie, vulnérabilité aux virus. Le système immunitaire s'affaiblit sous l'effet du manque de lumière, de la fatigue accumulée et du refroidissement général. Ce phénomène est naturel, mais il peut considérablement altérer votre qualité de vie et votre tonus quotidien.",
         solution: "La nature offre de puissants boucliers biologiques pour soutenir nos défenses. Outre une alimentation riche en vitamines C et en zinc, ainsi qu'un sommeil réparateur, l'utilisation de plantes médicinales purifiantes permet de renforcer le terrain biologique. L'ayurveda utilise depuis des millénaires des extraits végétaux capables de stimuler la réponse immunitaire et de détoxifier le sang.",
@@ -379,7 +379,7 @@
         id: 2,
         category: "Anti-stress",
         title: "Les incroyables bienfaits de l'Ashwagandha sur la charge mentale",
-        image: "<?php echo get_template_directory_uri(); ?>/ashwagandha.png",
+        image: "<?php echo get_template_directory_uri(); ?>/ashwagandha-wellness.jpg",
         excerpt: "Plante phare de l'Ayurveda, l'Ashwagandha est la réponse naturelle pour retrouver un sommeil réparateur et une sérénité durable.",
         problem: "Dans notre société hyperconnectée, le stress chronique et la charge mentale sont devenus le mal du siècle. La surproduction de cortisol (l'hormone du stress) épuise littéralement nos réserves énergétiques, conduisant à des insomnies, de l'anxiété, une baisse de concentration et parfois même au burn-out. Notre système nerveux a urgemment besoin d'être régulé.",
         solution: "Heureusement, la phytothérapie moderne a redécouvert la puissance des plantes 'adaptogènes'. Contrairement aux stimulants chimiques ou aux sédatifs, une plante adaptogène module la réponse de l'organisme face au stress. Elle normalise les fonctions physiologiques et aide le corps à retrouver son homéostasie, qu'il soit confronté à un stress physique ou psychologique.",
@@ -390,7 +390,7 @@
         id: 3,
         category: "Anti-âge",
         title: "Longévité cellulaire : Le NMN est-il le nouveau miracle de la science ?",
-        image: "<?php echo get_template_directory_uri(); ?>/nmn.png",
+        image: "<?php echo get_template_directory_uri(); ?>/nmn-expert.jpg",
         excerpt: "Tout ce qu'il faut savoir sur le précurseur du NAD+ et ses effets scientifiquement prouvés sur le rajeunissement tissulaire.",
         problem: "Le vieillissement cellulaire n'est plus perçu comme une fatalité, mais comme un processus biologique que nous pouvons ralentir. Avec l'âge, notre organisme perd drastiquement sa capacité à produire du NAD+ (Nicotinamide Adénine Dinucléotide), une coenzyme vitale présente dans chacune de nos cellules. Cette chute de NAD+ (jusqu'à 50% entre 20 et 50 ans) entraîne une baisse de l'énergie métabolique, une dégénérescence tissulaire et l'apparition des signes de l'âge.",
         solution: "Pour restaurer nos niveaux de NAD+, la science s'est tournée vers ses précurseurs directs. L'un des plus prometteurs et étudiés actuellement par les généticiens d'Harvard est le NMN (Nicotinamide Mononucléotide). En pénétrant rapidement dans les cellules, le NMN est immédiatement converti en NAD+, réactivant ainsi les mitochondries (les centrales énergétiques de la cellule) et les sirtuines (les protéines de la longévité).",
@@ -401,7 +401,7 @@
         id: 4,
         category: "Nutricosmétique",
         title: "Collagène marin : le secret d'une peau éclatante à tout âge",
-        image: "<?php echo get_template_directory_uri(); ?>/collagene marin complex.png",
+        image: "<?php echo get_template_directory_uri(); ?>/collagen-beauty.jpg",
         excerpt: "Pourquoi notre production de collagène diminue-t-elle et comment l'intégration du collagène marin peut-elle revitaliser votre peau ?",
         problem: "La peau perd naturellement de sa fermeté et de son éclat avec le temps. Dès l'âge de 25 ans, la production endogène de collagène – la protéine structurale majeure qui donne sa résistance et son élasticité à la peau – diminue d'environ 1% par an. Ce phénomène accélère l'apparition des rides, le relâchement cutané, mais fragilise aussi les ongles, les cheveux et les articulations. Les crèmes superficielles ne suffisent plus.",
         solution: "La nutricosmétique apporte la réponse en agissant 'de l'intérieur'. En ingérant des peptides de collagène marin (issus de poissons sauvages, plus purs et plus assimilables que le collagène bovin), on fournit directement aux fibroblastes de la peau les acides aminés essentiels pour relancer leur propre production de collagène et d'acide hyaluronique. La redensification se fait dans les couches profondes du derme.",
@@ -1194,6 +1194,10 @@
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
               {articlesData.map((article) => (
                 <article key={article.id} className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 group flex flex-col h-full hover:shadow-2xl transition-all duration-500">
+                  <div className="relative h-56 overflow-hidden cursor-pointer" onClick={() => onArticleClick(article)}>
+                    <img src={article.image} alt={article.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-gray-900/20 group-hover:bg-gray-900/40 transition-colors duration-500"></div>
+                  </div>
                   <div className="p-10 flex flex-col flex-grow">
                     <h2 className="font-display text-2xl font-bold text-gray-900 mb-4 group-hover:text-medical-blue transition-colors line-clamp-3 leading-tight cursor-pointer" onClick={() => onArticleClick(article)} title={`Lire l'article : ${article.title}`}>{article.title}</h2>
                     <p className="text-gray-500 text-base leading-relaxed mb-8 flex-grow">{article.excerpt}</p>
@@ -1218,9 +1222,10 @@
       return (
         <div className="bg-white min-h-screen">
           {/* Hero Article */}
-          <div className="relative h-[60vh] min-h-[400px] flex items-end pb-16">
-            <img src={article.image} alt={article.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" width="1200" height="600" />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent"></div>
+          <div className="relative h-[60vh] min-h-[400px] flex items-end pb-16 overflow-hidden">
+            <img src={article.image} alt={article.title} className="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="sync" width="1920" height="1080" />
+            <div className="absolute inset-0 bg-gray-900/50 backdrop-blur-[1px]"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent"></div>
 
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
               <button onClick={onBack} className="inline-flex items-center text-white/80 hover:text-white font-bold tracking-wide uppercase text-sm transition-colors mb-8 bg-white/10 hover:bg-white/20 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/20">
