@@ -456,7 +456,7 @@
               { title: "Meilleur prix garanti", subtitle: "Direct laboratoire", icon: TagIcon },
             ].map((item, idx) => (
               <div key={idx} className="flex flex-col sm:flex-row items-center text-center sm:text-left group cursor-pointer transition-transform duration-300 hover:-translate-y-[2px]">
-                <div className="mb-4 sm:mb-0 sm:mr-5 p-3 rounded-xl bg-medical-light text-medical-blue group-hover:bg-medical-blue group-hover:text-white transition-colors duration-300">
+                <div className="mb-4 sm:mb-0 sm:mr-5 p-3 rounded-xl bg-gray-50 text-black group-hover:bg-black group-hover:text-white transition-colors duration-300">
                   <item.icon className="w-6 h-6" />
                 </div>
                 <div>
@@ -555,16 +555,16 @@
 
                 {/* Icons Toolbar */}
                 <div className="flex items-center space-x-2 sm:space-x-6 ml-auto">
-                  <button onClick={() => setIsSearchOpen(true)} className="p-2 sm:p-3 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Rechercher">
+                  <button onClick={() => setIsSearchOpen(true)} className="p-2 sm:p-3 rounded-2xl text-black hover:bg-gray-100 transition-all group" title="Rechercher">
                     <SearchIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
                   </button>
-                  <button onClick={() => onNavigate('login')} className="hidden sm:block p-3 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Mon compte">
+                  <button onClick={() => onNavigate('login')} className="hidden sm:block p-3 rounded-2xl text-black hover:bg-gray-100 transition-all group" title="Mon compte">
                     <UserIcon className="h-7 w-7 group-hover:scale-110 transition-transform" />
                   </button>
-                  <a href={WC_CART_URL} className="relative p-3 sm:p-4 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all group shadow-lg hover:shadow-xl" title="Voir le panier">
+                  <a href={WC_CART_URL} className="relative p-3 sm:p-4 rounded-2xl text-black hover:bg-gray-100 transition-all group" title="Voir le panier">
                     <ShoppingCartIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
                     {cartItemCount > 0 && (
-                      <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                      <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg">
                         {cartItemCount}
                       </span>
                     )}
@@ -613,21 +613,21 @@
 
             {/* Colonne 3: Contact & Support */}
             <div className="text-center md:text-left">
-              <h4 className="font-display text-xl font-bold text-medical-blue uppercase tracking-widest mb-8">Assistance</h4>
+              <h4 className="font-display text-xl font-bold text-black uppercase tracking-widest mb-8">Assistance</h4>
               <ul className="space-y-4">
-                <li className="flex items-center justify-center md:justify-start text-gray-600 font-bold text-sm"><svg className="w-5 h-5 mr-3 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> contact@bionova.tn</li>
-                <li className="flex items-center justify-center md:justify-start text-gray-600 font-bold text-sm"><svg className="w-5 h-5 mr-3 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg> +216 71 000 000</li>
+                <li className="flex items-center justify-center md:justify-start text-gray-600 font-bold text-sm"><svg className="w-5 h-5 mr-3 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> contact@bionova.tn</li>
+                <li className="flex items-center justify-center md:justify-start text-gray-600 font-bold text-sm"><svg className="w-5 h-5 mr-3 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg> +216 71 000 000</li>
               </ul>
             </div>
 
             {/* Colonne 4: Réseaux Sociaux & Légal */}
             <div className="text-center md:text-right">
-              <h4 className="font-display text-xl font-bold text-medical-blue uppercase tracking-widest mb-8">Rejoignez-nous</h4>
+              <h4 className="font-display text-xl font-bold text-black uppercase tracking-widest mb-8">Rejoignez-nous</h4>
               <div className="flex justify-center md:justify-end space-x-4 mb-8">
-                <a href="https://www.facebook.com/bionova" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-medical-blue hover:text-white transition-all shadow-sm group">
+                <a href="https://www.facebook.com/bionova" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-black hover:text-white transition-all shadow-sm group">
                   <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31.975.975 1.247 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.975.975-2.242 1.247-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.975-.975-1.247-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.975-.975 2.242-1.247 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.337 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.337-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.337-2.618-6.78-6.98-6.98-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
                 </a>
-                <a href="https://www.instagram.com/bionova" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-medical-blue hover:text-white transition-all shadow-sm group">
+                <a href="https://www.instagram.com/bionova" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-black hover:text-white transition-all shadow-sm group">
                   <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.324v-21.35c0-.732-.593-1.325-1.325-1.325z" /></svg>
                 </a>
               </div>

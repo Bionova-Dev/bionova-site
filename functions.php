@@ -458,12 +458,13 @@ function bionova_header_common_premium_style() {
             }
         }
         header nav > div > div.hidden.xl\:flex { gap: 35px !important; }
-        header nav > div > div.flex.items-center.space-x-2 svg { width: 28px !important; height: 28px !important; }
+        header nav > div > div.flex.items-center.space-x-2 svg, 
+        header nav > div > div.flex.items-center.space-x-1 svg { width: 28px !important; height: 28px !important; color: #000000 !important; }
         header nav > div > div.hidden.xl\:flex button:hover,
         header nav > div > div.hidden.xl\:flex a:hover,
         header nav > div > div.flex.items-center.space-x-2 button:hover,
-        header nav > div > div.flex.items-center.space-x-2 a:hover { color: #6d4c41 !important; }
-        header nav > div > div.hidden.xl\:flex button.text-medical-blue { color: #be123c !important; border-bottom: 3px solid #be123c !important; }
+        header nav > div > div.flex.items-center.space-x-2 a:hover { color: #000000 !important; opacity: 0.7 !important; }
+        header nav > div > div.hidden.xl\:flex button.text-black { color: #000000 !important; border-bottom: 3px solid #000000 !important; }
 
         /* LOGO : Unifié avec un scale raisonnable */
         header img[alt*="Logo"], header .group img {

@@ -104,26 +104,26 @@
 
           <div class="flex items-center space-x-1 sm:space-x-5">
             <!-- Icône Mon Compte -->
-            <a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ); ?>" class="hidden sm:flex p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Mon compte">
+            <a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ); ?>" class="hidden sm:flex p-3.5 rounded-2xl text-black hover:bg-gray-100 transition-all group" title="Mon compte">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
             </a>
 
             <!-- Icône Panier -->
-            <a href="<?php echo function_exists('wc_get_cart_url') ? esc_url( wc_get_cart_url() ) : '/panier/'; ?>" class="relative p-3 sm:p-4 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all shadow-lg group" title="Voir le panier">
+            <a href="<?php echo function_exists('wc_get_cart_url') ? esc_url( wc_get_cart_url() ) : '/panier/'; ?>" class="relative p-3 sm:p-4 rounded-2xl text-black hover:bg-gray-100 transition-all group" title="Voir le panier">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
               <?php if ( function_exists('WC') && WC()->cart && WC()->cart->get_cart_contents_count() > 0 ) : ?>
-                <span class="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg">
+                <span class="absolute -top-1 -right-1 bg-black text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg">
                   <?php echo WC()->cart->get_cart_contents_count(); ?>
                 </span>
               <?php endif; ?>
             </a>
 
             <!-- Hamburger Menu - Logique simplifiée et robuste -->
-            <button onclick="var mm = document.getElementById('mobile-menu'); mm.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none'); mm.classList.add('translate-x-0', 'opacity-100');" class="mobile-menu-toggle p-2 text-gray-900 flex items-center justify-center min-w-[44px] min-h-[44px]" aria-label="Ouvrir le menu">
+            <button onclick="var mm = document.getElementById('mobile-menu'); mm.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none'); mm.classList.add('translate-x-0', 'opacity-100');" class="mobile-menu-toggle p-2 text-black flex items-center justify-center min-w-[44px] min-h-[44px]" aria-label="Ouvrir le menu">
               <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
             </button>
           </div>
