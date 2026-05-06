@@ -455,7 +455,7 @@ function bionova_header_common_premium_style() {
         header nav > div > div.hidden.xl\:flex button:hover,
         header nav > div > div.hidden.xl\:flex a:hover,
         header nav > div > div.flex.items-center.space-x-2 button:hover,
-        header nav > div > div.flex.items-center.space-x-2 a:hover { color: #075985 !important; }
+        header nav > div > div.flex.items-center.space-x-2 a:hover { color: #000000 !important; opacity: 0.7 !important; }
         header nav > div > div.hidden.xl\:flex button.text-medical-blue { color: #000000 !important; border-bottom: 3px solid #000000 !important; }
 
         /* LOGO : Agrandissement x2 et Centrage */
