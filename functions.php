@@ -1,7 +1,5 @@
 <?php
-// Bionova Theme Functions - DÉSACTIVATION RADICALE MAINTENANCE
-update_option('site_temporary_maintenance_mode', 0);
-update_option('aios_maintenance_mode', '0');
+// Bionova Theme Functions
 function bionova_setup() {
     add_theme_support( 'woocommerce' );
     add_theme_support( 'post-thumbnails' );
@@ -366,7 +364,7 @@ function bionova_header_home_style() {
             left: 0 !important;
             width: 100% !important;
             z-index: 9999 !important;
-            height: 50px !important; /* Radical Reduction 50% */
+            height: 40px !important; /* Slim Fixed Height */
             background-color: transparent !important;
             background: none !important;
             border: none !important;
@@ -376,15 +374,15 @@ function bionova_header_home_style() {
             align-items: center !important;
         }
         @media (min-width: 1024px) {
-            header { height: 90px !important; }
+            header { height: 60px !important; }
         }
         header.header-scrolled {
             background-color: #ffffff !important;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
-            height: 50px !important;
+            height: 40px !important;
         }
         @media (min-width: 1024px) {
-            header.header-scrolled { height: 90px !important; }
+            header.header-scrolled { height: 60px !important; }
         }
     </style>
     <?php
@@ -403,7 +401,7 @@ function bionova_header_secondary_pages_style() {
                 left: 0 !important;
                 width: 100% !important;
                 z-index: 9999 !important;
-                height: 50px !important;
+                height: 40px !important;
                 background-color: #ffffff !important; 
                 border: none !important;
                 box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
@@ -412,7 +410,7 @@ function bionova_header_secondary_pages_style() {
                 align-items: center !important;
             }
             @media (min-width: 1024px) {
-                header { height: 90px !important; }
+                header { height: 60px !important; }
             }
         </style>
         <?php
@@ -461,13 +459,12 @@ function bionova_header_common_premium_style() {
             }
         }
         header nav > div > div.hidden.xl\:flex { gap: 35px !important; }
-        header nav > div > div.flex.items-center.space-x-2 svg, 
-        header nav > div > div.flex.items-center.space-x-1 svg { width: 28px !important; height: 28px !important; color: #000000 !important; }
+        header nav > div > div.flex.items-center.space-x-2 svg { width: 28px !important; height: 28px !important; }
         header nav > div > div.hidden.xl\:flex button:hover,
         header nav > div > div.hidden.xl\:flex a:hover,
         header nav > div > div.flex.items-center.space-x-2 button:hover,
-        header nav > div > div.flex.items-center.space-x-2 a:hover { color: #000000 !important; opacity: 0.7 !important; }
-        header nav > div > div.hidden.xl\:flex button.text-black { color: #000000 !important; border-bottom: 3px solid #000000 !important; }
+        header nav > div > div.flex.items-center.space-x-2 a:hover { color: #6d4c41 !important; }
+        header nav > div > div.hidden.xl\:flex button.text-medical-blue { color: #be123c !important; border-bottom: 3px solid #be123c !important; }
 
         /* LOGO : Unifié avec un scale raisonnable */
         header img[alt*="Logo"], header .group img {
