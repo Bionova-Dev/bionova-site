@@ -1,7 +1,5 @@
 <?php
-// Bionova Theme Functions - PRO MAX DESIGN STABLE
-update_option('site_temporary_maintenance_mode', 0);
-update_option('aios_maintenance_mode', '0');
+// Bionova Theme Functions
 function bionova_setup() {
     add_theme_support( 'woocommerce' );
     add_theme_support( 'post-thumbnails' );
@@ -19,8 +17,6 @@ add_action( 'after_setup_theme', 'bionova_setup' );
 add_action('init', function() {
     // FORCE: Activation totale tunnel achat — Anti-maintenance radical
     update_option('woocommerce_status_options', array('is_store_online' => 'yes'));
-    update_option('site_temporary_maintenance_mode', 0);
-    update_option('aios_maintenance_mode', '0');
     remove_action('template_redirect', 'wp_redirect_to_maintenance_page');
     remove_action('template_redirect', 'wc_disable_author_archives_for_customers', 10);
     update_option('aios_maintenance_mode', '0');
@@ -368,7 +364,7 @@ function bionova_header_home_style() {
             left: 0 !important;
             width: 100% !important;
             z-index: 9999 !important;
-            height: 100px !important; /* Hauteur constante 100px */
+            height: 100px !important; /* Hauteur harmonisée avec React */
             background-color: transparent !important;
             background: none !important;
             border: none !important;
@@ -377,10 +373,13 @@ function bionova_header_home_style() {
             display: flex !important;
             align-items: center !important;
         }
+        @media (min-width: 1024px) {
+            header { height: 180px !important; }
+        }
         header.header-scrolled {
             background-color: #ffffff !important;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
-            height: 100px !important; 
+            height: 100px !important; /* Réduction au scroll */
         }
     </style>
     <?php
@@ -399,13 +398,16 @@ function bionova_header_secondary_pages_style() {
                 left: 0 !important;
                 width: 100% !important;
                 z-index: 9999 !important;
-                height: 100px !important; /* Hauteur constante 100px */
+                height: 100px !important;
                 background-color: #ffffff !important; 
                 border: none !important;
                 box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
                 transition: all 0.4s ease !important;
                 display: flex !important;
                 align-items: center !important;
+            }
+            @media (min-width: 1024px) {
+                header { height: 180px !important; }
             }
         </style>
         <?php
@@ -442,47 +444,48 @@ function bionova_header_common_premium_style() {
             padding: 10px 0 !important;
             text-decoration: none !important;
             cursor: pointer !important;
-            font-size: 14px !important; 
-            font-weight: 800 !important; /* Ultra bold */
-            color: #000000 !important; /* Noir Pur */
+            font-size: 14px !important; /* Mobile default */
+            font-weight: bold !important;
         }
         @media (min-width: 1024px) {
             header nav > div > div.hidden.xl\:flex button,
             header nav > div > div.hidden.xl\:flex a,
             header nav > div > div.flex.items-center.space-x-2 button,
             header nav > div > div.flex.items-center.space-x-2 a {
-                font-size: 18px !important;
+                font-size: 20px !important;
             }
         }
         header nav > div > div.hidden.xl\:flex { gap: 35px !important; }
-        header nav > div > div.flex.items-center.space-x-2 svg { width: 28px !important; height: 28px !important; color: #000000 !important; }
+        header nav > div > div.flex.items-center.space-x-2 svg { width: 28px !important; height: 28px !important; }
         header nav > div > div.hidden.xl\:flex button:hover,
         header nav > div > div.hidden.xl\:flex a:hover,
         header nav > div > div.flex.items-center.space-x-2 button:hover,
-        header nav > div > div.flex.items-center.space-x-2 a:hover { color: #000000 !important; opacity: 0.7 !important; }
-        header nav > div > div.hidden.xl\:flex button.text-medical-blue { color: #000000 !important; border-bottom: 3px solid #000000 !important; }
+        header nav > div > div.flex.items-center.space-x-2 a:hover { color: #6d4c41 !important; }
+        header nav > div > div.hidden.xl\:flex button.text-medical-blue { color: #be123c !important; border-bottom: 3px solid #be123c !important; }
 
-        /* LOGO : Agrandissement x2 et Centrage */
+        /* LOGO : Unifié avec un scale raisonnable */
         header img[alt*="Logo"], header .group img {
             margin-left: 0 !important;
             margin-right: auto !important;
-            flex-shrink: 0 !important;
         }
         @media (min-width: 1024px) {
             header img[alt*="Logo"], header .group img {
-                max-height: 220px !important; /* Desktop x2 */
+                max-height: 85px !important;
                 width: auto !important;
-                transform: scale(1.2) !important;
+                transform: scale(1.4) !important;
                 transform-origin: left center !important;
                 transition: all 0.4s ease !important;
                 object-fit: contain !important;
+            }
+            header.header-scrolled img[alt*="Logo"], header.header-scrolled .group img {
+                transform: scale(1.1) !important;
             }
         }
         
         /* Ajustements Mobile pour le Logo */
         @media (max-width: 1023px) {
             header img[alt*="Logo"], header .group img {
-                max-height: 120px !important; /* Mobile x2 */
+                max-height: 55px !important;
                 transform: none !important;
             }
         }

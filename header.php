@@ -86,25 +86,25 @@
       </div>
     </div>
 
-    <header class="fixed w-full z-50 h-[100px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
+    <header class="fixed w-full z-50 h-[100px] lg:h-[180px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
       <nav class="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
         <div class="flex justify-between items-center h-full gap-4 lg:gap-8">
           
-          <a href="<?php echo home_url(); ?>" class="flex items-center cursor-pointer px-2 group shrink-0 flex-shrink-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="transition-all duration-500 object-contain h-[100px] lg:h-[220px] transform lg:scale-[1.2] origin-left group-hover:scale-[1.05] lg:group-hover:scale-[1.3] flex-shrink-0" />
+          <a href="<?php echo home_url(); ?>" class="flex items-center cursor-pointer px-2 group shrink-0">
+            <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="transition-all duration-500 object-contain h-[70px] lg:h-[160px] transform lg:scale-[1.4] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.5]" />
           </a>
           
           <div class="hidden lg:flex items-center space-x-6 xl:space-x-10">
-            <a href="<?php echo home_url('/'); ?>" class="text-sm lg:text-[18px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Accueil</a>
-            <a href="<?php echo home_url('/#products'); ?>" class="text-sm lg:text-[18px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Boutique</a>
-            <a href="<?php echo home_url('/#blog'); ?>" class="text-sm lg:text-[18px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Astuces</a>
-            <a href="<?php echo home_url('/#about'); ?>" class="text-sm lg:text-[18px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Expertise</a>
-            <a href="<?php echo home_url('/#contact'); ?>" class="text-sm lg:text-[18px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Contact</a>
+            <a href="<?php echo home_url('/'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Accueil</a>
+            <a href="<?php echo home_url('/#products'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Boutique</a>
+            <a href="<?php echo home_url('/#blog'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Astuces</a>
+            <a href="<?php echo home_url('/#about'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Expertise</a>
+            <a href="<?php echo home_url('/#contact'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-gray-900 border-transparent hover:text-medical-blue" style="font-family: 'Montserrat', sans-serif;">Contact</a>
           </div>
 
           <div class="flex items-center space-x-1 sm:space-x-5">
             <!-- Icône Mon Compte -->
-            <a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ); ?>" class="hidden sm:flex p-3.5 rounded-2xl text-black hover:text-medical-blue hover:bg-medical-light transition-all group" title="Mon compte">
+            <a href="<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ); ?>" class="hidden sm:flex p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Mon compte">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
@@ -123,13 +123,13 @@
             </a>
 
             <!-- Hamburger Menu - Logique simplifiée et robuste -->
-            <button onclick="var mm = document.getElementById('mobile-menu'); mm.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none'); mm.classList.add('translate-x-0', 'opacity-100');" class="mobile-menu-toggle p-2 text-black flex items-center justify-center min-w-[44px] min-h-[44px]" aria-label="Ouvrir le menu">
+            <button onclick="var mm = document.getElementById('mobile-menu'); mm.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none'); mm.classList.add('translate-x-0', 'opacity-100');" class="mobile-menu-toggle p-2 text-gray-900 flex items-center justify-center min-w-[44px] min-h-[44px]" aria-label="Ouvrir le menu">
               <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
             </button>
           </div>
         </div>
       </nav>
     </header>
-    <div class="pt-[100px] pb-20 max-w-7xl mx-auto px-4 lg:px-6">
+    <div class="pt-[120px] lg:pt-[200px] pb-20 max-w-7xl mx-auto px-4 lg:px-6">
   <?php endif; ?>
 
