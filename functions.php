@@ -229,6 +229,10 @@ add_filter( 'show_admin_bar', '__return_false' ); // Désactive la barre admin p
 add_filter( 'script_loader_src', 'bionova_remove_qs', 15, 1 );
 add_filter( 'style_loader_src', 'bionova_remove_qs', 15, 1 );
 function bionova_remove_qs( $src ) {
+    // Ne pas toucher au cache-busting de notre CSS custom
+    if ( strpos( $src, 'woocommerce-custom.css' ) !== false ) {
+        return $src;
+    }
     if ( strpos( $src, 'ver=' ) ) {
         $src = remove_query_arg( 'ver', $src );
     }
