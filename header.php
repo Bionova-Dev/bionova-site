@@ -1,7 +1,7 @@
 <?php
 /**
  * The header for our theme
- * VERSION: 20260507.0959
+ * VERSION: 20260507.1412
  */
 ?>
 <!DOCTYPE html>
@@ -45,10 +45,10 @@
         <div class="flex justify-between items-center h-full gap-4 lg:gap-8">
           
           <a href="<?php echo home_url(); ?>" class="flex items-center cursor-pointer px-2 group shrink-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="transition-all duration-500 object-contain h-[45px] lg:h-[75px] transform lg:scale-[2.0] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[2.1]" />
+            <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="transition-all duration-500 object-contain h-[50px] lg:h-[80px] transform lg:scale-[2.0] origin-left group-hover:scale-[2.1]" />
           </a>
           
-          <div class="hidden lg:flex flex-grow justify-center items-center space-x-6 xl:space-x-10">
+          <div class="hidden lg:flex flex-grow justify-center items-center space-x-12">
             <a href="<?php echo home_url('/'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family: 'Montserrat', sans-serif;">Accueil</a>
             <a href="<?php echo home_url('/#products'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family: 'Montserrat', sans-serif;">Boutique</a>
             <a href="<?php echo home_url('/#blog'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family: 'Montserrat', sans-serif;">Astuces</a>

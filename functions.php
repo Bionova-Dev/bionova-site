@@ -1,5 +1,5 @@
 <?php
-// Bionova Theme Functions - DÉSACTIVATION RADICALE MAINTENANCE
+// Bionova Theme Functions - VERSION: 20260507.1412
 update_option('site_temporary_maintenance_mode', 0);
 update_option('aios_maintenance_mode', '0');
 function bionova_setup() {
@@ -414,13 +414,14 @@ function bionova_header_common_premium_style() {
                 font-size: 20px !important;
             }
         }
-        header nav > div > div.hidden.lg\:flex { gap: 35px !important; }
+        header nav > div > div.hidden.lg\:flex { gap: 48px !important; }
         header nav > div > div.flex.items-center svg { width: 28px !important; height: 28px !important; color: #000000 !important; }
         header nav > div > div.hidden.lg\:flex button:hover,
         header nav > div > div.hidden.lg\:flex a:hover,
         header nav > div > div.flex.items-center button:hover,
-        header nav > div > div.flex.items-center a:hover { color: #000000 !important; opacity: 0.6 !important; }
-        header nav > div > div.hidden.lg\:flex button.text-black { color: #000000 !important; border-bottom: 3px solid #000000 !important; }
+        header nav > div > div.flex.items-center a:hover { color: #be123c !important; opacity: 1.0 !important; }
+        header nav > div > div.hidden.lg\:flex button.text-black:hover,
+        header nav > div > div.hidden.lg\:flex a.text-black:hover { border-bottom: 4px solid #be123c !important; }
 
         /* LOGO : Unifié avec un scale raisonnable */
         header img[alt*="Logo"], header .group img {
