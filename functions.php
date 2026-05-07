@@ -1,7 +1,29 @@
 <?php
-// Bionova Theme Functions - VERSION: 20260507.1412
+// Bionova Theme Functions - VERSION: 20260507.1430
+// ============================================================
+// NUCLEAR: Suppression du fichier .maintenance sur le SERVEUR
+// ============================================================
+$maintenance_paths = array(
+    ABSPATH . '.maintenance',
+    ABSPATH . '../.maintenance',
+    dirname(ABSPATH) . '/.maintenance',
+    $_SERVER['DOCUMENT_ROOT'] . '/.maintenance',
+);
+foreach ($maintenance_paths as $mfile) {
+    if (file_exists($mfile)) {
+        @unlink($mfile);
+        error_log('[BIONOVA] .maintenance SUPPRIMÉ: ' . $mfile);
+    }
+}
+
+// Désactivation de TOUS les modes maintenance connus (BDD)
 update_option('site_temporary_maintenance_mode', 0);
 update_option('aios_maintenance_mode', '0');
+update_option('wp_maintenance_mode', '0');
+update_option('aiowps_site_lockout', '');
+update_option('aios_site_lockout', '');
+delete_option('aiowps_site_lockout');
+delete_option('aios_site_lockout');
 function bionova_setup() {
     add_theme_support( 'woocommerce' );
     add_theme_support( 'post-thumbnails' );
