@@ -11,6 +11,11 @@ function bionova_setup() {
 }
 add_action( 'after_setup_theme', 'bionova_setup' );
 
+// 0. Force Loading and Cache Busting for Custom Styles
+add_action( 'wp_enqueue_scripts', function() {
+    wp_enqueue_style( 'bionova-custom-woo', get_template_directory_uri() . '/woocommerce-custom.css', array(), time() );
+}, 100 );
+
 
 
 
@@ -250,61 +255,7 @@ add_filter( 'woocommerce_countries', function( $countries ) {
 // Suppression des logos personnalisés panier/checkout pour uniformisation avec la Boutique
 
 
-// 2. Injection des éléments de Réassurance
-add_action('woocommerce_after_cart', 'ajouter_reassurance_bionova');
-add_action('woocommerce_after_checkout_form', 'ajouter_reassurance_bionova');
-add_action('woocommerce_after_my_account', 'ajouter_reassurance_bionova');
-
-function ajouter_reassurance_bionova() {
-    ?>
-    <div class="bg-white border-b border-gray-100 relative z-20 mb-10 rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 sm:py-10">
-                <!-- Paiement -->
-                <div class="flex flex-col sm:flex-row items-center text-center sm:text-left group cursor-pointer transition-transform duration-300 hover:-translate-y-[2px]">
-                    <div class="mb-4 sm:mb-0 sm:mr-5 p-3 rounded-xl bg-[#f0fdf4] text-[#075985] group-hover:bg-[#075985] group-hover:text-white transition-colors duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
-                    </div>
-                    <div>
-                        <h4 class="font-display font-bold text-sm text-gray-900 leading-tight">Paiement à la livraison</h4>
-                        <p class="text-[11px] text-gray-400 font-medium uppercase tracking-tight mt-1">Simple et sécurisé</p>
-                    </div>
-                </div>
-                <!-- Support -->
-                <div class="flex flex-col sm:flex-row items-center text-center sm:text-left group cursor-pointer transition-transform duration-300 hover:-translate-y-[2px]">
-                    <div class="mb-4 sm:mb-0 sm:mr-5 p-3 rounded-xl bg-[#f0fdf4] text-[#075985] group-hover:bg-[#075985] group-hover:text-white transition-colors duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                    </div>
-                    <div>
-                        <h4 class="font-display font-bold text-sm text-gray-900 leading-tight">Support 7j/7</h4>
-                        <p class="text-[11px] text-gray-400 font-medium uppercase tracking-tight mt-1">Service client à l'écoute</p>
-                    </div>
-                </div>
-                <!-- Livraison -->
-                <div class="flex flex-col sm:flex-row items-center text-center sm:text-left group cursor-pointer transition-transform duration-300 hover:-translate-y-[2px]">
-                    <div class="mb-4 sm:mb-0 sm:mr-5 p-3 rounded-xl bg-[#f0fdf4] text-[#075985] group-hover:bg-[#075985] group-hover:text-white transition-colors duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3m-1 4a2 2 0 100-4 2 2 0 000 4zm-8 0a2 2 0 100-4 2 2 0 000 4z"></path></svg>
-                    </div>
-                    <div>
-                        <h4 class="font-display font-bold text-sm text-gray-900 leading-tight">Livraison gratuite</h4>
-                        <p class="text-[11px] text-gray-400 font-medium uppercase tracking-tight mt-1">Dès 150 DT d'achat</p>
-                    </div>
-                </div>
-                <!-- Prix -->
-                <div class="flex flex-col sm:flex-row items-center text-center sm:text-left group cursor-pointer transition-transform duration-300 hover:-translate-y-[2px]">
-                    <div class="mb-4 sm:mb-0 sm:mr-5 p-3 rounded-xl bg-[#f0fdf4] text-[#075985] group-hover:bg-[#075985] group-hover:text-white transition-colors duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                    </div>
-                    <div>
-                        <h4 class="font-display font-bold text-sm text-gray-900 leading-tight">Meilleur prix garanti</h4>
-                        <p class="text-[11px] text-gray-400 font-medium uppercase tracking-tight mt-1">Direct laboratoire</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php
-}
+// 2. Réassurance gérée globalement par footer.php
 // 3. Désactivation AJAX pour les boutons de la boucle (Force rechargement propre)
 add_filter( 'woocommerce_loop_add_to_cart_args', 'bionova_remove_ajax_add_to_cart', 10, 2 );
 function bionova_remove_ajax_add_to_cart( $args, $product ) {

@@ -1,16 +1,18 @@
 /* Bionova - Minimalist & Premium WooCommerce Styles */
 
-/* Background Global — Unifié avec le reste du site */
+/* Background Global — Restreint au tunnel d'achat uniquement */
 .woocommerce-cart, .woocommerce-checkout, .woocommerce-account {
-    background-color: #ffffff !important;
+    background-color: #FDF9F6 !important; /* Soft Nude */
     font-family: 'Inter', sans-serif !important;
 }
 
-/* Elegant Container — S'intègre naturellement entre header et trustbar */
+/* Elegant Container */
 .woocommerce-cart .woocommerce, .woocommerce-checkout .woocommerce {
     background: #ffffff;
-    padding: 0; /* Suppression du padding excessif pour un look plus "SPA" */
-    max-width: 1200px;
+    padding: 3rem;
+    border-radius: 2.5rem;
+    border: 1px solid rgba(0,0,0,0.03);
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -25,7 +27,7 @@
 .woocommerce-Price-amount {
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 800 !important;
-    color: #be123c !important; /* Rouge Bionova */
+    color: #075985 !important;
 }
 
 /* Minimalist Table */
@@ -68,16 +70,17 @@
     transform: scale(1.05);
 }
 
+/* Premium Buttons */
 .woocommerce a.button.alt, 
 .woocommerce button.button.alt,
 .woocommerce .cart-collaterals .checkout-button {
-    background-color: #be123c !important; /* Rouge Bionova */
+    background-color: #075985 !important; /* Medical Blue for primary actions */
     color: #ffffff !important;
     border-radius: 1.25rem !important;
     padding: 1.25rem 2.5rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.15em !important;
+    letter-spacing: 0.1em !important;
     border: none !important;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
     font-size: 0.85rem !important;
@@ -86,9 +89,9 @@
 .woocommerce a.button.alt:hover, 
 .woocommerce button.button.alt:hover,
 .woocommerce .cart-collaterals .checkout-button:hover {
-    background-color: #9d0e31 !important;
+    background-color: #0c4a6e !important;
     transform: translateY(-3px) !important;
-    box-shadow: 0 15px 30px -10px rgba(190, 18, 60, 0.3) !important;
+    box-shadow: 0 15px 30px -10px rgba(7, 89, 133, 0.3) !important;
 }
 
 /* Update Cart Button (Secondary) */
@@ -123,24 +126,4 @@
 .woocommerce-cart .cart-collaterals .cart_totals table th {
     padding: 1.25rem 0 !important;
     border-top: 1px solid #f1f5f9 !important;
-}
-
-/* Red Bionova Identity */
-.badge-red, .onsale {
-    background-color: #be123c !important;
-    color: #ffffff !important;
-    font-weight: 900 !important;
-    text-transform: uppercase !important;
-}
-
-.cart-icon-red {
-    color: #be123c !important;
-}
-
-.checkout-button, .button.alt {
-    background-color: #be123c !important;
-}
-
-.checkout-button:hover, .button.alt:hover {
-    background-color: #9d0e31 !important;
 }

@@ -1,6 +1,7 @@
 <?php
 /**
  * The header for our theme
+ * VERSION: 20260507.0959
  */
 ?>
 <!DOCTYPE html>
@@ -8,6 +9,10 @@
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- DEBUG: 2026-05-07 10:49 -->
   <link rel="profile" href="https://gmpg.org/xfn/11">
   <?php wp_head(); ?>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -44,11 +49,11 @@
           </a>
           
           <div class="hidden lg:flex flex-grow justify-center items-center space-x-6 xl:space-x-10">
-            <a href="<?php echo home_url('/'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:opacity-60" style="font-family: 'Montserrat', sans-serif;">Accueil</a>
-            <a href="<?php echo home_url('/#products'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:opacity-60" style="font-family: 'Montserrat', sans-serif;">Boutique</a>
-            <a href="<?php echo home_url('/#blog'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:opacity-60" style="font-family: 'Montserrat', sans-serif;">Astuces</a>
-            <a href="<?php echo home_url('/#about'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:opacity-60" style="font-family: 'Montserrat', sans-serif;">Expertise</a>
-            <a href="<?php echo home_url('/#contact'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:opacity-60" style="font-family: 'Montserrat', sans-serif;">Contact</a>
+            <a href="<?php echo home_url('/'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family: 'Montserrat', sans-serif;">Accueil</a>
+            <a href="<?php echo home_url('/#products'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family: 'Montserrat', sans-serif;">Boutique</a>
+            <a href="<?php echo home_url('/#blog'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family: 'Montserrat', sans-serif;">Astuces</a>
+            <a href="<?php echo home_url('/#about'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family: 'Montserrat', sans-serif;">Expertise</a>
+            <a href="<?php echo home_url('/#contact'); ?>" class="text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family: 'Montserrat', sans-serif;">Contact</a>
           </div>
 
           <div class="flex items-center space-x-1 sm:space-x-5 shrink-0">
@@ -60,7 +65,7 @@
             </a>
 
             <!-- Icône Panier -->
-            <a href="<?php echo function_exists('wc_get_cart_url') ? esc_url( wc_get_cart_url() ) : '/panier/'; ?>" class="relative p-3 sm:p-4 rounded-2xl text-black hover:bg-gray-100 transition-all group" title="Voir le panier">
+            <a href="<?php echo function_exists('wc_get_cart_url') ? esc_url( wc_get_cart_url() ) : '/panier/'; ?>" class="relative p-3 sm:p-4 rounded-2xl text-black hover:text-[#be123c] hover:bg-gray-50 transition-all group" title="Voir le panier">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>

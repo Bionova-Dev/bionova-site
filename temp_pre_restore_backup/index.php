@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<!-- VERSION: 20260507.0959 -->
 <html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <!-- DEBUG: 2026-05-07 10:49 -->
   <title>Bionova | Laboratoire de Parapharmacie & Compléments Alimentaires Naturels</title>
 
   <!-- SEO Meta Tags -->
@@ -104,7 +99,7 @@
       theme: {
         extend: {
           colors: {
-            'medical-blue': '#be123c', // Deep blue
+            'medical-blue': '#075985', // Deep blue
             'medical-light': '#f0fdf4', // Very light aqua/green
             'bionova-red': '#be123c',
             'silver': '#f1f5f9',
@@ -183,7 +178,7 @@
 
     /* CTA Button Styles */
     .btn-gradient {
-      background: #be123c;
+      background: #075985;
       transition: all 0.4s ease;
     }
 
@@ -251,7 +246,7 @@
 
   <script type="text/babel">
     const WC_INITIAL_COUNT = <?php echo (class_exists('WooCommerce') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0; ?>;
-    const WC_CART_URL = '<?php echo function_exists('wc_get_cart_url') ? esc_url( wc_get_cart_url() ) : home_url("/panier/"); ?>';
+    const WC_CART_URL = '<?php echo function_exists('wc_get_cart_url') ? esc_url( wc_get_cart_url() ) : "/panier/"; ?>';
     const WC_PRODUCT_MAP = {
       1: 33,  // Acide Alpha Lipoïque
       2: 35,  // Ashwagandha
@@ -373,7 +368,7 @@
         id: 1,
         category: "Immunité",
         title: "Comment booster son immunité naturellement avant l'hiver ?",
-        image: "<?php echo get_template_directory_uri(); ?>/blog-immunity.png",
+        image: "<?php echo get_template_directory_uri(); ?>/neem.png",
         excerpt: "Découvrez les réflexes quotidiens et les compléments essentiels pour préparer votre organisme aux agressions extérieures.",
         problem: "À l'approche de la saison froide, notre organisme est mis à rude épreuve : baisse d'énergie, vulnérabilité aux virus. Le système immunitaire s'affaiblit sous l'effet du manque de lumière, de la fatigue accumulée et du refroidissement général. Ce phénomène est naturel, mais il peut considérablement altérer votre qualité de vie et votre tonus quotidien.",
         solution: "La nature offre de puissants boucliers biologiques pour soutenir nos défenses. Outre une alimentation riche en vitamines C et en zinc, ainsi qu'un sommeil réparateur, l'utilisation de plantes médicinales purifiantes permet de renforcer le terrain biologique. L'ayurveda utilise depuis des millénaires des extraits végétaux capables de stimuler la réponse immunitaire et de détoxifier le sang.",
@@ -384,7 +379,7 @@
         id: 2,
         category: "Anti-stress",
         title: "Les incroyables bienfaits de l'Ashwagandha sur la charge mentale",
-        image: "<?php echo get_template_directory_uri(); ?>/blog-ashwagandha.png",
+        image: "<?php echo get_template_directory_uri(); ?>/ashwagandha.png",
         excerpt: "Plante phare de l'Ayurveda, l'Ashwagandha est la réponse naturelle pour retrouver un sommeil réparateur et une sérénité durable.",
         problem: "Dans notre société hyperconnectée, le stress chronique et la charge mentale sont devenus le mal du siècle. La surproduction de cortisol (l'hormone du stress) épuise littéralement nos réserves énergétiques, conduisant à des insomnies, de l'anxiété, une baisse de concentration et parfois même au burn-out. Notre système nerveux a urgemment besoin d'être régulé.",
         solution: "Heureusement, la phytothérapie moderne a redécouvert la puissance des plantes 'adaptogènes'. Contrairement aux stimulants chimiques ou aux sédatifs, une plante adaptogène module la réponse de l'organisme face au stress. Elle normalise les fonctions physiologiques et aide le corps à retrouver son homéostasie, qu'il soit confronté à un stress physique ou psychologique.",
@@ -395,7 +390,7 @@
         id: 3,
         category: "Anti-âge",
         title: "Longévité cellulaire : Le NMN est-il le nouveau miracle de la science ?",
-        image: "<?php echo get_template_directory_uri(); ?>/blog-nmn.png",
+        image: "<?php echo get_template_directory_uri(); ?>/nmn.png",
         excerpt: "Tout ce qu'il faut savoir sur le précurseur du NAD+ et ses effets scientifiquement prouvés sur le rajeunissement tissulaire.",
         problem: "Le vieillissement cellulaire n'est plus perçu comme une fatalité, mais comme un processus biologique que nous pouvons ralentir. Avec l'âge, notre organisme perd drastiquement sa capacité à produire du NAD+ (Nicotinamide Adénine Dinucléotide), une coenzyme vitale présente dans chacune de nos cellules. Cette chute de NAD+ (jusqu'à 50% entre 20 et 50 ans) entraîne une baisse de l'énergie métabolique, une dégénérescence tissulaire et l'apparition des signes de l'âge.",
         solution: "Pour restaurer nos niveaux de NAD+, la science s'est tournée vers ses précurseurs directs. L'un des plus prometteurs et étudiés actuellement par les généticiens d'Harvard est le NMN (Nicotinamide Mononucléotide). En pénétrant rapidement dans les cellules, le NMN est immédiatement converti en NAD+, réactivant ainsi les mitochondries (les centrales énergétiques de la cellule) et les sirtuines (les protéines de la longévité).",
@@ -406,7 +401,7 @@
         id: 4,
         category: "Nutricosmétique",
         title: "Collagène marin : le secret d'une peau éclatante à tout âge",
-        image: "<?php echo get_template_directory_uri(); ?>/blog-collagene.png",
+        image: "<?php echo get_template_directory_uri(); ?>/collagene marin complex.png",
         excerpt: "Pourquoi notre production de collagène diminue-t-elle et comment l'intégration du collagène marin peut-elle revitaliser votre peau ?",
         problem: "La peau perd naturellement de sa fermeté et de son éclat avec le temps. Dès l'âge de 25 ans, la production endogène de collagène – la protéine structurale majeure qui donne sa résistance et son élasticité à la peau – diminue d'environ 1% par an. Ce phénomène accélère l'apparition des rides, le relâchement cutané, mais fragilise aussi les ongles, les cheveux et les articulations. Les crèmes superficielles ne suffisent plus.",
         solution: "La nutricosmétique apporte la réponse en agissant 'de l'intérieur'. En ingérant des peptides de collagène marin (issus de poissons sauvages, plus purs et plus assimilables que le collagène bovin), on fournit directement aux fibroblastes de la peau les acides aminés essentiels pour relancer leur propre production de collagène et d'acide hyaluronique. La redensification se fait dans les couches profondes du derme.",
@@ -438,9 +433,9 @@
       return (
         <div className="border-b border-gray-100 py-5">
           <button className="flex w-full justify-between items-center text-left focus:outline-none group" onClick={() => setIsOpen(!isOpen)}>
-            <span className="font-display font-semibold text-lg text-gray-900 group-hover:text-bionova-red transition-colors">{title}</span>
+            <span className="font-display font-semibold text-lg text-gray-900 group-hover:text-medical-blue transition-colors">{title}</span>
             <div className={`p-2 rounded-full bg-gray-50 group-hover:bg-blue-50 transition-colors`}>
-              <ChevronDownIcon className={`w-5 h-5 text-gray-500 group-hover:text-bionova-red transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+              <ChevronDownIcon className={`w-5 h-5 text-gray-500 group-hover:text-medical-blue transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
             </div>
           </button>
           <div className={`mt-2 text-gray-600 leading-relaxed overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'}`}>
@@ -451,22 +446,22 @@
     };
 
     const TrustBar = () => (
-      <div className="bg-white border-t border-b border-gray-100 relative z-20">
+      <div className="bg-white border-b border-gray-100 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 sm:py-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 sm:py-10">
             {[
               { title: "Paiement à la livraison", subtitle: "Simple et sécurisé", icon: WalletIcon },
               { title: "Service client à l'écoute", subtitle: "Support 7j/7", icon: SupportIcon },
               { title: "Livraison gratuite", subtitle: "Dès 150 DT d'achat", icon: TruckIcon },
               { title: "Meilleur prix garanti", subtitle: "Direct laboratoire", icon: TagIcon },
             ].map((item, idx) => (
-              <div key={idx} className="flex flex-col sm:flex-row items-center text-center sm:text-left group cursor-pointer transition-all duration-300 hover:-translate-y-1">
-                <div className="mb-4 sm:mb-0 sm:mr-5 p-4 rounded-2xl bg-white border border-gray-100 text-black shadow-sm transition-all duration-300">
+              <div key={idx} className="flex flex-col sm:flex-row items-center text-center sm:text-left group cursor-pointer transition-transform duration-300 hover:-translate-y-[2px]">
+                <div className="mb-4 sm:mb-0 sm:mr-5 p-3 rounded-xl bg-medical-light text-medical-blue group-hover:bg-medical-blue group-hover:text-white transition-colors duration-300">
                   <item.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-display font-black text-sm text-gray-900 leading-tight uppercase tracking-wider">{item.title}</h4>
-                  <p className="text-[11px] text-gray-400 font-medium uppercase tracking-widest mt-1">{item.subtitle}</p>
+                  <h4 className="font-display font-bold text-sm text-gray-900 leading-tight">{item.title}</h4>
+                  <p className="text-[11px] text-gray-400 font-medium uppercase tracking-tight mt-1">{item.subtitle}</p>
                 </div>
               </div>
             ))}
@@ -480,13 +475,13 @@
       const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
       const navLinkClass = (page, isMobile = false) => {
-        const baseColor = 'text-black';
-        const activeColor = 'text-[#be123c] border-[#be123c]';
+        const baseColor = isMobile ? 'text-gray-800' : 'text-gray-900';
+        const activeColor = 'text-medical-blue border-medical-blue';
         const baseStyles = isMobile 
           ? 'text-2xl font-black uppercase tracking-widest py-4 border-b-2' 
           : 'text-sm lg:text-[20px] font-black uppercase tracking-[0.15em] py-2 px-1 border-b-4';
         
-        return `${baseStyles} transition-all duration-300 cursor-pointer ${currentPage === page ? activeColor : `${baseColor} border-transparent hover:text-[#be123c] hover:border-[#be123c]`}`;
+        return `${baseStyles} transition-all duration-300 cursor-pointer ${currentPage === page ? activeColor : `${baseColor} border-transparent hover:text-medical-blue`}`;
       };
 
       const handleMobileNavigate = (page) => {
@@ -495,9 +490,26 @@
       };
 
       return (
-        <>
-          {/* Mobile Menu Overlay - Moved outside header to avoid clipping */}
-          <div className={`fixed inset-0 bg-white z-[80] transition-all duration-500 transform ${isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'} flex flex-col p-8 lg:hidden`}>
+        <header className="fixed w-full z-50 h-[100px] lg:h-[180px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
+          {/* Search Overlay */}
+          <div className={`absolute inset-0 bg-white z-[60] flex items-center px-6 lg:px-12 transition-all duration-500 transform ${isSearchOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
+            <div className="max-w-7xl mx-auto w-full flex items-center">
+              <SearchIcon className="h-8 w-8 text-gray-400 mr-6" />
+              <input
+                type="text"
+                placeholder="Chercher un produit Bionova..."
+                className="flex-1 bg-transparent border-none outline-none text-xl lg:text-2xl font-medium text-gray-900 placeholder-gray-300"
+                autoFocus={isSearchOpen}
+                aria-label="Barre de recherche"
+              />
+              <button onClick={() => setIsSearchOpen(false)} className="p-4 text-gray-400 hover:text-gray-900 transition-colors" aria-label="Fermer la recherche">
+                <XIcon className="h-10 w-10" />
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu Overlay */}
+          <div className={`fixed inset-0 bg-white z-[70] transition-all duration-500 transform ${isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'} flex flex-col p-8`}>
             <div className="flex justify-between items-center mb-16">
               <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" className="h-12 object-contain" loading="lazy" decoding="async" width="120" height="48" />
               <button onClick={() => setIsMenuOpen(false)} className="p-2 text-gray-900"><XIcon className="h-10 w-10" /></button>
@@ -516,79 +528,54 @@
             </div>
           </div>
 
-          <header className="fixed w-full z-50 h-[60px] lg:h-[90px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center">
-            {/* Search Overlay */}
-            <div className={`absolute inset-0 bg-white z-[60] flex items-center px-6 lg:px-12 transition-all duration-500 transform ${isSearchOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
-              <div className="max-w-7xl mx-auto w-full flex items-center">
-                <SearchIcon className="h-8 w-8 text-gray-400 mr-6" />
-                <input
-                  type="text"
-                  placeholder="Chercher un produit Bionova..."
-                  className="flex-1 bg-transparent border-none outline-none text-xl lg:text-2xl font-medium text-gray-900 placeholder-gray-300"
-                  autoFocus={isSearchOpen}
-                  aria-label="Barre de recherche"
+          <nav className="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
+            <div className="flex justify-between items-center h-full gap-4 lg:gap-8">
+              {/* Logo - x1 on mobile, x2-ish on desktop via Tailwind scale */}
+              <div onClick={() => onNavigate('home')} className="flex items-center cursor-pointer px-2 group shrink-0">
+                <img
+                  src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png"
+                  alt="Logo Bionova"
+                  className="transition-all duration-500 object-contain h-[70px] lg:h-[160px] transform lg:scale-[1.5] origin-left group-hover:scale-[1.1] lg:group-hover:scale-[1.6]"
+                  loading="eager"
+                  decoding="async"
+                  width="320"
+                  height="160"
                 />
-                <button onClick={() => setIsSearchOpen(false)} className="p-4 text-gray-400 hover:text-gray-900 transition-colors" aria-label="Fermer la recherche">
-                  <XIcon className="h-10 w-10" />
+              </div>
+
+              {/* Menu Desktop */}
+              <div className="hidden lg:flex items-center space-x-6 xl:space-x-10">
+                <button onClick={() => onNavigate('home')} className={navLinkClass('home')}>Accueil</button>
+                <button onClick={() => onNavigate('products')} className={navLinkClass('products')}>Boutique</button>
+                <button onClick={() => onNavigate('blog')} className={navLinkClass('blog')}>Astuces</button>
+                <button onClick={() => onNavigate('about')} className={navLinkClass('about')}>Expertise</button>
+                <button onClick={() => onNavigate('contact')} className={navLinkClass('contact')}>Contact</button>
+              </div>
+
+              {/* Icons Toolbar */}
+              <div className="flex items-center space-x-1 sm:space-x-5">
+                <button onClick={() => setIsSearchOpen(true)} className="p-2 sm:p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Rechercher">
+                  <SearchIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
+                </button>
+                <button onClick={() => onNavigate('login')} className="hidden sm:block p-3.5 rounded-2xl text-gray-900 hover:text-medical-blue hover:bg-medical-light transition-all group" title="Mon compte">
+                  <UserIcon className="h-7 w-7 group-hover:scale-110 transition-transform" />
+                </button>
+                <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" className="relative p-3 sm:p-4 rounded-2xl bg-gray-900 text-white hover:bg-medical-blue transition-all group shadow-lg hover:shadow-xl" title="Voir le panier">
+                  <ShoppingCartIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
+                  {cartItemCount > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                      {cartItemCount}
+                    </span>
+                  )}
+                </a>
+                {/* Mobile Hamburger Menu Toggle */}
+                <button onClick={() => setIsMenuOpen(true)} className="lg:hidden p-2 text-gray-900" aria-label="Ouvrir le menu">
+                  <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
                 </button>
               </div>
             </div>
-
-            <nav className="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
-              <div className="flex justify-between items-center h-full">
-                {/* Logo Section */}
-                <div onClick={() => onNavigate('home')} className="flex items-center cursor-pointer px-2 group shrink-0">
-                  <img
-                    src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png"
-                    alt="Logo Bionova"
-                    className="transition-all duration-500 object-contain h-[50px] lg:h-[80px] transform lg:scale-[2.0] origin-left group-hover:scale-[2.1]"
-                    loading="eager"
-                    decoding="async"
-                    width="320"
-                    height="160"
-                  />
-                </div>
-
-                {/* Centered Menu Section */}
-                <div className="hidden lg:flex flex-grow justify-center items-center space-x-12">
-                  <button onClick={() => onNavigate('home')} className={navLinkClass('home')}>Accueil</button>
-                  <button onClick={() => onNavigate('products')} className={navLinkClass('products')}>Boutique</button>
-                  <button onClick={() => onNavigate('blog')} className={navLinkClass('blog')}>Astuces</button>
-                  <button onClick={() => onNavigate('about')} className={navLinkClass('about')}>Expertise</button>
-                  <button onClick={() => onNavigate('contact')} className={navLinkClass('contact')}>Contact</button>
-                </div>
-
-                {/* Right Actions Section */}
-                <div className="flex items-center space-x-2 sm:space-x-6 shrink-0">
-                  <button onClick={() => setIsSearchOpen(true)} className="p-2 sm:p-3 rounded-2xl text-black hover:bg-gray-100 transition-all group" title="Rechercher">
-                    <SearchIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
-                  </button>
-                  <button onClick={() => onNavigate('login')} className="hidden sm:block p-3 rounded-2xl text-black hover:bg-gray-100 transition-all group" title="Mon compte">
-                    <UserIcon className="h-7 w-7 group-hover:scale-110 transition-transform" />
-                  </button>
-                  <a href={WC_CART_URL} className="relative p-3 sm:p-4 rounded-2xl text-black hover:text-[#be123c] hover:bg-gray-50 transition-all group" title="Voir le panier">
-                    <ShoppingCartIcon className="h-6 w-6 lg:h-7 lg:w-7 group-hover:scale-110 transition-transform" />
-                    {cartItemCount > 0 && (
-                      <span className="absolute -top-1 -right-1 bg-[#be123c] text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg">
-                        {cartItemCount}
-                      </span>
-                    )}
-                  </a>
-                  {/* Mobile Hamburger Menu Toggle */}
-                  <button 
-                    onClick={() => setIsMenuOpen(true)} 
-                    className="mobile-menu-toggle flex lg:hidden items-center justify-center p-2 text-gray-900 hover:bg-gray-100 rounded-xl transition-colors min-w-[48px] min-h-[48px]" 
-                    aria-label="Ouvrir le menu"
-                  >
-                    <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </nav>
-          </header>
-        </>
+          </nav>
+        </header>
       );
     };
 
@@ -607,38 +594,38 @@
 
             {/* Colonne 2: Liens Rapides */}
             <div className="text-center md:text-left">
-              <h4 className="font-display text-xl font-bold text-bionova-red uppercase tracking-widest mb-8">Boutique</h4>
+              <h4 className="font-display text-xl font-bold text-medical-blue uppercase tracking-widest mb-8">Boutique</h4>
               <ul className="space-y-4">
-                <li><a href="#products" className="text-gray-600 hover:text-bionova-red transition-colors font-bold text-sm">Tous les produits</a></li>
-                <li><a href="#products" className="text-gray-600 hover:text-bionova-red transition-colors font-bold text-sm">Packs Synergie</a></li>
-                <li><a href="#products" className="text-gray-600 hover:text-bionova-red transition-colors font-bold text-sm">Nouveautés</a></li>
-                <li><a href="#products" className="text-gray-600 hover:text-bionova-red transition-colors font-bold text-sm">Meilleures Ventes</a></li>
+                <li><a href="#products" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Tous les produits</a></li>
+                <li><a href="#products" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Packs Synergie</a></li>
+                <li><a href="#products" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Nouveautés</a></li>
+                <li><a href="#products" className="text-gray-600 hover:text-medical-blue transition-colors font-bold text-sm">Meilleures Ventes</a></li>
               </ul>
             </div>
 
             {/* Colonne 3: Contact & Support */}
             <div className="text-center md:text-left">
-              <h4 className="font-display text-xl font-bold text-bionova-red uppercase tracking-widest mb-8">Assistance</h4>
+              <h4 className="font-display text-xl font-bold text-medical-blue uppercase tracking-widest mb-8">Assistance</h4>
               <ul className="space-y-4">
-                <li className="flex items-center justify-center md:justify-start text-gray-600 font-bold text-sm"><svg className="w-5 h-5 mr-3 text-bionova-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> contact@bionova.tn</li>
-                <li className="flex items-center justify-center md:justify-start text-gray-600 font-bold text-sm"><svg className="w-5 h-5 mr-3 text-bionova-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg> +216 71 000 000</li>
+                <li className="flex items-center justify-center md:justify-start text-gray-600 font-bold text-sm"><svg className="w-5 h-5 mr-3 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> contact@bionova.tn</li>
+                <li className="flex items-center justify-center md:justify-start text-gray-600 font-bold text-sm"><svg className="w-5 h-5 mr-3 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg> +216 71 000 000</li>
               </ul>
             </div>
 
             {/* Colonne 4: Réseaux Sociaux & Légal */}
             <div className="text-center md:text-right">
-              <h4 className="font-display text-xl font-bold text-bionova-red uppercase tracking-widest mb-8">Rejoignez-nous</h4>
+              <h4 className="font-display text-xl font-bold text-medical-blue uppercase tracking-widest mb-8">Rejoignez-nous</h4>
               <div className="flex justify-center md:justify-end space-x-4 mb-8">
-                <a href="https://www.facebook.com/bionova" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-bionova-red hover:text-white transition-all shadow-sm group">
+                <a href="https://www.facebook.com/bionova" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-medical-blue hover:text-white transition-all shadow-sm group">
                   <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31.975.975 1.247 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.975.975-2.242 1.247-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.975-.975-1.247-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.975-.975 2.242-1.247 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.337 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.337-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.337-2.618-6.78-6.98-6.98-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
                 </a>
-                <a href="https://www.instagram.com/bionova" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-bionova-red hover:text-white transition-all shadow-sm group">
+                <a href="https://www.instagram.com/bionova" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-medical-blue hover:text-white transition-all shadow-sm group">
                   <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.324v-21.35c0-.732-.593-1.325-1.325-1.325z" /></svg>
                 </a>
               </div>
               <div className="flex flex-col space-y-2 items-center md:items-end">
-                <a href="javascript:void(0)" className="text-[10px] font-black text-gray-400 hover:text-bionova-red transition-colors uppercase tracking-widest">Mentions Légales & CGV</a>
-                <a href="javascript:void(0)" className="text-[10px] font-black text-gray-400 hover:text-bionova-red transition-colors uppercase tracking-widest">Politique de confidentialité</a>
+                <a href="javascript:void(0)" className="text-[10px] font-black text-gray-400 hover:text-medical-blue transition-colors uppercase tracking-widest">Mentions Légales & CGV</a>
+                <a href="javascript:void(0)" className="text-[10px] font-black text-gray-400 hover:text-medical-blue transition-colors uppercase tracking-widest">Politique de confidentialité</a>
               </div>
             </div>
           </div>
@@ -785,7 +772,7 @@
               const slide = slides[current];
 
               return (
-                <section className="relative pt-20 pb-40 lg:pt-32 lg:pb-56 overflow-hidden flex items-center justify-center min-h-[90vh]">
+                <section className="relative pt-32 pb-40 lg:pt-48 lg:pb-56 overflow-hidden flex items-center justify-center min-h-[90vh]">
                   {/* Background images stacked, controlled by opacity */}
                   {slides.map((s, i) => (
                     <img
@@ -823,7 +810,7 @@
                       <div className="mt-12 sm:flex sm:justify-center md:justify-start gap-4">
                         <button
                           onClick={() => onNavigate(slide.cta1.page)}
-                          className="w-full sm:w-auto flex items-center justify-center px-10 py-4 text-lg font-bold rounded-2xl text-white bg-bionova-red hover:bg-blue-600 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
+                          className="w-full sm:w-auto flex items-center justify-center px-10 py-4 text-lg font-bold rounded-2xl text-white bg-medical-blue hover:bg-blue-600 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
                           title={slide.cta1.label}
                         >
                           {slide.cta1.label}
@@ -865,7 +852,7 @@
           <section className="py-32 bg-white relative border-t border-gray-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-20">
-                <h2 className="text-sm text-bionova-red font-bold tracking-widest uppercase mb-3">Sélection Premium</h2>
+                <h2 className="text-sm text-medical-blue font-bold tracking-widest uppercase mb-3">Sélection Premium</h2>
                 <p className="font-display text-4xl leading-tight font-extrabold text-gray-900 sm:text-5xl">Nos Meilleures Ventes</p>
                 <p className="mt-6 text-xl text-gray-500">Les formules les plus plébiscitées pour des résultats optimaux en Tunisie.</p>
               </div>
@@ -873,9 +860,9 @@
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                 {bestSellers.map(product => (
                   <article key={product.id} onClick={() => onProductClick(product)} className="bg-gray-50 rounded-[3rem] p-10 flex flex-col items-center text-center group border border-gray-100 hover:shadow-2xl hover:border-medical-blue/20 transition-all duration-500 relative cursor-pointer">
-                    <div className="absolute top-6 right-6 bg-[#be123c] text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg tracking-wider uppercase z-20">Best Seller</div>
+                    <div className="absolute top-6 right-6 bg-gray-900 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg tracking-wider uppercase z-20" style={{backgroundColor:'#111827',color:'#ffffff'}}>Best Seller</div>
                     <InteractiveProductViewer src={product.image} alt={`Produit Bionova : ${product.name}`} className="w-56 h-56 mb-10" noShadow={true} />
-                    <h3 className="font-display text-2xl font-black text-gray-900 mb-2 group-hover:text-bionova-red transition-colors">{product.name}</h3>
+                    <h3 className="font-display text-2xl font-black text-gray-900 mb-2 group-hover:text-medical-blue transition-colors">{product.name}</h3>
 
                     {/* Avis Clients */}
                     <div className="flex items-center space-x-1 mb-4">
@@ -887,11 +874,11 @@
 
                     <p className="text-gray-500 mb-8 line-clamp-2">{product.description}</p>
                     <div className="mt-auto w-full flex items-center justify-between">
-                      <p className="text-3xl font-black text-bionova-red">{product.price.toFixed(2)} DT</p>
+                      <p className="text-3xl font-black text-medical-blue">{product.price.toFixed(2)} DT</p>
                       <div className="flex space-x-2">
                         <button
                           onClick={(e) => { e.stopPropagation(); onProductClick(product); }}
-                          className="flex items-center justify-center p-4 border border-gray-200 text-gray-500 hover:text-bionova-red hover:border-medical-blue rounded-xl transition-all"
+                          className="flex items-center justify-center p-4 border border-gray-200 text-gray-500 hover:text-medical-blue hover:border-medical-blue rounded-xl transition-all"
                           title={`Voir les détails de ${product.name}`}
                         >
                           <ChevronDownIcon className="w-5 h-5 -rotate-90" />
@@ -904,7 +891,7 @@
                             onAddToCart(product);
                           }}
                           style={{ position: 'relative', zIndex: 9999, cursor: 'pointer' }}
-                          className="flex items-center justify-center bg-gray-900 text-white w-12 h-12 rounded-xl shadow-lg hover:bg-bionova-red transition-all"
+                          className="flex items-center justify-center bg-gray-900 text-white w-12 h-12 rounded-xl shadow-lg hover:bg-medical-blue transition-all"
                           title={`Ajouter ${product.name} au panier`}
                           aria-label={`Ajouter ${product.name} au panier`}
                         >
@@ -923,11 +910,11 @@
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                 <div className="md:w-2/3">
-                  <h2 className="text-sm text-bionova-red font-bold tracking-widest uppercase mb-3">Offres Limitées</h2>
+                  <h2 className="text-sm text-medical-blue font-bold tracking-widest uppercase mb-3">Offres Limitées</h2>
                   <p className="font-display text-4xl leading-tight font-extrabold text-gray-900 sm:text-5xl">Nos Packs Exclusifs</p>
                   <p className="mt-6 text-xl text-gray-500">Optimisez vos résultats avec nos synergies d'actifs soigneusement sélectionnées par nos experts.</p>
                 </div>
-                <button onClick={() => onNavigate('products')} className="mt-8 md:mt-0 font-bold text-bionova-red hover:text-blue-700 transition-colors flex items-center group">
+                <button onClick={() => onNavigate('products')} className="mt-8 md:mt-0 font-bold text-medical-blue hover:text-blue-700 transition-colors flex items-center group">
                   Voir tous les packs <span className="ml-2 transform group-hover:translate-x-1 transition-transform">&rarr;</span>
                 </button>
               </div>
@@ -952,8 +939,8 @@
 
                     {/* Content Part */}
                     <div className="lg:w-1/2 p-12 lg:p-20 flex flex-col justify-center">
-                      <div className="inline-block px-4 py-1.5 bg-blue-50 text-bionova-red rounded-full text-[10px] font-bold tracking-widest uppercase mb-6 self-start">Nutricosmétique Premium</div>
-                      <h3 className="font-display text-4xl lg:text-5xl font-black text-gray-900 mb-2 group-hover:text-bionova-red transition-colors">{pack.name}</h3>
+                      <div className="inline-block px-4 py-1.5 bg-blue-50 text-medical-blue rounded-full text-[10px] font-bold tracking-widest uppercase mb-6 self-start">Nutricosmétique Premium</div>
+                      <h3 className="font-display text-4xl lg:text-5xl font-black text-gray-900 mb-2 group-hover:text-medical-blue transition-colors">{pack.name}</h3>
 
                       {/* Avis Clients */}
                       <div className="flex items-center space-x-1 mb-6">
@@ -971,8 +958,8 @@
                           <p className="text-2xl text-gray-300 line-through font-bold">{pack.oldPrice.toFixed(2)} DT</p>
                         </div>
                         <div>
-                          <p className="text-sm text-bionova-red font-bold uppercase tracking-widest mb-1">Prix Pack</p>
-                          <p className="text-5xl font-black text-bionova-red">{pack.price.toFixed(2)} <span className="text-xl">DT</span></p>
+                          <p className="text-sm text-medical-blue font-bold uppercase tracking-widest mb-1">Prix Pack</p>
+                          <p className="text-5xl font-black text-medical-blue">{pack.price.toFixed(2)} <span className="text-xl">DT</span></p>
                         </div>
                       </div>
 
@@ -999,14 +986,14 @@
           <div className="py-32 bg-gray-50 border-t border-gray-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="lg:text-center mb-24">
-                <h2 className="text-sm text-bionova-red font-bold tracking-widest uppercase mb-3">Notre Promesse</h2>
+                <h2 className="text-sm text-medical-blue font-bold tracking-widest uppercase mb-3">Notre Promesse</h2>
                 <p className="font-display text-4xl leading-tight font-extrabold text-gray-900 sm:text-5xl">L'excellence au service de votre santé</p>
               </div>
               <div className="space-y-12 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-12 md:gap-y-16">
                 {features.map((feature) => (
                   <div key={feature.name} className="relative bg-white p-10 rounded-[2.5rem] shadow-sm border border-silver/40 hover:shadow-xl transition-all group">
                     <div className="absolute flex items-center justify-center h-20 w-20 rounded-2xl bg-gradient-to-br from-medical-blue to-blue-400 text-white -top-10 left-10 shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                      <feature.icon className="h-10 w-10 text-black" aria-hidden="true" />
+                      <feature.icon className="h-10 w-10 text-white stroke-white" aria-hidden="true" />
                     </div>
                     <p className="mt-8 font-display text-2xl font-bold text-gray-900 mb-4">{feature.name}</p>
                     <p className="text-lg text-gray-500 leading-relaxed">{feature.description}</p>
@@ -1026,13 +1013,13 @@
             <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-contain p-10 product-image-float" loading="lazy" decoding="async" width="300" height="300" />
 
             {product.badge && (
-              <div className="absolute top-6 left-6 bg-[#be123c] text-white text-[10px] font-black px-4 py-2 rounded-xl shadow-md tracking-widest uppercase z-20">
+              <div className="absolute top-6 left-6 bg-gray-900 text-white text-[10px] font-black px-4 py-2 rounded-xl shadow-md tracking-widest uppercase z-20" style={{backgroundColor:'#111827',color:'#ffffff'}}>
                 {product.badge}
               </div>
             )}
           </div>
           <div className="p-10 flex flex-col flex-grow bg-white">
-            <h3 className="font-display text-2xl font-black text-gray-900 mb-2 leading-tight group-hover:text-bionova-red transition-colors">{product.name}</h3>
+            <h3 className="font-display text-2xl font-black text-gray-900 mb-2 leading-tight group-hover:text-medical-blue transition-colors">{product.name}</h3>
 
             {/* Avis Clients */}
             <div className="flex items-center space-x-1 mb-4">
@@ -1046,7 +1033,7 @@
 
 
             <div className="flex items-center justify-between mt-auto">
-              <span className="text-2xl font-black text-bionova-red">{product.price.toFixed(2)} <span className="text-[10px] font-black ml-1 text-gray-400">DT</span></span>
+              <span className="text-2xl font-black text-medical-blue">{product.price.toFixed(2)} <span className="text-[10px] font-black ml-1 text-gray-400">DT</span></span>
 
               <a
                 href="javascript:void(0)"
@@ -1073,7 +1060,7 @@
         <div id="products" className="pt-32 pb-32 bg-white min-h-screen">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-24">
-              <h2 className="text-sm text-bionova-red font-bold tracking-widest uppercase mb-3">Notre Gamme</h2>
+              <h2 className="text-sm text-medical-blue font-bold tracking-widest uppercase mb-3">Notre Gamme</h2>
               <p className="font-display text-5xl leading-tight font-extrabold text-gray-900">
                 L'expertise micronutrition
               </p>
@@ -1095,7 +1082,7 @@
       return (
         <div className="min-h-screen bg-white pt-32 pb-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <button onClick={onBack} className="group flex items-center text-gray-500 hover:text-bionova-red font-semibold tracking-wide uppercase text-sm transition-colors mb-16">
+            <button onClick={onBack} className="group flex items-center text-gray-500 hover:text-medical-blue font-semibold tracking-wide uppercase text-sm transition-colors mb-16">
               <span className="transform transition-transform group-hover:-translate-x-2 mr-3 text-lg">&larr;</span> Retour à la boutique
             </button>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -1103,7 +1090,7 @@
               <div className="relative w-full aspect-square rounded-[3rem] bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center overflow-hidden group">
                 <img src={product.image} alt={product.name} className="w-full h-full p-12 object-contain" loading="lazy" decoding="async" width="600" height="600" />
                 {product.badge && (
-                  <div className="absolute top-8 right-8 bg-bionova-red text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-lg tracking-wider uppercase z-10">
+                  <div className="absolute top-8 right-8 bg-medical-blue text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-lg tracking-wider uppercase z-10">
                     {product.badge}
                   </div>
                 )}
@@ -1123,7 +1110,7 @@
                 </div>
 
                 <div className="flex items-baseline space-x-4 mb-10">
-                  <p className="text-4xl font-extrabold text-bionova-red">{product.price.toFixed(2)} DT</p>
+                  <p className="text-4xl font-extrabold text-medical-blue">{product.price.toFixed(2)} DT</p>
                   {product.oldPrice && <p className="text-xl text-gray-300 line-through font-bold">{product.oldPrice.toFixed(2)} DT</p>}
                 </div>
                 <p className="text-xl text-gray-600 leading-relaxed mb-10">{product.description}</p>
@@ -1135,7 +1122,7 @@
                       {product.benefits.map((benefit, i) => (
                         <li key={i} className="flex items-start text-sm text-gray-700 font-medium">
                           <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-0.5 shrink-0">
-                            <svg className="w-3 h-3 text-bionova-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" /></svg>
+                            <svg className="w-3 h-3 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" /></svg>
                           </div>
                           {benefit}
                         </li>
@@ -1173,8 +1160,8 @@
                     e.preventDefault(); 
                     onAddToCart(product);
                   }}
-                  style={{ position: 'relative', zIndex: 9999, cursor: 'pointer', display: 'flex', backgroundColor: '#be123c', color: '#ffffff' }}
-                  className="w-full flex justify-center items-center py-6 px-8 shadow-xl text-xl font-bold uppercase tracking-wider rounded-2xl text-white bg-bionova-red hover:bg-gray-900 hover:-translate-y-1 hover:shadow-2xl transition-all text-center"
+                  style={{ position: 'relative', zIndex: 9999, cursor: 'pointer', display: 'flex', backgroundColor: '#075985', color: '#ffffff' }}
+                  className="w-full flex justify-center items-center py-6 px-8 shadow-xl text-xl font-bold uppercase tracking-wider rounded-2xl text-white bg-medical-blue hover:bg-gray-900 hover:-translate-y-1 hover:shadow-2xl transition-all text-center"
                 >
                   <ShoppingCartIcon className="w-6 h-6 mr-3" />
                   Ajouter au panier
@@ -1191,7 +1178,7 @@
         <div className="pt-32 pb-32 bg-gray-50 min-h-screen">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-24">
-              <h2 className="text-sm text-bionova-red font-bold tracking-widest uppercase mb-3">Le Magazine</h2>
+              <h2 className="text-sm text-medical-blue font-bold tracking-widest uppercase mb-3">Le Magazine</h2>
               <h1 className="font-display text-5xl font-extrabold text-gray-900 mb-6">Astuces & Santé</h1>
               <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">Découvrez les dernières avancées scientifiques, nos conseils micronutrition et les secrets d'un bien-être absolu.</p>
             </div>
@@ -1199,15 +1186,11 @@
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
               {articlesData.map((article) => (
                 <article key={article.id} className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 group flex flex-col h-full hover:shadow-2xl transition-all duration-500">
-                  <div className="relative aspect-video overflow-hidden cursor-pointer" onClick={() => onArticleClick(article)}>
-                    <img src={article.image} alt={article.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-gray-900/20 group-hover:bg-gray-900/40 transition-colors duration-500"></div>
-                  </div>
                   <div className="p-10 flex flex-col flex-grow">
-                    <h2 className="font-display text-2xl font-bold text-gray-900 mb-4 group-hover:text-bionova-red transition-colors line-clamp-3 leading-tight cursor-pointer" onClick={() => onArticleClick(article)} title={`Lire l'article : ${article.title}`}>{article.title}</h2>
+                    <h2 className="font-display text-2xl font-bold text-gray-900 mb-4 group-hover:text-medical-blue transition-colors line-clamp-3 leading-tight cursor-pointer" onClick={() => onArticleClick(article)} title={`Lire l'article : ${article.title}`}>{article.title}</h2>
                     <p className="text-gray-500 text-base leading-relaxed mb-8 flex-grow">{article.excerpt}</p>
                     <footer className="mt-auto">
-                      <button onClick={() => onArticleClick(article)} className="w-full flex items-center justify-center py-4 px-6 border border-gray-200 text-gray-700 hover:bg-bionova-red hover:text-white hover:border-medical-blue rounded-2xl font-bold uppercase tracking-wider text-sm transition-all duration-300" title={`Lire l'article complet sur ${article.title}`}>
+                      <button onClick={() => onArticleClick(article)} className="w-full flex items-center justify-center py-4 px-6 border border-gray-200 text-gray-700 hover:bg-medical-blue hover:text-white hover:border-medical-blue rounded-2xl font-bold uppercase tracking-wider text-sm transition-all duration-300" title={`Lire l'article complet sur ${article.title}`}>
                         Lire la suite
                       </button>
                       <p className="text-[10px] text-gray-400 text-center mt-5 uppercase tracking-widest">Conseils de santé certifiés Bionova</p>
@@ -1227,16 +1210,15 @@
       return (
         <div className="bg-white min-h-screen">
           {/* Hero Article */}
-          <div className="relative h-[400px] flex items-end pb-12 overflow-hidden">
-            <img src={article.image} alt={article.title} className="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="sync" width="1920" height="1080" />
-            <div className="absolute inset-0 bg-gray-900/50 backdrop-blur-[1px]"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent"></div>
+          <div className="relative h-[60vh] min-h-[400px] flex items-end pb-16">
+            <img src={article.image} alt={article.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" width="1200" height="600" />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent"></div>
 
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
               <button onClick={onBack} className="inline-flex items-center text-white/80 hover:text-white font-bold tracking-wide uppercase text-sm transition-colors mb-8 bg-white/10 hover:bg-white/20 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/20">
                 <span className="mr-2">&larr;</span> Retour aux astuces
               </button>
-              <div className="mb-6"><span className="bg-bionova-red text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">{article.category}</span></div>
+              <div className="mb-6"><span className="bg-medical-blue text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">{article.category}</span></div>
               <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">{article.title}</h1>
             </div>
           </div>
@@ -1246,18 +1228,18 @@
             <article className="prose prose-lg prose-blue max-w-none">
 
               <section className="mb-14">
-                <h2 className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center"><span className="bg-blue-50 text-bionova-red w-12 h-12 rounded-full flex items-center justify-center mr-5 text-xl" aria-hidden="true">1</span> Le problème</h2>
+                <h2 className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center"><span className="bg-blue-50 text-medical-blue w-12 h-12 rounded-full flex items-center justify-center mr-5 text-xl" aria-hidden="true">1</span> Le problème</h2>
                 <p className="text-gray-600 leading-relaxed text-lg">{article.problem}</p>
               </section>
 
               <section className="mb-14">
-                <h2 className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center"><span className="bg-blue-50 text-bionova-red w-12 h-12 rounded-full flex items-center justify-center mr-5 text-xl" aria-hidden="true">2</span> La solution naturelle</h2>
+                <h2 className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center"><span className="bg-blue-50 text-medical-blue w-12 h-12 rounded-full flex items-center justify-center mr-5 text-xl" aria-hidden="true">2</span> La solution naturelle</h2>
                 <p className="text-gray-600 leading-relaxed text-lg">{article.solution}</p>
               </section>
 
               <section className="mb-16 bg-gray-50 p-10 sm:p-14 rounded-[3rem] border border-gray-100 relative mt-20">
                 <div className="absolute top-0 left-10 transform -translate-y-1/2 bg-white w-20 h-20 rounded-full flex items-center justify-center shadow-xl border border-gray-50">
-                  <ShieldIcon className="w-10 h-10 text-bionova-red" />
+                  <ShieldIcon className="w-10 h-10 text-medical-blue" />
                 </div>
                 <h2 className="font-display text-2xl font-bold text-gray-900 mb-6 mt-4">Le conseil de l'expert Bionova</h2>
                 <p className="text-gray-600 leading-relaxed italic text-lg">"{article.expert}"</p>
@@ -1268,18 +1250,18 @@
             {/* Produit Recommandé */}
             {product && (
               <div className="mt-24 pt-16 border-t border-gray-100">
-                <h3 className="text-center font-display text-2xl font-bold text-gray-900 mb-12 uppercase tracking-widest text-sm text-bionova-red">Le protocole recommandé</h3>
+                <h3 className="text-center font-display text-2xl font-bold text-gray-900 mb-12 uppercase tracking-widest text-sm text-medical-blue">Le protocole recommandé</h3>
                 <div className="bg-white rounded-[3rem] border border-gray-100 shadow-lg overflow-hidden flex flex-col sm:flex-row hover:shadow-2xl transition-all duration-500 cursor-pointer group" onClick={() => onProductClick(product)}>
                   <div className="sm:w-2/5 bg-gray-50 p-8 flex items-center justify-center relative overflow-hidden">
                     <img src={product.image} alt={product.name} className="w-56 h-56 object-contain transform group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" width="224" height="224" />
                   </div>
                   <div className="sm:w-3/5 p-10 sm:p-12 flex flex-col justify-center">
                     <div className="flex justify-between items-start mb-4">
-                      <h4 className="font-display text-3xl font-extrabold text-gray-900 group-hover:text-bionova-red transition-colors">{product.name}</h4>
-                      <span className="text-2xl font-bold text-bionova-red">{product.price.toFixed(2)} DT</span>
+                      <h4 className="font-display text-3xl font-extrabold text-gray-900 group-hover:text-medical-blue transition-colors">{product.name}</h4>
+                      <span className="text-2xl font-bold text-medical-blue">{product.price.toFixed(2)} DT</span>
                     </div>
                     <p className="text-gray-500 mb-8 leading-relaxed line-clamp-3">{product.description}</p>
-                    <button className="inline-flex items-center text-white bg-gray-900 hover:bg-bionova-red py-4 px-8 rounded-2xl font-bold uppercase tracking-wider text-sm transition-colors self-start shadow-md">
+                    <button className="inline-flex items-center text-white bg-gray-900 hover:bg-medical-blue py-4 px-8 rounded-2xl font-bold uppercase tracking-wider text-sm transition-colors self-start shadow-md">
                       Voir le produit <span className="ml-3">&rarr;</span>
                     </button>
                   </div>
@@ -1302,7 +1284,7 @@
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
               <div>
-                <h2 className="text-sm text-bionova-red font-bold tracking-widest uppercase mb-3">Notre Laboratoire</h2>
+                <h2 className="text-sm text-medical-blue font-bold tracking-widest uppercase mb-3">Notre Laboratoire</h2>
                 <h1 className="font-display text-5xl sm:text-6xl font-extrabold text-gray-900 mb-8 leading-tight">L'innovation au service de la cellule.</h1>
                 <p className="text-xl text-gray-600 leading-relaxed mb-6">
                   Fondé par des passionnés de micronutrition et de biotechnologie, le laboratoire Bionova repousse les limites de la supplémentation naturelle.
@@ -1313,7 +1295,7 @@
               </div>
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl h-[500px]">
                 <img src="<?php echo get_template_directory_uri(); ?>/expertise-hero.png" alt="Laboratoire" className="w-full h-full object-cover" loading="lazy" decoding="async" width="800" height="600" />
-                <div className="absolute inset-0 bg-bionova-red opacity-10 mix-blend-multiply"></div>
+                <div className="absolute inset-0 bg-medical-blue opacity-10 mix-blend-multiply"></div>
               </div>
             </div>
 
@@ -1321,17 +1303,17 @@
               <h2 className="font-display text-4xl font-extrabold text-gray-900 mb-16">Nos piliers fondateurs</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
-                  <div className="bg-white w-20 h-20 rounded-2xl shadow-lg flex items-center justify-center mx-auto mb-8 text-bionova-red"><BeakerIcon className="w-10 h-10" /></div>
+                  <div className="bg-white w-20 h-20 rounded-2xl shadow-lg flex items-center justify-center mx-auto mb-8 text-medical-blue"><BeakerIcon className="w-10 h-10" /></div>
                   <h3 className="font-display text-2xl font-bold mb-4">Innovation Scientifique</h3>
                   <p className="text-gray-500 leading-relaxed">Des formules basées sur les dernières études cliniques, optimisant les synergies entre actifs.</p>
                 </div>
                 <div>
-                  <div className="bg-white w-20 h-20 rounded-2xl shadow-lg flex items-center justify-center mx-auto mb-8 text-bionova-red"><LeafIcon className="w-10 h-10" /></div>
+                  <div className="bg-white w-20 h-20 rounded-2xl shadow-lg flex items-center justify-center mx-auto mb-8 text-medical-blue"><LeafIcon className="w-10 h-10" /></div>
                   <h3 className="font-display text-2xl font-bold mb-4">Pureté Absolue</h3>
                   <p className="text-gray-500 leading-relaxed">Zéro additif chimique, nanoparticule ou excipient controversé. Le meilleur, et rien d'autre.</p>
                 </div>
                 <div>
-                  <div className="bg-white w-20 h-20 rounded-2xl shadow-lg flex items-center justify-center mx-auto mb-8 text-bionova-red"><ShieldIcon className="w-10 h-10" /></div>
+                  <div className="bg-white w-20 h-20 rounded-2xl shadow-lg flex items-center justify-center mx-auto mb-8 text-medical-blue"><ShieldIcon className="w-10 h-10" /></div>
                   <h3 className="font-display text-2xl font-bold mb-4">Traçabilité Totale</h3>
                   <p className="text-gray-500 leading-relaxed">Des matières premières rigoureusement sélectionnées et des lots testés par des laboratoires indépendants.</p>
                 </div>
@@ -1355,7 +1337,7 @@
         <div className="pt-32 pb-32 bg-gray-50 min-h-screen">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-20">
-              <h2 className="text-sm text-bionova-red font-bold tracking-widest uppercase mb-3">Support & Expertise</h2>
+              <h2 className="text-sm text-medical-blue font-bold tracking-widest uppercase mb-3">Support & Expertise</h2>
               <h1 className="font-display text-5xl font-extrabold text-gray-900 mb-6">Contactez-nous</h1>
               <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">Besoin d'un conseil personnalisé ou d'une information sur votre commande ? Nous sommes à votre écoute.</p>
             </div>
@@ -1402,9 +1384,9 @@
               <div className="flex flex-col h-full space-y-10">
                 <div className="bg-white p-10 rounded-[3rem] shadow-sm border border-gray-100">
                   <h3 className="font-display text-2xl font-bold mb-6">Nos Coordonnées</h3>
-                  <p className="text-gray-500 mb-4 flex items-center"><TruckIcon className="w-5 h-5 mr-3 text-bionova-red" /> 123 Avenue de la Santé, Tunis, Tunisie</p>
-                  <p className="text-gray-500 mb-4 flex items-center"><svg className="w-5 h-5 mr-3 text-bionova-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> contact@bionova.tn</p>
-                  <p className="text-gray-500 flex items-center"><svg className="w-5 h-5 mr-3 text-bionova-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg> +216 71 000 000</p>
+                  <p className="text-gray-500 mb-4 flex items-center"><TruckIcon className="w-5 h-5 mr-3 text-medical-blue" /> 123 Avenue de la Santé, Tunis, Tunisie</p>
+                  <p className="text-gray-500 mb-4 flex items-center"><svg className="w-5 h-5 mr-3 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> contact@bionova.tn</p>
+                  <p className="text-gray-500 flex items-center"><svg className="w-5 h-5 mr-3 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg> +216 71 000 000</p>
                 </div>
 
                 <div className="flex-grow bg-gray-200 rounded-[3rem] overflow-hidden relative shadow-inner border border-gray-300 min-h-[300px]">
@@ -1480,8 +1462,7 @@
       const handleAddToCart = (product, redirect = false) => {
         // WooCommerce AJAX Add to Cart
         const wcId = WC_PRODUCT_MAP[product.id] || product.id;
-        const addUrl = `<?php echo home_url('/'); ?>?add-to-cart=${wcId}`;
-        fetch(addUrl)
+        fetch(`/?add-to-cart=${wcId}`)
           .then(() => {
             setCartItemsCount(prev => prev + 1);
             if (redirect || product.type === 'pack') {
@@ -1519,7 +1500,7 @@
       };
 
       return (
-        <div className="flex flex-col min-h-screen text-gray-900 bg-white selection:bg-bionova-red selection:text-white">
+        <div className="flex flex-col min-h-screen text-gray-900 bg-white selection:bg-medical-blue selection:text-white">
           <Navbar cartItemCount={cartItemsCount} currentPage={currentPage} onNavigate={handleNavigate} />
 
           <main className="flex-grow">
