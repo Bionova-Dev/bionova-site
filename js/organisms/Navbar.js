@@ -4,7 +4,7 @@
    Depends on: icons.js (ShoppingCartIcon, UserIcon, XIcon, SearchIcon)
    ============================================================ */
 
-const Navbar = ({ cartItemCount, currentPage, onNavigate }) => {
+const Navbar = ({ cartItemCount, currentPage, onNavigate, isTransitioning }) => {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -16,10 +16,10 @@ const Navbar = ({ cartItemCount, currentPage, onNavigate }) => {
 
   const navLinks = [
     { page: 'home', label: 'Accueil', url: BIONOVA_HOME_URL },
-    { page: 'products', label: 'Boutique', url: BIONOVA_HOME_URL + 'boutique/' },
-    { page: 'blog', label: 'Astuces', url: BIONOVA_HOME_URL + 'astuces/' },
-    { page: 'about', label: 'Expertise', url: BIONOVA_HOME_URL + 'expertise/' },
-    { page: 'contact', label: 'Contact', url: BIONOVA_HOME_URL + 'contact/' },
+    { page: 'products', label: 'Boutique', url: BIONOVA_ROUTES.products },
+    { page: 'blog', label: 'Astuces', url: BIONOVA_ROUTES.blog },
+    { page: 'about', label: 'Expertise', url: BIONOVA_ROUTES.about },
+    { page: 'contact', label: 'Contact', url: BIONOVA_ROUTES.contact },
   ];
 
   const handleLinkClick = (e, link) => {
@@ -31,6 +31,9 @@ const Navbar = ({ cartItemCount, currentPage, onNavigate }) => {
 
   return (
     <>
+      {/* Loading Progress Bar */}
+      <div className={`fixed top-0 left-0 h-1 bg-bionova-red z-[100] transition-all duration-500 ${isTransitioning ? 'w-full opacity-100' : 'w-0 opacity-0'}`}></div>
+
       {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 bg-white z-[80] transition-all duration-500 transform flex flex-col p-8 lg:hidden ${mobileOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'}`}>
         <div className="flex justify-between items-center mb-16">

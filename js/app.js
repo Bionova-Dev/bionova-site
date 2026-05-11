@@ -21,6 +21,20 @@ const App = () => {
   const [selectedProduct, setSelectedProduct] = React.useState(null);
   const [selectedArticle, setSelectedArticle] = React.useState(null);
   const [cartItemsCount, setCartItemsCount] = React.useState(WC_INITIAL_COUNT);
+  const [isTransitioning, setIsTransitioning] = React.useState(false);
+
+  React.useEffect(() => {
+    const titles = {
+      'home': 'Accueil | Bionova - Micronutrition Premium',
+      'products': 'Boutique | Bionova - Compléments Naturels',
+      'product': selectedProduct ? `${selectedProduct.name} | Bionova` : 'Produit | Bionova',
+      'blog': 'Magazine | Bionova - Astuces & Santé',
+      'article': selectedArticle ? `${selectedArticle.title} | Bionova` : 'Article | Bionova',
+      'about': 'Expertise | Bionova - Laboratoire Scientifique',
+      'contact': 'Contact | Bionova - Support Experts',
+    };
+    if (titles[currentPage]) document.title = titles[currentPage];
+  }, [currentPage, selectedProduct, selectedArticle]);
 
   React.useEffect(() => {
     const handlePopState = () => {
@@ -28,39 +42,34 @@ const App = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
     window.addEventListener('popstate', handlePopState);
-    
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '');
-      if (['home', 'products', 'blog', 'about', 'contact'].includes(hash)) {
-        setCurrentPage(hash);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => {
-      window.removeEventListener('popstate', handlePopState);
-      window.removeEventListener('hashchange', handleHashChange);
-    };
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const handleNavigate = (page) => {
+  const handleNavigate = (page, data = null) => {
     if (page === 'cart') { window.location.href = WC_CART_URL; return; }
     if (page === 'login') { window.location.href = window.BIONOVA_ACCOUNT_URL || '/mon-compte/'; return; }
     
-    // Update URL based on page
-    const urls = {
-      'home': BIONOVA_HOME_URL,
-      'products': BIONOVA_HOME_URL + 'boutique/',
-      'blog': BIONOVA_HOME_URL + 'astuces/',
-      'about': BIONOVA_HOME_URL + 'expertise/',
-      'contact': BIONOVA_HOME_URL + 'contact/',
-    };
-    if (urls[page]) window.history.pushState({}, '', urls[page]);
+    setIsTransitioning(true);
+    setTimeout(() => {
+      const urls = {
+        'home': BIONOVA_HOME_URL,
+        'products': BIONOVA_ROUTES.products,
+        'blog': BIONOVA_ROUTES.blog,
+        'about': BIONOVA_ROUTES.about,
+        'contact': BIONOVA_ROUTES.contact,
+      };
+      if (urls[page]) window.history.pushState({}, '', urls[page]);
 
-    setCurrentPage(page);
-    if (page !== 'product') setSelectedProduct(null);
-    if (page !== 'article') setSelectedArticle(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+      setCurrentPage(page);
+      if (page === 'product' && data) setSelectedProduct(data);
+      else if (page !== 'product' && page !== 'cart' && page !== 'login') setSelectedProduct(null);
+      
+      if (page === 'article' && data) setSelectedArticle(data);
+      else if (page !== 'article') setSelectedArticle(null);
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => setIsTransitioning(false), 300);
+    }, 300);
   };
 
   const handleProductClick = (product) => {
@@ -107,8 +116,10 @@ const App = () => {
 
   return (
     <div className="flex flex-col min-h-screen text-gray-900 bg-white selection:bg-bionova-red selection:text-white">
-      <Navbar cartItemCount={cartItemsCount} currentPage={currentPage} onNavigate={handleNavigate} />
-      <main className="flex-grow">{renderPage()}</main>
+      <Navbar cartItemCount={cartItemsCount} currentPage={currentPage} onNavigate={handleNavigate} isTransitioning={isTransitioning} />
+      <main className={`flex-grow transition-all duration-300 ${isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
+        {renderPage()}
+      </main>
       <TrustBar />
       <Footer />
     </div>

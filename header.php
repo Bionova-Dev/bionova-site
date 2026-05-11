@@ -58,10 +58,10 @@
       </div>
       <div class="flex flex-col space-y-6">
         <a href="<?php echo home_url('/'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Accueil</a>
-        <a href="<?php echo home_url('/boutique/'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Boutique</a>
-        <a href="<?php echo home_url('/astuces/'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Astuces</a>
-        <a href="<?php echo home_url('/expertise/'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Expertise</a>
-        <a href="<?php echo home_url('/contact/'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Contact</a>
+        <a href="<?php echo bionova_get_slug_url('boutique'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Boutique</a>
+        <a href="<?php echo bionova_get_slug_url('astuces'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Astuces</a>
+        <a href="<?php echo bionova_get_slug_url('expertise'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Expertise</a>
+        <a href="<?php echo bionova_get_slug_url('contact'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Contact</a>
       </div>
     </div>
 
@@ -77,10 +77,10 @@
           <!-- Menu Centré — Identique à l'accueil -->
           <div class="hidden lg:flex flex-grow justify-center items-center space-x-12">
             <a href="<?php echo home_url('/'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Accueil</a>
-            <a href="<?php echo home_url('/boutique/'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Boutique</a>
-            <a href="<?php echo home_url('/astuces/'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Astuces</a>
-            <a href="<?php echo home_url('/expertise/'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Expertise</a>
-            <a href="<?php echo home_url('/contact/'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Contact</a>
+            <a href="<?php echo bionova_get_slug_url('boutique'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Boutique</a>
+            <a href="<?php echo bionova_get_slug_url('astuces'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Astuces</a>
+            <a href="<?php echo bionova_get_slug_url('expertise'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Expertise</a>
+            <a href="<?php echo bionova_get_slug_url('contact'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Contact</a>
           </div>
 
           <!-- Icônes — Identiques à l'accueil -->

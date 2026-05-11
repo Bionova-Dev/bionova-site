@@ -7,12 +7,24 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // 0. Force Permalinks (Fix 404)
-add_action('init', function() {
-    if (get_option('permalink_structure') !== '/%postname%/') {
-        update_option('permalink_structure', '/%postname%/');
+function bionova_force_permalinks() {
+    if ( get_option( 'permalink_structure' ) !== '/%postname%/' ) {
+        update_option( 'permalink_structure', '/%postname%/' );
         flush_rewrite_rules();
     }
-});
+}
+add_action( 'admin_init', 'bionova_force_permalinks' );
+
+/**
+ * Get dynamic URL by slug
+ */
+function bionova_get_slug_url($slug) {
+    $page = get_page_by_path($slug);
+    if ($page) {
+        return get_permalink($page->ID);
+    }
+    return home_url('/' . $slug . '/');
+}
 
 // 1. Core Modules
 require_once get_template_directory() . '/inc/setup.php';

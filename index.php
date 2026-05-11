@@ -50,6 +50,14 @@
       window.BIONOVA_ACCOUNT_URL = "<?php echo function_exists('wc_get_account_endpoint_url') ? esc_url( wc_get_account_endpoint_url( 'dashboard' ) ) : home_url('/mon-compte/'); ?>";
       window.BIONOVA_INITIAL_PAGE = "<?php echo isset($initial_page) ? $initial_page : 'home'; ?>";
       window.THEME_URI = "<?php echo trailingslashit(get_template_directory_uri()); ?>";
+      
+      // Dynamic Routes Mapping
+      window.BIONOVA_ROUTES = {
+        'products': "<?php echo bionova_get_slug_url('boutique'); ?>",
+        'blog': "<?php echo bionova_get_slug_url('astuces'); ?>",
+        'about': "<?php echo bionova_get_slug_url('expertise'); ?>",
+        'contact': "<?php echo bionova_get_slug_url('contact'); ?>"
+      };
     </script>
 
     <?php wp_head(); ?>
