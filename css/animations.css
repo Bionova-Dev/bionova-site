@@ -1,0 +1,69 @@
+/* ============================================================
+   BIONOVA — Animations & Keyframes
+   VERSION: 20260511
+   Depends on: design-tokens.css
+   ============================================================ */
+
+/* ── Fade In (page transitions) ── */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Badge Shiny (Pack Glowy) ── */
+.badge-shiny {
+  background: linear-gradient(
+    110deg,
+    var(--color-bionova-red) 0%,
+    var(--color-bionova-red-light) 25%,
+    var(--color-bionova-red) 50%,
+    var(--color-bionova-red-light) 75%,
+    var(--color-bionova-red) 100%
+  );
+  background-size: 200% 100%;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .badge-shiny {
+    animation: none;
+  }
+
+  .product-card-hover,
+  .product-image-float,
+  .btn-gradient {
+    transition: none;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

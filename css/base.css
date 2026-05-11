@@ -1,0 +1,94 @@
+/* ============================================================
+   BIONOVA — Base Styles
+   VERSION: 20260511
+   Depends on: design-tokens.css
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-white);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: var(--color-bionova-red);
+  color: var(--color-white);
+}
+
+/* ── Line clamp utility ── */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Glassmorphism ── */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.card-glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ── Gold border (Pack Glowy) ── */
+.gold-border {
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+/* ── Product card hover ── */
+.product-card-hover {
+  transition: all 0.4s var(--ease-smooth);
+}
+
+.product-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.product-image-float {
+  transition: all 0.5s var(--ease-smooth);
+}
+
+.product-card-hover:hover .product-image-float {
+  transform: translateY(-12px) scale(1.05);
+  filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.08));
+}
+
+/* ── CTA Button ── */
+.btn-gradient {
+  background: var(--color-bionova-red);
+  transition: all 0.4s ease;
+}
+
+.btn-gradient:hover {
+  background: #0c4a6e;
+  transform: translateY(-2px);
+}
+
+/* ── Nav link hover ── */
+.nav-link-hover:hover {
+  background-color: #FDF8F6;
+}
