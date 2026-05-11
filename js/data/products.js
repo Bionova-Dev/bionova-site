@@ -4,7 +4,7 @@
    Scope: Global (window.BIONOVA_PRODUCTS)
    ============================================================ */
 
-const THEME_URI = document.querySelector('meta[name="theme-uri"]')?.content || '';
+const THEME_URI = window.THEME_URI || '';
 
 const products = [
   {

@@ -7,8 +7,15 @@
 const ProductCard = ({ product, onAddToCart, onClick }) => {
   return (
     <div className="bg-white rounded-[2.5rem] overflow-hidden border border-silver/50 product-card-hover flex flex-col h-full cursor-pointer group" onClick={() => onClick(product)}>
-      <div className="relative pt-[100%] bg-medical-light/30 border-b border-silver/30 overflow-hidden">
-        <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-contain p-10 product-image-float" loading="lazy" decoding="async" width="300" height="300" />
+      <div className="relative pt-[100%] bg-medical-light/30 border-b border-silver/30 overflow-hidden flex items-center justify-center">
+        {product.image2 ? (
+          <div className="absolute inset-0 flex items-center justify-center p-6 gap-2">
+            <img src={product.image} alt={product.name} className="w-1/2 h-full object-contain transform -rotate-6 transition-transform group-hover:scale-110" loading="lazy" decoding="async" />
+            <img src={product.image2} alt={product.name} className="w-1/2 h-full object-contain transform rotate-6 transition-transform group-hover:scale-110" loading="lazy" decoding="async" />
+          </div>
+        ) : (
+          <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-contain p-10 product-image-float" loading="lazy" decoding="async" width="300" height="300" />
+        )}
         {product.badge && (
           <div className="absolute top-6 left-6 bg-[#be123c] text-white text-[10px] font-black px-4 py-2 rounded-xl shadow-md tracking-widest uppercase z-20">
             {product.badge}

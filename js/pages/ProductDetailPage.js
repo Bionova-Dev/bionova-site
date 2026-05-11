@@ -14,7 +14,14 @@ const ProductDetailPage = ({ product, onAddToCart, onBack }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
           <div className="relative w-full aspect-square rounded-[3rem] bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center overflow-hidden group">
-            <img src={product.image} alt={product.name} className="w-full h-full p-12 object-contain" loading="lazy" decoding="async" width="600" height="600" />
+            {product.image2 ? (
+              <div className="flex h-full w-full items-center justify-center p-8 gap-4">
+                <img src={product.image} alt={product.name} className="w-1/2 h-full object-contain transform -rotate-6 transition-transform group-hover:rotate-0" loading="lazy" decoding="async" />
+                <img src={product.image2} alt={product.name} className="w-1/2 h-full object-contain transform rotate-6 transition-transform group-hover:rotate-0" loading="lazy" decoding="async" />
+              </div>
+            ) : (
+              <img src={product.image} alt={product.name} className="w-full h-full p-12 object-contain transition-transform group-hover:scale-105" loading="lazy" decoding="async" />
+            )}
             {product.badge && (
               <div className="absolute top-8 right-8 bg-bionova-red text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-lg tracking-wider uppercase z-10">
                 {product.badge}
