@@ -6,6 +6,12 @@
 
 const App = () => {
   const getInitialPage = () => {
+    const path = window.location.pathname;
+    if (path.includes('/boutique')) return 'products';
+    if (path.includes('/astuces')) return 'blog';
+    if (path.includes('/expertise')) return 'about';
+    if (path.includes('/contact')) return 'contact';
+    
     const hash = window.location.hash.replace('#', '');
     if (['home', 'products', 'blog', 'about', 'contact'].includes(hash)) return hash;
     return window.BIONOVA_INITIAL_PAGE || 'home';
@@ -17,6 +23,12 @@ const App = () => {
   const [cartItemsCount, setCartItemsCount] = React.useState(WC_INITIAL_COUNT);
 
   React.useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPage(getInitialPage());
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    window.addEventListener('popstate', handlePopState);
+    
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
       if (['home', 'products', 'blog', 'about', 'contact'].includes(hash)) {
@@ -25,12 +37,26 @@ const App = () => {
       }
     };
     window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
   const handleNavigate = (page) => {
     if (page === 'cart') { window.location.href = WC_CART_URL; return; }
     if (page === 'login') { window.location.href = window.BIONOVA_ACCOUNT_URL || '/mon-compte/'; return; }
+    
+    // Update URL based on page
+    const urls = {
+      'home': BIONOVA_HOME_URL,
+      'products': BIONOVA_HOME_URL + 'boutique/',
+      'blog': BIONOVA_HOME_URL + 'astuces/',
+      'about': BIONOVA_HOME_URL + 'expertise/',
+      'contact': BIONOVA_HOME_URL + 'contact/',
+    };
+    if (urls[page]) window.history.pushState({}, '', urls[page]);
+
     setCurrentPage(page);
     if (page !== 'product') setSelectedProduct(null);
     if (page !== 'article') setSelectedArticle(null);

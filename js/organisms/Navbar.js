@@ -15,11 +15,11 @@ const Navbar = ({ cartItemCount, currentPage, onNavigate }) => {
   }, []);
 
   const navLinks = [
-    { page: 'home', label: 'Accueil' },
-    { page: 'products', label: 'Boutique' },
-    { page: 'blog', label: 'Astuces' },
-    { page: 'about', label: 'Expertise' },
-    { page: 'contact', label: 'Contact' },
+    { page: 'home', label: 'Accueil', url: BIONOVA_HOME_URL },
+    { page: 'products', label: 'Boutique', url: BIONOVA_HOME_URL + 'boutique/' },
+    { page: 'blog', label: 'Astuces', url: BIONOVA_HOME_URL + 'astuces/' },
+    { page: 'about', label: 'Expertise', url: BIONOVA_HOME_URL + 'expertise/' },
+    { page: 'contact', label: 'Contact', url: BIONOVA_HOME_URL + 'contact/' },
   ];
 
   return (
@@ -32,11 +32,12 @@ const Navbar = ({ cartItemCount, currentPage, onNavigate }) => {
         </div>
         <div className="flex flex-col space-y-6">
           {navLinks.map((link) => (
-            <button
+            <a
               key={link.page}
-              onClick={() => { onNavigate(link.page); setMobileOpen(false); }}
+              href={link.url}
+              onClick={(e) => { e.preventDefault(); onNavigate(link.page); setMobileOpen(false); window.history.pushState({}, '', link.url); }}
               className={`text-2xl font-black uppercase tracking-widest py-4 border-b-2 transition-all font-display ${currentPage === link.page ? 'text-bionova-red border-bionova-red' : 'text-black border-transparent hover:text-bionova-red'}`}
-            >{link.label}</button>
+            >{link.label}</a>
           ))}
         </div>
       </div>
@@ -47,22 +48,23 @@ const Navbar = ({ cartItemCount, currentPage, onNavigate }) => {
           <div className="flex justify-between items-center h-full gap-4 lg:gap-8">
 
             {/* Logo */}
-            <button onClick={() => onNavigate('home')} className="flex items-center cursor-pointer px-2 group shrink-0">
+            <a href={BIONOVA_HOME_URL} onClick={(e) => { e.preventDefault(); onNavigate('home'); window.history.pushState({}, '', BIONOVA_HOME_URL); }} className="flex items-center cursor-pointer px-2 group shrink-0">
               <img src={THEME_URI + "/assets/brand/logo-bionova.png"} alt="Logo Bionova" className="transition-all duration-500 object-contain h-[50px] lg:h-[80px] transform lg:scale-[2.0] origin-left group-hover:scale-[2.1]" />
-            </button>
+            </a>
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex flex-grow justify-center items-center space-x-12">
               {navLinks.map((link) => (
-                <button
+                <a
                   key={link.page}
-                  onClick={() => onNavigate(link.page)}
+                  href={link.url}
+                  onClick={(e) => { e.preventDefault(); onNavigate(link.page); window.history.pushState({}, '', link.url); }}
                   className={`text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 font-display ${
                     currentPage === link.page
                       ? (currentPage === 'home' && !isScrolled ? 'text-white border-white' : 'text-bionova-red border-bionova-red')
                       : (currentPage === 'home' && !isScrolled ? 'text-white border-transparent hover:text-white/80 hover:border-white/60' : 'text-black border-transparent hover:text-bionova-red hover:border-bionova-red')
                   }`}
-                >{link.label}</button>
+                >{link.label}</a>
               ))}
             </div>
 

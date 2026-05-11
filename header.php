@@ -58,10 +58,10 @@
       </div>
       <div class="flex flex-col space-y-6">
         <a href="<?php echo home_url('/'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Accueil</a>
-        <a href="<?php echo home_url('/#products'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Boutique</a>
-        <a href="<?php echo home_url('/#blog'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Astuces</a>
-        <a href="<?php echo home_url('/#about'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Expertise</a>
-        <a href="<?php echo home_url('/#contact'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Contact</a>
+        <a href="<?php echo home_url('/boutique/'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Boutique</a>
+        <a href="<?php echo home_url('/astuces/'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Astuces</a>
+        <a href="<?php echo home_url('/expertise/'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Expertise</a>
+        <a href="<?php echo home_url('/contact/'); ?>" class="text-2xl font-black uppercase tracking-widest text-black py-4 border-b-2 border-transparent hover:text-[#be123c] transition-all" style="font-family:'Montserrat',sans-serif">Contact</a>
       </div>
     </div>
 
@@ -71,16 +71,16 @@
           
           <!-- Logo — Identique à l'accueil -->
           <a href="<?php echo home_url(); ?>" class="flex items-center cursor-pointer px-2 group shrink-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Logo Bionova" class="transition-all duration-500 object-contain h-[50px] lg:h-[80px] transform lg:scale-[2.0] origin-left group-hover:scale-[2.1]" />
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/brand/logo-bionova.png" alt="Logo Bionova" class="transition-all duration-500 object-contain h-[50px] lg:h-[80px] transform lg:scale-[2.0] origin-left group-hover:scale-[2.1]" />
           </a>
           
           <!-- Menu Centré — Identique à l'accueil -->
           <div class="hidden lg:flex flex-grow justify-center items-center space-x-12">
             <a href="<?php echo home_url('/'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Accueil</a>
-            <a href="<?php echo home_url('/#products'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Boutique</a>
-            <a href="<?php echo home_url('/#blog'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Astuces</a>
-            <a href="<?php echo home_url('/#about'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Expertise</a>
-            <a href="<?php echo home_url('/#contact'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Contact</a>
+            <a href="<?php echo home_url('/boutique/'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Boutique</a>
+            <a href="<?php echo home_url('/astuces/'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Astuces</a>
+            <a href="<?php echo home_url('/expertise/'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Expertise</a>
+            <a href="<?php echo home_url('/contact/'); ?>" class="text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 text-black border-transparent hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Contact</a>
           </div>
 
           <!-- Icônes — Identiques à l'accueil -->

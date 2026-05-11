@@ -11,6 +11,7 @@ require_once get_template_directory() . '/inc/setup.php';
 require_once get_template_directory() . '/inc/woocommerce.php';
 require_once get_template_directory() . '/inc/performance.php';
 require_once get_template_directory() . '/inc/header-styles.php';
+require_once get_template_directory() . '/inc/pages-setup.php';
 
 // 2. Custom Scripts & Styles Enqueue
 function bionova_atomic_assets() {
