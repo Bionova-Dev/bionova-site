@@ -48,7 +48,7 @@
     window.BIONOVA_HOME_URL = "<?php echo trailingslashit(home_url()); ?>";
     window.BIONOVA_ACCOUNT_URL = "<?php echo function_exists('wc_get_account_endpoint_url') ? esc_url( wc_get_account_endpoint_url( 'dashboard' ) ) : get_permalink( get_page_by_path( 'mon-compte' ) ); ?>";
     window.BIONOVA_INITIAL_PAGE = "<?php echo isset($initial_page) ? $initial_page : 'home'; ?>";
-    window.THEME_URI = "<?php echo trailingslashit(get_template_directory_uri()); ?>";
+    window.THEME_URI = "<?php echo get_template_directory_uri(); ?>";
     
     // Dynamic Routes Mapping
     window.BIONOVA_ROUTES = {
@@ -71,7 +71,6 @@
 <?php wp_body_open(); ?>
 
 <div id="page" class="site">
-  <?php if ( ! is_front_page() ) : ?>
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-white z-[80] transition-all duration-500 transform translate-x-full opacity-0 pointer-events-none flex flex-col p-8 lg:hidden">
       <div class="flex justify-between items-center mb-16">
@@ -95,7 +94,7 @@
           
           <!-- Logo — Identique à l'accueil -->
           <a href="<?php echo home_url(); ?>" class="flex items-center cursor-pointer px-2 group shrink-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/brand/logo-bionova.png" alt="Logo Bionova" class="transition-all duration-500 object-contain h-[50px] lg:h-[80px] transform lg:scale-[2.0] origin-left group-hover:scale-[2.1]" />
+            <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Logo Bionova" class="transition-all duration-500 object-contain h-[50px] lg:h-[80px] transform lg:scale-[2.0] origin-left group-hover:scale-[2.1]" />
           </a>
           
           <!-- Menu Centré — Identique à l'accueil -->
@@ -136,4 +135,3 @@
         </div>
       </nav>
     </header>
-  <?php endif; ?>
