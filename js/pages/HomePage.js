@@ -143,14 +143,14 @@ const HomePage = ({ onNavigate, products, onProductClick, onAddToCart }) => {
         </div>
       </div>
 
-      {/* Advantages */}
-      <div className="py-32 bg-gray-50 border-t border-gray-100">
+      {/* Advantages Section (Expertise preview) */}
+      <section id="expertise" className="py-32 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center mb-24">
-            <h2 className="text-sm text-bionova-red font-bold tracking-widest uppercase mb-3">Notre Promesse</h2>
+            <h2 className="text-sm text-bionova-red font-bold tracking-widest uppercase mb-3">Notre Expertise</h2>
             <p className="font-display text-4xl leading-tight font-extrabold text-gray-900 sm:text-5xl">L'excellence au service de votre santé</p>
           </div>
-          <div className="space-y-12 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-12 md:gap-y-16">
+          <div className="space-y-12 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-12 md:gap-y-16 mb-20">
             {features.map((feature) => (
               <div key={feature.name} className="relative bg-white p-10 rounded-[2.5rem] shadow-sm border border-silver/40 hover:shadow-xl transition-all group">
                 <div className="absolute flex items-center justify-center h-20 w-20 rounded-2xl bg-gradient-to-br from-medical-blue to-blue-400 text-white -top-10 left-10 shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
@@ -161,8 +161,64 @@ const HomePage = ({ onNavigate, products, onProductClick, onAddToCart }) => {
               </div>
             ))}
           </div>
+          <div className="text-center">
+            <button onClick={() => onNavigate('about')} className="inline-flex items-center px-8 py-4 border-2 border-bionova-red text-bionova-red font-bold rounded-2xl hover:bg-bionova-red hover:text-white transition-all">
+              En savoir plus sur notre laboratoire
+            </button>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* Blog Section (Astuces preview) */}
+      <section id="astuces" className="py-32 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-sm text-bionova-red font-bold tracking-widest uppercase mb-3">Le Magazine</h2>
+            <p className="font-display text-4xl leading-tight font-extrabold text-gray-900 sm:text-5xl">Dernières Astuces & Santé</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {articlesData.slice(0, 3).map((article) => (
+              <article key={article.id} className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 group flex flex-col h-full hover:shadow-2xl transition-all duration-500">
+                <div className="relative aspect-video overflow-hidden cursor-pointer" onClick={() => onNavigate('article', article)}>
+                  <img src={article.image} alt={article.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                </div>
+                <div className="p-10 flex flex-col flex-grow">
+                  <h3 className="font-display text-xl font-bold text-gray-900 mb-4 group-hover:text-bionova-red transition-colors line-clamp-2 leading-tight cursor-pointer" onClick={() => onNavigate('article', article)}>{article.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">{article.excerpt}</p>
+                  <button onClick={() => onNavigate('article', article)} className="text-bionova-red font-bold text-sm uppercase tracking-widest hover:underline">Lire la suite &rarr;</button>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="text-center">
+            <button onClick={() => onNavigate('blog')} className="inline-flex items-center px-10 py-5 bg-gray-900 text-white font-bold rounded-2xl hover:bg-bionova-red transition-all shadow-xl">
+              Voir tous nos conseils
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-32 bg-medical-light/20 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-[4rem] p-12 md:p-20 shadow-2xl border border-gray-100 flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2">
+              <h2 className="text-sm text-bionova-red font-bold tracking-widest uppercase mb-3">Contact</h2>
+              <p className="font-display text-4xl font-extrabold text-gray-900 mb-8">Besoin d'un conseil ?</p>
+              <p className="text-xl text-gray-500 mb-10 leading-relaxed">Nos experts santé sont à votre écoute pour vous guider dans vos choix et répondre à toutes vos questions.</p>
+              <div className="space-y-4">
+                <p className="flex items-center text-gray-600 font-bold"><svg className="w-6 h-6 mr-4 text-bionova-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg> +216 71 000 000</p>
+                <p className="flex items-center text-gray-600 font-bold"><svg className="w-6 h-6 mr-4 text-bionova-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> contact@bionova.tn</p>
+              </div>
+            </div>
+            <div className="lg:w-1/2 w-full">
+              <button onClick={() => onNavigate('contact')} className="w-full py-8 text-2xl font-black bg-bionova-red text-white rounded-[2rem] shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all">
+                Nous envoyer un message
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

@@ -45,10 +45,10 @@
     <script>
       window.WC_INITIAL_COUNT = <?php echo ( function_exists('WC') && WC()->cart ) ? WC()->cart->get_cart_contents_count() : 0; ?>;
       window.WC_CART_URL = "<?php echo function_exists('wc_get_cart_url') ? esc_url( wc_get_cart_url() ) : '/panier/'; ?>";
-      window.BIONOVA_HOME_URL = "<?php echo home_url('/'); ?>";
+      window.BIONOVA_HOME_URL = "<?php echo trailingslashit(home_url()); ?>";
       window.BIONOVA_ACCOUNT_URL = "<?php echo esc_url( get_permalink( get_option('woocommerce_myaccount_page_id') ) ); ?>";
       window.BIONOVA_INITIAL_PAGE = "<?php echo isset($initial_page) ? $initial_page : 'home'; ?>";
-      window.THEME_URI = "<?php echo get_template_directory_uri(); ?>";
+      window.THEME_URI = "<?php echo trailingslashit(get_template_directory_uri()); ?>";
     </script>
 
     <?php wp_head(); ?>

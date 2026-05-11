@@ -6,6 +6,14 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+// 0. Force Permalinks (Fix 404)
+add_action('init', function() {
+    if (get_option('permalink_structure') !== '/%postname%/') {
+        update_option('permalink_structure', '/%postname%/');
+        flush_rewrite_rules();
+    }
+});
+
 // 1. Core Modules
 require_once get_template_directory() . '/inc/setup.php';
 require_once get_template_directory() . '/inc/woocommerce.php';

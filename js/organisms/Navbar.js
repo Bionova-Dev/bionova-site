@@ -22,6 +22,24 @@ const Navbar = ({ cartItemCount, currentPage, onNavigate }) => {
     { page: 'contact', label: 'Contact', url: BIONOVA_HOME_URL + 'contact/' },
   ];
 
+  const handleLinkClick = (e, link) => {
+    e.preventDefault();
+    if (currentPage === 'home' && ['products', 'blog', 'about', 'contact'].includes(link.page)) {
+      const sectionMap = { 'products': 'products', 'blog': 'astuces', 'about': 'expertise', 'contact': 'contact' };
+      const targetId = sectionMap[link.page];
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState({}, '', link.url);
+        setMobileOpen(false);
+        return;
+      }
+    }
+    onNavigate(link.page);
+    setMobileOpen(false);
+    window.history.pushState({}, '', link.url);
+  };
+
   return (
     <>
       {/* Mobile Menu Overlay */}
@@ -35,7 +53,7 @@ const Navbar = ({ cartItemCount, currentPage, onNavigate }) => {
             <a
               key={link.page}
               href={link.url}
-              onClick={(e) => { e.preventDefault(); onNavigate(link.page); setMobileOpen(false); window.history.pushState({}, '', link.url); }}
+              onClick={(e) => handleLinkClick(e, link)}
               className={`text-2xl font-black uppercase tracking-widest py-4 border-b-2 transition-all font-display ${currentPage === link.page ? 'text-bionova-red border-bionova-red' : 'text-black border-transparent hover:text-bionova-red'}`}
             >{link.label}</a>
           ))}
@@ -58,7 +76,7 @@ const Navbar = ({ cartItemCount, currentPage, onNavigate }) => {
                 <a
                   key={link.page}
                   href={link.url}
-                  onClick={(e) => { e.preventDefault(); onNavigate(link.page); window.history.pushState({}, '', link.url); }}
+                  onClick={(e) => handleLinkClick(e, link)}
                   className={`text-[20px] font-black uppercase tracking-[0.15em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-4 font-display ${
                     currentPage === link.page
                       ? (currentPage === 'home' && !isScrolled ? 'text-white border-white' : 'text-bionova-red border-bionova-red')

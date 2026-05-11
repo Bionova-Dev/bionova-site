@@ -37,6 +37,7 @@ function bionova_create_mandatory_pages() {
             
             if ( $page_id ) {
                 update_post_meta( $page_id, '_wp_page_template', $data['template'] );
+                flush_rewrite_rules(); // Flush rules when a page is created
             }
         } else {
             // Ensure template is correct even if page exists
