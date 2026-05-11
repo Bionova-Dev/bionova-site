@@ -35,6 +35,30 @@
     }
   </script>
 
+  <!-- React CDNs -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- JS Bridge -->
+  <script>
+    window.WC_INITIAL_COUNT = <?php echo ( function_exists('WC') && WC()->cart ) ? WC()->cart->get_cart_contents_count() : 0; ?>;
+    window.WC_CART_URL = "<?php echo function_exists('wc_get_cart_url') ? esc_url( wc_get_cart_url() ) : get_permalink( get_page_by_path( 'panier' ) ); ?>";
+    window.WC_CHECKOUT_URL = "<?php echo function_exists('wc_get_checkout_url') ? esc_url( wc_get_checkout_url() ) : get_permalink( get_page_by_path( 'commande' ) ); ?>";
+    window.BIONOVA_HOME_URL = "<?php echo trailingslashit(home_url()); ?>";
+    window.BIONOVA_ACCOUNT_URL = "<?php echo function_exists('wc_get_account_endpoint_url') ? esc_url( wc_get_account_endpoint_url( 'dashboard' ) ) : get_permalink( get_page_by_path( 'mon-compte' ) ); ?>";
+    window.BIONOVA_INITIAL_PAGE = "<?php echo isset($initial_page) ? $initial_page : 'home'; ?>";
+    window.THEME_URI = "<?php echo trailingslashit(get_template_directory_uri()); ?>";
+    
+    // Dynamic Routes Mapping
+    window.BIONOVA_ROUTES = {
+      'products': "<?php echo get_permalink( get_page_by_path( 'boutique' ) ); ?>",
+      'blog': "<?php echo get_permalink( get_page_by_path( 'astuces' ) ); ?>",
+      'about': "<?php echo get_permalink( get_page_by_path( 'expertise' ) ); ?>",
+      'contact': "<?php echo get_permalink( get_page_by_path( 'contact' ) ); ?>"
+    };
+  </script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,7 +122,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
               <?php if ( function_exists('WC') && WC()->cart && WC()->cart->get_cart_contents_count() > 0 ) : ?>
-                <span class="absolute -top-1 -right-1 bg-[#be123c] text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg">
+                <span class="cart-count-badge absolute -top-1 -right-1 bg-[#be123c] text-white text-[10px] lg:text-[11px] font-black w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center shadow-lg">
                   <?php echo WC()->cart->get_cart_contents_count(); ?>
                 </span>
               <?php endif; ?>

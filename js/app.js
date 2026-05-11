@@ -89,6 +89,8 @@ const App = () => {
     const addUrl = (window.BIONOVA_HOME_URL || '/') + '?add-to-cart=' + wcId;
     fetch(addUrl).then(() => {
       setCartItemsCount(prev => prev + 1);
+      const cartBadge = document.querySelector('.cart-count-badge');
+      if (cartBadge) cartBadge.innerText = parseInt(cartBadge.innerText) + 1;
       if (redirect || product.type === 'pack') { window.location.href = WC_CART_URL; }
     });
 
@@ -115,16 +117,14 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen text-gray-900 bg-white selection:bg-bionova-red selection:text-white">
-      <Navbar cartItemCount={cartItemsCount} currentPage={currentPage} onNavigate={handleNavigate} isTransitioning={isTransitioning} />
-      <main className={`flex-grow transition-all duration-300 ${isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
+    <div className="text-gray-900 bg-white selection:bg-bionova-red selection:text-white pb-16">
+      <main className={`transition-all duration-300 ${isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
         {renderPage()}
       </main>
-      <TrustBar />
-      <Footer />
     </div>
   );
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
+
