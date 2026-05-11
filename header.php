@@ -39,6 +39,9 @@
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- Framer Motion CDN -->
+  <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
 
   <!-- JS Bridge -->
   <script>
@@ -74,7 +77,7 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-white z-[80] transition-all duration-500 transform translate-x-full opacity-0 pointer-events-none flex flex-col p-8 lg:hidden">
       <div class="flex justify-between items-center mb-16">
-        <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Bionova" class="h-12 object-contain" />
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/brand/logo-bionova.png" alt="Bionova" class="h-12 object-contain" />
         <button onclick="var mm = document.getElementById('mobile-menu'); mm.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none'); mm.classList.remove('translate-x-0', 'opacity-100');" class="p-2 text-gray-900">
           <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
         </button>
@@ -94,7 +97,7 @@
           
           <!-- Logo — Identique à l'accueil -->
           <a href="<?php echo home_url(); ?>" class="flex items-center cursor-pointer px-2 group shrink-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/logo-bionova.png" alt="Logo Bionova" class="transition-all duration-500 object-contain h-[50px] lg:h-[80px] transform lg:scale-[2.0] origin-left group-hover:scale-[2.1]" />
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/brand/logo-bionova.png" alt="Logo Bionova" class="transition-all duration-500 object-contain h-[50px] lg:h-[80px] transform lg:scale-[2.0] origin-left group-hover:scale-[2.1]" />
           </a>
           
           <!-- Menu Centré — Identique à l'accueil -->
