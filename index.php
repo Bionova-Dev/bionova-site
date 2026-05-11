@@ -53,10 +53,10 @@
       
       // Dynamic Routes Mapping
       window.BIONOVA_ROUTES = {
-        'products': "<?php echo bionova_get_slug_url('boutique'); ?>",
-        'blog': "<?php echo bionova_get_slug_url('astuces'); ?>",
-        'about': "<?php echo bionova_get_slug_url('expertise'); ?>",
-        'contact': "<?php echo bionova_get_slug_url('contact'); ?>"
+        'products': "<?php echo get_permalink( get_page_by_path( 'boutique' ) ); ?>",
+        'blog': "<?php echo get_permalink( get_page_by_path( 'astuces' ) ); ?>",
+        'about': "<?php echo get_permalink( get_page_by_path( 'expertise' ) ); ?>",
+        'contact': "<?php echo get_permalink( get_page_by_path( 'contact' ) ); ?>"
       };
     </script>
 

@@ -61,10 +61,10 @@
         <div class="text-center md:text-left">
           <h4 class="text-xl font-bold text-[#be123c] uppercase tracking-widest mb-8" style="font-family:'Montserrat',sans-serif">Boutique</h4>
           <ul class="space-y-4">
-            <li><a href="<?php echo bionova_get_slug_url('boutique'); ?>" class="text-gray-600 hover:text-[#be123c] transition-colors font-bold text-sm">Tous les produits</a></li>
-            <li><a href="<?php echo bionova_get_slug_url('boutique'); ?>" class="text-gray-600 hover:text-[#be123c] transition-colors font-bold text-sm">Packs Synergie</a></li>
-            <li><a href="<?php echo bionova_get_slug_url('boutique'); ?>" class="text-gray-600 hover:text-[#be123c] transition-colors font-bold text-sm">Nouveautés</a></li>
-            <li><a href="<?php echo bionova_get_slug_url('boutique'); ?>" class="text-gray-600 hover:text-[#be123c] transition-colors font-bold text-sm">Meilleures Ventes</a></li>
+            <li><a href="<?php echo get_permalink( get_page_by_path( 'boutique' ) ); ?>" class="text-gray-600 hover:text-[#be123c] transition-colors font-bold text-sm">Tous les produits</a></li>
+            <li><a href="<?php echo get_permalink( get_page_by_path( 'boutique' ) ); ?>" class="text-gray-600 hover:text-[#be123c] transition-colors font-bold text-sm">Packs Synergie</a></li>
+            <li><a href="<?php echo get_permalink( get_page_by_path( 'boutique' ) ); ?>" class="text-gray-600 hover:text-[#be123c] transition-colors font-bold text-sm">Nouveautés</a></li>
+            <li><a href="<?php echo get_permalink( get_page_by_path( 'boutique' ) ); ?>" class="text-gray-600 hover:text-[#be123c] transition-colors font-bold text-sm">Meilleures Ventes</a></li>
           </ul>
         </div>
         <!-- Colonne 3: Contact & Support -->
