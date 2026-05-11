@@ -24,17 +24,6 @@ const Navbar = ({ cartItemCount, currentPage, onNavigate }) => {
 
   const handleLinkClick = (e, link) => {
     e.preventDefault();
-    if (currentPage === 'home' && ['products', 'blog', 'about', 'contact'].includes(link.page)) {
-      const sectionMap = { 'products': 'products', 'blog': 'astuces', 'about': 'expertise', 'contact': 'contact' };
-      const targetId = sectionMap[link.page];
-      const element = document.getElementById(targetId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        window.history.pushState({}, '', link.url);
-        setMobileOpen(false);
-        return;
-      }
-    }
     onNavigate(link.page);
     setMobileOpen(false);
     window.history.pushState({}, '', link.url);
