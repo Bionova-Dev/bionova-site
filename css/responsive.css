@@ -169,16 +169,16 @@ main,
   height: auto;
 }
 
-/* Les liens de nav ne se coupent pas en deux lignes sur desktop */
+/* Les liens de nav ne se coupent pas en deux lignes */
 .nav-item {
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-/* Sur desktop, le menu centré se wrap si zoom trop élevé */
+/* Le menu centré NE wrappe JAMAIS — garde la ligne unique */
 #main-header .hidden.lg\:flex {
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 /* ──────────────────────────────────────────────────────────
@@ -324,13 +324,6 @@ main,
 
 /* Zoom très élevé (~400%+, résolution effective ≤ 480px) */
 @media (max-width: 480px) {
-  /* Tout passe en colonne */
-  .flex,
-  [class*="flex-row"],
-  [class*="items-center"] {
-    flex-wrap: wrap !important;
-  }
-
   /* Les grilles tombent en 1 colonne */
   [class*="grid-cols-"],
   [class*="columns-"] {
@@ -338,22 +331,7 @@ main,
     columns: 1 !important;
   }
 
-  /* Les positions absolues/fixes se recalculent */
-  .absolute {
-    position: relative !important;
-    transform: none !important;
-    left: auto !important;
-    top: auto !important;
-  }
-
-  /* Le menu centré absolu se remet en flux normal */
-  #main-header .absolute.left-1\/2 {
-    position: relative !important;
-    left: auto !important;
-    transform: none !important;
-    width: 100% !important;
-    justify-content: flex-start !important;
-  }
+  /* NE PAS toucher aux positions absolues du header — ça casse le menu */
 }
 
 /* ──────────────────────────────────────────────────────────
