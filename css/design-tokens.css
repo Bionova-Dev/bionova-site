@@ -107,8 +107,8 @@
   --duration-carousel: 700ms;
 
   /* ── Layout ── */
-  --header-h-mobile: 60px;
-  --header-h-desktop: 90px;
+  --header-h-mobile: 30px;
+  --header-h-desktop: 30px;
   --max-w-content: 1800px;
   --max-w-page: 80rem;     /* 1280px */
   --max-w-narrow: 48rem;   /* 768px */
