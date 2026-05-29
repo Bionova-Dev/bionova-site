@@ -136,13 +136,13 @@ main,
 /* Espace sous le header fixe — s'adapte selon la taille du header */
 .site-content,
 #content {
-  padding-top: var(--header-h-mobile, 60px);
+  padding-top: var(--header-h-mobile, 30px);
 }
 
 @media (min-width: 1024px) {
   .site-content,
   #content {
-    padding-top: var(--header-h-desktop, 90px);
+    padding-top: var(--header-h-desktop, 30px);
   }
 }
 
@@ -153,7 +153,7 @@ main,
    ────────────────────────────────────────────────────────── */
 #main-header {
   /* Hauteur minimale — grandit si le contenu en a besoin au zoom */
-  min-height: var(--header-h-mobile, 60px);
+  min-height: var(--header-h-mobile, 30px);
   height: auto !important;
   /* Toujours visible */
   display: flex !important;
@@ -289,14 +289,14 @@ main,
 /* ── Desktop (1024px–1279px) ── */
 @media (min-width: 1024px) and (max-width: 1279px) {
   #main-header {
-    min-height: var(--header-h-desktop, 90px);
+    min-height: var(--header-h-desktop, 30px);
   }
 }
 
 /* ── Large Desktop (≥ 1280px) ── */
 @media (min-width: 1280px) {
   #main-header {
-    min-height: var(--header-h-desktop, 90px);
+    min-height: var(--header-h-desktop, 30px);
   }
 }
 
