@@ -154,7 +154,7 @@ if ( is_front_page() || is_home() || is_shop() || is_product() || is_product_cat
       </div>
     </div>
 
-    <header class="fixed w-full z-50 h-[50px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center transition-all duration-300" id="main-header" style="min-height: 50px !important; height: 50px !important; max-height: 50px !important;">
+    <header class="fixed w-full z-50 h-[70px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center transition-all duration-300" id="main-header" style="min-height: 70px !important; height: 70px !important; max-height: 70px !important;">
       <nav class="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
         <div class="flex items-center h-full gap-4 lg:gap-8 relative w-full">
           
@@ -165,7 +165,7 @@ if ( is_front_page() || is_home() || is_shop() || is_product() || is_product_cat
           </div>
           
           <!-- Menu Aligné à Droite (près des icônes) -->
-          <div class="hidden lg:flex items-center gap-4 xl:gap-8 flex-nowrap whitespace-nowrap mt-1">
+          <div class="hidden md:flex items-center gap-4 xl:gap-8 flex-nowrap whitespace-nowrap mt-1">
             <?php
             $active_class = "text-[#be123c] border-[#be123c]";
             $inactive_class = "text-black border-transparent";
