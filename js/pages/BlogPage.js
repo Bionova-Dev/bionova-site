@@ -27,7 +27,7 @@ const BlogPage = ({ onArticleClick }) => (
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent"></div>
               </div>
               <div className="p-12 flex flex-col flex-grow">
-                <div className="text-xs font-black text-bionova-red uppercase tracking-widest mb-4">Micronutrition</div>
+                <div className="text-xs font-black text-bionova-red uppercase tracking-widest mb-4">{article.category}</div>
                 <h2 className="font-display text-2xl font-black text-gray-900 mb-4 group-hover:text-bionova-red transition-colors leading-tight cursor-pointer" onClick={() => onArticleClick(article)}>{article.title}</h2>
                 <p className="text-gray-500 text-base leading-relaxed mb-8 flex-grow">{article.excerpt}</p>
                 <button onClick={() => onArticleClick(article)} className="inline-flex items-center text-sm font-black uppercase tracking-widest text-gray-900 group-hover:text-bionova-red transition-all">

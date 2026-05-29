@@ -1,0 +1,534 @@
+/* ============================================================
+   BIONOVA — Page: ProductDetailPage (Design Ultra-Premium)
+   VERSION: 20260520
+   Depends on: Accordion, StarIcon, ShoppingCartIcon
+   ============================================================ */
+const SparkleIcon = ({ className = "w-5 h-5" }) => (
+  <svg className={className} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 21l-.813-5.096a1.999 1.999 0 00-1.637-1.637L1.5 13.5l5.051-.812a1.999 1.999 0 001.637-1.637L9 4l.813 5.051a1.999 1.999 0 001.637 1.637l5.05.813-5.05.813a1.999 1.999 0 00-1.637 1.637z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19.071 4.929a10 10 0 00-14.142 0M19.071 19.071a10 10 0 000-14.142" strokeWidth="1" strokeDasharray="2 2" />
+  </svg>
+);
+
+const MessageIcon = ({ className = "w-6 h-6" }) => (
+  <svg className={className} fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9h7.5M8.25 12h7.5M3 17.25V4.875C3 3.839 3.84 3 4.875 3h14.25c1.036 0 1.875.84 1.875 1.875v12.375c0 1.036-.84 1.875-1.875 1.875H6.742L3 21v-3.75z" />
+  </svg>
+);
+
+const ProductDetailPage = ({ product, onAddToCart, onBack }) => {
+  // Helper to load tailored high-quality reviews based on product slug
+  const getProductReviews = (productSlug) => {
+    const slug = productSlug || '';
+
+    if (slug.includes('nmn')) {
+      return [
+        { id: 1, name: "Amine K.", rating: 5, title: "Effet coup de fouet incroyable !", content: "Après seulement 2 semaines de prise de NMN Bionova, je ressens une clarté mentale et une vitalité que je n'avais pas eues depuis des années. Le meilleur NMN du marché en Tunisie, certifié pur.", date: "14 Mai 2026", verified: true },
+        { id: 2, name: "Dr. Yasmine B.", rating: 5, title: "Pureté certifiée remarquable", content: "En tant que professionnelle de santé, j'apprécie la transparence sur la pureté à 99%. Mes niveaux d'énergie se sont nettement stabilisés tout au long de la journée. Je valide à 100%.", date: "02 Mai 2026", verified: true },
+        { id: 3, name: "Karim T.", rating: 4, title: "Excellente qualité", content: "Je me sens moins fatigué en fin de journée de travail. Le prix est élevé mais la pureté et l'efficacité justifient largement cet investissement pour ma longévité.", date: "28 Avril 2026", verified: true }
+      ];
+
+    } else if (slug.includes('ashwagandha')) {
+      return [
+        { id: 1, name: "Sonia M.", rating: 5, title: "Plus aucun stress !", content: "Ce complément d'Ashwagandha KSM-66 a littéralement changé mon quotidien. Mon anxiété a diminué de moitié et je m'endors beaucoup plus sereinement chaque soir. Un vrai miracle.", date: "16 Mai 2026", verified: true },
+        { id: 2, name: "Fares K.", rating: 5, title: "Amélioration notable du sommeil", content: "Je prends 2 gélules par jour. Mon sommeil est beaucoup plus réparateur (confirmé par ma montre connectée). Récupération physique et nerveuse au top !", date: "08 Mai 2026", verified: true },
+        { id: 3, name: "Dr. Anis G.", rating: 4, title: "Excellente concentration en withanolides", content: "Le choix de l'extrait breveté KSM-66 par Bionova garantit une efficacité clinique supérieure. Très bon produit pour réguler le cortisol et soutenir le système nerveux.", date: "01 Mai 2026", verified: true }
+      ];
+
+    } else if (slug.includes('collagene')) {
+      return [
+        { id: 1, name: "Meriam B.", rating: 5, title: "Peau lumineuse et ongles forts !", content: "Je fais une cure de ce Collagène Marin depuis un mois et les résultats sont visibles à l'œil nu. Mes ridules sont lissées et mes ongles ne se dédoublent plus. Je recommande !", date: "15 Mai 2026", verified: true },
+        { id: 2, name: "Hédi Z.", rating: 5, title: "Soulagement articulaire réel", content: "Je l'ai acheté pour mes douleurs aux genoux lors de mes séances de course à pied. La douleur a diminué de plus de 80% après 3 semaines. L'assimilation est parfaite.", date: "05 Mai 2026", verified: true },
+        { id: 3, name: "Rim L.", rating: 4, title: "Goût neutre, facile à prendre", content: "Se dissout parfaitement sans arrière-goût de poisson désagréable. Les bienfaits sur ma peau commencent déjà à se faire ressentir. Excellent produit.", date: "29 Avril 2026", verified: true }
+      ];
+
+    } else if (slug.includes('acide-alpha-lipoique')) {
+      return [
+        { id: 1, name: "Leila H.", rating: 5, title: "Antioxydant hors pair !", content: "Je prends l'Acide Alpha Lipoïque depuis 3 semaines et j'ai remarqué une amélioration significative de ma tolérance au glucose. En tant que diabétique de type 2 suivi médicalement, mon médecin est bluffé par les résultats.", date: "18 Mai 2026", verified: true },
+        { id: 2, name: "Bassem R.", rating: 5, title: "Formidable pour la récupération", content: "Sportif de haut niveau, j'ai intégré l'ALA à ma routine. Les courbatures ont nettement diminué et ma récupération après les entraînements intensifs est bien plus rapide. Qualité Bionova irréprochable.", date: "10 Mai 2026", verified: true },
+        { id: 3, name: "Nadia F.", rating: 4, title: "Protection cellulaire réelle", content: "J'ai opté pour la forme R&S de Bionova pour sa biodisponibilité optimale. Mon énergie a augmenté progressivement. Je le complète avec de la Vitamine E et les effets sont synergiques.", date: "03 Mai 2026", verified: true }
+      ];
+
+    } else if (slug.includes('astaxanthine')) {
+      return [
+        { id: 1, name: "Ines C.", rating: 5, title: "Ma peau a rajeuni de 10 ans !", content: "Après 6 semaines d'Astaxanthine Bionova, les compliments pleuvent sur mon teint. L'éclat est réel et les petites rougeurs que j'avais en été ont disparu. Je n'arrêterai jamais ce complément !", date: "17 Mai 2026", verified: true },
+        { id: 2, name: "Riadh M.", rating: 5, title: "Indispensable pour les sportifs en plein air", content: "Je cours tous les matins et le soleil abîmait ma peau. Depuis l'Astaxanthine, je bronze mieux et ma récupération musculaire est nettement améliorée. Un produit vraiment d'exception.", date: "09 Mai 2026", verified: true },
+        { id: 3, name: "Dorra B.", rating: 5, title: "Protection oculaire remarquable", content: "Je travaille sur écran toute la journée. L'Astaxanthine a réduit la fatigue visuelle de manière spectaculaire. Mes yeux ne sont plus secs en fin de journée. Un incontournable.", date: "30 Avril 2026", verified: true }
+      ];
+
+    } else if (slug.includes('biotine')) {
+      return [
+        { id: 1, name: "Amani S.", rating: 5, title: "Mes cheveux ont doublé de volume !", content: "En 2 mois de Biotine Bionova à 10mg, ma chute de cheveux a quasiment stoppé. Mes cheveux sont plus épais, plus brillants. Et mes ongles qui se cassaient tout le temps sont maintenant solides comme du roc. Merci Bionova !", date: "19 Mai 2026", verified: true },
+        { id: 2, name: "Youssef L.", rating: 5, title: "Résultats visibles dès le premier mois", content: "J'étais sceptique au départ, mais force est de constater que mes ongles ont poussé plus vite et se dédoublent plus. Ma peau est également plus nette. Produit vraiment efficace et dosage optimal.", date: "11 Mai 2026", verified: true },
+        { id: 3, name: "Hajer M.", rating: 4, title: "Bon produit, à poursuivre en cure longue", content: "Les premiers effets sur mes ongles se sont vus après 3 semaines. Pour les cheveux, il faut être patient (environ 2 mois). Je recommande de faire une cure de 3 mois pour des résultats durables.", date: "04 Mai 2026", verified: true }
+      ];
+
+    } else if (slug.includes('curcumine')) {
+      return [
+        { id: 1, name: "Fethi B.", rating: 5, title: "Mes douleurs articulaires ont disparu !", content: "À 55 ans, j'avais des douleurs aux genoux et aux hanches insupportables. Après un mois de Curcumine + Boswellia Bionova, je marche sans douleur. Je regrette de ne pas avoir découvert ce produit plus tôt !", date: "20 Mai 2026", verified: true },
+        { id: 2, name: "Sabrine A.", rating: 5, title: "Anti-inflammatoire naturel très efficace", content: "Je souffre de colon irritable depuis des années. Cette synergie Curcumine-Boswellia a calmé les inflammations intestinales en moins de 3 semaines. Le confort digestif est incomparable. Très bonne formule.", date: "12 Mai 2026", verified: true },
+        { id: 3, name: "Maher G.", rating: 4, title: "Excellent pour la récupération sportive", content: "Sportif de haut niveau, j'utilisais ce complément en post-entraînement. La réduction des inflammations musculaires est perceptible dès J+2. La combinaison curcuma/boswellia est vraiment bien pensée.", date: "05 Mai 2026", verified: true }
+      ];
+
+    } else if (slug.includes('l-carnosine')) {
+      return [
+        { id: 1, name: "Mounir T.", rating: 5, title: "Le complément anti-âge que j'attendais", content: "À 48 ans, j'ai intégré la L-Carnosine dans ma stack anti-âge avec le NMN. L'association est bluffante : meilleure clarté mentale, peau plus ferme et énergie soutenue. La glycation, c'est terminé pour moi.", date: "16 Mai 2026", verified: true },
+        { id: 2, name: "Dr. Olfa K.", rating: 5, title: "Soutien cellulaire scientifiquement prouvé", content: "En tant que biochimiste, je suis la littérature sur la carnosine depuis longtemps. La pureté et le dosage de 500mg de Bionova sont parfaits. Je constate personnellement une meilleure récupération tissulaire.", date: "07 Mai 2026", verified: true },
+        { id: 3, name: "Sana R.", rating: 4, title: "Effet sabtil mais réel sur la longue durée", content: "Les effets de la L-Carnosine se ressentent sur le long terme. Après 2 mois, ma peau est plus élastique et je me sens globalement plus résistant. À combiner avec d'autres antioxydants pour un effet optimal.", date: "01 Mai 2026", verified: true }
+      ];
+
+    } else if (slug.includes('lion') || slug.includes('mane')) {
+      return [
+        { id: 1, name: "Tarek Z.", rating: 5, title: "Mon cerveau est en turbo !", content: "Développeur, j'avais besoin d'un boost cognitif naturel. Depuis le Lion's Mane Bionova, ma concentration est au maximum, les idées viennent plus facilement et le brouillard mental du soir a disparu. Un vrai nootropique.", date: "18 Mai 2026", verified: true },
+        { id: 2, name: "Insaf B.", rating: 5, title: "Mémoire et focus décuplés", content: "J'étudie en médecine et les révisions sont intenses. Le Lion's Mane m'a aidé à mémoriser bien plus rapidement. Je retiens mes cours dès la première lecture. Produit Premium à la hauteur de ses promesses.", date: "09 Mai 2026", verified: true },
+        { id: 3, name: "Ramzi C.", rating: 5, title: "Récupération nerveuse après burnout", content: "Suite à un burnout professionnel, mon neurologue m'a conseillé d'explorer les champignons adaptogènes. Le Lion's Mane Bionova m'a aidé à retrouver ma sérénité mentale et ma capacité de réflexion en 6 semaines.", date: "02 Mai 2026", verified: true }
+      ];
+
+    } else if (slug.includes('neem')) {
+      return [
+        { id: 1, name: "Marwa B.", rating: 5, title: "Peau nette en 3 semaines !", content: "J'avais des boutons persistants depuis des années malgré tous les traitements. Après 3 semaines de Neem Bionova, ma peau s'est assainie de façon remarquable. L'extrait concentré 10:1 est vraiment puissant.", date: "15 Mai 2026", verified: true },
+        { id: 2, name: "Aziz K.", rating: 4, title: "Détox efficace et bien tolérée", content: "Je fais une cure de détox chaque printemps. Le Neem Bionova est le plus efficace que j'ai testé. Mon énergie a augmenté, mon teint s'est éclairci et ma digestion s'est améliorée. Pas d'effets secondaires.", date: "06 Mai 2026", verified: true },
+        { id: 3, name: "Chiraz L.", rating: 4, title: "Bon soutien immunitaire hivernal", content: "Je l'utilise en prévention en hiver et j'ai passé la saison froide sans tomber malade, chose rare pour moi. Le Neem a des propriétés antimicrobiennes remarquables. Bonne tolérance digestive avec un grand verre d'eau.", date: "28 Avril 2026", verified: true }
+      ];
+
+    } else if (slug.includes('pack-glowy') || slug.includes('glowy')) {
+      return [
+        { id: 1, name: "Lina M.", rating: 5, title: "Le duo beauté parfait !", content: "J'ai commandé le Pack Glowy en me disant que c'était peut-être marketing. 6 semaines plus tard, mon dermatologue m'a demandé ce que j'avais changé dans ma routine ! Peau plus ferme, teint lumineux, rides estompées. Le combo Astaxanthine + Collagène est MAGIQUE.", date: "19 Mai 2026", verified: true },
+        { id: 2, name: "Hanen Z.", rating: 5, title: "Économie réelle + résultats doublés", content: "Acheter les deux séparément coûtait plus cher. En pack, on économise et en plus les deux compléments se potentialisent. Ma peau n'a jamais été aussi belle. Je suis une cliente Bionova à vie !", date: "11 Mai 2026", verified: true },
+        { id: 3, name: "Sarra T.", rating: 5, title: "Cadeau parfait pour maman", content: "J'ai offert ce pack à ma mère de 58 ans. En 2 mois, elle a rajeuni ! Sa peau est plus souple, son teint plus égal et elle déborde d'énergie. Elle me demande de lui en recommander. Livraison rapide et packaging élégant.", date: "03 Mai 2026", verified: true }
+      ];
+
+    } else {
+      return [
+        { id: 1, name: "Amine K.", rating: 5, title: "Qualité exceptionnelle !", content: "Je l'utilise depuis un mois maintenant. Les résultats de ce produit Bionova sur ma vitalité et mon bien-être général sont remarquables. La livraison en Tunisie a été ultra-rapide.", date: "14 Mai 2026", verified: true },
+        { id: 2, name: "Dr. Yasmine B.", rating: 5, title: "Formule de grade clinique impeccable", content: "La concentration et la pureté de ce produit sont de très haut niveau scientifique. Je le recommande à mes patients et les retours sont extrêmement positifs.", date: "02 Mai 2026", verified: true },
+        { id: 3, name: "Karim T.", rating: 4, title: "Très satisfait de mon achat", content: "Excellent complément alimentaire. Prise facile et assimilation rapide. Le packaging en verre ambré est magnifique et préserve idéalement les principes actifs.", date: "28 Avril 2026", verified: true }
+      ];
+    }
+  };
+
+  const [reviewsList, setReviewsList] = React.useState(() => getProductReviews(product.slug));
+  const [newReview, setNewReview] = React.useState({ name: '', rating: 5, title: '', content: '' });
+  const [hoverRating, setHoverRating] = React.useState(0);
+  const [successMessage, setSuccessMessage] = React.useState(false);
+  const [showForm, setShowForm] = React.useState(false);
+
+  // Sync state with product updates (slug changes)
+  React.useEffect(() => {
+    setReviewsList(getProductReviews(product.slug));
+    setSuccessMessage(false);
+    setNewReview({ name: '', rating: 5, title: '', content: '' });
+    setShowForm(false);
+  }, [product.slug]);
+
+  // Compute dynamic stats
+  const reviewsCount = reviewsList.length;
+  const averageRating = reviewsCount > 0 
+    ? (reviewsList.reduce((acc, r) => acc + r.rating, 0) / reviewsCount).toFixed(1)
+    : product.rating.toFixed(1);
+
+  // Calculate stars distribution for the visual bar chart
+  const distribution = [5, 4, 3, 2, 1].map(stars => {
+    const count = reviewsList.filter(r => r.rating === stars).length;
+    const percentage = reviewsCount > 0 ? (count / reviewsCount) * 100 : 0;
+    return { stars, count, percentage };
+  });
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-[#FCFBF9]/60 via-white to-white pt-32 pb-32 relative overflow-hidden">
+      {/* Decorative luxury radial background glows */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-[#FAF6F0] to-transparent rounded-full blur-[120px] pointer-events-none opacity-60"></div>
+      <div className="absolute top-[40%] right-1/4 w-[600px] h-[600px] bg-gradient-to-bl from-[#FCFBF9] to-transparent rounded-full blur-[140px] pointer-events-none opacity-50"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <button onClick={onBack} className="group flex items-center text-gray-500 hover:text-bionova-red font-semibold tracking-wide uppercase text-sm transition-colors mb-16 cursor-pointer">
+          <span className="transform transition-transform group-hover:-translate-x-2 mr-3 text-lg">&larr;</span> Retour à la boutique
+        </button>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+          {/* Bloc Image (Gauche) - Reste épuré et stable */}
+          <div className="sticky top-32 relative w-full aspect-square rounded-[2.5rem] bg-gradient-to-b from-[#FCFBF9] to-white border border-[#EFE9E0]/80 shadow-[0_20px_50px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_70px_rgba(166,139,109,0.06)] hover:border-[#A68B6D]/20 transition-all duration-700 flex items-center justify-center overflow-hidden group">
+            <img src={product.image} alt={product.name} className="w-full h-full p-12 object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" decoding="async" width="600" height="600" />
+            {product.badge && (
+              <div className="absolute top-8 right-8 bg-gradient-to-r from-[#be123c] to-[#9d0e31] text-white text-[10px] font-black px-5 py-2.5 rounded-full shadow-xl shadow-bionova/20 tracking-widest uppercase z-10">
+                {product.badge}
+              </div>
+            )}
+          </div>
+
+          {/* Bloc Infos & Sections (Droite) */}
+          <div className="flex flex-col h-full lg:py-2">
+            <div className="inline-block mb-4">
+              <span className="px-3.5 py-1.5 bg-[#FAF6F0] text-[#A68B6D] border border-[#EFE9E0] rounded-full text-[10px] font-black tracking-widest uppercase shadow-sm">
+                {product.type === 'pack' ? 'Pack Promo' : 'Complément'}
+              </span>
+            </div>
+            
+            <h1 className="font-display text-4xl sm:text-5xl font-black text-[#1e293b] tracking-tight leading-none mb-6">{product.name}</h1>
+            
+            {/* 2. Description élégante */}
+            <p className="text-lg text-gray-500 leading-relaxed mb-8 border-l-2 border-bionova-red/40 pl-5 italic font-serif">
+              {product.description}
+            </p>
+            
+            {/* 1. Étoiles & Avis clients personnalisés et élégants */}
+            <div className="flex items-center space-x-2.5 mb-8 bg-gradient-to-r from-[#FCFBF9] to-[#FAF6F0] border border-[#EFE9E0]/60 px-4.5 py-2.5 rounded-full w-fit shadow-sm">
+              <div className="flex items-center space-x-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon key={i} className={`w-4 h-4 ${i < Math.floor(averageRating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-200'}`} />
+                ))}
+              </div>
+              <span className="text-xs font-black text-[#A68B6D] tracking-wider uppercase ml-1">{averageRating} / 5</span>
+              <div className="w-[1px] h-3 bg-[#EFE9E0]"></div>
+              <span className="text-xs font-semibold text-gray-400">({reviewsCount} avis clients vérifiés)</span>
+            </div>
+
+            {/* Section Prix */}
+            <div className="flex items-baseline space-x-4 mb-2">
+              <p className="text-4xl font-extrabold text-bionova-red tracking-tight">{product.price.toFixed(2)} DT</p>
+              {product.oldPrice && <p className="text-xl text-gray-300 line-through font-semibold">{product.oldPrice.toFixed(2)} DT</p>}
+            </div>
+            <div className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-8 flex items-center">
+              <svg className="w-3.5 h-3.5 text-emerald-600 mr-1.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              TVA Incluse · Livraison express sur toute la Tunisie
+            </div>
+            
+            {/* 3. Bienfaits - Grille moderne avec icônes de validation vertes */}
+            <div className="mb-8 bg-gradient-to-br from-[#FCFBF9] via-white to-[#FAF6F0]/40 rounded-3xl p-7 border border-[#EFE9E0]/80 shadow-[0_10px_30px_rgba(0,0,0,0.01)] relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#FAF6F0] to-transparent rounded-bl-full opacity-60"></div>
+              <h4 className="font-display font-black text-xs text-[#A68B6D] uppercase tracking-[0.2em] mb-5 flex items-center">
+                <SparkleIcon className="mr-2.5 text-[#A68B6D] w-4.5 h-4.5" /> Principaux Bienfaits
+              </h4>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
+                {product.benefits.map((benefit, i) => (
+                  <li key={i} className="flex items-start text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200 font-semibold leading-relaxed group/item">
+                    <div className="w-5.5 h-5.5 rounded-full bg-emerald-50 border border-emerald-100/60 flex items-center justify-center mr-3 mt-0.5 shrink-0 group-hover/item:bg-emerald-100/40 group-hover/item:border-emerald-200 transition-all duration-300">
+                      <svg className="w-2.5 h-2.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4.5" d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <span className="pt-0.5">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Groupe d'accordéons pour le reste des sections */}
+            <div className="mb-10 space-y-2 border-t border-gray-100">
+              
+              {/* 4. Composition par 1 gélule */}
+              <Accordion 
+                title="Composition par 1 gélule" 
+                content={
+                  <div className="bg-gray-50/80 p-5 rounded-2xl border border-gray-100/50 text-sm font-semibold text-gray-700 leading-relaxed">
+                    {product.composition}
+                  </div>
+                } 
+              />
+              
+              {/* 5. Conseils d'utilisation */}
+              <Accordion 
+                title="Conseils d'utilisation" 
+                content={
+                  <div className="flex items-start p-2">
+                    <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center mr-4 shrink-0 border border-red-100">
+                      <svg className="w-6 h-6 text-bionova-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <p className="text-gray-600 leading-relaxed pt-1 font-medium">{product.usage}</p>
+                  </div>
+                } 
+              />
+              
+              {/* 6. Contre-indications */}
+              <Accordion 
+                title="Contre-indications" 
+                content={
+                  <div className="flex items-start p-2">
+                    <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center mr-4 shrink-0 border border-amber-100">
+                      <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.27 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    </div>
+                    <p className="text-gray-600 leading-relaxed pt-1 font-medium">{product.contraindications || "Aucune contre-indication majeure connue aux doses indiquées."}</p>
+                  </div>
+                } 
+              />
+
+              {/* 7. Précautions d'emploi */}
+              <Accordion 
+                title="Précautions d'emploi" 
+                content={
+                  <div className="flex items-start p-2">
+                    <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center mr-4 shrink-0 border border-red-100">
+                      <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.27 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    </div>
+                    <p className="text-gray-600 leading-relaxed pt-1 font-medium">{product.precautions}</p>
+                  </div>
+                } 
+              />
+
+              {/* 8. Conditions de conservation */}
+              <Accordion 
+                title="Conditions de conservation" 
+                content={
+                  <div className="flex items-start p-2">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mr-4 shrink-0 border border-blue-100">
+                      <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+                    </div>
+                    <p className="text-gray-600 leading-relaxed pt-1 font-medium">{product.storage}</p>
+                  </div>
+                } 
+              />
+            </div>
+
+            {/* Bloc de notation globale réintégré - Ultra-Premium Design */}
+            <div className="mb-8 bg-gradient-to-br from-white via-[#FCFBF9] to-[#FAF6F0]/85 border border-[#EFE9E0] rounded-[2.5rem] p-6 sm:p-8 shadow-[0_20px_50px_rgba(166,139,109,0.04)] relative overflow-hidden">
+              {/* Subtle elegant top border highlight */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#be123c]/15 via-[#be123c] to-[#be123c]/15"></div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
+                <div className="flex flex-col items-center sm:items-start">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#A68B6D] mb-1">Moyenne Générale</span>
+                  <div className="flex items-baseline space-x-1">
+                    <p className="text-6xl font-black text-gray-900 tracking-tight leading-none">{averageRating}</p>
+                    <span className="text-xl font-bold text-[#A68B6D]">/5</span>
+                  </div>
+                  <div className="flex items-center space-x-1 my-3">
+                    {[...Array(5)].map((_, i) => (
+                      <StarIcon key={i} className={`w-4.5 h-4.5 ${i < Math.floor(averageRating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-200'}`} />
+                    ))}
+                  </div>
+                  <p className="text-xs font-semibold text-gray-400 leading-relaxed text-center sm:text-left">
+                    Note de {averageRating}/5 basé sur {reviewsCount} avis clients
+                  </p>
+                </div>
+
+                {/* Distribution bars */}
+                <div className="space-y-2.5 border-t sm:border-t-0 sm:border-l border-[#EFE9E0]/60 pt-5 sm:pt-0 sm:pl-6">
+                  {distribution.map(({ stars, count, percentage }) => (
+                    <div key={stars} className="flex items-center text-xs font-semibold text-gray-500 group/bar">
+                      <span className="w-8 text-right mr-3 text-[#A68B6D]">{stars} ★</span>
+                      <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden relative shadow-inner">
+                        <div 
+                          className="h-full bg-gradient-to-r from-yellow-300 via-yellow-400 to-[#A68B6D] rounded-full transition-all duration-700 group-hover/bar:brightness-105" 
+                          style={{ width: `${percentage}%` }}
+                        ></div>
+                      </div>
+                      <span className="w-8 text-left ml-3 text-gray-400">({count})</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <button 
+                onClick={() => {
+                  setShowForm(!showForm);
+                  if (!showForm) {
+                    setTimeout(() => {
+                      const formElem = document.getElementById('review-form-anchor');
+                      if (formElem) {
+                        formElem.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }, 150);
+                  }
+                }}
+                className="w-full mt-6 py-4.5 px-6 font-bold uppercase tracking-[0.2em] rounded-2xl text-[10px] text-white bg-gray-900 hover:bg-bionova-red hover:shadow-bionova hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer shadow-md text-center"
+              >
+                {showForm ? "ANNULER L'AVIS" : "RÉDIGER UN AVIS"}
+              </button>
+            </div>
+
+            {/* Bouton d'ajout direct */}
+            <a 
+              href="javascript:void(0)"
+              onClick={(e) => { 
+                e.preventDefault(); 
+                onAddToCart(product);
+              }}
+              style={{ position: 'relative', zIndex: 9999, cursor: 'pointer', display: 'flex', backgroundColor: '#be123c', color: '#ffffff' }}
+              className="w-full flex justify-center items-center py-5.5 px-8 shadow-xl shadow-bionova/20 text-base font-bold uppercase tracking-[0.15em] rounded-2xl text-white bg-bionova-red hover:bg-[#9d0e31] hover:-translate-y-1 hover:shadow-2xl hover:shadow-bionova/30 transition-all duration-300 text-center"
+            >
+              <ShoppingCartIcon className="w-5 h-5 mr-3 shrink-0" />
+              Ajouter au panier
+            </a>
+          </div>
+        </div>
+
+        {/* ==========================================
+            NOUVELLE SECTION : AVIS CLIENTS PREMIUM
+            ========================================== */}
+        <div className="mt-24 pt-20 border-t border-[#EFE9E0]/60 relative">
+          <div className="w-full">
+            
+            <div className="text-center mb-16">
+              <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#A68B6D] mb-3 block">L'EXPÉRIENCE BIONOVA</span>
+              <h3 className="font-display text-3xl sm:text-4xl font-black text-[#1e293b] tracking-tight flex items-center justify-center">
+                <MessageIcon className="mr-3 text-[#A68B6D] w-7 h-7 shrink-0" /> Évaluations & Avis Clients
+              </h3>
+            </div>
+
+            {/* Ancre de défilement pour le formulaire d'avis */}
+            <div id="review-form-anchor"></div>
+
+            {/* Formulaire de rédaction inline centré en bas */}
+            {showForm && (
+              <div className="max-w-3xl mx-auto bg-gradient-to-br from-white via-[#FCFBF9] to-[#FAF6F0]/80 border border-[#EFE9E0] rounded-[2.5rem] p-8 sm:p-10 shadow-[0_30px_70px_rgba(166,139,109,0.06)] transition-all duration-300 mb-16 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-yellow-300 via-[#be123c] to-yellow-400"></div>
+                <h4 className="font-display font-black text-2xl text-[#1e293b] mb-2 tracking-tight">Partagez votre expérience</h4>
+                <p className="text-[10px] font-bold text-[#A68B6D] mb-8 uppercase tracking-widest">Votre avis compte pour notre communauté Bionova.</p>
+                
+                {successMessage ? (
+                  <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-6 text-center text-emerald-800">
+                    <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-4 border border-emerald-200">
+                      <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <h5 className="font-bold text-base mb-1">Avis publié avec succès !</h5>
+                    <p className="text-sm font-semibold text-emerald-600/90">Merci d'avoir partagé votre expérience avec notre communauté Bionova.</p>
+                  </div>
+                ) : (
+                  <form onSubmit={(e) => {
+                    e.preventDefault();
+                    if (!newReview.name || !newReview.content) {
+                      alert("Veuillez remplir votre nom et votre commentaire.");
+                      return;
+                    }
+                    
+                    // Add review to state
+                    const addedReview = {
+                      id: Date.now(),
+                      name: newReview.name,
+                      rating: newReview.rating,
+                      title: newReview.title || "Avis Client",
+                      content: newReview.content,
+                      date: new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }),
+                      verified: true
+                    };
+                    
+                    setReviewsList([addedReview, ...reviewsList]);
+                    setSuccessMessage(true);
+                    setNewReview({ name: '', rating: 5, title: '', content: '' });
+                    
+                    // Keep success message visible for 4 seconds then close form
+                    setTimeout(() => {
+                      setSuccessMessage(false);
+                      setShowForm(false);
+                    }, 4000);
+                  }} className="space-y-5">
+                    
+                    {/* Rating Selection */}
+                    <div>
+                      <label className="block text-[11px] font-black uppercase tracking-widest text-[#A68B6D] mb-3">Votre note globale</label>
+                      <div className="flex items-center space-x-1">
+                        {[1, 2, 3, 4, 5].map((stars) => (
+                          <button
+                            type="button"
+                            key={stars}
+                            onClick={() => setNewReview({ ...newReview, rating: stars })}
+                            onMouseEnter={() => setHoverRating(stars)}
+                            onMouseLeave={() => setHoverRating(0)}
+                            className="p-1 hover:scale-125 transition-transform cursor-pointer focus:outline-none"
+                          >
+                            <StarIcon 
+                              className={`w-8 h-8 transition-colors ${
+                                stars <= (hoverRating || newReview.rating) 
+                                  ? 'text-yellow-400 fill-yellow-400' 
+                                  : 'text-gray-300'
+                              }`} 
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Name Input */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Nom Complet</label>
+                        <input 
+                          type="text" 
+                          required
+                          placeholder="Ex: Amine K."
+                          value={newReview.name}
+                          onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
+                          className="w-full bg-white border border-gray-200 px-5 py-4 rounded-2xl text-sm font-medium text-gray-800 placeholder-gray-400 focus:outline-none focus:border-bionova-red focus:ring-4 focus:ring-bionova-red/5 transition-all duration-300 shadow-sm"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Titre de l'avis</label>
+                        <input 
+                          type="text" 
+                          placeholder="Ex: Qualité exceptionnelle"
+                          value={newReview.title}
+                          onChange={(e) => setNewReview({ ...newReview, title: e.target.value })}
+                          className="w-full bg-white border border-gray-200 px-5 py-4 rounded-2xl text-sm font-medium text-gray-800 placeholder-gray-400 focus:outline-none focus:border-bionova-red focus:ring-4 focus:ring-bionova-red/5 transition-all duration-300 shadow-sm"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Comment Input */}
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Votre Commentaire</label>
+                      <textarea 
+                        rows="4"
+                        required
+                        placeholder="Partagez votre avis sur l'efficacité, le goût, ou la qualité du complément..."
+                        value={newReview.content}
+                        onChange={(e) => setNewReview({ ...newReview, content: e.target.value })}
+                        className="w-full bg-white border border-gray-200 p-5 rounded-2xl text-sm font-medium text-gray-800 placeholder-gray-400 focus:outline-none focus:border-bionova-red focus:ring-4 focus:ring-bionova-red/5 transition-all duration-300 resize-none shadow-sm"
+                      ></textarea>
+                    </div>
+
+                    <button 
+                      type="submit"
+                      className="w-full py-4 font-bold uppercase tracking-wider rounded-2xl text-sm text-white bg-[#be123c] hover:bg-[#9d0e31] transition-all cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 duration-300"
+                    >
+                      Publier mon avis
+                    </button>
+                  </form>
+                )}
+              </div>
+            )}
+
+            {/* Liste des avis : 3 blocs côte à côte sur une ligne - Ultra-Premium Testimonials Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {reviewsList.map((review) => (
+                <div 
+                  key={review.id} 
+                  className="bg-gradient-to-b from-[#FCFBF9]/60 via-white to-white border border-[#EFE9E0]/80 rounded-[2.5rem] p-8 sm:p-9 shadow-[0_10px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_50px_rgba(166,139,109,0.06)] hover:border-[#A68B6D]/35 hover:-translate-y-1.5 transition-all duration-500 group relative flex flex-col overflow-hidden"
+                >
+                  {/* Subtle top decoration */}
+                  <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#A68B6D]/15 to-transparent group-hover:via-[#be123c]/45 transition-colors duration-500"></div>
+
+                  <div className="flex items-start justify-between mb-4 gap-2">
+                    <div>
+                      <p className="font-display font-black text-gray-900 text-base tracking-tight">{review.name}</p>
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mt-1">{review.date}</p>
+                    </div>
+                    {review.verified && (
+                      <span className="inline-flex items-center shrink-0 px-3 py-1 rounded-full text-[9px] font-black bg-emerald-50 border border-emerald-100/40 text-emerald-700 uppercase tracking-widest">
+                        <svg className="w-2.5 h-2.5 text-emerald-600 mr-1 shrink-0" fill="none" stroke="currentColor" strokeWidth="4.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                        Vérifié
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Étoiles de la note individuelle */}
+                  <div className="flex items-center space-x-0.5 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <StarIcon key={i} className={`w-4 h-4 ${i < review.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-250'}`} />
+                    ))}
+                  </div>
+
+                  <h5 className="font-display font-bold text-gray-900 text-sm mb-2.5 group-hover:text-bionova-red transition-colors duration-300">{review.title}</h5>
+                  <p className="text-gray-500 text-sm leading-relaxed font-medium flex-1">{review.content}</p>
+
+                  {/* Tiny luxury quote visual element */}
+                  <div className="absolute bottom-2 right-6 text-[#A68B6D]/5 font-serif text-8xl select-none pointer-events-none group-hover:text-[#A68B6D]/10 group-hover:scale-110 transition-all duration-500">
+                    ”
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

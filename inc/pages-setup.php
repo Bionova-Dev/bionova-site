@@ -8,19 +8,15 @@ function bionova_create_mandatory_pages() {
     $pages = array(
         'boutique' => array(
             'title'    => 'Boutique',
-            'template' => 'page-boutique.php'
         ),
         'astuces' => array(
             'title'    => 'Astuces',
-            'template' => 'page-astuces.php'
         ),
         'expertise' => array(
             'title'    => 'Expertise',
-            'template' => 'page-expertise.php'
         ),
         'contact' => array(
             'title'    => 'Contact',
-            'template' => 'page-contact.php'
         ),
     );
 
@@ -36,12 +32,12 @@ function bionova_create_mandatory_pages() {
             ) );
             
             if ( $page_id ) {
-                update_post_meta( $page_id, '_wp_page_template', $data['template'] );
-                flush_rewrite_rules(); // Flush rules when a page is created
+                update_post_meta( $page_id, '_wp_page_template', 'default' );
+                flush_rewrite_rules(); 
             }
         } else {
-            // Ensure template is correct even if page exists
-            update_post_meta( $page_check->ID, '_wp_page_template', $data['template'] );
+            // Ensure template is set to default
+            update_post_meta( $page_check->ID, '_wp_page_template', 'default' );
         }
     }
 }

@@ -1,0 +1,1 @@
+Vérification d'écriture réussie. Le système de fichiers est bien synchronisé.
