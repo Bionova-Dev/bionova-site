@@ -1,0 +1,398 @@
+/* ============================================================
+   BIONOVA — Responsive & Zoom-Safe System
+   VERSION: 20260529
+   Gère : mobile, tablette, desktop, et zoom jusqu'à 1000%
+   ============================================================ */
+
+/* ──────────────────────────────────────────────────────────
+   1. RESET DE BASE ANTI-DÉBORDEMENT
+   Garantit qu'aucun élément ne dépasse la largeur de la page
+   ────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* Empêche tout débordement horizontal silencieux */
+  max-width: 100%;
+}
+
+html {
+  /* Empêche iOS de zoomer sur le texte à la rotation */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Scroll horizontal impossible — évite les barres parasites au zoom */
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  /* La largeur ne dépasse jamais la fenêtre, zoom compris */
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ──────────────────────────────────────────────────────────
+   2. TYPOGRAPHIE FLUIDE — ZOOM-SAFE
+   clamp(min, preferred, max) : la taille s'adapte sans jamais
+   bloquer l'affichage même à 1000% de zoom.
+   Tous les titres utilisent des unités relatives (em/rem),
+   jamais de hauteur fixe.
+   ────────────────────────────────────────────────────────── */
+
+h1 {
+  font-size: clamp(1.6rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  margin-bottom: 0.6em;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 3.5vw, 2.5rem);
+  line-height: 1.25;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: clamp(1.1rem, 2.5vw, 1.875rem);
+  line-height: 1.3;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  margin-bottom: 0.45em;
+}
+
+h4, h5, h6 {
+  line-height: 1.35;
+  height: auto !important;
+  max-height: none !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+p, li, td, th, label, span, a {
+  /* Le texte courant s'enroule proprement */
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ──────────────────────────────────────────────────────────
+   3. IMAGES ET MÉDIAS — TOUJOURS FLUIDES
+   ────────────────────────────────────────────────────────── */
+img,
+video,
+iframe,
+embed,
+object,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ──────────────────────────────────────────────────────────
+   4. LAYOUT — CONTENEURS FLUIDES
+   Aucune hauteur fixe sur les sections et blocs principaux
+   ────────────────────────────────────────────────────────── */
+section,
+article,
+aside,
+main,
+.block,
+.container,
+[class*="section-"],
+[class*="-section"] {
+  height: auto !important;
+  max-height: none !important;
+  width: 100%;
+  /* Évite le débordement interne */
+  overflow: visible;
+}
+
+/* Le conteneur principal WordPress */
+#page,
+#content,
+#main,
+.site,
+.site-content {
+  width: 100%;
+  overflow-x: hidden;
+  height: auto;
+}
+
+/* Espace sous le header fixe — s'adapte selon la taille du header */
+.site-content,
+#content {
+  padding-top: var(--header-h-mobile, 60px);
+}
+
+@media (min-width: 1024px) {
+  .site-content,
+  #content {
+    padding-top: var(--header-h-desktop, 90px);
+  }
+}
+
+/* ──────────────────────────────────────────────────────────
+   5. HEADER — ZOOM-SAFE ET RESPONSIVE
+   Le header s'adapte à son contenu au lieu d'avoir
+   une hauteur fixe bloquée.
+   ────────────────────────────────────────────────────────── */
+#main-header {
+  /* Hauteur minimale — grandit si le contenu en a besoin au zoom */
+  min-height: var(--header-h-mobile, 60px);
+  height: auto !important;
+  /* Toujours visible */
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+  /* Empêche tout débordement horizontal */
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+#main-header nav {
+  width: 100%;
+  height: auto;
+}
+
+/* Les liens de nav ne se coupent pas en deux lignes sur desktop */
+.nav-item {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Sur desktop, le menu centré se wrap si zoom trop élevé */
+#main-header .hidden.lg\:flex {
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+/* ──────────────────────────────────────────────────────────
+   6. GRILLES — RESPONSIVE FLUIDES
+   Tous les grids s'effondrent proprement sur mobile et zoom
+   ────────────────────────────────────────────────────────── */
+
+/* Grid générique à colonnes auto-fill */
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: 1.5rem;
+}
+
+/* Forcer le flex wrap sur les rangées au zoom */
+.flex-row-wrap,
+[class*="flex"][class*="row"] {
+  flex-wrap: wrap;
+}
+
+/* ──────────────────────────────────────────────────────────
+   7. TABLEAUX — DÉFILEMENT HORIZONTAL PROPRE
+   Les tables WooCommerce (panier, commandes) débordent 
+   dans un conteneur défilant plutôt que de casser la page
+   ────────────────────────────────────────────────────────── */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* WooCommerce tables */
+.woocommerce table.shop_table,
+.woocommerce-MyAccount-content table.shop_table {
+  min-width: 600px; /* Force scroll plutôt que compression */
+  width: 100%;
+}
+
+/* Wrapper auto pour tables WooCommerce existantes */
+.woocommerce-cart-form,
+.woocommerce-MyAccount-content {
+  overflow-x: auto;
+}
+
+/* ──────────────────────────────────────────────────────────
+   8. BREAKPOINTS RESPONSIVES COMPLETS
+   Mobile → Tablette → Desktop → Large Desktop
+   ────────────────────────────────────────────────────────── */
+
+/* ── Mobile (< 480px) ── */
+@media (max-width: 479px) {
+  h1 { font-size: clamp(1.4rem, 7vw, 2rem); }
+  h2 { font-size: clamp(1.2rem, 5.5vw, 1.6rem); }
+  h3 { font-size: clamp(1rem, 4.5vw, 1.3rem); }
+
+  /* Padding réduit sur très petits écrans */
+  .container,
+  section,
+  .woocommerce,
+  .woocommerce-page .woocommerce {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Boutons pleine largeur */
+  .btn-full-mobile,
+  .woocommerce-form-login .button,
+  .woocommerce-form-register .button {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  /* Cartes produits en colonne unique */
+  .products.columns-3,
+  .products.columns-4,
+  .products.columns-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Petits mobiles - paysage (480px–639px) ── */
+@media (min-width: 480px) and (max-width: 639px) {
+  h1 { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+  h2 { font-size: clamp(1.25rem, 4.5vw, 1.7rem); }
+
+  .products.columns-3,
+  .products.columns-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ── Tablette (640px–1023px) ── */
+@media (min-width: 640px) and (max-width: 1023px) {
+  h1 { font-size: clamp(1.7rem, 4vw, 2.8rem); }
+  h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+  h3 { font-size: clamp(1.15rem, 2.5vw, 1.5rem); }
+
+  /* 2 colonnes sur tablette */
+  .products.columns-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .woocommerce-account .woocommerce {
+    flex-direction: column !important;
+  }
+}
+
+/* ── Desktop (1024px–1279px) ── */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #main-header {
+    min-height: var(--header-h-desktop, 90px);
+  }
+}
+
+/* ── Large Desktop (≥ 1280px) ── */
+@media (min-width: 1280px) {
+  #main-header {
+    min-height: var(--header-h-desktop, 90px);
+  }
+}
+
+/* ──────────────────────────────────────────────────────────
+   9. ZOOM HAUTE DENSITÉ — PROTECTION 200% → 1000%
+   Quand le zoom dépasse les breakpoints normaux,
+   le layout passe automatiquement en mode colonne.
+   ────────────────────────────────────────────────────────── */
+
+/* À partir d'un zoom ~200%+ (résolution effective ≤ 768px) */
+@media (max-width: 768px) {
+  /* Menu desktop → masqué, menu mobile → visible */
+  #main-header .hidden.lg\:flex {
+    display: none !important;
+  }
+
+  /* Le header s'étire verticalement si besoin */
+  #main-header {
+    align-items: center;
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+/* Zoom très élevé (~400%+, résolution effective ≤ 480px) */
+@media (max-width: 480px) {
+  /* Tout passe en colonne */
+  .flex,
+  [class*="flex-row"],
+  [class*="items-center"] {
+    flex-wrap: wrap !important;
+  }
+
+  /* Les grilles tombent en 1 colonne */
+  [class*="grid-cols-"],
+  [class*="columns-"] {
+    grid-template-columns: 1fr !important;
+    columns: 1 !important;
+  }
+
+  /* Les positions absolues/fixes se recalculent */
+  .absolute {
+    position: relative !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  /* Le menu centré absolu se remet en flux normal */
+  #main-header .absolute.left-1\/2 {
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────
+   10. ACCESSIBILITÉ — REDUCED MOTION
+   Respecte la préférence système de réduction de mouvement
+   ────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────
+   11. PRINT — MISE EN PAGE IMPRESSION
+   ────────────────────────────────────────────────────────── */
+@media print {
+  #main-header,
+  #mobile-menu,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+  }
+
+  h1 { font-size: 24pt; }
+  h2 { font-size: 18pt; }
+  h3 { font-size: 14pt; }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+}
