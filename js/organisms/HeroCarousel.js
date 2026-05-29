@@ -111,16 +111,14 @@ const HeroCarousel = ({ onNavigate }) => {
 
   return (
     /*
-      FIX 1 — La section commence SOUS le header fixe (90px).
-      On utilise paddingTop pour pousser le contenu visible.
-      La hauteur reste fluide avec min-height.
+      FIX — Section plein écran. L'image couvre tout (y compris derrière le header).
+      Le CONTENU est poussé sous le header via paddingTop.
     */
     <section
       className="relative w-full overflow-hidden flex flex-col"
       style={{
-        minHeight: 'calc(100vh - 90px)',
-        /* Positionne la section juste après le header */
-        marginTop: '90px',
+        height: '100vh',
+        minHeight: '600px',
       }}
       aria-label="Carrousel principal"
     >
@@ -153,9 +151,10 @@ const HeroCarousel = ({ onNavigate }) => {
       <div className="absolute inset-0 bg-gradient-to-r from-gray-900/75 via-gray-900/45 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-gray-900/20" />
 
-      {/* ── Contenu — en flux normal, pas absolu ── */}
+      {/* ── Contenu — poussé sous le header par paddingTop ── */}
       <div className="relative z-10 flex-1 flex items-center w-full">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
+          style={{ paddingTop: '90px', paddingBottom: '5rem' }}>
           <div
             className="md:w-[60%] transition-all duration-700 ease-out"
             style={{ opacity: fade ? 1 : 0, transform: fade ? 'translateY(0)' : 'translateY(20px)' }}
