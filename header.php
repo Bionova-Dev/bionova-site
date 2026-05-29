@@ -158,9 +158,9 @@ if ( is_front_page() || is_home() || is_shop() || is_product() || is_product_cat
       <nav class="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
         <div class="flex justify-between items-center h-full gap-4 lg:gap-8 relative">
           
-          <div class="flex-1 flex justify-start relative h-full">
-            <a href="https://bionova.tn/" class="absolute top-1 lg:top-2 left-0 flex items-start cursor-pointer px-2 group" aria-label="Accueil Bionova">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/brand/logo-bionova.webp" alt="Logo Bionova" class="transition-all duration-500 object-contain h-[60px] lg:h-[85px]" width="240" height="96" />
+          <div class="flex-1 flex justify-start h-full">
+            <a href="https://bionova.tn/" class="flex items-start self-start cursor-pointer px-2 group pt-1" aria-label="Accueil Bionova">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/brand/logo-bionova.webp" alt="Logo Bionova" class="transition-all duration-500 object-contain h-[60px] lg:h-[85px] relative z-50" width="240" height="96" />
             </a>
           </div>
           
