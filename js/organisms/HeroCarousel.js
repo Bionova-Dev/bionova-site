@@ -154,7 +154,7 @@ const HeroCarousel = ({ onNavigate }) => {
       {/* ── Contenu — poussé sous le header par paddingTop ── */}
       <div className="relative z-10 flex-1 flex items-center w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
-          style={{ paddingTop: '90px', paddingBottom: '5rem' }}>
+          style={{ paddingTop: '70px', paddingBottom: '5rem' }}>
           <div
             className="md:w-[60%] transition-all duration-700 ease-out"
             style={{ opacity: fade ? 1 : 0, transform: fade ? 'translateY(0)' : 'translateY(20px)' }}
