@@ -154,13 +154,13 @@ if ( is_front_page() || is_home() || is_shop() || is_product() || is_product_cat
       </div>
     </div>
 
-    <header class="fixed w-full z-50 h-[60px] lg:h-[70px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center transition-all duration-300" id="main-header">
+    <header class="fixed w-full z-50 h-[30px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center transition-all duration-300" id="main-header">
       <nav class="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
         <div class="flex justify-between items-center h-full gap-4 lg:gap-8 relative">
           
           <div class="flex-1 flex justify-start">
             <a href="https://bionova.tn/" class="flex items-center cursor-pointer px-2 group shrink-0" aria-label="Accueil Bionova">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/brand/logo-bionova.webp" alt="Logo Bionova — Micronutrition Premium" class="transition-all duration-500 object-contain h-[40px] lg:h-[50px]" width="240" height="96" />
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/brand/logo-bionova.webp" alt="Logo Bionova" class="transition-all duration-500 object-contain h-[20px] lg:h-[24px]" width="240" height="96" />
             </a>
           </div>
           
@@ -170,11 +170,11 @@ if ( is_front_page() || is_home() || is_shop() || is_product() || is_product_cat
             $active_class = "text-[#be123c] border-[#be123c]";
             $inactive_class = "text-black border-transparent";
             ?>
-            <a href="https://bionova.tn/" class="nav-item text-[18px] font-black uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-3 <?php echo ($initial_page === 'home') ? $active_class : $inactive_class; ?> hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Accueil</a>
-            <a href="https://bionova.tn/boutique/" class="nav-item text-[18px] font-black uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-3 <?php echo ($initial_page === 'products') ? $active_class : $inactive_class; ?> hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Boutique</a>
-            <a href="https://bionova.tn/astuces/" class="nav-item text-[18px] font-black uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-3 <?php echo ($initial_page === 'blog') ? $active_class : $inactive_class; ?> hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Astuces</a>
-            <a href="https://bionova.tn/expertise/" class="nav-item text-[18px] font-black uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-3 <?php echo ($initial_page === 'about') ? $active_class : $inactive_class; ?> hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Expertise</a>
-            <a href="https://bionova.tn/contact/" class="nav-item text-[18px] font-black uppercase tracking-[0.12em] transition-all duration-300 cursor-pointer py-2 px-1 border-b-3 <?php echo ($initial_page === 'contact') ? $active_class : $inactive_class; ?> hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Contact</a>
+            <a href="https://bionova.tn/" class="nav-item text-[12px] xl:text-[14px] font-black uppercase tracking-[0.1em] transition-all duration-300 cursor-pointer py-0.5 px-1 border-b-2 <?php echo ($initial_page === 'home') ? $active_class : $inactive_class; ?> hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Accueil</a>
+            <a href="https://bionova.tn/boutique/" class="nav-item text-[12px] xl:text-[14px] font-black uppercase tracking-[0.1em] transition-all duration-300 cursor-pointer py-0.5 px-1 border-b-2 <?php echo ($initial_page === 'products') ? $active_class : $inactive_class; ?> hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Boutique</a>
+            <a href="https://bionova.tn/astuces/" class="nav-item text-[12px] xl:text-[14px] font-black uppercase tracking-[0.1em] transition-all duration-300 cursor-pointer py-0.5 px-1 border-b-2 <?php echo ($initial_page === 'blog') ? $active_class : $inactive_class; ?> hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Astuces</a>
+            <a href="https://bionova.tn/expertise/" class="nav-item text-[12px] xl:text-[14px] font-black uppercase tracking-[0.1em] transition-all duration-300 cursor-pointer py-0.5 px-1 border-b-2 <?php echo ($initial_page === 'about') ? $active_class : $inactive_class; ?> hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Expertise</a>
+            <a href="https://bionova.tn/contact/" class="nav-item text-[12px] xl:text-[14px] font-black uppercase tracking-[0.1em] transition-all duration-300 cursor-pointer py-0.5 px-1 border-b-2 <?php echo ($initial_page === 'contact') ? $active_class : $inactive_class; ?> hover:text-[#be123c] hover:border-[#be123c]" style="font-family:'Montserrat',sans-serif">Contact</a>
           </div>
 
           <!-- Icônes -->
