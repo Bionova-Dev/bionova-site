@@ -154,9 +154,9 @@ if ( is_front_page() || is_home() || is_shop() || is_product() || is_product_cat
       </div>
     </div>
 
-    <header class="fixed w-full z-50 h-[50px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center transition-all duration-300" id="main-header">
+    <header class="fixed w-full z-50 h-[30px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center transition-all duration-300" id="main-header">
       <nav class="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
-        <div class="flex justify-between items-center h-full gap-4 lg:gap-8 relative">
+        <div class="flex items-center h-full gap-4 lg:gap-8 relative w-full">
           
           <div class="flex-1 flex justify-start h-full">
             <a href="https://bionova.tn/" class="flex items-start self-start cursor-pointer px-2 group pt-1" aria-label="Accueil Bionova">
