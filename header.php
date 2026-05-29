@@ -164,8 +164,8 @@ if ( is_front_page() || is_home() || is_shop() || is_product() || is_product_cat
             </a>
           </div>
           
-          <!-- Menu Centré Absolu -->
-          <div class="hidden lg:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 justify-center items-center gap-4 xl:gap-8 flex-nowrap whitespace-nowrap w-max">
+          <!-- Menu Aligné à Droite (près des icônes) -->
+          <div class="hidden lg:flex items-center gap-4 xl:gap-8 flex-nowrap whitespace-nowrap mt-1">
             <?php
             $active_class = "text-[#be123c] border-[#be123c]";
             $inactive_class = "text-black border-transparent";
@@ -178,7 +178,7 @@ if ( is_front_page() || is_home() || is_shop() || is_product() || is_product_cat
           </div>
 
           <!-- Icônes -->
-          <div class="flex-1 flex justify-end items-center space-x-2 sm:space-x-4 shrink-0">
+          <div class="flex justify-end items-center space-x-2 sm:space-x-4 shrink-0">
             <!-- Barre de Recherche Épurée -->
             <form role="search" method="get" class="relative hidden sm:flex items-center space-x-2.5" action="<?php echo bionova_get_slug_url( 'boutique' ); ?>">
               <button type="submit" class="p-1.5 text-gray-400 hover:text-[#be123c] transition-all duration-300 hover:scale-110 flex items-center justify-center cursor-pointer" aria-label="Rechercher">
