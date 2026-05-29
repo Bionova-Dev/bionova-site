@@ -159,9 +159,6 @@ main,
   display: flex !important;
   align-items: center;
   width: 100%;
-  /* Empêche tout débordement horizontal */
-  overflow: hidden;
-  flex-wrap: wrap;
 }
 
 #main-header nav {

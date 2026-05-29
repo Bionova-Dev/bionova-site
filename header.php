@@ -154,7 +154,7 @@ if ( is_front_page() || is_home() || is_shop() || is_product() || is_product_cat
       </div>
     </div>
 
-    <header class="fixed w-full z-50 h-[70px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center transition-all duration-300" id="main-header" style="min-height: 70px !important; height: 70px !important; max-height: 70px !important;">
+    <header class="fixed top-0 w-full z-50 h-[70px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center transition-all duration-300" id="main-header" style="min-height: 70px !important; height: 70px !important; max-height: 70px !important;">
       <nav class="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
         <div class="flex items-center h-full gap-4 lg:gap-8 relative w-full">
           

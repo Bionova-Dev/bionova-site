@@ -4,11 +4,9 @@ const path = require('path');
 
 // Fichiers modifiés dans cette session
 const MODIFIED_FILES = [
-  'header.php',
-  'js/organisms/HeroCarousel.js',
-  'css/design-tokens.css',
+  'css/responsive.css',
   'style.css',
-  'css/responsive.css'
+  'header.php'
 ];
 
 
