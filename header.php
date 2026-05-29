@@ -154,18 +154,18 @@ if ( is_front_page() || is_home() || is_shop() || is_product() || is_product_cat
       </div>
     </div>
 
-    <header class="fixed w-full z-50 h-[30px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center transition-all duration-300" id="main-header">
+    <header class="fixed w-full z-50 h-[50px] bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 flex items-center transition-all duration-300" id="main-header">
       <nav class="max-w-[1800px] mx-auto px-4 lg:px-12 w-full h-full" aria-label="Navigation principale">
         <div class="flex justify-between items-center h-full gap-4 lg:gap-8 relative">
           
-          <div class="flex-1 flex justify-start items-start pt-1">
-            <a href="https://bionova.tn/" class="flex items-start cursor-pointer px-2 group shrink-0" aria-label="Accueil Bionova">
+          <div class="flex-1 flex justify-start relative h-full">
+            <a href="https://bionova.tn/" class="absolute top-1 lg:top-2 left-0 flex items-start cursor-pointer px-2 group" aria-label="Accueil Bionova">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/brand/logo-bionova.webp" alt="Logo Bionova" class="transition-all duration-500 object-contain h-[60px] lg:h-[85px]" width="240" height="96" />
             </a>
           </div>
           
           <!-- Menu Centré Absolu -->
-          <div class="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 justify-center items-center gap-4 xl:gap-8 flex-nowrap whitespace-nowrap w-max">
+          <div class="hidden lg:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 justify-center items-center gap-4 xl:gap-8 flex-nowrap whitespace-nowrap w-max">
             <?php
             $active_class = "text-[#be123c] border-[#be123c]";
             $inactive_class = "text-black border-transparent";
