@@ -12,41 +12,7 @@ $points = get_user_meta( $user_id, 'bionova_pro_points', true );
 $points = $points ? (int) $points : 0;
 $coupon = get_user_meta( $user_id, 'bionova_pro_coupon', true );
 
-// Fallback: Generate coupon if it wasn't generated during registration
-if ( ! $coupon ) {
-    $last_name = get_user_meta( $user_id, 'billing_last_name', true );
-    if ( ! $last_name ) {
-        $last_name = get_user_meta( $user_id, 'last_name', true );
-    }
-    if ( ! $last_name ) {
-        $user_info = get_userdata($user_id);
-        $last_name = $user_info->user_login; // Fallback to username
-    }
-    
-    if ( $last_name ) {
-        $base_code = 'DR-' . strtoupper( sanitize_title( $last_name ) );
-        $coupon_code = $base_code;
-        $counter = 1;
-        while ( wc_get_coupon_id_by_code( $coupon_code ) ) {
-            $coupon_code = $base_code . '-' . $counter;
-            $counter++;
-        }
-        
-        $new_coupon = new WC_Coupon();
-        $new_coupon->set_code( $coupon_code );
-        $new_coupon->set_discount_type( 'percent' );
-        $new_coupon->set_amount( 10 );
-        $new_coupon->set_individual_use( false );
-        $new_coupon->set_usage_limit( 0 );
-        $new_coupon->set_usage_limit_per_user( 0 );
-        $new_coupon->set_description( 'Code auto-généré pour Pro ID ' . $user_id );
-        $new_coupon->add_meta_data( 'professional_user_id', $user_id, true );
-        $new_coupon->save();
-
-        update_user_meta( $user_id, 'bionova_pro_coupon', $coupon_code );
-        $coupon = $coupon_code;
-    }
-}
+// Le code promo est désormais uniquement géré via le paramètre de l'URL lors de l'inscription.
 
 $orders = get_user_meta( $user_id, 'bionova_pro_orders', true );
 

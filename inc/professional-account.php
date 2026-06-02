@@ -34,35 +34,8 @@ function bionova_handle_professional_registration( $customer_id, $new_customer_d
         update_user_meta( $customer_id, 'bionova_pro_points', 0 );
         update_user_meta( $customer_id, 'bionova_pro_orders', array() );
 
-        // Generate Promo Code
-        if ( $last_name ) {
-            $base_code = 'DR-' . strtoupper( sanitize_title( $last_name ) );
-            $coupon_code = $base_code;
-            $counter = 1;
-            
-            // Check if coupon exists
-            while ( wc_get_coupon_id_by_code( $coupon_code ) ) {
-                $coupon_code = $base_code . '-' . $counter;
-                $counter++;
-            }
-            
-            // Create coupon programmatically
-            $coupon = new WC_Coupon();
-            $coupon->set_code( $coupon_code );
-            $coupon->set_discount_type( 'percent' ); // Percentage discount
-            $coupon->set_amount( 10 ); // 10% off for the client
-            $coupon->set_individual_use( false );
-            $coupon->set_usage_limit( 0 );
-            $coupon->set_usage_limit_per_user( 0 );
-            $coupon->set_description( 'Code généré automatiquement pour le professionnel ID ' . $customer_id );
-            
-            // Add custom meta to track the professional
-            $coupon->add_meta_data( 'professional_user_id', $customer_id, true );
-            $coupon->save();
-
-            // Save coupon code to professional profile
-            update_user_meta( $customer_id, 'bionova_pro_coupon', $coupon_code );
-        }
+        // The coupon is no longer auto-generated here.
+        // It is assigned in the REST API endpoint based on the scanned code.
     }
 }
 
@@ -211,31 +184,18 @@ function bionova_create_pro_customer_callback( WP_REST_Request $request ) {
     update_user_meta( $customer_id, 'bionova_pro_points', 0 );
     update_user_meta( $customer_id, 'bionova_pro_orders', array() );
 
-    // Auto-generate physician's personalized promo code (DR-NOM)
-    $generated_coupon = '';
-    if ( $last_name ) {
-        $base_code = 'DR-' . strtoupper( sanitize_title( $last_name ) );
-        $coupon_code = $base_code;
-        $counter = 1;
-
-        while ( wc_get_coupon_id_by_code( $coupon_code ) ) {
-            $coupon_code = $base_code . '-' . $counter;
-            $counter++;
+    // Link the scanned promo code to the professional
+    $generated_coupon = $code_promo;
+    if ( $code_promo ) {
+        update_user_meta( $customer_id, 'bionova_pro_coupon', $code_promo );
+        
+        // Find the coupon and update its meta to track the professional
+        $coupon_id = wc_get_coupon_id_by_code( $code_promo );
+        if ( $coupon_id ) {
+            $coupon = new WC_Coupon( $coupon_id );
+            $coupon->update_meta_data( 'professional_user_id', $customer_id );
+            $coupon->save();
         }
-
-        $coupon = new WC_Coupon();
-        $coupon->set_code( $coupon_code );
-        $coupon->set_discount_type( 'percent' );
-        $coupon->set_amount( 10 ); // 10% discount for doctor's patients
-        $coupon->set_individual_use( false );
-        $coupon->set_usage_limit( 0 );
-        $coupon->set_usage_limit_per_user( 0 );
-        $coupon->set_description( 'Code généré automatiquement pour le professionnel ID ' . $customer_id );
-        $coupon->add_meta_data( 'professional_user_id', $customer_id, true );
-        $coupon->save();
-
-        update_user_meta( $customer_id, 'bionova_pro_coupon', $coupon_code );
-        $generated_coupon = $coupon_code;
     }
 
     return new WP_REST_Response( array(
