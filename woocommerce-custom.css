@@ -61,6 +61,7 @@
     background: #f8fafc !important;
     padding: 0.75rem !important;
     width: 100px !important;
+    /* Responsive: reduced on mobile via responsive.css */
     transition: transform 0.3s ease !important;
 }
 
@@ -143,4 +144,917 @@
 
 .checkout-button:hover, .button.alt:hover {
     background-color: #9d0e31 !important;
+}
+
+/* =========================================
+   PREMIUM LOGIN & REGISTER PAGE
+========================================= */
+.woocommerce-account .woocommerce {
+    padding: 3rem 1rem !important;
+}
+
+#customer_login {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 3rem !important;
+    justify-content: center !important;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+#customer_login .u-column1, #customer_login .u-column2 {
+    width: 100% !important;
+    max-width: 500px !important;
+    float: none !important;
+    background: #ffffff !important;
+    border-radius: 2rem !important;
+    padding: 3rem !important;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02) !important;
+    transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+#customer_login .u-column1:hover, #customer_login .u-column2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px -15px rgba(190, 18, 60, 0.1), 0 0 0 1px rgba(190, 18, 60, 0.05) !important;
+}
+
+#customer_login h2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 1.8rem !important;
+    color: #1e293b !important;
+    margin-bottom: 2rem !important;
+    text-align: center !important;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+#customer_login h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: #be123c;
+    border-radius: 3px;
+}
+
+.woocommerce form .form-row {
+    margin-bottom: 1.5rem !important;
+}
+
+.woocommerce form .form-row label {
+    font-weight: 600 !important;
+    color: #475569 !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
+}
+
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea, .woocommerce form .form-row select {
+    width: 100% !important;
+    background: #f8fafc !important;
+    border: 2px solid transparent !important;
+    border-radius: 1rem !important;
+    padding: 1rem 1.2rem !important;
+    font-size: 1rem !important;
+    color: #1e293b !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+}
+
+.woocommerce form .form-row input.input-text:focus, .woocommerce form .form-row textarea:focus, .woocommerce form .form-row select:focus {
+    background: #ffffff !important;
+    border-color: #be123c !important;
+    outline: none !important;
+    box-shadow: 0 0 0 4px rgba(190, 18, 60, 0.1) !important;
+}
+
+.woocommerce-form-login .button, .woocommerce-form-register .button {
+    width: 100% !important;
+    background: #be123c !important;
+    color: #ffffff !important;
+    border-radius: 1rem !important;
+    padding: 1.2rem !important;
+    font-weight: 800 !important;
+    font-size: 1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin-top: 1rem !important;
+}
+
+.woocommerce-form-login .button:hover, .woocommerce-form-register .button:hover {
+    background: #9d0e31 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 15px 30px -10px rgba(190, 18, 60, 0.4) !important;
+}
+
+.woocommerce-form-login__rememberme {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    color: #64748b !important;
+}
+
+.woocommerce-form-login__rememberme input[type="checkbox"] {
+    accent-color: #be123c !important;
+    width: 1.2rem !important;
+    height: 1.2rem !important;
+    border-radius: 0.25rem !important;
+}
+
+.woocommerce-LostPassword {
+    text-align: center !important;
+    margin-top: 1.5rem !important;
+}
+
+.woocommerce-LostPassword a {
+    color: #64748b !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.woocommerce-LostPassword a:hover {
+    color: #be123c !important;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   PREMIUM CUSTOMER DASHBOARD (MON COMPTE)
+========================================= */
+
+/* Grid and Flex Layout */
+@media (min-width: 769px) {
+    .woocommerce-account .woocommerce {
+        display: flex !important;
+        flex-flow: row wrap !important;
+        gap: 3rem !important;
+        align-items: flex-start !important;
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+        padding: 3rem 1.5rem !important;
+    }
+    
+    .woocommerce-MyAccount-navigation {
+        flex: 0 0 260px !important;
+        background: #ffffff !important;
+        border-radius: 2rem !important;
+        padding: 2rem 1.5rem !important;
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02) !important;
+        position: sticky !important;
+        top: 100px !important;
+    }
+    
+    .woocommerce-MyAccount-content {
+        flex: 1 1 0% !important;
+        min-width: 0 !important;
+        background: #ffffff !important;
+        border-radius: 2rem !important;
+        padding: 3rem !important;
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02) !important;
+        min-height: 450px !important;
+    }
+    
+    #customer_login {
+        flex: 1 1 100% !important;
+    }
+}
+
+/* Mobile responsive layout */
+@media (max-width: 768px) {
+    .woocommerce-account .woocommerce {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        padding: 1.5rem 1rem !important;
+    }
+    
+    .woocommerce-MyAccount-navigation {
+        width: 100% !important;
+        padding: 1rem !important;
+        border-radius: 1.5rem !important;
+        background: #f8fafc !important;
+        box-shadow: none !important;
+    }
+    
+    .woocommerce-MyAccount-navigation ul {
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        gap: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        scrollbar-width: none !important;
+    }
+    
+    .woocommerce-MyAccount-navigation ul::-webkit-scrollbar {
+        display: none !important;
+    }
+    
+    .woocommerce-MyAccount-navigation-link a {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .woocommerce-MyAccount-content {
+        width: 100% !important;
+        padding: 2rem 1.5rem !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.03) !important;
+        background: #ffffff !important;
+    }
+}
+
+/* Sidebar Navigation Items */
+.woocommerce-MyAccount-navigation ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+}
+
+.woocommerce-MyAccount-navigation-link a {
+    display: flex !important;
+    align-items: center !important;
+    padding: 1rem 1.25rem !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    text-decoration: none !important;
+    border-radius: 1rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.woocommerce-MyAccount-navigation-link a:hover {
+    background: #f8fafc !important;
+    color: #be123c !important;
+    padding-left: 1.5rem !important;
+}
+
+.woocommerce-MyAccount-navigation-link.is-active a {
+    background: linear-gradient(135deg, #be123c, #9d0e31) !important;
+    color: #ffffff !important;
+    box-shadow: 0 10px 20px -5px rgba(190, 18, 60, 0.2) !important;
+}
+
+/* Dashboard Welcomer */
+.woocommerce-MyAccount-content p {
+    color: #475569 !important;
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.woocommerce-MyAccount-content p a {
+    color: #be123c !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    border-bottom: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+}
+
+.woocommerce-MyAccount-content p a:hover {
+    border-color: #be123c !important;
+}
+
+/* Premium Orders & Data Table */
+.woocommerce-MyAccount-content table.shop_table {
+    width: 100% !important;
+    border: none !important;
+    border-collapse: separate !important;
+    border-spacing: 0 10px !important;
+    margin-top: 1rem !important;
+}
+
+.woocommerce-MyAccount-content table.shop_table th {
+    background: transparent !important;
+    border: none !important;
+    text-transform: uppercase !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    color: #94a3b8 !important;
+    padding: 1rem !important;
+}
+
+.woocommerce-MyAccount-content table.shop_table td {
+    background: #f8fafc !important;
+    border: none !important;
+    border-top: 1px solid #f1f5f9 !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding: 1.25rem 1rem !important;
+    vertical-align: middle !important;
+}
+
+.woocommerce-MyAccount-content table.shop_table tr td:first-child {
+    border-left: 1px solid #f1f5f9 !important;
+    border-top-left-radius: 1rem !important;
+    border-bottom-left-radius: 1rem !important;
+}
+
+.woocommerce-MyAccount-content table.shop_table tr td:last-child {
+    border-right: 1px solid #f1f5f9 !important;
+    border-top-right-radius: 1rem !important;
+    border-bottom-right-radius: 1rem !important;
+}
+
+/* Badges for Order Statuses */
+.woocommerce-orders-table__cell-order-status mark,
+.woocommerce-MyAccount-content mark {
+    display: inline-block !important;
+    padding: 0.35rem 0.75rem !important;
+    border-radius: 2rem !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.woocommerce-orders-table__cell-order-status mark.completed,
+.woocommerce-MyAccount-content mark.completed {
+    background: #dcfce7 !important;
+    color: #15803d !important;
+}
+
+.woocommerce-orders-table__cell-order-status mark.processing,
+.woocommerce-MyAccount-content mark.processing {
+    background: #dbeafe !important;
+    color: #1d4ed8 !important;
+}
+
+.woocommerce-orders-table__cell-order-status mark.on-hold,
+.woocommerce-MyAccount-content mark.on-hold {
+    background: #fef3c7 !important;
+    color: #b45309 !important;
+}
+
+.woocommerce-orders-table__cell-order-status mark.cancelled,
+.woocommerce-orders-table__cell-order-status mark.failed,
+.woocommerce-MyAccount-content mark.cancelled,
+.woocommerce-MyAccount-content mark.failed {
+    background: #fee2e2 !important;
+    color: #b91c1c !important;
+}
+
+/* Action Buttons inside tables */
+.woocommerce-MyAccount-content .woocommerce-button,
+.woocommerce-MyAccount-content .button {
+    background-color: #ffffff !important;
+    color: #475569 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0.75rem !important;
+    padding: 0.6rem 1.2rem !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+}
+
+.woocommerce-MyAccount-content .woocommerce-button:hover,
+.woocommerce-MyAccount-content .button:hover {
+    background-color: #be123c !important;
+    color: #ffffff !important;
+    border-color: #be123c !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(190, 18, 60, 0.2) !important;
+}
+
+/* Addresses Section */
+.woocommerce-Addresses {
+    display: flex !important;
+    gap: 2rem !important;
+    margin-top: 2rem !important;
+}
+
+.woocommerce-Addresses .woocommerce-Address {
+    flex: 1 !important;
+    background: #f8fafc !important;
+    border-radius: 1.5rem !important;
+    padding: 2rem !important;
+    border: 1px solid #f1f5f9 !important;
+    transition: all 0.3s ease !important;
+}
+
+.woocommerce-Addresses .woocommerce-Address:hover {
+    box-shadow: 0 10px 25px -10px rgba(0,0,0,0.05) !important;
+    border-color: #e2e8f0 !important;
+}
+
+.woocommerce-Address header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 1.5rem !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding-bottom: 0.75rem !important;
+}
+
+.woocommerce-Address header h3 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1.2rem !important;
+    color: #1e293b !important;
+    margin: 0 !important;
+}
+
+.woocommerce-Address header .edit {
+    color: #be123c !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    font-size: 0.9rem !important;
+}
+
+.woocommerce-Address address {
+    font-style: normal !important;
+    color: #64748b !important;
+    line-height: 1.6 !important;
+    font-size: 0.95rem !important;
+}
+
+@media (max-width: 600px) {
+    .woocommerce-Addresses {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+}
+
+/* Account Details and general forms */
+.woocommerce-EditAccountForm, 
+.woocommerce-address-fields__field-wrapper,
+.woocommerce-MyAccount-content form {
+    max-width: 650px !important;
+    margin-top: 1.5rem !important;
+}
+
+.woocommerce-MyAccount-content form .form-row {
+    margin-bottom: 1.5rem !important;
+}
+
+.woocommerce-MyAccount-content form label {
+    font-weight: 600 !important;
+    color: #475569 !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
+}
+
+.woocommerce-MyAccount-content form input.input-text,
+.woocommerce-MyAccount-content form select,
+.woocommerce-MyAccount-content form textarea {
+    width: 100% !important;
+    background: #f8fafc !important;
+    border: 2px solid transparent !important;
+    border-radius: 1rem !important;
+    padding: 1rem 1.2rem !important;
+    font-size: 1rem !important;
+    color: #1e293b !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+}
+
+.woocommerce-MyAccount-content form input.input-text:focus,
+.woocommerce-MyAccount-content form select:focus,
+.woocommerce-MyAccount-content form textarea:focus {
+    background: #ffffff !important;
+    border-color: #be123c !important;
+    outline: none !important;
+    box-shadow: 0 0 0 4px rgba(190, 18, 60, 0.1) !important;
+}
+
+.woocommerce-MyAccount-content form legend {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1.25rem !important;
+    color: #1e293b !important;
+    margin: 2rem 0 1rem 0 !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 2px solid #f1f5f9 !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.woocommerce-MyAccount-content form .button {
+    background: #be123c !important;
+    color: #ffffff !important;
+    border-radius: 1rem !important;
+    padding: 1.2rem 2rem !important;
+    font-weight: 800 !important;
+    font-size: 1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin-top: 1rem !important;
+    width: auto !important;
+    display: inline-block !important;
+}
+
+.woocommerce-MyAccount-content form .button:hover {
+    background: #9d0e31 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 15px 30px -10px rgba(190, 18, 60, 0.4) !important;
+}
+
+@media (min-width: 481px) {
+    .woocommerce-MyAccount-content form .form-row-first,
+    .woocommerce-MyAccount-content form .form-row-last {
+        width: 48% !important;
+        float: left !important;
+    }
+    .woocommerce-MyAccount-content form .form-row-last {
+        float: right !important;
+    }
+    .woocommerce-MyAccount-content form .form-row-wide {
+        clear: both !important;
+        width: 100% !important;
+    }
+}
+
+/* =========================================
+   GOOGLE LOGIN (NEXTEND SOCIAL LOGIN) PREMIUM DESIGN
+========================================= */
+.nsl-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 2rem 0 1rem 0 !important;
+    width: 100% !important;
+}
+
+.nsl-container::before {
+    content: "OU" !important;
+    display: block !important;
+    font-size: 0.75rem !important;
+    font-weight: 800 !important;
+    color: #94a3b8 !important;
+    letter-spacing: 0.2em !important;
+    margin-bottom: 1.5rem !important;
+    position: relative !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.nsl-container .nsl-container-buttons {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+.nsl-container .nsl-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 0.9rem 1.5rem !important;
+    border-radius: 1rem !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-sizing: border-box !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+.nsl-container .nsl-button-google {
+    background-color: #ffffff !important;
+    color: #334155 !important;
+}
+
+.nsl-container .nsl-button-google:hover {
+    background-color: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.nsl-container .nsl-button-google .nsl-button-svg-container {
+    margin-right: 0.75rem !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.nsl-container .nsl-button-google svg {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.nsl-container .nsl-button-google-icon .nsl-button-label-container {
+    font-weight: 600 !important;
+}
+
+/* =========================================
+   BIONOVA PRO DASHBOARD STYLES (PREMIUM)
+   ========================================= */
+
+.pro-dashboard {
+    font-family: 'Inter', sans-serif;
+    color: #0f172a;
+    width: 100%;
+}
+
+.pro-dashboard-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 2rem;
+    padding: 2.5rem;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.pro-dashboard-header::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(190, 18, 60, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.pro-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.pro-card {
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.01);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.pro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.02);
+}
+
+.pro-card-gradient {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pro-card-gradient-red {
+    background: linear-gradient(135deg, #be123c 0%, #9d0e31 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pro-card-white {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+}
+
+.pro-card-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+}
+
+.pro-card-gradient .pro-card-label,
+.pro-card-gradient-red .pro-card-label {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.pro-card-value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+}
+
+.pro-card-value-unit {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-left: 0.5rem;
+}
+
+.pro-card-gradient .pro-card-value-unit,
+.pro-card-gradient-red .pro-card-value-unit {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.pro-coupon-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.pro-coupon-display {
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 1rem;
+    padding: 0.85rem 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: #be123c;
+    letter-spacing: 0.15em;
+    text-align: center;
+    flex-grow: 1;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.pro-coupon-display:hover {
+    background: #fff5f7;
+    border-color: #be123c;
+}
+
+.pro-copy-btn {
+    background: #be123c;
+    color: #ffffff;
+    border: none;
+    border-radius: 1rem;
+    width: 3.25rem;
+    height: 3.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(190, 18, 60, 0.3);
+    transition: all 0.3s ease;
+}
+
+.pro-copy-btn:hover {
+    background: #9d0e31;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 20px -3px rgba(190, 18, 60, 0.4);
+}
+
+.pro-copy-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.pro-copy-btn:hover svg {
+    transform: scale(1.1);
+}
+
+/* History Card & Table */
+.pro-history-card {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 2rem;
+    padding: 2.25rem;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+.pro-history-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: #0f172a;
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pro-table-wrapper {
+    overflow-x: auto;
+    border-radius: 1.25rem;
+    border: 1px solid #f1f5f9;
+}
+
+.pro-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.pro-table th {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #64748b;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    background: #f8fafc;
+}
+
+.pro-table td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #f8fafc;
+    font-size: 0.9rem;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+}
+
+.pro-table tr:hover td {
+    background: #f8fafc;
+}
+
+.pro-patient-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.pro-patient-avatar {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: #fff1f2;
+    color: #be123c;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    border: 1px solid #ffe4e6;
+}
+
+.pro-patient-name {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.pro-badge-points {
+    display: inline-flex;
+    align-items: center;
+    background: #ecfdf5;
+    color: #059669;
+    font-weight: 800;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    border: 1px solid #d1fae5;
+}
+
+.pro-badge-order {
+    font-family: monospace;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Custom Micro Toast */
+.pro-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #be123c;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 20px 25px -5px rgba(190, 18, 60, 0.3);
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pro-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
 }
