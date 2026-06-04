@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bionova Pro — Dashboard QR Codes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- QRCode.js -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+  <link rel="stylesheet" href="https://bionova.tn/wp-content/themes/bionova-site/bionova-admin/css/admin.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <img src="https://bionova.tn/wp-content/themes/bionova-site/assets/brand/logo-bionova.webp" alt="Logo Bionova" class="header__logo" height="50">
+    <h1 class="header__title">Bionova Pro — Dashboard QR Codes</h1>
+  </header>
+
+  <main class="container">
+
+    <!-- Section : Ajouter un nouveau code promo -->
+    <section class="card">
+      <h2 class="section-title">➕ Ajouter un Code Promo</h2>
+      <form id="add-coupon-form" class="add-coupon-form">
+        <div class="form-row-inline">
+          <div class="form-group">
+            <label for="new-coupon-code">Code</label>
+            <input type="text" id="new-coupon-code" placeholder="Ex: PROMO-DR-2025" required autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="new-coupon-discount">Réduction (%)</label>
+            <input type="number" id="new-coupon-discount" value="10" min="1" max="100" required>
+          </div>
+          <div class="form-group form-group--btn">
+            <button type="submit" class="btn btn--primary">Créer le code</button>
+          </div>
+        </div>
+      </form>
+      <div id="add-coupon-msg" class="msg" style="display:none;"></div>
+    </section>
+
+    <!-- Section : Liste des QR Codes -->
+    <section class="card">
+      <h2 class="section-title">📋 Codes Promo Actifs</h2>
+      <div id="loading" class="loading">Chargement des codes promo...</div>
+      <div id="qr-grid" class="qr-grid"></div>
+      <div id="empty-msg" class="empty-msg" style="display:none;">Aucun code promo trouvé. Créez-en un ci-dessus !</div>
+    </section>
+
+  </main>
+
+  <footer class="footer no-print">
+    <button class="btn btn--outline" onclick="window.print()">🖨️ Imprimer les QR Codes</button>
+  </footer>
+
+  <script src="https://bionova.tn/wp-content/themes/bionova-site/bionova-admin/js/admin.js"></script>
+</body>
+</html>

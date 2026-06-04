@@ -10,7 +10,7 @@ const BlogPage = ({ onArticleClick }) => (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <h2 className="text-bionova-red font-black tracking-widest uppercase mb-4">Le Magazine Santé</h2>
-          <h1 className="font-display text-5xl sm:text-7xl font-black text-gray-900 mb-8 leading-tight">Comprendre la science du bien-être.</h1>
+          <h1 className="font-display text-3xl sm:text-5xl lg:text-7xl font-black text-gray-900 mb-8 leading-tight">Comprendre la science du bien-être.</h1>
           <p className="text-xl text-gray-500 leading-relaxed">Découvrez les dossiers exclusifs de nos experts sur la micronutrition, le métabolisme et les dernières avancées biotechnologiques.</p>
         </div>
       </div>
@@ -19,15 +19,15 @@ const BlogPage = ({ onArticleClick }) => (
     {/* Articles Grid */}
     <section className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
           {articlesData.map((article) => (
             <article key={article.id} className="bg-white rounded-[3rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 group flex flex-col border border-gray-100">
               <div className="relative aspect-video overflow-hidden cursor-pointer" onClick={() => onArticleClick(article)}>
                 <img src={article.image} alt={article.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent"></div>
               </div>
-              <div className="p-12 flex flex-col flex-grow">
-                <div className="text-xs font-black text-bionova-red uppercase tracking-widest mb-4">Micronutrition</div>
+              <div className="p-6 sm:p-8 lg:p-12 flex flex-col flex-grow">
+                <div className="text-xs font-black text-bionova-red uppercase tracking-widest mb-4">{article.category}</div>
                 <h2 className="font-display text-2xl font-black text-gray-900 mb-4 group-hover:text-bionova-red transition-colors leading-tight cursor-pointer" onClick={() => onArticleClick(article)}>{article.title}</h2>
                 <p className="text-gray-500 text-base leading-relaxed mb-8 flex-grow">{article.excerpt}</p>
                 <button onClick={() => onArticleClick(article)} className="inline-flex items-center text-sm font-black uppercase tracking-widest text-gray-900 group-hover:text-bionova-red transition-all">

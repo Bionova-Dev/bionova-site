@@ -1,4 +1,4 @@
-# Design System Master File
+# 🎨 Design System — Bionova Pro Max
 
 > **LOGIC:** When building a specific page, first check `design-system/pages/[page-name].md`.
 > If that file exists, its rules **override** this Master file.
@@ -6,58 +6,138 @@
 
 ---
 
-**Project:** Bionova
-**Generated:** 2026-05-11 11:30:43
-**Category:** E-commerce Luxury
+**Project:** Bionova — Micronutrition Premium  
+**Updated:** 2026-05-15  
+**Category:** E-commerce Santé / Luxury Healthcare  
+**URL:** bionova.tn
 
 ---
 
 ## Global Rules
 
-### Color Palette
+### Color Palette — Rouge Bionova Identity
 
-| Role | Hex | CSS Variable |
-|------|-----|--------------|
-| Primary | `#0891B2` | `--color-primary` |
-| Secondary | `#22D3EE` | `--color-secondary` |
-| CTA/Accent | `#059669` | `--color-cta` |
-| Background | `#ECFEFF` | `--color-background` |
-| Text | `#164E63` | `--color-text` |
+| Role | Hex | CSS Variable | Usage |
+|------|-----|--------------|-------|
+| **Primary (Rouge Bionova)** | `#e4002b` | `--color-bionova-red` | Boutons CTA, badges, liens actifs, panier |
+| Primary Dark | `#9d0e31` | `--color-bionova-red-dark` | Hover des boutons principaux |
+| Primary Light | `#fb7185` | `--color-bionova-red-light` | Accents, fonds légers |
+| Background | `#ffffff` | `--color-white` | Fond principal |
+| Surface | `#f8fafc` | `--color-gray-50` | Sections alternées, cartes |
+| Border | `#f1f5f9` | `--color-gray-100` | Séparateurs, bordures de cartes |
+| Text Primary | `#1e293b` | `--color-text-primary` | Titres, texte principal |
+| Text Muted | `#64748b` | `--color-text-muted` | Descriptions, sous-titres |
+| Dark Surface | `#0f172a` | `--color-gray-900` | Sections hero sombres, footer |
+| Success | `#059669` | `--color-success` | Confirmations, ajout panier |
+| Warning BG | `#FCF9F2` | `--color-warning-bg` | Précautions produit |
+| Warning Border | `#E8DCC4` | `--color-warning-border` | Bordures précautions |
 
-**Color Notes:** Calm cyan + health green
+**Règle absolue :** Le Rouge Bionova `#e4002b` est la SEULE couleur d'accentuation. Ne jamais utiliser de bleu, vert ou violet pour les CTA.
 
 ### Typography
 
-- **Heading Font:** Figtree
-- **Body Font:** Noto Sans
-- **Mood:** medical, clean, accessible, professional, healthcare, trustworthy
-- **Google Fonts:** [Figtree + Noto Sans](https://fonts.google.com/share?selection.family=Figtree:wght@300;400;500;600;700|Noto+Sans:wght@300;400;500;700)
+- **Heading Font:** Montserrat (700, 800, 900)
+- **Body Font:** Inter (400, 500, 600, 700, 800, 900)
+- **Accent Font:** Outfit (300, 400, 600, 700)
+- **Mood:** Premium, scientifique, confiance, santé, luxe accessible
 
-**CSS Import:**
+**Google Fonts:**
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&family=Outfit:wght@300;400;600;700&display=swap');
 ```
+
+**Utilisation :**
+| Élément | Font | Weight | Size | Tracking |
+|---------|------|--------|------|----------|
+| H1 (Hero) | Montserrat | 900 (black) | 48-72px | -0.025em |
+| H2 (Section) | Montserrat | 800 | 36-48px | normal |
+| H3 (Card) | Montserrat | 800 | 24-30px | normal |
+| Label/Badge | Montserrat | 700 | 10-12px | 0.15em (uppercase) |
+| Body | Inter | 400-500 | 14-16px | normal |
+| Button | Inter | 700-900 | 14-18px | 0.12-0.15em (uppercase) |
+| Nav Link | Montserrat | 900 | 18-20px | 0.12em (uppercase) |
+| Price | Montserrat | 900 | 24-48px | normal |
 
 ### Spacing Variables
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--space-xs` | `4px` / `0.25rem` | Tight gaps |
-| `--space-sm` | `8px` / `0.5rem` | Icon gaps, inline spacing |
-| `--space-md` | `16px` / `1rem` | Standard padding |
-| `--space-lg` | `24px` / `1.5rem` | Section padding |
-| `--space-xl` | `32px` / `2rem` | Large gaps |
-| `--space-2xl` | `48px` / `3rem` | Section margins |
-| `--space-3xl` | `64px` / `4rem` | Hero padding |
+| `--space-1` | `0.25rem` (4px) | Micro gaps |
+| `--space-2` | `0.5rem` (8px) | Icon gaps, inline |
+| `--space-3` | `0.75rem` (12px) | Tight padding |
+| `--space-4` | `1rem` (16px) | Standard padding |
+| `--space-6` | `1.5rem` (24px) | Card padding |
+| `--space-8` | `2rem` (32px) | Section gaps |
+| `--space-12` | `3rem` (48px) | Large spacing |
+| `--space-16` | `4rem` (64px) | Section margins |
+| `--space-20` | `5rem` (80px) | Hero padding |
+| `--space-24` | `6rem` (96px) | Full section padding (`py-24`) |
+| `--space-32` | `8rem` (128px) | Extra large sections (`py-32`) |
+
+### Border Radius
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--radius-sm` | `0.5rem` (8px) | Inputs, small buttons |
+| `--radius-md` | `0.75rem` (12px) | Badges |
+| `--radius-lg` | `1rem` (16px) | Standard cards |
+| `--radius-xl` | `1.25rem` (20px) | Buttons principaux |
+| `--radius-2xl` | `1.5rem` (24px) | Cards premium |
+| `--radius-3xl` | `2rem` (32px) | Product cards |
+| `--radius-4xl` | `2.5rem` (40px) | Hero cards |
+| `--radius-full` | `9999px` | Badges ronds, pills |
 
 ### Shadow Depths
 
 | Level | Value | Usage |
 |-------|-------|-------|
-| `--shadow-sm` | `0 1px 2px rgba(0,0,0,0.05)` | Subtle lift |
-| `--shadow-md` | `0 4px 6px rgba(0,0,0,0.1)` | Cards, buttons |
-| `--shadow-lg` | `0 10px 15px rgba(0,0,0,0.1)` | Modals, dropdowns |
-| `--shadow-xl` | `0 20px 25px rgba(0,0,0,0.15)` | Hero images, featured cards |
+| `--shadow-sm` | `0 1px 3px rgba(0,0,0,0.05)` | Lift subtil |
+| `--shadow-md` | `0 4px 6px -1px rgba(0,0,0,0.07)` | Cartes au repos |
+| `--shadow-lg` | `0 10px 15px -3px rgba(0,0,0,0.08)` | Cartes hover |
+| `--shadow-xl` | `0 20px 25px -5px rgba(0,0,0,0.1)` | Cartes featured |
+| `--shadow-2xl` | `0 25px 50px -12px rgba(0,0,0,0.15)` | Modals, hero |
+| `--shadow-bionova` | `0 15px 30px -10px rgba(190,18,60,0.3)` | Boutons CTA hover |
+
+---
+
+## Layout Architecture
+
+### Header — Fixe & Universel
+
+```
+┌──────────────────────────────────────────────────────────┐
+│  HEADER (90px, fixed, z-50, bg-white/95 backdrop-blur)   │
+│  ┌─────┐  ┌─────────────────────────┐  ┌──────────────┐ │
+│  │ Logo│  │ Accueil Boutique Astuces│  │ 👤  🛒  ☰   │ │
+│  │ x2.0│  │ Expertise Contact       │  │              │ │
+│  └─────┘  └─────────────────────────┘  └──────────────┘ │
+├──────────────────────────────────────────────────────────┤
+│  CATEGORY BAR (sticky top-[90px], z-40, bg-gray-50)      │
+│  [Tous] [Antioxydants] [Stress] [Beauté] [Packs] ...    │
+└──────────────────────────────────────────────────────────┘
+```
+
+- **Hauteur :** 90px fixe — JAMAIS MODIFIABLE
+- **Logo :** `scale-[2.0]`, origin-left
+- **Nav :** Centré avec `absolute left-1/2 -translate-x-1/2`
+- **Couleur active :** Rouge Bionova + border-bottom 4px
+- **Mobile :** Hamburger → Overlay fullscreen
+
+### Content Spacing
+
+| Page Type | Padding Top | Raison |
+|-----------|-------------|--------|
+| SPA Pages (React) | Géré par composants | Header fixed + CategoryBar |
+| WooCommerce/WP | `pt-[142px]` | 90px header + 52px category bar |
+
+### Max Widths
+
+| Usage | Value |
+|-------|-------|
+| Content max | `1800px` (nav) |
+| Page sections | `max-w-7xl` (80rem / 1280px) |
+| Text content | `max-w-5xl` (64rem) |
+| Narrow content | `max-w-3xl` (48rem) |
 
 ---
 
@@ -66,50 +146,65 @@
 ### Buttons
 
 ```css
-/* Primary Button */
-.btn-primary {
-  background: #059669;
+/* CTA Principal — Rouge Bionova */
+.btn-cta {
+  background: #e4002b;
   color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 200ms ease;
+  padding: 1.25rem 2.5rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  box-shadow: 0 15px 30px -10px rgba(190, 18, 60, 0.3);
 }
 
-.btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-/* Secondary Button */
-.btn-secondary {
-  background: transparent;
-  color: #0891B2;
-  border: 2px solid #0891B2;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 200ms ease;
-  cursor: pointer;
+.btn-cta:hover {
+  background: #0f172a; /* gray-900 */
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
 }
 ```
 
-### Cards
+### Product Cards
 
 ```css
-.card {
-  background: #ECFEFF;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: var(--shadow-md);
-  transition: all 200ms ease;
+.product-card {
+  background: #f8fafc;
+  border-radius: 3rem;
+  padding: 2.5rem;
+  border: 1px solid #f1f5f9;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
-.card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+.product-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  border-color: rgba(190, 18, 60, 0.2);
+  transform: translateY(-8px);
+}
+```
+
+### Category Pills
+
+```css
+.category-pill {
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.category-pill.active {
+  background: #e4002b;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(190, 18, 60, 0.2);
+  transform: scale(1.05);
 }
 ```
 
@@ -117,86 +212,131 @@
 
 ```css
 .input {
-  padding: 12px 16px;
-  border: 1px solid #E2E8F0;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 200ms ease;
+  padding: 0.875rem 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .input:focus {
-  border-color: #0891B2;
+  border-color: #e4002b;
   outline: none;
-  box-shadow: 0 0 0 3px #0891B220;
-}
-```
-
-### Modals
-
-```css
-.modal-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-}
-
-.modal {
-  background: white;
-  border-radius: 16px;
-  padding: 32px;
-  box-shadow: var(--shadow-xl);
-  max-width: 500px;
-  width: 90%;
+  box-shadow: 0 0 0 3px rgba(190, 18, 60, 0.1);
 }
 ```
 
 ---
 
-## Style Guidelines
+## Page Sections Pattern
 
-**Style:** Liquid Glass
+### Homepage Flow
 
-**Keywords:** Flowing glass, morphing, smooth transitions, fluid effects, translucent, animated blur, iridescent, chromatic aberration
+```
+1. Hero Carousel (fullscreen, dark overlay)
+2. Stats Counter Bar (bg-gray-900)
+3. Category Grid (bg-gray-50)
+4. Best Sellers Grid (bg-white, 3 colonnes)
+5. Exclusive Packs (bg-medical-light/30, gold-border)
+6. Testimonials (bg-white, 3 colonnes)
+7. Expertise Teaser (bg-gray-50, image + text)
+8. Blog Teaser (bg-white, 3 articles)
+9. Contact CTA (bg-gray-900, gradient rouge)
+```
 
-**Best For:** Premium SaaS, high-end e-commerce, creative platforms, branding experiences, luxury portfolios
+### Section Anatomy
 
-**Key Effects:** Morphing elements (SVG/CSS), fluid animations (400-600ms curves), dynamic blur (backdrop-filter), color transitions
-
-### Page Pattern
-
-**Pattern Name:** Feature-Rich Showcase
-
-- **CTA Placement:** Above fold
-- **Section Order:** Hero > Features > CTA
+```
+<section className="py-28 bg-white border-t border-gray-100">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-20">
+      <h2 className="text-sm text-bionova-red font-bold tracking-widest uppercase mb-3">
+        Label
+      </h2>
+      <p className="font-display text-4xl font-extrabold text-gray-900 sm:text-5xl">
+        Titre Principal
+      </p>
+      <p className="mt-6 text-xl text-gray-500 max-w-2xl mx-auto">
+        Description
+      </p>
+    </div>
+    <!-- Content Grid -->
+  </div>
+</section>
+```
 
 ---
 
-## Anti-Patterns (Do NOT Use)
+## File Architecture
 
-- ❌ Vibrant & Block-based
-- ❌ Playful colors
+```
+h:\bionova site\
+├── header.php          # Menu PHP global (90px + category bar)
+├── footer.php          # Trust Bar + Footer PHP
+├── index.php           # SPA Shell (React mount point)
+├── page.php            # Generic WP pages
+├── woocommerce.php     # Cart / Checkout
+├── single.php          # Single post
+├── archive.php         # Archive listings
+├── search.php          # Search results
+├── 404.php             # Error page
+├── page-boutique.php   # → index.php (initial_page='products')
+├── page-astuces.php    # → index.php (initial_page='blog')
+├── page-expertise.php  # → index.php (initial_page='about')
+├── page-contact.php    # → index.php (initial_page='contact')
+├── css/
+│   ├── design-tokens.css   # Source de vérité CSS
+│   ├── base.css            # Reset + utilitaires
+│   └── animations.css      # Keyframes + transitions
+├── js/
+│   ├── data/
+│   │   ├── products.js     # Données produits
+│   │   ├── articles.js     # Données blog
+│   │   ├── categories.js   # Catégories partagées
+│   │   └── wc-config.js    # Config WooCommerce
+│   ├── icons/icons.js      # SVG icons (Heroicons)
+│   ├── atoms/              # Accordion, InteractiveViewer
+│   ├── molecules/          # ProductCard, TrustBar, CategoryBar
+│   ├── organisms/          # Navbar, Footer, HeroCarousel
+│   ├── pages/              # HomePage, ProductsPage, BlogPage, etc.
+│   └── app.js              # Main React App
+└── assets/
+    ├── brand/              # logo-bionova.png
+    ├── hero/               # hero-banner.png
+    ├── products/           # NMN, Ashwagandha, etc. (.png)
+    └── blog/               # Article images
+```
 
-### Additional Forbidden Patterns
+---
 
-- ❌ **Emojis as icons** — Use SVG icons (Heroicons, Lucide, Simple Icons)
-- ❌ **Missing cursor:pointer** — All clickable elements must have cursor:pointer
-- ❌ **Layout-shifting hovers** — Avoid scale transforms that shift layout
-- ❌ **Low contrast text** — Maintain 4.5:1 minimum contrast ratio
-- ❌ **Instant state changes** — Always use transitions (150-300ms)
-- ❌ **Invisible focus states** — Focus states must be visible for a11y
+## Anti-Patterns (INTERDIT)
+
+- ❌ **Couleurs autres que #e4002b pour les CTA** — Pas de bleu, vert, violet
+- ❌ **Emojis comme icônes** — Utiliser des SVG (Heroicons)
+- ❌ **`cursor: default` sur des éléments cliquables** — Toujours `cursor: pointer`
+- ❌ **Transitions instantanées** — Minimum 150ms, préférer 300ms
+- ❌ **Header transparent sur la page d'accueil** — Toujours blanc/glassmorphism
+- ❌ **Polices système** — Toujours Inter/Montserrat via Google Fonts
+- ❌ **Contenu caché derrière le header fixe** — Respecter `pt-[142px]`
+- ❌ **Scroll horizontal sur mobile** — `overflow-x: hidden` si nécessaire
+- ❌ **Contraste insuffisant** — Minimum 4.5:1 pour le texte
 
 ---
 
 ## Pre-Delivery Checklist
 
-Before delivering any UI code, verify:
+Avant toute livraison de code UI, vérifier :
 
-- [ ] No emojis used as icons (use SVG instead)
-- [ ] All icons from consistent icon set (Heroicons/Lucide)
-- [ ] `cursor-pointer` on all clickable elements
-- [ ] Hover states with smooth transitions (150-300ms)
-- [ ] Light mode: text contrast 4.5:1 minimum
-- [ ] Focus states visible for keyboard navigation
-- [ ] `prefers-reduced-motion` respected
-- [ ] Responsive: 375px, 768px, 1024px, 1440px
-- [ ] No content hidden behind fixed navbars
-- [ ] No horizontal scroll on mobile
+- [ ] Couleur CTA = `#e4002b` (Rouge Bionova) uniquement
+- [ ] Tous les SVG icons (pas d'emojis)
+- [ ] `cursor: pointer` sur tous les éléments cliquables
+- [ ] Hover states avec transitions (300ms)
+- [ ] Contraste texte minimum 4.5:1
+- [ ] Focus states visibles (`:focus-visible`)
+- [ ] Responsive : 375px, 768px, 1024px, 1440px
+- [ ] Header 90px + Category Bar visibles sur toutes les pages
+- [ ] Contenu non caché derrière les barres fixes
+- [ ] `prefers-reduced-motion` respecté
+- [ ] Lazy loading sur toutes les images (`loading="lazy"`)
+- [ ] `get_header()` présent dans chaque template PHP

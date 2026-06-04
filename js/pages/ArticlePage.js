@@ -33,7 +33,7 @@ const ArticlePage = ({ article, onBack, onProductClick }) => {
             <h2 className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center"><span className="bg-blue-50 text-bionova-red w-12 h-12 rounded-full flex items-center justify-center mr-5 text-xl">2</span> La solution naturelle</h2>
             <p className="text-gray-600 leading-relaxed text-lg">{article.solution}</p>
           </section>
-          <section className="mb-16 bg-gray-50 p-10 sm:p-14 rounded-[3rem] border border-gray-100 relative mt-20">
+          <section className="mb-16 bg-gray-50 p-5 sm:p-8 lg:p-14 rounded-[3rem] border border-gray-100 relative mt-20">
             <div className="absolute top-0 left-10 transform -translate-y-1/2 bg-white w-20 h-20 rounded-full flex items-center justify-center shadow-xl border border-gray-50">
               <ShieldIcon className="w-10 h-10 text-bionova-red" />
             </div>

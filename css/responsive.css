@@ -1,0 +1,119 @@
+/* ============================================================
+   BIONOVA — Responsive Global Fixes
+   VERSION: 20260601
+   ============================================================ */
+
+/* ── Base Resets ── */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+#root {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+#main-header {
+    max-width: 100vw;
+}
+
+/* ── Header spacer: compensate fixed header ── */
+#root {
+    padding-top: var(--header-h-mobile);
+}
+@media (min-width: 1024px) {
+    #root {
+        padding-top: var(--header-h-desktop);
+    }
+}
+
+/* ── XS (< 380px) — iPhone SE, Galaxy Fold ── */
+@media (max-width: 380px) {
+    html {
+        font-size: 14px;
+    }
+    
+    /* Reduce excessive padding */
+    .max-w-7xl, .max-w-\[1800px\] {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    
+    /* Prevent CTA overflow */
+    a[class*="px-10"], a[class*="px-12"], a[class*="px-14"], a[class*="px-16"],
+    button[class*="px-10"], button[class*="px-12"], button[class*="px-14"], button[class*="px-16"] {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+/* ── SM (< 640px) — Standard phones ── */
+@media (max-width: 640px) {
+    /* Hero section height fix */
+    section[aria-label="Carrousel principal"] {
+        min-height: 480px;
+        height: 85vh;
+    }
+    
+    /* Reduce card border-radius on mobile */
+    .rounded-\[3rem\] {
+        border-radius: 1.5rem;
+    }
+    .rounded-\[4rem\] {
+        border-radius: 1.5rem;
+    }
+    .rounded-\[2\.5rem\] {
+        border-radius: 1.25rem;
+    }
+}
+
+/* ── MD (< 768px) — Large phones, Small tablets ── */
+@media (max-width: 768px) {
+    /* Footer spacing */
+    footer {
+        padding-top: 3rem;
+    }
+}
+
+/* ── LG (< 1024px) — Tablets ── */
+@media (max-width: 1024px) {
+    /* Nav items don't overflow */
+    #main-header nav {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}
+
+/* ── WooCommerce mobile table fix ── */
+@media (max-width: 768px) {
+    .woocommerce table.shop_table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .woocommerce table.shop_table td.product-thumbnail img {
+        width: 60px !important;
+        min-width: 60px;
+    }
+}
+
+/* ── Touch target enforcement ── */
+@media (pointer: coarse) {
+    button, a, [role="button"], input[type="submit"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* ── Content visibility for below-fold performance ── */
+#footer-container {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+}

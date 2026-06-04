@@ -5,10 +5,10 @@
 
 :root {
   /* ── Couleurs de marque ── */
-  --color-bionova-red: #be123c;
+  --color-bionova-red: #e4002b;
   --color-bionova-red-dark: #9d0e31;
   --color-bionova-red-light: #fb7185;
-  --color-medical-blue: #be123c;       /* Legacy alias */
+  --color-medical-blue: #e4002b;       /* Legacy alias */
   --color-medical-light: #f0fdf4;
 
   /* ── Couleurs neutres ── */
@@ -107,7 +107,7 @@
   --duration-carousel: 700ms;
 
   /* ── Layout ── */
-  --header-h-mobile: 60px;
+  --header-h-mobile: 64px;
   --header-h-desktop: 90px;
   --max-w-content: 1800px;
   --max-w-page: 80rem;     /* 1280px */

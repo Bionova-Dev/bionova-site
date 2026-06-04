@@ -30,7 +30,7 @@ usort($orders, function($a, $b) {
 <div class="pro-dashboard animate-fade-in-up">
     <!-- Header premium -->
     <div class="pro-dashboard-header">
-        <h2 class="text-3xl font-black text-gray-900 tracking-tight" style="font-family:'Montserrat',sans-serif; margin-bottom: 0.5rem;">
+        <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight" style="font-family:'Montserrat',sans-serif; margin-bottom: 0.5rem;">
             Espace Partenaire Bionova Pro
         </h2>
         <p class="text-gray-600" style="margin: 0; font-size: 1rem;">
@@ -92,7 +92,7 @@ usort($orders, function($a, $b) {
     <!-- Historique des prescriptions -->
     <div class="pro-history-card">
         <h3 class="pro-history-title">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:#be123c;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:#e4002b;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
             Historique des Prescriptions
         </h3>
         

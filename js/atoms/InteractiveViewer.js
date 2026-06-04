@@ -38,7 +38,7 @@ const InteractiveProductViewer = ({ src, alt, className, noShadow }) => {
         ref={cardRef}
         src={src}
         alt={alt}
-        className={`w-full h-full object-contain transition-all duration-300 ease-out ${noShadow ? '' : 'drop-shadow-2xl'}`}
+        className={`w-full h-full object-cover object-center aspect-square transition-all duration-300 ease-out ${noShadow ? '' : 'drop-shadow-2xl'}`}
         style={{
           transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) ${noShadow ? (isHovered ? 'scale(1.03)' : 'scale(1)') : 'scale3d(1.05, 1.05, 1.05)'}`,
           transformStyle: 'preserve-3d'

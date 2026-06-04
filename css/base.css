@@ -1,6 +1,21 @@
 /* ============================================================
+   GLOBAL STABILITY FIXES
+   ============================================================ */
+#main-header {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 9999 !important;
+}
+
+/* Ensure content doesn't hide behind fixed header on full reloads */
+#root {
+    min-height: 100vh;
+}
+
+/* ============================================================
    BIONOVA — Base Styles
-   VERSION: 20260511
+   VERSION: 20260514
    Depends on: design-tokens.css
    ============================================================ */
 
@@ -22,7 +37,22 @@ body {
   color: var(--color-white);
 }
 
-/* ── Line clamp utility ── */
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ── Line clamp utilities ── */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -77,18 +107,45 @@ body {
   filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.08));
 }
 
-/* ── CTA Button ── */
+/* ── CTA Button Gradient ── */
 .btn-gradient {
   background: var(--color-bionova-red);
   transition: all 0.4s ease;
 }
 
 .btn-gradient:hover {
-  background: #0c4a6e;
+  background: #0f172a;
   transform: translateY(-2px);
 }
 
 /* ── Nav link hover ── */
 .nav-link-hover:hover {
   background-color: #FDF8F6;
+}
+
+/* ── Focus ring for accessibility ── */
+:focus-visible {
+  outline: 2px solid var(--color-bionova-red);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Perspective for 3D effects ── */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* ── Smooth image rendering ── */
+img {
+  image-rendering: auto;
+}
+
+/* ── Prose styling for articles ── */
+.prose p {
+  margin-bottom: 1.5rem;
+}
+
+.prose h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
