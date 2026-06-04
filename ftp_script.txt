@@ -1,0 +1,8 @@
+open bionova.tn
+bionova_ftp_user
+SuperSecretPassword123!
+cd /public_html/wp-content/themes/bionova-theme
+put "inc/professional-account.php" "inc/professional-account.php"
+put "woocommerce-custom.css" "woocommerce-custom.css"
+put "bionova-admin/js/form.js" "bionova-admin/js/form.js"
+bye

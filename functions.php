@@ -42,6 +42,11 @@ function bionova_atomic_assets() {
     wp_enqueue_style( 'bionova-base', get_template_directory_uri() . '/css/base.css', array('bionova-tokens'), filemtime(get_template_directory() . '/css/base.css') );
     wp_enqueue_style( 'bionova-animations', get_template_directory_uri() . '/css/animations.css', array('bionova-base'), filemtime(get_template_directory() . '/css/animations.css') );
     wp_enqueue_style( 'bionova-responsive', get_template_directory_uri() . '/css/responsive.css', array('bionova-base'), filemtime(get_template_directory() . '/css/responsive.css') );
+    
+    // Enqueue My Account slider script conditionally
+    if ( function_exists('is_account_page') && is_account_page() && is_user_logged_in() ) {
+        wp_enqueue_script( 'bionova-my-account-slider', get_template_directory_uri() . '/js/my-account-slider.js', array(), filemtime(get_template_directory() . '/js/my-account-slider.js'), true );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'bionova_atomic_assets' );
 

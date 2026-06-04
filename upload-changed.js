@@ -3,6 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const MODIFIED_FILES = [
+  'inc/professional-account.php',
+  'woocommerce-custom.css',
   'bionova-admin/js/form.js'
 ];
 
