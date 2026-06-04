@@ -418,8 +418,6 @@ function bionova_welcome_popup_footer() {
     if ( $show_popup ) {
         delete_user_meta( $user_id, '_bionova_show_welcome_popup' );
         ?>
-        <!-- Confetti Library -->
-        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
         
         <!-- Welcome Popup Overlay -->
         <div id="welcome-popup" class="welcome-popup-overlay">
@@ -432,35 +430,6 @@ function bionova_welcome_popup_footer() {
         </div>
         
         <script>
-        // Trigger confetti animation on load
-        document.addEventListener('DOMContentLoaded', function() {
-            var duration = 3000;
-            var end = Date.now() + duration;
-        
-            (function frame() {
-                confetti({
-                    particleCount: 5,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0 },
-                    colors: ['#e4002b', '#1e293b', '#fbbf24'],
-                    zIndex: 10001
-                });
-                confetti({
-                    particleCount: 5,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1 },
-                    colors: ['#e4002b', '#1e293b', '#fbbf24'],
-                    zIndex: 10001
-                });
-        
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
-            }());
-        });
-
         function closeWelcomePopup() {
             var popup = document.getElementById('welcome-popup');
             if (popup) {

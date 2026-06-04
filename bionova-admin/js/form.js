@@ -150,10 +150,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Helpers ---
     function buildMessage(name, login, code, resetUrl) {
-        return `Bonjour Dr. ${name}, voici le lien pour définir votre mot de passe :
-${resetUrl}`;
+        return `Bonjour Dr. ${name},
+
+Bienvenue dans l'Espace Pro !
+
+Votre identifiant : ${login}
+Votre code promo : ${code}
+
+Pour créer votre mot de passe et accéder à votre Espace Pro, cliquez ici :
+${resetUrl}
+
+À très bientôt !
+L'équipe Bionova`;
     }
 
     function showMsg(type, htmlContent) {
