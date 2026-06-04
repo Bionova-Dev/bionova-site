@@ -50,9 +50,9 @@ const HeroCarousel = ({ onNavigate }) => {
       title1: "Des actifs purs,",
       title2: "des résultats prouvés.",
       titleColor: "text-sky-300",
-      subtitle: "Zéro additif controversé. Des dosages cliniques. La transparence totale sur chaque ingrédient.",
+      subtitle:   "Une énergie débordante au quotidien. Nos compléments vous accompagnent dans votre mode de vie actif et sportif pour des résultats prouvés.",
       cta1: { label: "Explorer la boutique", page: "products" },
-      cta2: { label: "Nos engagements", page: "about" },
+      cta2: { label: "Nos astuces santé",    page: "blog"     },
     },
   ];
 

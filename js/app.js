@@ -275,13 +275,8 @@ const App = () => {
 
   const handleAddToCart = (product, redirect = false) => {
     const wcId = WC_PRODUCT_MAP[product.id] || product.id;
-    const addUrl = (window.BIONOVA_HOME_URL || '/') + '?add-to-cart=' + wcId;
-    fetch(addUrl).then(() => {
-      setCartItemsCount(prev => prev + 1);
-      const cartBadge = document.querySelector('.cart-count-badge');
-      if (cartBadge) cartBadge.innerText = parseInt(cartBadge.innerText) + 1;
-      if (redirect || product.type === 'pack') { window.location.href = WC_CART_URL; }
-    });
+    // Ajout d'un cache-buster pour éviter que WP Fastest Cache ne bloque la requête GET
+    const addUrl = (window.BIONOVA_HOME_URL || '/') + '?add-to-cart=' + wcId + '&_=' + Date.now();
 
     if (!redirect && product.type !== 'pack') {
       const toast = document.createElement('div');
